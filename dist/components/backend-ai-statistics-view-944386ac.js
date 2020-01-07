@@ -1,4 +1,4 @@
-import{b as t,p as e,e as a,B as i,I as s,f as o,g as l,i as c,c as r,h as n}from"./iron-flex-layout-classes-c9b3b8db.js";import"./switch-behavior-0afc6c5f.js";import"./iron-icon-6ebc5e38.js";import"./input-behavior-22f7c31e.js";import"./index-0bbfdd62.js";import"./index-41b64f0a.js";import"./resize-b38d87a6.js";import{B as d}from"./backend-ai-page-4ba904fc.js";import"./radio-behavior-815c3cf2.js";import"./backend-ai-chart-94b5ade8.js";import"./index-6835b5eb.js";import"./index-42a6ea5e.js";let h=class extends d{constructor(){super(),this._map={num_sessions:"Sessions",cpu_allocated:"CPU",mem_allocated:"Memory",gpu_allocated:"GPU",io_read_bytes:"IO-Read",io_write_bytes:"IO-Write"},this.templates={"1D":{interval:1,length:96},"1W":{interval:1,length:672}},this.collection=Object(),this.period="1D",this.updating=!1,this.data=[]}static get styles(){return[i,s,o,l,c,r`
+import{b as t,p as e,e as a,B as i,I as s,f as o,g as l,i as c,c as r,h as n}from"./iron-flex-layout-classes-c9b3b8db.js";import"./switch-behavior-0afc6c5f.js";import"./iron-icon-6ebc5e38.js";import"./input-behavior-22f7c31e.js";import"./index-0bbfdd62.js";import"./index-41b64f0a.js";import"./resize-b38d87a6.js";import{B as d}from"./backend-ai-page-4ba904fc.js";import"./radio-behavior-815c3cf2.js";import"./backend-ai-chart-74347aa8.js";import"./index-6835b5eb.js";import"./index-42a6ea5e.js";let h=class extends d{constructor(){super(),this._map={num_sessions:"Sessions",cpu_allocated:"CPU",mem_allocated:"Memory",gpu_allocated:"GPU",io_read_bytes:"IO-Read",io_write_bytes:"IO-Write"},this.templates={"1D":{interval:1,length:96},"1W":{interval:1,length:672}},this.collection=Object(),this.period="1D",this.updating=!1,this.data=[]}static get styles(){return[i,s,o,l,c,r`
         wl-select {
           --input-font-family: Roboto, Noto, sans-serif;
           --input-color-disabled: #222222;
@@ -24,7 +24,7 @@ import{b as t,p as e,e as a,B as i,I as s,f as o,g as l,i as c,c as r,h as n}fro
           <wl-card>
             <h3 class="horizontal center layout">
               <span>${this._map[t]}</span>
-              <span class="flex"></span>            
+              <span class="flex"></span>
             </h3>
             </div>
             <div style="width:100%;min-height:180px;">

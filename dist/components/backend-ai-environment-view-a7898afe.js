@@ -393,20 +393,26 @@ import{b as e,p as t,d as i,B as a,I as o,e as s,c as r,V as l,h as n,f as d,g a
           </template>
         </vaadin-grid-column>
 
-        <vaadin-grid-column width="50px" resizable>
-          <template class="header">Namespace</template>
+        <vaadin-grid-column width="60px" resizable>
+          <template class="header">
+            <vaadin-grid-sorter path="namespace">Namespace</vaadin-grid-sorter>
+          </template>
           <template>
             <div>[[item.namespace]]</div>
           </template>
         </vaadin-grid-column>
         <vaadin-grid-column resizable>
-          <template class="header">Language</template>
+          <template class="header">
+            <vaadin-grid-sorter path="lang">Language</vaadin-grid-sorter>
+          </template>
           <template>
             <div>[[item.lang]]</div>
           </template>
         </vaadin-grid-column>
         <vaadin-grid-column width="40px" resizable>
-          <template class="header">Version</template>
+          <template class="header">
+            <vaadin-grid-sorter path="baseversion">Version</vaadin-grid-sorter>
+          </template>
           <template>
             <div>[[item.baseversion]]</div>
           </template>
@@ -762,7 +768,7 @@ import{b as e,p as t,d as i,B as a,I as o,e as s,c as r,V as l,h as n,f as d,g a
           </wl-button>
         </div>
       </wl-dialog>
-    `}};e([t({type:Object})],g.prototype,"indicator",void 0),e([t({type:Number})],g.prototype,"selectedIndex",void 0),e([t({type:String})],g.prototype,"boundControlsRenderer",void 0),g=e([i("backend-ai-registry-list")],g);let w=class extends u{constructor(){super(),this.images=Object(),this.is_superadmin=!1,this._activeTab="image-lists"}static get styles(){return[a,o,s,r`
+    `}};e([t({type:Object})],g.prototype,"indicator",void 0),e([t({type:Number})],g.prototype,"selectedIndex",void 0),e([t({type:String})],g.prototype,"boundControlsRenderer",void 0),g=e([i("backend-ai-registry-list")],g);let b=class extends u{constructor(){super(),this.images=Object(),this.is_superadmin=!1,this._activeTab="image-lists"}static get styles(){return[a,o,s,r`
           wl-tab-group {
               --tab-group-indicator-bg: var(--paper-yellow-600);
           }
@@ -814,4 +820,4 @@ import{b as e,p as t,d as i,B as a,I as o,e as s,c as r,V as l,h as n,f as d,g a
           <backend-ai-registry-list ?active="${"registry-lists"===this._activeTab}"> </backend-ai-registry-list>
         </div>
       </wl-card>
-    `}firstUpdated(){}disconnectedCallback(){super.disconnectedCallback()}};e([t({type:String})],w.prototype,"images",void 0),e([t({type:Boolean})],w.prototype,"is_superadmin",void 0),e([t({type:String})],w.prototype,"_activeTab",void 0);var b=w=e([i("backend-ai-environment-view")],w);export default b;
+    `}firstUpdated(){}disconnectedCallback(){super.disconnectedCallback()}};e([t({type:String})],b.prototype,"images",void 0),e([t({type:Boolean})],b.prototype,"is_superadmin",void 0),e([t({type:String})],b.prototype,"_activeTab",void 0);var w=b=e([i("backend-ai-environment-view")],b);export default w;

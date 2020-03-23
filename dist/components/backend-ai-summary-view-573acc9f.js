@@ -1,4 +1,4 @@
-import{_ as t,p as e,c as i,L as s,I as a,a as o,b as r,h as n,d as l,e as c,f as d,g as p}from"./backend-ai-console-ac2839c6.js";import"./lablup-loading-indicator-5b28ed66.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-progress-bar-c86f5342.js";import"./mwc-linear-progress-29bd3ffd.js";import"./backend-ai-chart-88957eb1.js";import"./paper-dropdown-menu-ae71b683.js";import"./iron-iconset-svg-c8634dd5.js";import"./paper-item-8b2d5caf.js";import"./mwc-select-d0aee009.js";import"./backend-ai-resource-monitor-15360212.js";import"./radio-behavior-9563ef20.js";import"./expansion-3b2c3121.js";import"./label-e4aee937.js";let h=class extends s{constructor(){super(),this.title="",this.message="",this.panelId="",this.horizontalsize="",this.elevation=1,this.width=280,this.marginWidth=16,this.minwidth=0,this.maxwidth=0,this.pinned=!1}static get styles(){return[a,o,r`
+import{_ as t,p as e,c as i,L as s,I as a,a as o,b as r,h as n,d as l,e as c,f as d,g as p}from"./backend-ai-console-7b9ac755.js";import"./lablup-loading-indicator-e94e6bf2.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-progress-bar-c86f5342.js";import"./mwc-linear-progress-18816bcf.js";import"./backend-ai-chart-7aeb587d.js";import"./backend-ai-resource-monitor-322038be.js";import"./paper-dropdown-menu-ae71b683.js";import"./iron-iconset-svg-c8634dd5.js";import"./paper-item-8b2d5caf.js";import"./mwc-select-5e814396.js";import"./radio-behavior-377efe60.js";import"./expansion-7b8c4ad2.js";import"./label-b2639996.js";let h=class extends s{constructor(){super(),this.title="",this.message="",this.panelId="",this.horizontalsize="",this.elevation=1,this.width=280,this.marginWidth=16,this.minwidth=0,this.maxwidth=0,this.pinned=!1}static get styles(){return[a,o,r`
         wl-card {
           display: block;
           background: white;
@@ -287,15 +287,17 @@ let u=class extends l{constructor(){super(),this.condition="running",this.sessio
     ${this.is_admin?n`
           <lablup-activity-panel title="Administration" elevation="1">
             <div slot="message">
+      ${this.is_superadmin?n`
               <div class="layout vertical center flex" style="margin-bottom:5px;">
                 <lablup-shields app="Manager version" color="darkgreen" description="${this.manager_version}" ui="flat"></lablup-shields>
                 <lablup-shields app="Console version" color="darkgreen" description="${this.console_version}" ui="flat"></lablup-shields>
-              </div>
+              </div>`:n``}
               <ul>
                 <li><a href="/environment">Update environment images</a></li>
                 <li><a href="/agent">Check resources</a></li>
+      ${this.is_superadmin?n`
                 <li><a href="/settings">Change system settings</a></li>
-                <li><a href="/environment">System maintenance</a></li>
+                <li><a href="/environment">System maintenance</a></li>`:n``}
               </ul>
             </div>
           </lablup-activity-panel>`:n``}

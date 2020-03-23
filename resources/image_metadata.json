@@ -218,7 +218,7 @@
       ]
     },
     "ngc-caffe3": {
-      "name": "Caffe (NGC, 3)",
+      "name": "Caffe (NGC, Python 3)",
       "description": "Caffe is a deep learning framework made with expression, speed, and modularity in mind. This environment is integrated with Nvidia GPU Cloud.",
       "group": "Machine Learning / Deep Learning",
       "tags": [],
@@ -413,6 +413,20 @@
         {
           "category": "Env",
           "tag": "C++",
+          "color": "blue"
+        }
+      ]
+    },
+    "gcc": {
+      "name": "GCC",
+      "description": "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,...).",
+      "group": "Language",
+      "tags": [],
+      "icon": "gcc.png",
+      "label": [
+        {
+          "category": "Env",
+          "tag": "C",
           "color": "blue"
         }
       ]

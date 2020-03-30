@@ -1,8 +1,8 @@
-import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p as r,c as u}from"./backend-ai-console-7b9ac755.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-grid-369d5b12.js";import"./vaadin-grid-sorter-250e386d.js";import"./switch-053c71bd.js";
+import{d as t,e as i,I as e,a as s,D as a,f as d,b as n,h as o,t as l,g as c,_ as r,p as u,c as p}from"./backend-ai-console-52da7ce1.js";import"./unsafe-html-4738bd5b.js";import{t as g}from"./translate-unsafe-html-ea8ee2dc.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-grid-369d5b12.js";import"./vaadin-grid-sorter-250e386d.js";import"./switch-dc3c675f.js";
 /**
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */let p=class extends i{constructor(){super(),this.images=Object(),this.options=Object(),this.notification=Object(),this.options={automatic_image_update:!1,cuda_gpu:!1,cuda_fgpu:!1,rocm_gpu:!1,tpu:!1,scheduler:"fifo"}}static get is(){return"backend-ai-settings-view"}static get styles(){return[t,e,s,a,d,o`
+ */let v=class extends t{constructor(){super(),this.images=Object(),this.options=Object(),this.notification=Object(),this.options={automatic_image_update:!1,cuda_gpu:!1,cuda_fgpu:!1,rocm_gpu:!1,tpu:!1,scheduler:"fifo"}}static get is(){return"backend-ai-settings-view"}static get styles(){return[i,e,s,a,d,n`
         div.indicator,
         span.indicator {
           font-size: 9px;
@@ -40,17 +40,17 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
         wl-card > div {
           padding: 15px;
         }
-      `]}render(){return n`
+      `]}render(){return o`
       <wl-card elevation="1">
         <h3 class="horizontal center layout">
-          <span>General</span>
+          <span>${l("settings.General")}</span>
           <span class="flex"></span>
         </h3>
         <div class="horizontal wrap layout">
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>Register new images from repository</div>
-              <div class="description">Register new environments from repository.
+              <div>${l("settings.RegisterNewImagesFromRepo")}</div>
+              <div class="description">${l("settings.DescRegisterNewImagesFromRepo")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -59,18 +59,18 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>Automatic image update from repository</div>
-              <div class="description">When new image comes out, update current image automatically. Please turn off when you preserve the current environment without updating.
+              <div>${l("settings.AutomaticImageUpdateFromRepo")}</div>
+              <div class="description">${g("settings.DescAutomaticImageUpdateFromRepo")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
-              <wl-switch id="allow-image-update-switch" @change="${i=>this.toggleImageUpdate(i)}" ?checked="${this.options.automatic_image_update}"></wl-switch>
+              <wl-switch id="allow-image-update-switch" @change="${t=>this.toggleImageUpdate(t)}" ?checked="${this.options.automatic_image_update}"></wl-switch>
             </div>
           </div>
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>Use Backend.AI CLI on GUI</div>
-              <div class="description">Provide Backend.AI CLI on GUI app/web.<br/>Requires Backend.AI CLI image.
+              <div>${l("settings.UseCLIonGUI")}</div>
+              <div class="description">${g("settings.DescUseCLIonGUI")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -79,8 +79,8 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>Use Backend.AI GUI on Web</div>
-              <div class="description">Provide Backend.AI GUI as a web service.<br/>Requires Backend.AI Console image.
+              <div>${l("settings.UseGUIonWeb")}</div>
+              <div class="description">${g("settings.DescUseGUIonWeb")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -89,18 +89,17 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
         </div>
         <div class="horizontal wrap layout" style="background-color:#FFFBE7;padding: 5px 15px;">
-          Note: The settings below are automatically applied depending on the installation environment and status.
+          ${l("settings.NoteAboutFixedSetup")}
         </div>
         <h3 class="horizontal center layout">
-            <span>Scaling</span>
+            <span>${l("settings.Scaling")}</span>
             <span class="flex"></span>
         </h3>
         <div class="horizontal wrap layout">
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>Allow agent-side registration</div>
-              <div class="description">Allow agent to register itself to manager.<br/>Use only if Backend.AI cluster is
-                  managed on secure location.
+              <div>${l("settings.AllowAgentSideRegistration")}</div>
+              <div class="description">${g("settings.DescAllowAgentSideRegistration")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -109,15 +108,15 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
         </div>
         <h3 class="horizontal center layout">
-            <span>Plugins</span>
+            <span>${l("settings.Plugins")}</span>
             <span class="flex"></span>
         </h3>
         <div class="horizontal wrap layout">
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>CUDA GPU support</div>
-              <div class="description">NVidia CUDA GPU support. <br/>Requires Backend.AI CUDA Plugin.
-              ${this.options.cuda_fgpu?n`<br />Disabled because system uses Fractional GPU plugin`:n``}
+              <div>${l("settings.CUDAGPUsupport")}</div>
+              <div class="description">${g("settings.DescCUDAGPUsupport")}
+              ${this.options.cuda_fgpu?o`<br />${l("settings.CUDAGPUdisabledByFGPUsupport")}`:o``}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -126,9 +125,8 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>ROCm GPU support</div>
-              <div class="description">AMD ROCm GPU support. <br/>Requires Backend.AI ROCm Plugin. <br/>
-                  Requires Backend.AI 19.12 or above.
+              <div>${l("settings.ROCMGPUsupport")}</div>
+              <div class="description">${g("settings.DescROCMGPUsupport")}<br />${l("settings.Require1912orAbove")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -137,13 +135,13 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc-pulldown">
-              <div>Scheduler</div>
-              <div class="description">Job scheduler.<br/>
-                  Requires Backend.AI 19.12 or above.
+              <div>${l("settings.Scheduler")}</div>
+              <div class="description">${l("settings.JobScheduler")}<br/>
+                  ${l("settings.Require1912orAbove")}
               </div>
             </div>
             <div class="vertical layout setting-pulldown">
-              <wl-select name="scheduler-switch" id="scheduler-switch" required @change="${i=>this.changeScheduler(i)}">
+              <wl-select name="scheduler-switch" id="scheduler-switch" required @change="${t=>this.changeScheduler(t)}">
                 <option value="fifo" ?selected="${"fifo"===this.options.scheduler}">FIFO</option>
                 <option value="lifo" ?selected="${"lifo"===this.options.scheduler}">LIFO</option>
                 <option value="drf" ?selected="${"drf"===this.options.scheduler}">DRF</option>
@@ -152,14 +150,14 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
         </div>
         <h3 class="horizontal center layout">
-          <span>Enterprise features</span>
+          <span>${l("settings.EnterpriseFeatures")}</span>
           <span class="flex"></span>
         </h3>
         <div class="horizontal wrap layout">
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>Fractional GPU</div>
-              <div class="description">Use Fractional GPU feature with GPU virtualization. <br/>Requires Backend.AI Virtual CUDA API Layer Plugin.
+              <div>${l("settings.FractionalGPU")}</div>
+              <div class="description">${l("settings.DescFractionalGPU")} <br/> ${l("settings.RequireFGPUPlugin")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -168,9 +166,8 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
           <div class="horizontal layout wrap setting-item">
             <div class="vertical center-justified layout setting-desc">
-              <div>TPU</div>
-              <div class="description">Use TPU accelerator. <br/>Requires resource nodes on Google Cloud with Cloud TPU
-                  enabled.
+              <div>${l("settings.TPU")}</div>
+              <div class="description">${l("settings.DescTPU")} <br/>${l("settings.RequireTPUPlugin")}
               </div>
             </div>
             <div class="vertical center-justified layout setting-button">
@@ -179,4 +176,4 @@ import{d as i,e as t,I as e,a as s,D as a,f as d,b as o,h as n,g as l,_ as c,p a
           </div>
         </div>
       </wl-card>
-    `}firstUpdated(){this.notification=globalThis.lablupNotification,void 0===globalThis.backendaiclient||null===globalThis.backendaiclient?document.addEventListener("backend-ai-connected",()=>{this.updateSettings()},!0):this.updateSettings()}async _viewStateChanged(i){await this.updateComplete}updateSettings(){globalThis.backendaiclient.setting.get("docker/image/auto_pull").then(i=>{null===i.result||"digest"===i.result?this.options.automatic_image_update=!0:"tag"!==i.result&&"none"!==i.result||(this.options.automatic_image_update=!1),this.update(this.options)}),globalThis.backendaiclient.setting.get("plugins/scheduler").then(i=>{null===i.result||"fifo"===i.result?this.options.scheduler="fifo":this.options.scheduler=i.result,this.update(this.options)}),globalThis.backendaiclient.getResourceSlots().then(i=>{"cuda.device"in i&&(this.options.cuda_gpu=!0),"cuda.shares"in i&&(this.options.cuda_fgpu=!0),"rocm.device"in i&&(this.options.rocm_gpu=!0),"tpu.device"in i&&(this.options.tpu=!0),this.update(this.options)})}toggleImageUpdate(i){!1===i.target.checked?globalThis.backendaiclient.setting.set("docker/image/auto_pull","none").then(i=>{console.log(i)}):globalThis.backendaiclient.setting.set("docker/image/auto_pull","digest").then(i=>{console.log(i)})}changeScheduler(i){if(["fifo","lifo","drf"].includes(i.target.value)){let t=`{${i.target.value}}`;globalThis.backendaiclient.setting.set("plugins/scheduler",t).then(i=>{console.log(i)}).catch(i=>{this.notification.text=l.relieve("Couldn't update scheduler setting."),this.notification.detail=i,this.notification.show(!0,i)})}}};c([r({type:Object})],p.prototype,"images",void 0),c([r({type:Object})],p.prototype,"options",void 0),c([r({type:Object})],p.prototype,"notification",void 0),p=c([u("backend-ai-settings-view")],p);var v=p;export default v;
+    `}firstUpdated(){this.notification=globalThis.lablupNotification,void 0===globalThis.backendaiclient||null===globalThis.backendaiclient?document.addEventListener("backend-ai-connected",()=>{this.updateSettings()},!0):this.updateSettings()}async _viewStateChanged(t){await this.updateComplete}updateSettings(){globalThis.backendaiclient.setting.get("docker/image/auto_pull").then(t=>{null===t.result||"digest"===t.result?this.options.automatic_image_update=!0:"tag"!==t.result&&"none"!==t.result||(this.options.automatic_image_update=!1),this.update(this.options)}),globalThis.backendaiclient.setting.get("plugins/scheduler").then(t=>{null===t.result||"fifo"===t.result?this.options.scheduler="fifo":this.options.scheduler=t.result,this.update(this.options)}),globalThis.backendaiclient.getResourceSlots().then(t=>{"cuda.device"in t&&(this.options.cuda_gpu=!0),"cuda.shares"in t&&(this.options.cuda_fgpu=!0),"rocm.device"in t&&(this.options.rocm_gpu=!0),"tpu.device"in t&&(this.options.tpu=!0),this.update(this.options)})}toggleImageUpdate(t){!1===t.target.checked?globalThis.backendaiclient.setting.set("docker/image/auto_pull","none").then(t=>{console.log(t)}):globalThis.backendaiclient.setting.set("docker/image/auto_pull","digest").then(t=>{console.log(t)})}changeScheduler(t){if(["fifo","lifo","drf"].includes(t.target.value)){let i=`{${t.target.value}}`;globalThis.backendaiclient.setting.set("plugins/scheduler",i).then(t=>{console.log(t)}).catch(t=>{this.notification.text=c.relieve("Couldn't update scheduler setting."),this.notification.detail=t,this.notification.show(!0,t)})}}};r([u({type:Object})],v.prototype,"images",void 0),r([u({type:Object})],v.prototype,"options",void 0),r([u({type:Object})],v.prototype,"notification",void 0),v=r([p("backend-ai-settings-view")],v);var h=v;export default h;

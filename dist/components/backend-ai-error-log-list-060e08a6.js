@@ -1,8 +1,8 @@
-import{_ as t,p as e,c as i,d as a,e as r,I as o,a as s,b as l,h as n}from"./backend-ai-console-7b9ac755.js";import"./lablup-loading-indicator-e94e6bf2.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-progress-bar-c86f5342.js";import"./vaadin-grid-369d5b12.js";import"./iron-iconset-svg-c8634dd5.js";import"./expansion-7b8c4ad2.js";import"./label-b2639996.js";import"./vaadin-grid-selection-column-0e68f6ca.js";import"./vaadin-grid-sorter-250e386d.js";import"./vaadin-grid-sort-column-8ac4f625.js";import"./iconset-2993a19c.js";import"./backend-ai-indicator-51aee0a8.js";
+import{_ as t,p as e,c as i,d as a,e as r,I as o,a as s,b as l,h as n,t as d}from"./backend-ai-console-52da7ce1.js";import"./lablup-loading-indicator-320198e1.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-progress-bar-c86f5342.js";import"./vaadin-grid-369d5b12.js";import"./iron-iconset-svg-c8634dd5.js";import"./expansion-142ca055.js";import"./label-9371cb47.js";import"./vaadin-grid-selection-column-0e68f6ca.js";import"./vaadin-grid-sorter-250e386d.js";import"./vaadin-grid-sort-column-8ac4f625.js";import"./iconset-2993a19c.js";import"./backend-ai-indicator-87dded84.js";
 /**
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */let d=class extends a{constructor(){super(),this.timestamp="",this.errorType="",this.requestUrl="",this.statusCode="",this.statusText="",this.title="",this.message="",this.logs=Array(),this._selected_items=Array(),this.loadingIndicator=Object(),this._grid=Object(),this.logView=Object(),this._pageSize=25,this._currentPage=1,this._totalLogCount=0}static get styles(){return[r,o,s,l`
+ */let g=class extends a{constructor(){super(),this.timestamp="",this.errorType="",this.requestUrl="",this.statusCode="",this.statusText="",this.title="",this.message="",this.logs=Array(),this._selected_items=Array(),this.loadingIndicator=Object(),this._grid=Object(),this.logView=Object(),this._pageSize=25,this._currentPage=1,this._totalLogCount=0}static get styles(){return[r,o,s,l`
         vaadin-grid {
           width: 100%;
           border: 0;
@@ -42,56 +42,56 @@ import{_ as t,p as e,c as i,d as a,e as r,I as o,a as s,b as l,h as n}from"./bac
       <vaadin-grid id="list-grid" page-size="${this._pageSize}"
                    theme="row-stripes column-borders compact wrap-cell-content"
                    aria-label="Error logs" .items="${this.logView}">
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="TimeStamp">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.TimeStamp")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.timestamp]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Status">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.Status")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.statusCode]] [[item.statusText]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Error Title">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.ErrorTitle")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.title]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Error Message">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.ErrorMessage")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.message]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Method">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.Method")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.requestMethod]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Request Url">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.RequestUrl")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.requestUrl]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Parameters">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.Parameters")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.requestParameters]]</span>
               </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="Error Type">
+        <vaadin-grid-column resizable flex-grow="0" text-align="start" auto-width header="${d("logs.ErrorType")}">
           <template>
               <div class="layout vertical" error-cell$="[[item.isError]]">
                 <span>[[item.type]]</span>
@@ -114,4 +114,4 @@ import{_ as t,p as e,c as i,d as a,e as r,I as o,a as s,b as l,h as n}from"./bac
           <wl-icon class="pagination">navigate_next</wl-icon>
         </wl-button>
       </div>
-    `}};t([e({type:String})],d.prototype,"timestamp",void 0),t([e({type:String})],d.prototype,"errorType",void 0),t([e({type:String})],d.prototype,"requestUrl",void 0),t([e({type:String})],d.prototype,"statusCode",void 0),t([e({type:String})],d.prototype,"statusText",void 0),t([e({type:String})],d.prototype,"title",void 0),t([e({type:String})],d.prototype,"message",void 0),t([e({type:Array})],d.prototype,"logs",void 0),t([e({type:Array})],d.prototype,"_selected_items",void 0),t([e({type:Object})],d.prototype,"loadingIndicator",void 0),t([e({type:Object})],d.prototype,"_grid",void 0),t([e({type:Object})],d.prototype,"logView",void 0),t([e({type:Number})],d.prototype,"_pageSize",void 0),t([e({type:Number})],d.prototype,"_currentPage",void 0),t([e({type:Number})],d.prototype,"_totalLogCount",void 0),d=t([i("backend-ai-error-log-list")],d);
+    `}};t([e({type:String})],g.prototype,"timestamp",void 0),t([e({type:String})],g.prototype,"errorType",void 0),t([e({type:String})],g.prototype,"requestUrl",void 0),t([e({type:String})],g.prototype,"statusCode",void 0),t([e({type:String})],g.prototype,"statusText",void 0),t([e({type:String})],g.prototype,"title",void 0),t([e({type:String})],g.prototype,"message",void 0),t([e({type:Array})],g.prototype,"logs",void 0),t([e({type:Array})],g.prototype,"_selected_items",void 0),t([e({type:Object})],g.prototype,"loadingIndicator",void 0),t([e({type:Object})],g.prototype,"_grid",void 0),t([e({type:Object})],g.prototype,"logView",void 0),t([e({type:Number})],g.prototype,"_pageSize",void 0),t([e({type:Number})],g.prototype,"_currentPage",void 0),t([e({type:Number})],g.prototype,"_totalLogCount",void 0),g=t([i("backend-ai-error-log-list")],g);

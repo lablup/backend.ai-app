@@ -1,8 +1,4 @@
-import{d as i,e as t,I as e,a as s,D as a,f as o,b as n,h as r,_ as d,p as c,c as l}from"./backend-ai-console-7b9ac755.js";import"./lablup-loading-indicator-e94e6bf2.js";import"./divider-18a82560.js";import"./backend-ai-indicator-51aee0a8.js";
-/**
- @license
- Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */let v=class extends i{constructor(){super(),this.notification=Object(),this.indicator=Object(),this.manager_version="",this.manager_version_latest="",this.console_version="",this.api_version="",this.docker_version="",this.pgsql_version="",this.redis_version="",this.etcd_version="",this.account_changed=!0,this.use_ssl=!0}static get styles(){return[t,e,s,a,o,n`
+import{d as i,e as t,I as e,a as s,D as a,f as o,b as n,h as r,_ as d,p as c,c as l}from"./backend-ai-console-52da7ce1.js";import"./lablup-loading-indicator-320198e1.js";import"./divider-b0c28a83.js";import"./backend-ai-indicator-87dded84.js";let v=class extends i{constructor(){super(),this.notification=Object(),this.indicator=Object(),this.manager_version="",this.manager_version_latest="",this.console_version="",this.api_version="",this.docker_version="",this.pgsql_version="",this.redis_version="",this.etcd_version="",this.account_changed=!0,this.use_ssl=!0}static get styles(){return[t,e,s,a,o,n`
         div.indicator,
         span.indicator {
           font-size: 9px;

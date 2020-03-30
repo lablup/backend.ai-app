@@ -1,4 +1,4 @@
-import{_ as t,p as i,c as e,L as s,b as a,h as o}from"./backend-ai-console-7b9ac755.js";
+import{_ as t,p as i,c as e,L as s,b as a,h as o}from"./backend-ai-console-52da7ce1.js";
 /**
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.

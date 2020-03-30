@@ -1,8 +1,8 @@
-import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g as d,$ as u,h}from"./backend-ai-console-7b9ac755.js";import"./lablup-loading-indicator-e94e6bf2.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-grid-369d5b12.js";import"./paper-dropdown-menu-ae71b683.js";import"./iron-iconset-svg-c8634dd5.js";import"./paper-item-8b2d5caf.js";import"./radio-behavior-377efe60.js";import"./expansion-7b8c4ad2.js";import"./label-b2639996.js";import"./vaadin-grid-sorter-250e386d.js";import"./vaadin-grid-sort-column-8ac4f625.js";import"./iconset-2993a19c.js";import"./divider-18a82560.js";import{J as p}from"./json_to_csv-95c4522d.js";import"./tab-group-7d48e0ac.js";import"./vaadin-item-03518044.js";import"./switch-053c71bd.js";import"./textarea-32e71bfe.js";
+import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g as d,a1 as u,h,t as p,E as _}from"./backend-ai-console-52da7ce1.js";import"./lablup-loading-indicator-320198e1.js";import"./iron-resizable-behavior-5743f649.js";import"./vaadin-grid-369d5b12.js";import"./paper-dropdown-menu-ae71b683.js";import"./iron-iconset-svg-c8634dd5.js";import"./paper-item-8b2d5caf.js";import"./radio-behavior-4d4215af.js";import"./expansion-142ca055.js";import"./label-9371cb47.js";import"./vaadin-grid-sorter-250e386d.js";import"./vaadin-grid-sort-column-8ac4f625.js";import"./iconset-2993a19c.js";import"./divider-b0c28a83.js";import{J as v}from"./json_to_csv-0a6876b9.js";import"./tab-group-3ed06448.js";import"./vaadin-item-03518044.js";import"./switch-dc3c675f.js";import"./textarea-6fcb2d51.js";
 /**
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */let _=class extends o{constructor(){super(),this.keypairInfo={user_id:"1",access_key:"ABC",secret_key:"ABC",last_used:"",is_admin:!1,resource_policy:"",rate_limit:5e3,concurrency_used:0,num_queries:0,created_at:""},this.isAdmin=!1,this.condition="active",this.keypairs=Object(),this.resourcePolicy=Object(),this.indicator=Object(),this._boundControlRenderer=this.controlRenderer.bind(this),this.keypairView=Object(),this._pageSize=10,this.keypairGrid=Object(),this._currentPage=1,this._totalCredentialCount=0}static get styles(){return[a,s,l,r,n,c`
+ */let m=class extends o{constructor(){super(),this.keypairInfo={user_id:"1",access_key:"ABC",secret_key:"ABC",last_used:"",is_admin:!1,resource_policy:"",rate_limit:5e3,concurrency_used:0,num_queries:0,created_at:""},this.isAdmin=!1,this.condition="active",this.keypairs=Object(),this.resourcePolicy=Object(),this.indicator=Object(),this._boundKeyageRenderer=this.keyageRenderer.bind(this),this._boundControlRenderer=this.controlRenderer.bind(this),this.keypairView=Object(),this._pageSize=10,this.keypairGrid=Object(),this._currentPage=1,this._totalCredentialCount=0}static get styles(){return[a,s,l,r,n,c`
         vaadin-grid {
           border: 0;
           font-size: 14px;
@@ -90,7 +90,12 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
 
       `]}firstUpdated(){this.indicator=this.shadowRoot.querySelector("#loading-indicator"),this.notification=globalThis.lablupNotification}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._refreshKeyData(),this.isAdmin=globalThis.backendaiclient.is_admin,this.keypairGrid=this.shadowRoot.querySelector("#keypair-grid")},!0):(this._refreshKeyData(),this.isAdmin=globalThis.backendaiclient.is_admin,this.keypairGrid=this.shadowRoot.querySelector("#keypair-grid")))}_refreshKeyData(e){let t=!0;switch(this.condition){case"active":t=!0;break;default:t=!1}return globalThis.backendaiclient.resourcePolicy.get().then(e=>{this.indicator.hide();let t=e.keypair_resource_policies;this.resourcePolicy=globalThis.backendaiclient.utils.gqlToObject(t,"name")}).then(()=>globalThis.backendaiclient.keypair.list(e,["access_key","is_active","is_admin","user_id","created_at","last_used","concurrency_limit","concurrency_used","rate_limit","num_queries","resource_policy"],t)).then(e=>{let t=e.keypairs;Object.keys(t).map((e,i)=>{var o=t[e];if(o.resource_policy in this.resourcePolicy){for(var a in this.resourcePolicy[o.resource_policy])"created_at"!==a&&(o[a]=this.resourcePolicy[o.resource_policy][a],"total_resource_slots"===a&&(o.total_resource_slots=JSON.parse(this.resourcePolicy[o.resource_policy][a])));o.created_at_formatted=this._humanReadableTime(o.created_at),o.elapsed=this._elapsed(o.created_at),"cpu"in o.total_resource_slots||"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cpu="-"),"mem"in o.total_resource_slots?o.total_resource_slots.mem=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(o.total_resource_slots.mem,"g")):"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.mem="-"),"cuda.device"in o.total_resource_slots&&(o.total_resource_slots.cuda_device=o.total_resource_slots["cuda.device"]),"cuda.shares"in o.total_resource_slots&&(o.total_resource_slots.cuda_shares=o.total_resource_slots["cuda.shares"]),"cuda_device"in o.total_resource_slots==!1&&"cuda_shares"in o.total_resource_slots==!1&&"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cuda_shares="-",o.total_resource_slots.cuda_device="-"),["cpu","mem","cuda_shares","cuda_device"].forEach(e=>{o.total_resource_slots[e]=this._markIfUnlimited(o.total_resource_slots[e])})}}),this.keypairs=t,this._totalCredentialCount=this.keypairs.length>0?this.keypairs.length:1,this._updateItemsFromPage(1)}).catch(e=>{console.log(e),this.indicator.hide(),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}async _showKeypairDetail(e){const t=e.target.closest("#controls")["access-key"];try{const e=await this._getKeyData(t);this.keypairInfo=e.keypair,this.shadowRoot.querySelector("#keypair-info-dialog").show()}catch(e){e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))}}async _modifyResourcePolicy(e){const t=e.target.closest("#controls")["access-key"];try{const e=await this._getKeyData(t);this.keypairInfo=e.keypair,this.shadowRoot.querySelector("#policy-list").value=this.keypairInfo.resource_policy,this.shadowRoot.querySelector("#keypair-modify-dialog").show()}catch(e){e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))}}async _getKeyData(e){return globalThis.backendaiclient.keypair.info(e,["access_key","secret_key","is_active","is_admin","user_id","created_at","last_used","concurrency_limit","concurrency_used","rate_limit","num_queries","resource_policy"])}refresh(){this._refreshKeyData()}_isActive(){return"active"===this.condition}_deleteKey(e){const t=e.target.closest("#controls")["access-key"];globalThis.backendaiclient.keypair.delete(t).then(e=>{if(e.delete_keypair&&!e.delete_keypair.ok)throw{title:"Unable to delete keypair",message:e.delete_keypair.msg};this.refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_revokeKey(e){this._mutateKey(e,!1)}_reuseKey(e){this._mutateKey(e,!0)}_mutateKey(e,t){const i=e.target.closest("#controls")["access-key"];let o=this.keypairs.find(this._findKeyItem,i),a={is_active:t,is_admin:o.is_admin,resource_policy:o.resource_policy,rate_limit:o.rate_limit,concurrency_limit:o.concurrency_limit};globalThis.backendaiclient.keypair.mutate(i,a).then(e=>{let t=new CustomEvent("backend-ai-credential-refresh",{detail:this});document.dispatchEvent(t)}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_findKeyItem(e){return e.access_key=this}_elapsed(e,t){var i=new Date(e);if("active"==this.condition)var o=new Date;else o=new Date;var a=Math.floor((o.getTime()-i.getTime())/1e3);return Math.floor(a/86400)}_humanReadableTime(e){return new Date(e).toUTCString()}_indexRenderer(e,t,i){let o=i.index+1;u(h`
         <div>${o}</div>
-      `,e)}_markIfUnlimited(e){return["-",0,"Unlimited",1/0,"Infinity"].includes(e)?"∞":e}_updateItemsFromPage(e){if("number"!=typeof e){let t=e.target;"button"!==t.role&&(t=e.target.closest("wl-button")),"previous-page"===t.id?this._currentPage-=1:this._currentPage+=1}let t=(this._currentPage-1)*this.keypairGrid.pageSize,i=this._currentPage*this.keypairGrid.pageSize;this.keypairView=this.keypairs.slice(t,i),console.log()}controlRenderer(e,t,i){u(h`
+      `,e)}_markIfUnlimited(e){return["-",0,"Unlimited",1/0,"Infinity"].includes(e)?"∞":e}_updateItemsFromPage(e){if("number"!=typeof e){let t=e.target;"button"!==t.role&&(t=e.target.closest("wl-button")),"previous-page"===t.id?this._currentPage-=1:this._currentPage+=1}let t=(this._currentPage-1)*this.keypairGrid.pageSize,i=this._currentPage*this.keypairGrid.pageSize;this.keypairView=this.keypairs.slice(t,i),console.log()}keyageRenderer(e,t,i){u(h`
+            <div class="layout vertical">
+              <span>${i.item.elapsed} ${p("credential.Days")}</span>
+              <span class="indicator">(${i.item.created_at_formatted})</span>
+            </div>
+      `,e)}controlRenderer(e,t,i){u(h`
             <div id="controls" class="layout horizontal flex center"
                  .access-key="${i.item.access_key}">
               <wl-button class="fg green" fab flat inverted @click="${e=>this._showKeypairDetail(e)}">
@@ -121,7 +126,7 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
 
         <vaadin-grid-column resizable>
           <template class="header">
-            <vaadin-grid-sorter path="user_id">User ID</vaadin-grid-sorter>
+            <vaadin-grid-sorter path="user_id">${p("credential.UserID")}</vaadin-grid-sorter>
           </template>
           <template>
             <div class="layout horizontal center flex">
@@ -131,7 +136,7 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
         </vaadin-grid-column>
 
         <vaadin-grid-column resizable>
-          <template class="header">Access Key</template>
+          <template class="header">${p("general.AccessKey")}</template>
           <template>
             <div class="monospace">[[item.access_key]]</div>
           </template>
@@ -139,7 +144,7 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
 
         <vaadin-grid-column resizable>
           <template class="header">
-            <vaadin-grid-sorter path="is_admin">Permission</vaadin-grid-sorter>
+            <vaadin-grid-sorter path="is_admin">${p("credential.Permission")}</vaadin-grid-sorter>
           </template>
           <template>
             <div class="layout horizontal center flex">
@@ -151,26 +156,17 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
           </template>
         </vaadin-grid-column>
 
-        <vaadin-grid-column resizable>
-          <template class="header">
-            <vaadin-grid-sorter path="created_at">Key age</vaadin-grid-sorter>
-          </template>
-          <template>
-            <div class="layout vertical">
-              <span>[[item.elapsed]] Days</span>
-              <span class="indicator">([[item.created_at_formatted]])</span>
-            </div>
-          </template>
-        </vaadin-grid-column>
+        <vaadin-grid-sort-column resizable header="${p("credential.KeyAge")}" path="created_at" .renderer="${this._boundKeyageRenderer}">
+        </vaadin-grid-sort-column>
 
         <vaadin-grid-column width="150px" resizable>
-          <template class="header">Resource Policy</template>
+          <template class="header">${p("credential.ResourcePolicy")}</template>
           <template>
             <div class="layout horizontal wrap center">
               <div class="layout horizontal configuration">
                 <wl-icon class="fg green">developer_board</wl-icon>
                 <span>[[item.total_resource_slots.cpu]]</span>
-                <span class="indicator">cores</span>
+                <span class="indicator">${p("general.cores")}</span>
               </div>
               <div class="layout horizontal configuration">
                 <wl-icon class="fg green">memory</wl-icon>
@@ -203,14 +199,14 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
               <div class="layout horizontal configuration">
                 <wl-icon class="fg green">folder</wl-icon>
                 <span>[[item.max_vfolder_count]]</span>
-                <span class="indicator">Folders</span>
+                <span class="indicator">${p("general.Folders")}</span>
               </div>
             </div>
           </template>
         </vaadin-grid-column>
 
         <vaadin-grid-column resizable>
-          <template class="header">Allocation</template>
+          <template class="header">${p("credential.Allocation")}</template>
           <template>
             <div class="layout horizontal center flex">
               <div class="vertical start layout">
@@ -226,7 +222,7 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
             </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column width="150px" resizable header="Control" .renderer="${this._boundControlRenderer}">
+        <vaadin-grid-column width="150px" resizable header="${p("general.Control")}" .renderer="${this._boundControlRenderer}">
         </vaadin-grid-column>
       </vaadin-grid>
       <div class="horizontal center-justified layout flex" style="padding: 10px;">
@@ -257,50 +253,50 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
           </h3>
           <div class="horizontal layout">
             <div style="width:335px;">
-              <h4>Information</h4>
+              <h4>${p("credential.Information")}</h4>
               <div role="listbox" style="margin: 0;">
                 <vaadin-item>
                   <div><strong>User ID</strong></div>
                   <div secondary>${this.keypairInfo.user_id}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Access Key</strong></div>
+                  <div><strong>${p("general.AccessKey")}</strong></div>
                   <div secondary>${this.keypairInfo.access_key}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Secret Key</strong></div>
+                  <div><strong>${p("general.SecretKey")}</strong></div>
                   <div secondary>${this.keypairInfo.secret_key}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Created</strong></div>
+                  <div><strong>${p("credential.Created")}</strong></div>
                   <div secondary>${this.keypairInfo.created_at}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Last used</strong></div>
+                  <div><strong>${p("credential.Lastused")}</strong></div>
                   <div secondary>${this.keypairInfo.last_used}</div>
                 </vaadin-item>
               </div>
             </div>
             <div style="width:335px;">
-              <h4>Allocation</h4>
+              <h4>${p("credential.Allocation")}</h4>
               <div role="listbox" style="margin: 0;">
                 <vaadin-item>
-                  <div><strong>Resource Policy</strong></div>
+                  <div><strong>${p("credential.ResourcePolicy")}</strong></div>
                   <div secondary>${this.keypairInfo.resource_policy}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Number of queries</strong></div>
+                  <div><strong>${p("credential.NumberOfQueries")}</strong></div>
                   <div secondary>${this.keypairInfo.num_queries}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Concurrent Sessions</strong></div>
-                  <div secondary>${this.keypairInfo.concurrency_used} active / ${this.keypairInfo.concurrency_used} concurrent
-                    sessions.
+                  <div><strong>${p("credential.ConcurrentSessions")}</strong></div>
+                  <div secondary>${this.keypairInfo.concurrency_used} ${p("credential.active")} /
+                    ${this.keypairInfo.concurrency_used} ${p("credential.concurrentsessions")}.
                   </div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Rate Limit</strong></div>
-                  <div secondary>${this.keypairInfo.rate_limit} for 900 seconds.</div>
+                  <div><strong>${p("credential.RateLimit")}</strong></div>
+                  <div secondary>${this.keypairInfo.rate_limit} ${p("credential.for900seconds")}.</div>
                 </vaadin-item>
               </div>
             </div>
@@ -352,12 +348,12 @@ import{_ as e,p as t,c as i,d as o,e as a,I as s,a as l,D as r,f as n,b as c,g a
           </div>
         </wl-card>
       </wl-dialog>
-    `}};e([t({type:Object})],_.prototype,"notification",void 0),e([t({type:Object})],_.prototype,"keypairInfo",void 0),e([t({type:Boolean})],_.prototype,"isAdmin",void 0),e([t({type:String})],_.prototype,"condition",void 0),e([t({type:Object})],_.prototype,"keypairs",void 0),e([t({type:Object})],_.prototype,"resourcePolicy",void 0),e([t({type:Object})],_.prototype,"indicator",void 0),e([t({type:Object})],_.prototype,"_boundControlRenderer",void 0),e([t({type:Object})],_.prototype,"keypairView",void 0),e([t({type:Number})],_.prototype,"_pageSize",void 0),e([t({type:Object})],_.prototype,"keypairGrid",void 0),e([t({type:Number})],_.prototype,"_currentPage",void 0),e([t({type:Number})],_.prototype,"_totalCredentialCount",void 0),_=e([i("backend-ai-credential-list")],_);
+    `}};e([t({type:Object})],m.prototype,"notification",void 0),e([t({type:Object})],m.prototype,"keypairInfo",void 0),e([t({type:Boolean})],m.prototype,"isAdmin",void 0),e([t({type:String})],m.prototype,"condition",void 0),e([t({type:Object})],m.prototype,"keypairs",void 0),e([t({type:Object})],m.prototype,"resourcePolicy",void 0),e([t({type:Object})],m.prototype,"indicator",void 0),e([t({type:Object})],m.prototype,"_boundKeyageRenderer",void 0),e([t({type:Object})],m.prototype,"_boundControlRenderer",void 0),e([t({type:Object})],m.prototype,"keypairView",void 0),e([t({type:Number})],m.prototype,"_pageSize",void 0),e([t({type:Object})],m.prototype,"keypairGrid",void 0),e([t({type:Number})],m.prototype,"_currentPage",void 0),e([t({type:Number})],m.prototype,"_totalCredentialCount",void 0),m=e([i("backend-ai-credential-list")],m);
 /**
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
  */
-let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},this.resourcePolicy={},this.keypairInfo={},this.is_admin=!1,this.active=!1,this.condition="active",this.cpu_resource={},this.ram_resource={},this.gpu_resource={},this.fgpu_resource={},this.concurrency_limit={},this.idle_timeout={},this.vfolder_capacity={},this.vfolder_max_limit={},this.container_per_session_limit={},this.allowed_vfolder_hosts=[],this.default_vfolder_host="",this.resource_policy_names=Array(),this.current_policy_name="",this._boundResourceRenderer=this.resourceRenderer.bind(this),this._boundControlRenderer=this.controlRenderer.bind(this)}static get styles(){return[a,s,l,c`
+let y=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},this.resourcePolicy={},this.keypairInfo={},this.is_admin=!1,this.active=!1,this.condition="active",this.cpu_resource={},this.ram_resource={},this.gpu_resource={},this.fgpu_resource={},this.concurrency_limit={},this.idle_timeout={},this.vfolder_capacity={},this.vfolder_max_limit={},this.container_per_session_limit={},this.allowed_vfolder_hosts=[],this.default_vfolder_host="",this.resource_policy_names=Array(),this.current_policy_name="",this._boundResourceRenderer=this.resourceRenderer.bind(this),this._boundControlRenderer=this.controlRenderer.bind(this)}static get styles(){return[a,s,l,c`
         vaadin-grid {
           border: 0;
           font-size: 14px;
@@ -457,7 +453,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
         <vaadin-grid-column width="40px" flex-grow="0" header="#" .renderer="${this._indexRenderer}"></vaadin-grid-column>
         <vaadin-grid-column resizable>
           <template class="header">
-            <vaadin-grid-sorter path="name">Name</vaadin-grid-sorter>
+            <vaadin-grid-sorter path="name">${p("resourcePolicy.Name")}</vaadin-grid-sorter>
           </template>
           <template>
             <div class="layout horizontal center flex">
@@ -466,12 +462,12 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
           </template>
         </vaadin-grid-column>
 
-        <vaadin-grid-column width="150px" resizable header="Resources" .renderer="${this._boundResourceRenderer}">
+        <vaadin-grid-column width="150px" resizable header="${p("resourcePolicy.Resources")}" .renderer="${this._boundResourceRenderer}">
         </vaadin-grid-column>
 
         <vaadin-grid-column resizable>
           <template class="header">
-            <vaadin-grid-sorter path="max_concurrent_sessions">Concurrency</vaadin-grid-sorter>
+            <vaadin-grid-sorter path="max_concurrent_sessions">${p("resourcePolicy.Concurrency")}</vaadin-grid-sorter>
           </template>
           <template>
             <div>[[item.max_concurrent_sessions]]
@@ -481,7 +477,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
 
         <vaadin-grid-column resizable>
           <template class="header">
-            <vaadin-grid-sorter path="max_containers_per_session">Cluster size</vaadin-grid-sorter>
+            <vaadin-grid-sorter path="max_containers_per_session">${p("resourcePolicy.ClusterSize")}</vaadin-grid-sorter>
           </template>
           <template>
             <div>[[item.max_containers_per_session]]</div>
@@ -489,7 +485,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
         </vaadin-grid-column>
 
         <vaadin-grid-column resizable>
-          <template class="header">Storage Nodes</template>
+          <template class="header">${p("resourcePolicy.StorageNodes")}</template>
           <template>
             <div class="layout horizontal center flex">
               <div class="vertical start layout">
@@ -500,14 +496,14 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
           </template>
         </vaadin-grid-column>
 
-        <vaadin-grid-column resizable header="Control" .renderer="${this._boundControlRenderer}">
+        <vaadin-grid-column resizable header="${p("general.Control")}" .renderer="${this._boundControlRenderer}">
         </vaadin-grid-column>
 
       </vaadin-grid>
       <wl-dialog id="modify-policy-dialog" fixed backdrop blockscrolling>
         <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
           <h3 class="horizontal center layout">
-            <span>Update resource policy</span>
+            <span>${p("resourcePolicy.UpdateResourcePolicy")}</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
@@ -515,10 +511,10 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
           </h3>
           <form id="login-form">
             <fieldset>
-              <mwc-textfield id="id_new_policy_name" label="Policy Name" pattern="^[a-zA-Z0-9_-]+$"
+              <mwc-textfield id="id_new_policy_name" label="${p("resourcePolicy.PolicyName")}" pattern="^[a-zA-Z0-9_-]+$"
                              validationMessage="Policy name is Required."
                              required></mwc-textfield>
-              <h4>Resource Policy</h4>
+              <h4>${p("resourcePolicy.ResourcePolicy")}</h4>
               <div class="horizontal center layout">
                   <div class="vertical layout" style="width:75px; margin: 0px 10px 0px 0px;">
                     <wl-label>CPU</wl-label>
@@ -526,7 +522,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                       <wl-label class="unlimited">
                         <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                        Unlimited
+                        ${p("resourcePolicy.Unlimited")}
                       </wl-label>
                   </div>
                   <div class="vertical layout" style="width:75px; margin: 0px 10px 0px 10px;">
@@ -535,7 +531,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("resourcePolicy.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical layout" style="width:75px; margin: 0px 10px 0px 10px;">
@@ -544,7 +540,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("resourcePolicy.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical layout" style="width:75px; margin: 0px 0px 0px 10px;">
@@ -553,38 +549,38 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("resourcePolicy.Unlimited")}
                     </wl-label>
                   </div>
               </div>
-              <h4>Sessions</h4>
+              <h4>${p("resourcePolicy.Sessions")}</h4>
               <div class="horizontal center layout">
                 <div class="vertical left layout" style="width: 110px;">
-                    <wl-label>Container per session</wl-label>
+                    <wl-label>${p("resourcePolicy.ContainerPerSession")}</wl-label>
                     <wl-textfield id="container-per-session-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("resourcePolicy.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical left layout" style="width: 110px; margin: 0px 15px;">
-                    <wl-label>Idle timeout (sec.)</wl-label>
+                    <wl-label>${p("resourcePolicy.IdleTimeoutSec")}</wl-label>
                     <wl-textfield id="idle-timeout" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("resourcePolicy.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical left layout" style="width: 110px;">
-                      <wl-label>Concurrent Jobs</wl-label>
+                      <wl-label>${p("resourcePolicy.ConcurrentJobs")}</wl-label>
                       <wl-textfield id="concurrency-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                       <wl-label class="unlimited">
                         <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                        Unlimited
+                       ${p("resourcePolicy.Unlimited")}
                       </wl-label>
                   </div>
               </div>
-              <h4 style="margin-bottom:0px;">Folders</h4>
+              <h4 style="margin-bottom:0px;">${p("resourcePolicy.Folders")}</h4>
               <div class="horizontal center layout">
                 <div class="vertical layout" style="width: 110px;">
                 <paper-dropdown-menu id="allowed_vfolder-hosts" label="Allowed hosts">
@@ -596,11 +592,11 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
                 </paper-dropdown-menu>
                 </div>
                 <div class="vertical layout" style="width: 110px; margin: 21px 15px 0;">
-                  <wl-label class="folders">Capacity(GB)</wl-label>
+                  <wl-label class="folders">${p("resourcePolicy.Capacity")}(GB)</wl-label>
                   <wl-textfield id="vfolder-capacity-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                   <wl-label class="unlimited">
                     <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                    Unlimited
+                    ${p("resourcePolicy.Unlimited")}
                 </wl-label>
                 </div>
                 <div class="vertical layout" style="width: 110px;">
@@ -613,7 +609,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
               <wl-button class="fg blue create-button" id="create-policy-button" type="button"
                 outlined @click="${()=>this._modifyResourcePolicy()}">
                 <wl-icon>add</wl-icon>
-                Update
+                ${p("button.Update")}
               </wl-button>
             </fieldset>
           </form>
@@ -670,12 +666,7 @@ let v=class extends o{constructor(){super(),this.visible=!1,this.keypairs={},thi
                                  @click="${e=>this._launchResourcePolicyDialog(e)}"><wl-icon>settings</wl-icon></wl-button>
                                  `:h``}
         </div>
-    `,e)}firstUpdated(){this.notification=globalThis.lablupNotification,this._validatePolicyName()}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._refreshPolicyData(),this._getResourceInfo(),this.is_admin=globalThis.backendaiclient.is_admin,this._getResourceInfo()},!0):(this._refreshPolicyData(),this._getResourceInfo(),this.is_admin=globalThis.backendaiclient.is_admin,this._getResourceInfo()))}_launchResourcePolicyDialog(e){this.updateCurrentPolicyToDialog(e),this.shadowRoot.querySelector("#id_new_policy_name").mdcFoundation.setValid(!0),this.shadowRoot.querySelector("#id_new_policy_name").isUiValid=!0,this.shadowRoot.querySelector("#modify-policy-dialog").show()}updateCurrentPolicyToDialog(e){const t=e.target.closest("#controls")["policy-name"];let i=globalThis.backendaiclient.utils.gqlToObject(this.resourcePolicy,"name");this.resource_policy_names=Object.keys(i);let o=i[t];this.shadowRoot.querySelector("#id_new_policy_name").value=t,this.current_policy_name=t,this.cpu_resource.value=o.total_resource_slots.cpu,this.ram_resource.value=o.total_resource_slots.mem,this.gpu_resource.value=o.total_resource_slots.cuda_device,this.fgpu_resource.value=o.total_resource_slots.cuda_shares,this.concurrency_limit.value=o.max_concurrent_sessions,this.idle_timeout.value=o.idle_timeout,this.container_per_session_limit.value=o.max_containers_per_session,this.vfolder_capacity.value=o.max_vfolder_size,this._updateInputStatus(this.cpu_resource),this._updateInputStatus(this.ram_resource),this._updateInputStatus(this.gpu_resource),this._updateInputStatus(this.fgpu_resource),this._updateInputStatus(this.concurrency_limit),this._updateInputStatus(this.idle_timeout),this._updateInputStatus(this.container_per_session_limit),this._updateInputStatus(this.vfolder_capacity),this.shadowRoot.querySelector("#vfolder-count-limit").value=o.max_vfolder_count,this.shadowRoot.querySelector("#vfolder-capacity-limit").value=o.max_vfolder_size,this.shadowRoot.querySelector("#allowed_vfolder-hosts").value=o.allowed_vfolder_hosts[0]}_refreshPolicyData(){return globalThis.backendaiclient.resourcePolicy.get().then(e=>e.keypair_resource_policies).then(e=>{let t=e;Object.keys(t).map((e,i)=>{var o=t[e];o.total_resource_slots=JSON.parse(o.total_resource_slots),"cpu"in o.total_resource_slots||"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cpu="Unlimited"),"mem"in o.total_resource_slots?o.total_resource_slots.mem=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(o.total_resource_slots.mem,"g")):"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.mem="Unlimited"),"cuda.device"in o.total_resource_slots?0===o.total_resource_slots["cuda.device"]&&"UNLIMITED"===o.default_for_unspecified?o.total_resource_slots.cuda_device="Unlimited":o.total_resource_slots.cuda_device=o.total_resource_slots["cuda.device"]:"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cuda_device="Unlimited"),"cuda.shares"in o.total_resource_slots?0===o.total_resource_slots["cuda.shares"]&&"UNLIMITED"===o.default_for_unspecified?o.total_resource_slots.cuda_shares="Unlimited":o.total_resource_slots.cuda_shares=o.total_resource_slots["cuda.shares"]:"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cuda_shares="Unlimited")}),this.resourcePolicy=t}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}refresh(){this._refreshPolicyData()}_isActive(){return"active"===this.condition}_readResourcePolicyInput(){let e={},t=[];t.push(this.shadowRoot.querySelector("#allowed_vfolder-hosts").value);try{this._validateUserInput(this.cpu_resource),this._validateUserInput(this.ram_resource),this._validateUserInput(this.gpu_resource),this._validateUserInput(this.fgpu_resource),this._validateUserInput(this.concurrency_limit),this._validateUserInput(this.idle_timeout),this._validateUserInput(this.container_per_session_limit),this._validateUserInput(this.vfolder_capacity),this._validateUserInput(this.vfolder_max_limit)}catch(e){throw e}return e.cpu=this.cpu_resource.value,e.mem=this.ram_resource.value+"g",e["cuda.device"]=parseInt(this.gpu_resource.value),e["cuda.shares"]=parseFloat(this.fgpu_resource.value),this.concurrency_limit.value=""===this.concurrency_limit.value?0:parseInt(this.concurrency_limit.value),this.idle_timeout.value=""===this.idle_timeout.value?0:parseInt(this.idle_timeout.value),this.container_per_session_limit.value=""===this.container_per_session_limit.value?0:parseInt(this.container_per_session_limit.value),this.vfolder_capacity.value=""===this.vfolder_capacity.value?0:parseInt(this.vfolder_capacity.value),this.vfolder_max_limit.value=""===this.vfolder_max_limit.value?0:parseInt(this.vfolder_max_limit.value),Object.keys(e).map(t=>{isNaN(parseFloat(e[t]))&&delete e[t]}),{default_for_unspecified:"UNLIMITED",total_resource_slots:JSON.stringify(e),max_concurrent_sessions:this.concurrency_limit.value,max_containers_per_session:this.container_per_session_limit.value,idle_timeout:this.idle_timeout.value,max_vfolder_count:this.vfolder_max_limit.value,max_vfolder_size:this.vfolder_capacity.value,allowed_vfolder_hosts:t}}_modifyResourcePolicy(){let e=this.shadowRoot.querySelector("#id_new_policy_name"),t=e.value;if(e.checkValidity())try{let e=this._readResourcePolicyInput();globalThis.backendaiclient.resourcePolicy.mutate(t,e).then(({modify_keypair_resource_policy:e})=>{e.ok&&(this.shadowRoot.querySelector("#modify-policy-dialog").hide(),this.notification.text="Resource policy successfully updated.",this.notification.show(),this.refresh())}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#modify-policy-dialog").hide(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}catch(e){this.notification.text=e.message,this.notification.show()}else e.reportValidity()}_deleteKey(e){const t=e.target.closest("#controls").accessKey;globalThis.backendaiclient.keypair.delete(t).then(e=>{this.refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_toggleCheckbox(e){const t=e.target,i=t.checked,o=t.closest("div").querySelector("wl-textfield");o.disabled=i,o.disabled||""===o.value&&(o.value=0)}_validateResourceInput(e){const t=e.target.closest("wl-textfield"),i=t.closest("div").querySelector(".unlimited");let o;if(o=i?i.querySelector("wl-checkbox"):null,t.value<0&&(t.value=0),""===t.value)try{if(!o||!o.checked)throw t.required=!0,t.focus(),{message:"Please input value or check unlimited."};t.required=!1,t.value=""}catch(e){this.notification.text=e.message,this.notification.show()}}_validateUserInput(e){if(e.disabled)e.value="";else if(""===e.value)throw{message:"Cannot Update Resource Policy. Please check input values."}}_validatePolicyName(){let e=this.shadowRoot.querySelector("#id_new_policy_name");e.validityTransform=(t,i)=>{if(i.valid){let i=this.resource_policy_names;i=i.filter(e=>e!==this.current_policy_name);const o=!i.includes(t);return o||(e.validationMessage="Policy Name Already Exists!"),{valid:o,customError:!o}}return i.patternMismatch?(e.validationMessage="Allows letters, numbers and -_.",{valid:i.valid,patternMismatch:!i.valid}):i.valueMissing?(e.validationMessage="Policy name is Required.",{valid:i.valid,valueMissing:!i.valid}):(e.validationMessage="Allows letters, numbers and -_.",{valid:i.valid,badInput:!i.valid})}}_updateInputStatus(e){let t=e,i=t.closest("div").querySelector("wl-checkbox");""===t.value||"0"===t.value?(t.disabled=!0,i.checked=!0):(t.disabled=!1,i.checked=!1)}_markIfUnlimited(e){return["-",0,"0","Unlimited",1/0,"Infinity"].includes(e)?"∞":["NaN",NaN].includes(e)?"-":e}_getResourceInfo(){this.cpu_resource=this.shadowRoot.querySelector("#cpu-resource"),this.ram_resource=this.shadowRoot.querySelector("#ram-resource"),this.gpu_resource=this.shadowRoot.querySelector("#gpu-resource"),this.fgpu_resource=this.shadowRoot.querySelector("#fgpu-resource"),this.concurrency_limit=this.shadowRoot.querySelector("#concurrency-limit"),this.idle_timeout=this.shadowRoot.querySelector("#idle-timeout"),this.container_per_session_limit=this.shadowRoot.querySelector("#container-per-session-limit"),this.vfolder_capacity=this.shadowRoot.querySelector("#vfolder-capacity-limit"),this.vfolder_max_limit=this.shadowRoot.querySelector("#vfolder-count-limit")}};e([t({type:Boolean})],v.prototype,"visible",void 0),e([t({type:Object})],v.prototype,"keypairs",void 0),e([t({type:Object})],v.prototype,"resourcePolicy",void 0),e([t({type:Object})],v.prototype,"keypairInfo",void 0),e([t({type:Boolean})],v.prototype,"is_admin",void 0),e([t({type:Boolean})],v.prototype,"active",void 0),e([t({type:String})],v.prototype,"condition",void 0),e([t({type:Object})],v.prototype,"cpu_resource",void 0),e([t({type:Object})],v.prototype,"ram_resource",void 0),e([t({type:Object})],v.prototype,"gpu_resource",void 0),e([t({type:Object})],v.prototype,"fgpu_resource",void 0),e([t({type:Object})],v.prototype,"concurrency_limit",void 0),e([t({type:Object})],v.prototype,"idle_timeout",void 0),e([t({type:Object})],v.prototype,"vfolder_capacity",void 0),e([t({type:Object})],v.prototype,"vfolder_max_limit",void 0),e([t({type:Object})],v.prototype,"container_per_session_limit",void 0),e([t({type:Array})],v.prototype,"allowed_vfolder_hosts",void 0),e([t({type:String})],v.prototype,"default_vfolder_host",void 0),e([t({type:Array})],v.prototype,"resource_policy_names",void 0),e([t({type:String})],v.prototype,"current_policy_name",void 0),e([t({type:Object})],v.prototype,"_boundResourceRenderer",void 0),e([t({type:Object})],v.prototype,"_boundControlRenderer",void 0),v=e([i("backend-ai-resource-policy-list")],v);
-/**
- @license
- Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */
-let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,this.users=Object(),this.userView=Object(),this.userInfo=Object(),this.userInfoGroups=Array(),this.condition="active",this._boundControlRenderer=this.controlRenderer.bind(this),this.signoutUserDialog=Object(),this.signoutUserName="",this.notification=Object(),this._pageSize=20,this.userGrid=Object(),this._currentPage=1,this._totalUserCount=0}static get styles(){return[a,s,l,r,n,c`
+    `,e)}firstUpdated(){this.notification=globalThis.lablupNotification,this._validatePolicyName()}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._refreshPolicyData(),this._getResourceInfo(),this.is_admin=globalThis.backendaiclient.is_admin,this._getResourceInfo()},!0):(this._refreshPolicyData(),this._getResourceInfo(),this.is_admin=globalThis.backendaiclient.is_admin,this._getResourceInfo()))}_launchResourcePolicyDialog(e){this.updateCurrentPolicyToDialog(e),this.shadowRoot.querySelector("#id_new_policy_name").mdcFoundation.setValid(!0),this.shadowRoot.querySelector("#id_new_policy_name").isUiValid=!0,this.shadowRoot.querySelector("#modify-policy-dialog").show()}updateCurrentPolicyToDialog(e){const t=e.target.closest("#controls")["policy-name"];let i=globalThis.backendaiclient.utils.gqlToObject(this.resourcePolicy,"name");this.resource_policy_names=Object.keys(i);let o=i[t];this.shadowRoot.querySelector("#id_new_policy_name").value=t,this.current_policy_name=t,this.cpu_resource.value=o.total_resource_slots.cpu,this.ram_resource.value=o.total_resource_slots.mem,this.gpu_resource.value=o.total_resource_slots.cuda_device,this.fgpu_resource.value=o.total_resource_slots.cuda_shares,this.concurrency_limit.value=o.max_concurrent_sessions,this.idle_timeout.value=o.idle_timeout,this.container_per_session_limit.value=o.max_containers_per_session,this.vfolder_capacity.value=o.max_vfolder_size,this._updateInputStatus(this.cpu_resource),this._updateInputStatus(this.ram_resource),this._updateInputStatus(this.gpu_resource),this._updateInputStatus(this.fgpu_resource),this._updateInputStatus(this.concurrency_limit),this._updateInputStatus(this.idle_timeout),this._updateInputStatus(this.container_per_session_limit),this._updateInputStatus(this.vfolder_capacity),this.shadowRoot.querySelector("#vfolder-count-limit").value=o.max_vfolder_count,this.shadowRoot.querySelector("#vfolder-capacity-limit").value=o.max_vfolder_size,this.shadowRoot.querySelector("#allowed_vfolder-hosts").value=o.allowed_vfolder_hosts[0]}_refreshPolicyData(){return globalThis.backendaiclient.resourcePolicy.get().then(e=>e.keypair_resource_policies).then(e=>{let t=e;Object.keys(t).map((e,i)=>{var o=t[e];o.total_resource_slots=JSON.parse(o.total_resource_slots),"cpu"in o.total_resource_slots||"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cpu="Unlimited"),"mem"in o.total_resource_slots?o.total_resource_slots.mem=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(o.total_resource_slots.mem,"g")):"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.mem="Unlimited"),"cuda.device"in o.total_resource_slots?0===o.total_resource_slots["cuda.device"]&&"UNLIMITED"===o.default_for_unspecified?o.total_resource_slots.cuda_device="Unlimited":o.total_resource_slots.cuda_device=o.total_resource_slots["cuda.device"]:"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cuda_device="Unlimited"),"cuda.shares"in o.total_resource_slots?0===o.total_resource_slots["cuda.shares"]&&"UNLIMITED"===o.default_for_unspecified?o.total_resource_slots.cuda_shares="Unlimited":o.total_resource_slots.cuda_shares=o.total_resource_slots["cuda.shares"]:"UNLIMITED"===o.default_for_unspecified&&(o.total_resource_slots.cuda_shares="Unlimited")}),this.resourcePolicy=t}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}refresh(){this._refreshPolicyData()}_isActive(){return"active"===this.condition}_readResourcePolicyInput(){let e={},t=[];t.push(this.shadowRoot.querySelector("#allowed_vfolder-hosts").value);try{this._validateUserInput(this.cpu_resource),this._validateUserInput(this.ram_resource),this._validateUserInput(this.gpu_resource),this._validateUserInput(this.fgpu_resource),this._validateUserInput(this.concurrency_limit),this._validateUserInput(this.idle_timeout),this._validateUserInput(this.container_per_session_limit),this._validateUserInput(this.vfolder_capacity),this._validateUserInput(this.vfolder_max_limit)}catch(e){throw e}return e.cpu=this.cpu_resource.value,e.mem=this.ram_resource.value+"g",e["cuda.device"]=parseInt(this.gpu_resource.value),e["cuda.shares"]=parseFloat(this.fgpu_resource.value),this.concurrency_limit.value=""===this.concurrency_limit.value?0:parseInt(this.concurrency_limit.value),this.idle_timeout.value=""===this.idle_timeout.value?0:parseInt(this.idle_timeout.value),this.container_per_session_limit.value=""===this.container_per_session_limit.value?0:parseInt(this.container_per_session_limit.value),this.vfolder_capacity.value=""===this.vfolder_capacity.value?0:parseInt(this.vfolder_capacity.value),this.vfolder_max_limit.value=""===this.vfolder_max_limit.value?0:parseInt(this.vfolder_max_limit.value),Object.keys(e).map(t=>{isNaN(parseFloat(e[t]))&&delete e[t]}),{default_for_unspecified:"UNLIMITED",total_resource_slots:JSON.stringify(e),max_concurrent_sessions:this.concurrency_limit.value,max_containers_per_session:this.container_per_session_limit.value,idle_timeout:this.idle_timeout.value,max_vfolder_count:this.vfolder_max_limit.value,max_vfolder_size:this.vfolder_capacity.value,allowed_vfolder_hosts:t}}_modifyResourcePolicy(){let e=this.shadowRoot.querySelector("#id_new_policy_name"),t=e.value;if(e.checkValidity())try{let e=this._readResourcePolicyInput();globalThis.backendaiclient.resourcePolicy.mutate(t,e).then(({modify_keypair_resource_policy:e})=>{e.ok&&(this.shadowRoot.querySelector("#modify-policy-dialog").hide(),this.notification.text="Resource policy successfully updated.",this.notification.show(),this.refresh())}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#modify-policy-dialog").hide(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}catch(e){this.notification.text=e.message,this.notification.show()}else e.reportValidity()}_deleteKey(e){const t=e.target.closest("#controls").accessKey;globalThis.backendaiclient.keypair.delete(t).then(e=>{this.refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_toggleCheckbox(e){const t=e.target,i=t.checked,o=t.closest("div").querySelector("wl-textfield");o.disabled=i,o.disabled||""===o.value&&(o.value=0)}_validateResourceInput(e){const t=e.target.closest("wl-textfield"),i=t.closest("div").querySelector(".unlimited");let o;if(o=i?i.querySelector("wl-checkbox"):null,t.value<0&&(t.value=0),""===t.value)try{if(!o||!o.checked)throw t.required=!0,t.focus(),{message:"Please input value or check unlimited."};t.required=!1,t.value=""}catch(e){this.notification.text=e.message,this.notification.show()}}_validateUserInput(e){if(e.disabled)e.value="";else if(""===e.value)throw{message:"Cannot Update Resource Policy. Please check input values."}}_validatePolicyName(){let e=this.shadowRoot.querySelector("#id_new_policy_name");e.validityTransform=(t,i)=>{if(i.valid){let i=this.resource_policy_names;i=i.filter(e=>e!==this.current_policy_name);const o=!i.includes(t);return o||(e.validationMessage="Policy Name Already Exists!"),{valid:o,customError:!o}}return i.patternMismatch?(e.validationMessage="Allows letters, numbers and -_.",{valid:i.valid,patternMismatch:!i.valid}):i.valueMissing?(e.validationMessage="Policy name is Required.",{valid:i.valid,valueMissing:!i.valid}):(e.validationMessage="Allows letters, numbers and -_.",{valid:i.valid,badInput:!i.valid})}}_updateInputStatus(e){let t=e,i=t.closest("div").querySelector("wl-checkbox");""===t.value||"0"===t.value?(t.disabled=!0,i.checked=!0):(t.disabled=!1,i.checked=!1)}_markIfUnlimited(e){return["-",0,"0","Unlimited",1/0,"Infinity"].includes(e)?"∞":["NaN",NaN].includes(e)?"-":e}_getResourceInfo(){this.cpu_resource=this.shadowRoot.querySelector("#cpu-resource"),this.ram_resource=this.shadowRoot.querySelector("#ram-resource"),this.gpu_resource=this.shadowRoot.querySelector("#gpu-resource"),this.fgpu_resource=this.shadowRoot.querySelector("#fgpu-resource"),this.concurrency_limit=this.shadowRoot.querySelector("#concurrency-limit"),this.idle_timeout=this.shadowRoot.querySelector("#idle-timeout"),this.container_per_session_limit=this.shadowRoot.querySelector("#container-per-session-limit"),this.vfolder_capacity=this.shadowRoot.querySelector("#vfolder-capacity-limit"),this.vfolder_max_limit=this.shadowRoot.querySelector("#vfolder-count-limit")}};e([t({type:Boolean})],y.prototype,"visible",void 0),e([t({type:Object})],y.prototype,"keypairs",void 0),e([t({type:Object})],y.prototype,"resourcePolicy",void 0),e([t({type:Object})],y.prototype,"keypairInfo",void 0),e([t({type:Boolean})],y.prototype,"is_admin",void 0),e([t({type:Boolean})],y.prototype,"active",void 0),e([t({type:String})],y.prototype,"condition",void 0),e([t({type:Object})],y.prototype,"cpu_resource",void 0),e([t({type:Object})],y.prototype,"ram_resource",void 0),e([t({type:Object})],y.prototype,"gpu_resource",void 0),e([t({type:Object})],y.prototype,"fgpu_resource",void 0),e([t({type:Object})],y.prototype,"concurrency_limit",void 0),e([t({type:Object})],y.prototype,"idle_timeout",void 0),e([t({type:Object})],y.prototype,"vfolder_capacity",void 0),e([t({type:Object})],y.prototype,"vfolder_max_limit",void 0),e([t({type:Object})],y.prototype,"container_per_session_limit",void 0),e([t({type:Array})],y.prototype,"allowed_vfolder_hosts",void 0),e([t({type:String})],y.prototype,"default_vfolder_host",void 0),e([t({type:Array})],y.prototype,"resource_policy_names",void 0),e([t({type:String})],y.prototype,"current_policy_name",void 0),e([t({type:Object})],y.prototype,"_boundResourceRenderer",void 0),e([t({type:Object})],y.prototype,"_boundControlRenderer",void 0),y=e([i("backend-ai-resource-policy-list")],y);let g=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,this.users=Object(),this.userView=Object(),this.userInfo=Object(),this.userInfoGroups=Array(),this.condition="active",this._boundControlRenderer=this.controlRenderer.bind(this),this.signoutUserDialog=Object(),this.signoutUserName="",this.notification=Object(),this._pageSize=20,this.userGrid=Object(),this._currentPage=1,this._totalUserCount=0}static get styles(){return[a,s,l,r,n,c`
         vaadin-grid {
           border: 0;
           font-size: 14px;
@@ -788,21 +779,21 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                    aria-label="User list" id="user-grid" .items="${this.userView}">
         <vaadin-grid-column width="40px" flex-grow="0" header="#"
                             .renderer="${this._indexRenderer}"></vaadin-grid-column>
-        <vaadin-grid-sort-column resizable header="User ID" path="email">
+        <vaadin-grid-sort-column resizable header="${p("credential.UserID")}" path="email">
           <template>
             <div class="layout horizontal center flex">
               <div>[[item.email]]</div>
             </div>
           </template>
         </vaadin-grid-sort-column>
-        <vaadin-grid-sort-column resizable header="Name" path="username">
+        <vaadin-grid-sort-column resizable header="${p("credential.Name")}" path="username">
           <template>
             <div class="layout horizontal center flex">
               <div>[[item.username]]</div>
             </div>
           </template>
         </vaadin-grid-sort-column>
-        <vaadin-grid-column resizable header="Control" .renderer="${this._boundControlRenderer}">
+        <vaadin-grid-column resizable header="${p("general.Control")}" .renderer="${this._boundControlRenderer}">
         </vaadin-grid-column>
       </vaadin-grid>
       <div class="horizontal center-justified layout flex" style="padding: 10px;">
@@ -822,17 +813,17 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
       <wl-dialog id="signout-user-dialog" fixed backdrop blockscrolling>
          <wl-title level="3" slot="header">Let's double-check</wl-title>
          <div slot="content">
-            <p>You are inactivating the user <span style="color:red">${this.signoutUserName}</span>. Do you want to proceed?</p>
+            <p>You are inactivating the user <span style="color:red">${this.signoutUserName}</span>. ${p("dialog.ask.DoYouWantToProceed")}</p>
          </div>
          <div slot="footer">
-            <wl-button class="cancel" inverted flat @click="${e=>this._hideDialog(e)}">Cancel</wl-button>
-            <wl-button class="ok" @click="${()=>this._signoutUser()}">Okay</wl-button>
+            <wl-button class="cancel" inverted flat @click="${e=>this._hideDialog(e)}">${p("button.Cancel")}</wl-button>
+            <wl-button class="ok" @click="${()=>this._signoutUser()}">${p("button.Okay")}</wl-button>
          </div>
       </wl-dialog>
       <wl-dialog id="user-info-dialog" fixed backdrop blockscrolling>
         <wl-card elevation="0" class="intro" style="margin: 0;">
           <h3 class="horizontal center layout" style="border-bottom:1px solid #ddd;">
-            <span style="margin-right:15px;">User Detail</span>
+            <span style="margin-right:15px;">${p("credential.UserDetail")}</span>
             <lablup-shields app="" description="user" ui="flat"></lablup-shields>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
@@ -841,35 +832,35 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
           </h3>
           <div class="horizontal layout">
             <div style="width:335px;">
-              <h4>Information</h4>
+              <h4>${p("credential.Information")}</h4>
               <div role="listbox" style="margin: 0;">
                 <wl-textfield
-                  label="User ID"
+                  label="${p("credential.UserID")}"
                   disabled
                   value="${this.userInfo.email}">
                 </wl-textfield>
                 <wl-textfield
-                  label="User name"
+                  label="${p("credential.UserName")}"
                   id="username"
                   ?disabled=${!this.editMode}
                   value="${this.userInfo.username}">
                 </wl-textfield>
                 <wl-textfield
-                  label="Full name"
+                  label="${p("credential.FullName")}"
                   id="full_name"
                   ?disabled=${!this.editMode}
                   value="${this.userInfo.full_name?this.userInfo.full_name:" "}">
                 </wl-textfield>
                 ${this.editMode?h`
-                            <wl-textfield type="password" label="New Password" id="password"></wl-textfield>
-                            <wl-textfield type="password" label="Confirm" id="confirm"></wl-textfield>`:h``}
-                <wl-textarea label="Description" id="description"
+                            <wl-textfield type="password" label="${p("general.NewPassword")}" id="password"></wl-textfield>
+                            <wl-textfield type="password" label="${p("general.ConfirmPassword")}" id="confirm"></wl-textfield>`:h``}
+                <wl-textarea label="${p("credential.Description")}" id="description"
                              value="${this.userInfo.description?this.userInfo.description:" "}"
                              ?disabled=${!this.editMode}>
                 </wl-textarea>
                 ${this.editMode?h`
                   <wl-label label for="is_active_label" style="margin-bottom: auto">
-                    Active user?
+                   ${p("credential.DescActiveUser")}
                   </wl-label>
                   <wl-label label id="is_active_label">
                     <wl-switch
@@ -878,7 +869,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                     </wl-switch>
                   </wl-label>
                   <wl-label label for="need_password_change_label" style="margin-bottom: auto">
-                    Require password change?
+                    ${p("credential.DescRequirePasswordChange")}
                   </wl-label>
                   <wl-label label id="need_password_change_label">
                     <wl-switch id="need_password_change" ?checked=${this.userInfo.need_password_change}></wl-switch>
@@ -890,12 +881,12 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                     @click=${e=>this._saveChanges(e)}
                     style="width: 305px; margin: 0 15px 10px 15px; box-sizing: border-box;">
                     <wl-icon>check</wl-icon>
-                    Save Changes
+                    ${p("button.SaveChanges")}
                   </wl-button>`:h`
-                      <wl-textfield label="Active user?" disabled
+                      <wl-textfield label="${p("credential.DescActiveUser")}" disabled
                                     value="${this.userInfo.is_active?"Yes":"No"}">
                       </wl-textfield>
-                      <wl-textfield label="Require password change?" disabled
+                      <wl-textfield label="${p("credential.DescRequirePasswordChange")}" disabled
                                     value="${this.userInfo.need_password_change?"Yes":"No"}">
                       </wl-textfield>
               `}
@@ -903,18 +894,18 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
           </div>
           ${this.editMode?h``:h`
             <div style="width:270px;">
-              <h4>Association</h4>
+              <h4>${p("credential.Association")}</h4>
               <div role="listbox" style="margin: 0;">
                 <vaadin-item>
-                  <div><strong>Domain</strong></div>
+                  <div><strong>${p("credential.Domain")}</strong></div>
                   <div secondary>${this.userInfo.domain_name}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Role</strong></div>
+                  <div><strong>${p("credential.Role")}</strong></div>
                   <div secondary>${this.userInfo.role}</div>
                 </vaadin-item>
                 <vaadin-item>
-                  <div><strong>Groups</strong></div>
+                  <div><strong>${p("credential.Groups")}</strong></div>
                   <div secondary>
                     <ul>
                     ${this.userInfoGroups.map(e=>h`
@@ -929,7 +920,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
           </div>
         </wl-card>
       </wl-dialog>
-    `}};e([t({type:Boolean})],m.prototype,"isAdmin",void 0),e([t({type:Boolean})],m.prototype,"editMode",void 0),e([t({type:Object})],m.prototype,"users",void 0),e([t({type:Object})],m.prototype,"userView",void 0),e([t({type:Object})],m.prototype,"userInfo",void 0),e([t({type:Array})],m.prototype,"userInfoGroups",void 0),e([t({type:String})],m.prototype,"condition",void 0),e([t({type:Object})],m.prototype,"_boundControlRenderer",void 0),e([t({type:Object})],m.prototype,"indicator",void 0),e([t({type:Object})],m.prototype,"keypairs",void 0),e([t({type:Object})],m.prototype,"signoutUserDialog",void 0),e([t({type:String})],m.prototype,"signoutUserName",void 0),e([t({type:Object})],m.prototype,"notification",void 0),e([t({type:Number})],m.prototype,"_pageSize",void 0),e([t({type:Object})],m.prototype,"userGrid",void 0),e([t({type:Number})],m.prototype,"_currentPage",void 0),e([t({type:Number})],m.prototype,"_totalUserCount",void 0),m=e([i("backend-ai-user-list")],m);let y=class extends o{constructor(){super(),this.cpu_resource={},this.ram_resource={},this.gpu_resource={},this.fgpu_resource={},this.concurrency_limit={},this.idle_timeout={},this.vfolder_capacity={},this.vfolder_max_limit={},this.container_per_session_limit={},this.rate_metric=[1e3,2e3,3e3,4e3,5e3,1e4,5e4],this.resource_policies=Object(),this.resource_policy_names=Array(),this.isAdmin=!1,this._status="inactive",this.allowed_vfolder_hosts=Array(),this.default_vfolder_host="",this.use_user_list=!1,this.new_access_key="",this.new_secret_key="",this._activeTab="users",this.notification=Object(),this.exportToCsvDialog=Object(),this._defaultFileName=""}static get styles(){return[a,s,l,r,n,c`
+    `}};e([t({type:Boolean})],g.prototype,"isAdmin",void 0),e([t({type:Boolean})],g.prototype,"editMode",void 0),e([t({type:Object})],g.prototype,"users",void 0),e([t({type:Object})],g.prototype,"userView",void 0),e([t({type:Object})],g.prototype,"userInfo",void 0),e([t({type:Array})],g.prototype,"userInfoGroups",void 0),e([t({type:String})],g.prototype,"condition",void 0),e([t({type:Object})],g.prototype,"_boundControlRenderer",void 0),e([t({type:Object})],g.prototype,"indicator",void 0),e([t({type:Object})],g.prototype,"keypairs",void 0),e([t({type:Object})],g.prototype,"signoutUserDialog",void 0),e([t({type:String})],g.prototype,"signoutUserName",void 0),e([t({type:Object})],g.prototype,"notification",void 0),e([t({type:Number})],g.prototype,"_pageSize",void 0),e([t({type:Object})],g.prototype,"userGrid",void 0),e([t({type:Number})],g.prototype,"_currentPage",void 0),e([t({type:Number})],g.prototype,"_totalUserCount",void 0),g=e([i("backend-ai-user-list")],g);let w=class extends o{constructor(){super(),this.cpu_resource={},this.ram_resource={},this.gpu_resource={},this.fgpu_resource={},this.concurrency_limit={},this.idle_timeout={},this.vfolder_capacity={},this.vfolder_max_limit={},this.container_per_session_limit={},this.rate_metric=[1e3,2e3,3e3,4e3,5e3,1e4,5e4],this.resource_policies=Object(),this.resource_policy_names=Array(),this.isAdmin=!1,this._status="inactive",this.allowed_vfolder_hosts=Array(),this.default_vfolder_host="",this.use_user_list=!1,this.new_access_key="",this.new_secret_key="",this._activeTab="users",this.notification=Object(),this.exportToCsvDialog=Object(),this._defaultFileName=""}static get styles(){return[a,s,l,r,n,c`
         wl-button.create-button {
           width: 335px;
         }
@@ -1074,15 +1065,15 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
         mwc-icon-button#dropdown-menu-button {
           margin-left: 10px;
         }
-      `]}firstUpdated(){this.notification=globalThis.lablupNotification,document.addEventListener("backend-ai-credential-refresh",()=>{this.shadowRoot.querySelector("#active-credential-list").refresh(),this.shadowRoot.querySelector("#inactive-credential-list").refresh()},!0),this.shadowRoot.querySelectorAll("wl-expansion").forEach(e=>{e.addEventListener("keydown",e=>{e.stopPropagation()},!0)}),void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._preparePage()}):this._preparePage()}_preparePage(){!0!==globalThis.backendaiclient.is_admin?this.disablePage():this.isAdmin=!0,!0===globalThis.backendaiclient.isAPIVersionCompatibleWith("v4.20190601")?(this.use_user_list=!0,this._activeTab="user-lists"):this.use_user_list=!1,this._addValidatorToPolicyInput(),this._getResourceInfo(),this._getResourcePolicies(),this._updateInputStatus(this.cpu_resource),this._updateInputStatus(this.ram_resource),this._updateInputStatus(this.gpu_resource),this._updateInputStatus(this.fgpu_resource),this._updateInputStatus(this.concurrency_limit),this._updateInputStatus(this.idle_timeout),this._updateInputStatus(this.container_per_session_limit),this._updateInputStatus(this.vfolder_capacity),this.vfolder_max_limit.value=10,this.exportToCsvDialog=this.shadowRoot.querySelector("#export-to-csv"),this._defaultFileName=this._getDefaultCSVFileName()}async _viewStateChanged(e){if(await this.updateComplete,!1===e)return this.shadowRoot.querySelector("#resource-policy-list").active=!1,this.shadowRoot.querySelector("#user-list").active=!1,void(this._status="inactive");this.shadowRoot.querySelector("#resource-policy-list").active=!0,this.shadowRoot.querySelector("#user-list").active=!0,this._status="active"}async _launchKeyPairDialog(){await this._getResourcePolicies(),this.shadowRoot.querySelector("#new-keypair-dialog").show()}_readVFolderHostInfo(){globalThis.backendaiclient.vfolder.list_hosts().then(e=>{this.allowed_vfolder_hosts=e.allowed,this.default_vfolder_host=e.default}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_launchResourcePolicyDialog(){this._readVFolderHostInfo(),this.shadowRoot.querySelector("#id_new_policy_name").mdcFoundation.setValid(!0),this.shadowRoot.querySelector("#id_new_policy_name").isUiValid=!0,this.shadowRoot.querySelector("#id_new_policy_name").value="",this.shadowRoot.querySelector("#new-policy-dialog").show()}_launchModifyResourcePolicyDialog(){this._readVFolderHostInfo(),this.shadowRoot.querySelector("#new-policy-dialog").show()}_launchUserAddDialog(){this.shadowRoot.querySelector("#new-user-dialog").show()}async _getResourcePolicies(){return globalThis.backendaiclient.resourcePolicy.get(null,["name","default_for_unspecified","total_resource_slots","max_concurrent_sessions","max_containers_per_session"]).then(e=>{let t=globalThis.backendaiclient.utils.gqlToObject(e.keypair_resource_policies,"name"),i=globalThis.backendaiclient.utils.gqlToList(e.keypair_resource_policies,"name");this.resource_policies=t,this.resource_policy_names=i})}_addKeyPair(){let e;if(""!=this.shadowRoot.querySelector("#id_new_user_id").value){if(1==this.shadowRoot.querySelector("#id_new_user_id").invalid)return;e=this.shadowRoot.querySelector("#id_new_user_id").value}else e=globalThis.backendaiclient.email;let t=this.shadowRoot.querySelector("#resource-policy").value,i=this.shadowRoot.querySelector("#rate-limit").value,o=this.shadowRoot.querySelector("#id_new_access_key").value,a=this.shadowRoot.querySelector("#id_new_secret_key").value;globalThis.backendaiclient.keypair.add(e,!0,!1,t,i,o,a).then(e=>{this.shadowRoot.querySelector("#new-keypair-dialog").hide(),this.notification.text="Keypair successfully created.",this.notification.show(),this.shadowRoot.querySelector("#active-credential-list").refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#new-keypair-dialog").hide(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_readResourcePolicyInput(){let e={},t=[];t.push(this.shadowRoot.querySelector("#allowed_vfolder-hosts").value);try{this._validateUserInput(this.cpu_resource),this._validateUserInput(this.ram_resource),this._validateUserInput(this.gpu_resource),this._validateUserInput(this.fgpu_resource),this._validateUserInput(this.concurrency_limit),this._validateUserInput(this.idle_timeout),this._validateUserInput(this.container_per_session_limit),this._validateUserInput(this.vfolder_capacity),this._validateUserInput(this.vfolder_max_limit)}catch(e){throw e}return e.cpu=this.cpu_resource.value,e.mem=this.ram_resource.value+"g",e["cuda.device"]=parseInt(this.gpu_resource.value),e["cuda.shares"]=parseFloat(this.fgpu_resource.value),this.concurrency_limit.value=""===this.concurrency_limit.value?0:parseInt(this.concurrency_limit.value),this.idle_timeout.value=""===this.idle_timeout.value?0:parseInt(this.idle_timeout.value),this.container_per_session_limit.value=""===this.container_per_session_limit.value?0:parseInt(this.container_per_session_limit.value),this.vfolder_capacity.value=""===this.vfolder_capacity.value?0:parseInt(this.vfolder_capacity.value),this.vfolder_max_limit.value=""===this.vfolder_max_limit.value?0:parseInt(this.vfolder_max_limit.value),Object.keys(e).map(t=>{isNaN(parseFloat(e[t]))&&delete e[t]}),{default_for_unspecified:"UNLIMITED",total_resource_slots:JSON.stringify(e),max_concurrent_sessions:this.concurrency_limit.value,max_containers_per_session:this.container_per_session_limit.value,idle_timeout:this.idle_timeout.value,max_vfolder_count:this.vfolder_max_limit.value,max_vfolder_size:this.vfolder_capacity.value,allowed_vfolder_hosts:t}}_addResourcePolicy(){let e=this.shadowRoot.querySelector("#id_new_policy_name");if(e.checkValidity())try{let e=this.shadowRoot.querySelector("#id_new_policy_name");e.checkValidity();let t=e.value;if(""===t)throw{message:"Policy name should not be empty"};let i=this._readResourcePolicyInput();globalThis.backendaiclient.resourcePolicy.add(t,i).then(e=>{this.shadowRoot.querySelector("#new-policy-dialog").hide(),this.notification.text="Resource policy successfully created.",this.notification.show(),this.shadowRoot.querySelector("#resource-policy-list").refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#new-policy-dialog").hide(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}catch(e){this.notification.text=e.message,this.notification.show()}else e.reportValidity()}_addUser(){const e=this.shadowRoot.querySelector("#id_user_email").value,t=this.shadowRoot.querySelector("#id_user_name").value,i=this.shadowRoot.querySelector("#id_user_password").value,o=this.shadowRoot.querySelector("#id_user_confirm").value;if(""===e)return this.notification.text="Please Input User Id(Email)!",void this.notification.show();if(this.shadowRoot.querySelector("#id_user_email").hasAttribute("invalid"))return this.notification.text="Email Is Invalid!",void this.notification.show();if(""===t)return this.notification.text="Username Is Empty!",void this.notification.show();if(null!==this.shadowRoot.querySelector("#id_user_password").getAttribute("invalid"))return this.notification.text="Password must contain at least one alphabet, one digit, and one special character",void this.notification.show();if(""===i)return this.notification.text="Password Is Empty!",void this.notification.show();if(i!==o)return this.notification.text="Confirmation Does Not Match With Original Password!",void this.notification.show();const a={username:t,password:i,need_password_change:!1,full_name:t,description:`${t}'s Account`,is_active:!0,domain_name:"default",role:"user"};globalThis.backendaiclient.group.list().then(t=>{const i=t.groups.find(e=>"default"===e.name).id;return Promise.resolve(globalThis.backendaiclient.user.add(e,Object.assign(Object.assign({},a),{group_ids:[i]})))}).then(e=>{this.shadowRoot.querySelector("#new-user-dialog").hide(),e.create_user.ok?(this.notification.text="User successfully created",this.shadowRoot.querySelector("#user-list").refresh()):(console.error(e.create_user.msg),this.notification.text="Error on user creation"),this.notification.show(),this.shadowRoot.querySelector("#id_user_email").value="",this.shadowRoot.querySelector("#id_user_name").value="",this.shadowRoot.querySelector("#id_user_password").value="",this.shadowRoot.querySelector("#id_user_confirm").value=""})}_modifyResourcePolicy(){let e=this.shadowRoot.querySelector("#id_new_policy_name").value;try{let t=this._readResourcePolicyInput();globalThis.backendaiclient.resourcePolicy.mutate(e,t).then(e=>{this.shadowRoot.querySelector("#new-policy-dialog").close(),this.notification.text="Resource policy successfully updated.",this.notification.show(),this.shadowRoot.querySelector("#resource-policy-list").refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#new-policy-dialog").close(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}catch(e){this.notification.text=e.message,this.notification.show()}}disablePage(){for(var e=this.shadowRoot.querySelectorAll(".admin"),t=0;t<e.length;t++)e[t].style.display="none"}_hideDialog(e){e.target.closest("wl-dialog").hide()}_showTab(e){for(var t=this.shadowRoot.querySelectorAll(".tab-content"),i=0;i<t.length;i++)t[i].style.display="none";this._activeTab=e.value,this.shadowRoot.querySelector("#"+e.value).style.display="block"}_toggleCheckbox(e){const t=e.target,i=t.checked,o=t.closest("div").querySelector("wl-textfield");o.disabled=i,o.disabled||""===o.value&&(o.value=0)}_validateResourceInput(e){const t=e.target.closest("wl-textfield"),i=t.closest("div").querySelector(".unlimited");let o;if(o=i?i.querySelector("wl-checkbox"):null,t.value<0&&(t.value=0),""===t.value)try{if(!o||!o.checked)throw t.required=!0,t.focus(),{message:"Please input value or check unlimited."};t.required=!1,t.value=""}catch(e){this.notification.text=e.message,this.notification.show()}}_validateUserInput(e){if(e.disabled)e.value="";else if(""===e.value)throw{message:"Cannot create Resource Policy. Please check input values."}}_addValidatorToPolicyInput(){let e=this.shadowRoot.querySelector("#id_new_policy_name");e.validityTransform=(t,i)=>{if(!i)return e.validationMessage="Policy name Required.",{valid:!1,valueMissing:!0};if(i.valid){const i=!this.resource_policy_names.includes(t);return i||(e.validationMessage="Policy Name Already Exists!"),{valid:i,customError:!i}}return i.patternMismatch?(e.validationMessage="Allows letters, numbers and -_.",{valid:i.valid,patternMismatch:!i.valid}):i.valueMissing?(e.validationMessage="Policy name Required.",{valid:i.valid,valueMissing:!i.valid}):(e.validationMessage="Allows letters, numbers and -_.",{valid:i.valid,patternMismatch:!i.valid})}}_updateInputStatus(e){let t=e,i=t.closest("div").querySelector("wl-checkbox");""===t.value||"0"===t.value?(t.disabled=!0,i.checked=!0):(t.disabled=!1,i.checked=!1)}_openExportToCsvDialog(){this._defaultFileName=this._getDefaultCSVFileName(),this.exportToCsvDialog.show()}_exportToCSV(){let e=this.shadowRoot.querySelector("#export-file-name");if(e.validity.valid){switch(this._activeTab){case"user-lists":let t=this.shadowRoot.querySelector("#user-list").users;t.map(e=>{["password","need_password_change"].forEach(t=>delete e[t])}),p.exportToCsv(e.value,t);break;case"credential-lists":let i=this.shadowRoot.querySelector("#active-credential-list").keypairs,o=this.shadowRoot.querySelector("#inactive-credential-list").keypairs,a=i.concat(o);a.map(e=>{["is_admin"].forEach(t=>delete e[t])}),p.exportToCsv(e.value,a);break;case"resource-policy-lists":let s=this.shadowRoot.querySelector("#resource-policy-list").resourcePolicy;p.exportToCsv(e.value,s)}this.notification.text="Downloading CSV file...",this.notification.show(),this.exportToCsvDialog.hide()}}_getResourceInfo(){this.cpu_resource=this.shadowRoot.querySelector("#cpu-resource"),this.ram_resource=this.shadowRoot.querySelector("#ram-resource"),this.gpu_resource=this.shadowRoot.querySelector("#gpu-resource"),this.fgpu_resource=this.shadowRoot.querySelector("#fgpu-resource"),this.concurrency_limit=this.shadowRoot.querySelector("#concurrency-limit"),this.idle_timeout=this.shadowRoot.querySelector("#idle-timeout"),this.container_per_session_limit=this.shadowRoot.querySelector("#container-per-session-limit"),this.vfolder_capacity=this.shadowRoot.querySelector("#vfolder-capacity-limit"),this.vfolder_max_limit=this.shadowRoot.querySelector("#vfolder-count-limit")}_getDefaultCSVFileName(){return(new Date).toISOString().substring(0,10)+"_"+(new Date).toTimeString().slice(0,8).replace(/:/gi,"-")}_toggleDropdown(){let e=this.shadowRoot.querySelector("#dropdown-menu");e.open=!e.open,this.exportToCsvDialog.open&&(e.open=!1)}render(){return h`
+      `]}firstUpdated(){this.notification=globalThis.lablupNotification,document.addEventListener("backend-ai-credential-refresh",()=>{this.shadowRoot.querySelector("#active-credential-list").refresh(),this.shadowRoot.querySelector("#inactive-credential-list").refresh()},!0),this.shadowRoot.querySelectorAll("wl-expansion").forEach(e=>{e.addEventListener("keydown",e=>{e.stopPropagation()},!0)}),void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._preparePage()}):this._preparePage()}_preparePage(){!0!==globalThis.backendaiclient.is_admin?this.disablePage():this.isAdmin=!0,!0===globalThis.backendaiclient.isAPIVersionCompatibleWith("v4.20190601")?(this.use_user_list=!0,this._activeTab="user-lists"):this.use_user_list=!1,this._addValidatorToPolicyInput(),this._getResourceInfo(),this._getResourcePolicies(),this._updateInputStatus(this.cpu_resource),this._updateInputStatus(this.ram_resource),this._updateInputStatus(this.gpu_resource),this._updateInputStatus(this.fgpu_resource),this._updateInputStatus(this.concurrency_limit),this._updateInputStatus(this.idle_timeout),this._updateInputStatus(this.container_per_session_limit),this._updateInputStatus(this.vfolder_capacity),this.vfolder_max_limit.value=10,this.exportToCsvDialog=this.shadowRoot.querySelector("#export-to-csv"),this._defaultFileName=this._getDefaultCSVFileName()}async _viewStateChanged(e){if(await this.updateComplete,!1===e)return this.shadowRoot.querySelector("#resource-policy-list").active=!1,this.shadowRoot.querySelector("#user-list").active=!1,void(this._status="inactive");this.shadowRoot.querySelector("#resource-policy-list").active=!0,this.shadowRoot.querySelector("#user-list").active=!0,this._status="active"}async _launchKeyPairDialog(){await this._getResourcePolicies(),this.shadowRoot.querySelector("#new-keypair-dialog").show()}_readVFolderHostInfo(){globalThis.backendaiclient.vfolder.list_hosts().then(e=>{this.allowed_vfolder_hosts=e.allowed,this.default_vfolder_host=e.default}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_launchResourcePolicyDialog(){this._readVFolderHostInfo(),this.shadowRoot.querySelector("#id_new_policy_name").mdcFoundation.setValid(!0),this.shadowRoot.querySelector("#id_new_policy_name").isUiValid=!0,this.shadowRoot.querySelector("#id_new_policy_name").value="",this.shadowRoot.querySelector("#new-policy-dialog").show()}_launchModifyResourcePolicyDialog(){this._readVFolderHostInfo(),this.shadowRoot.querySelector("#new-policy-dialog").show()}_launchUserAddDialog(){this.shadowRoot.querySelector("#new-user-dialog").show()}async _getResourcePolicies(){return globalThis.backendaiclient.resourcePolicy.get(null,["name","default_for_unspecified","total_resource_slots","max_concurrent_sessions","max_containers_per_session"]).then(e=>{let t=globalThis.backendaiclient.utils.gqlToObject(e.keypair_resource_policies,"name"),i=globalThis.backendaiclient.utils.gqlToList(e.keypair_resource_policies,"name");this.resource_policies=t,this.resource_policy_names=i})}_addKeyPair(){let e;if(""!=this.shadowRoot.querySelector("#id_new_user_id").value){if(1==this.shadowRoot.querySelector("#id_new_user_id").invalid)return;e=this.shadowRoot.querySelector("#id_new_user_id").value}else e=globalThis.backendaiclient.email;let t=this.shadowRoot.querySelector("#resource-policy").value,i=this.shadowRoot.querySelector("#rate-limit").value,o=this.shadowRoot.querySelector("#id_new_access_key").value,a=this.shadowRoot.querySelector("#id_new_secret_key").value;globalThis.backendaiclient.keypair.add(e,!0,!1,t,i,o,a).then(e=>{this.shadowRoot.querySelector("#new-keypair-dialog").hide(),this.notification.text="Keypair successfully created.",this.notification.show(),this.shadowRoot.querySelector("#active-credential-list").refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#new-keypair-dialog").hide(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_readResourcePolicyInput(){let e={},t=[];t.push(this.shadowRoot.querySelector("#allowed_vfolder-hosts").value);try{this._validateUserInput(this.cpu_resource),this._validateUserInput(this.ram_resource),this._validateUserInput(this.gpu_resource),this._validateUserInput(this.fgpu_resource),this._validateUserInput(this.concurrency_limit),this._validateUserInput(this.idle_timeout),this._validateUserInput(this.container_per_session_limit),this._validateUserInput(this.vfolder_capacity),this._validateUserInput(this.vfolder_max_limit)}catch(e){throw e}return e.cpu=this.cpu_resource.value,e.mem=this.ram_resource.value+"g",e["cuda.device"]=parseInt(this.gpu_resource.value),e["cuda.shares"]=parseFloat(this.fgpu_resource.value),this.concurrency_limit.value=""===this.concurrency_limit.value?0:parseInt(this.concurrency_limit.value),this.idle_timeout.value=""===this.idle_timeout.value?0:parseInt(this.idle_timeout.value),this.container_per_session_limit.value=""===this.container_per_session_limit.value?0:parseInt(this.container_per_session_limit.value),this.vfolder_capacity.value=""===this.vfolder_capacity.value?0:parseInt(this.vfolder_capacity.value),this.vfolder_max_limit.value=""===this.vfolder_max_limit.value?0:parseInt(this.vfolder_max_limit.value),Object.keys(e).map(t=>{isNaN(parseFloat(e[t]))&&delete e[t]}),{default_for_unspecified:"UNLIMITED",total_resource_slots:JSON.stringify(e),max_concurrent_sessions:this.concurrency_limit.value,max_containers_per_session:this.container_per_session_limit.value,idle_timeout:this.idle_timeout.value,max_vfolder_count:this.vfolder_max_limit.value,max_vfolder_size:this.vfolder_capacity.value,allowed_vfolder_hosts:t}}_addResourcePolicy(){let e=this.shadowRoot.querySelector("#id_new_policy_name");if(e.checkValidity())try{let e=this.shadowRoot.querySelector("#id_new_policy_name");e.checkValidity();let t=e.value;if(""===t)throw{message:"Policy name should not be empty"};let i=this._readResourcePolicyInput();globalThis.backendaiclient.resourcePolicy.add(t,i).then(e=>{this.shadowRoot.querySelector("#new-policy-dialog").hide(),this.notification.text="Resource policy successfully created.",this.notification.show(),this.shadowRoot.querySelector("#resource-policy-list").refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#new-policy-dialog").hide(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}catch(e){this.notification.text=e.message,this.notification.show()}else e.reportValidity()}_addUser(){const e=this.shadowRoot.querySelector("#id_user_email").value,t=this.shadowRoot.querySelector("#id_user_name").value,i=this.shadowRoot.querySelector("#id_user_password").value,o=this.shadowRoot.querySelector("#id_user_confirm").value;if(""===e)return this.notification.text="Please Input User Id(Email)!",void this.notification.show();if(this.shadowRoot.querySelector("#id_user_email").hasAttribute("invalid"))return this.notification.text="Email Is Invalid!",void this.notification.show();if(""===t)return this.notification.text="Username Is Empty!",void this.notification.show();if(null!==this.shadowRoot.querySelector("#id_user_password").getAttribute("invalid"))return this.notification.text="Password must contain at least one alphabet, one digit, and one special character",void this.notification.show();if(""===i)return this.notification.text="Password Is Empty!",void this.notification.show();if(i!==o)return this.notification.text="Confirmation Does Not Match With Original Password!",void this.notification.show();const a={username:t,password:i,need_password_change:!1,full_name:t,description:`${t}'s Account`,is_active:!0,domain_name:"default",role:"user"};globalThis.backendaiclient.group.list().then(t=>{const i=t.groups.find(e=>"default"===e.name).id;return Promise.resolve(globalThis.backendaiclient.user.add(e,Object.assign(Object.assign({},a),{group_ids:[i]})))}).then(e=>{this.shadowRoot.querySelector("#new-user-dialog").hide(),e.create_user.ok?(this.notification.text="User successfully created",this.shadowRoot.querySelector("#user-list").refresh()):(console.error(e.create_user.msg),this.notification.text="Error on user creation"),this.notification.show(),this.shadowRoot.querySelector("#id_user_email").value="",this.shadowRoot.querySelector("#id_user_name").value="",this.shadowRoot.querySelector("#id_user_password").value="",this.shadowRoot.querySelector("#id_user_confirm").value=""})}_modifyResourcePolicy(){let e=this.shadowRoot.querySelector("#id_new_policy_name").value;try{let t=this._readResourcePolicyInput();globalThis.backendaiclient.resourcePolicy.mutate(e,t).then(e=>{this.shadowRoot.querySelector("#new-policy-dialog").close(),this.notification.text="Resource policy successfully updated.",this.notification.show(),this.shadowRoot.querySelector("#resource-policy-list").refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#new-policy-dialog").close(),this.notification.text=d.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}catch(e){this.notification.text=e.message,this.notification.show()}}disablePage(){for(var e=this.shadowRoot.querySelectorAll(".admin"),t=0;t<e.length;t++)e[t].style.display="none"}_hideDialog(e){e.target.closest("wl-dialog").hide()}_showTab(e){for(var t=this.shadowRoot.querySelectorAll(".tab-content"),i=0;i<t.length;i++)t[i].style.display="none";this._activeTab=e.value,this.shadowRoot.querySelector("#"+e.value).style.display="block"}_toggleCheckbox(e){const t=e.target,i=t.checked,o=t.closest("div").querySelector("wl-textfield");o.disabled=i,o.disabled||""===o.value&&(o.value=0)}_validateResourceInput(e){const t=e.target.closest("wl-textfield"),i=t.closest("div").querySelector(".unlimited");let o;if(o=i?i.querySelector("wl-checkbox"):null,t.value<0&&(t.value=0),""===t.value)try{if(!o||!o.checked)throw t.required=!0,t.focus(),{message:"Please input value or check unlimited."};t.required=!1,t.value=""}catch(e){this.notification.text=e.message,this.notification.show()}}_validateUserInput(e){if(e.disabled)e.value="";else if(""===e.value)throw{message:"Cannot create Resource Policy. Please check input values."}}_addValidatorToPolicyInput(){let e=this.shadowRoot.querySelector("#id_new_policy_name");e.validityTransform=(t,i)=>{if(!i)return e.validationMessage=_("credential.validation.PolicyName"),{valid:!1,valueMissing:!0};if(i.valid){const i=!this.resource_policy_names.includes(t);return i||(e.validationMessage=_("credential.validation.NameAlreadyExists")),{valid:i,customError:!i}}return i.patternMismatch?(e.validationMessage=_("credential.validation.LetterNumber-_dot"),{valid:i.valid,patternMismatch:!i.valid}):i.valueMissing?(e.validationMessage=_("credential.validation.PolicyName"),{valid:i.valid,valueMissing:!i.valid}):(e.validationMessage=_("credential.validation.LetterNumber-_dot"),{valid:i.valid,patternMismatch:!i.valid})}}_updateInputStatus(e){let t=e,i=t.closest("div").querySelector("wl-checkbox");""===t.value||"0"===t.value?(t.disabled=!0,i.checked=!0):(t.disabled=!1,i.checked=!1)}_openExportToCsvDialog(){this._defaultFileName=this._getDefaultCSVFileName(),this.exportToCsvDialog.show()}_exportToCSV(){let e=this.shadowRoot.querySelector("#export-file-name");if(e.validity.valid){switch(this._activeTab){case"user-lists":let t=this.shadowRoot.querySelector("#user-list").users;t.map(e=>{["password","need_password_change"].forEach(t=>delete e[t])}),v.exportToCsv(e.value,t);break;case"credential-lists":let i=this.shadowRoot.querySelector("#active-credential-list").keypairs,o=this.shadowRoot.querySelector("#inactive-credential-list").keypairs,a=i.concat(o);a.map(e=>{["is_admin"].forEach(t=>delete e[t])}),v.exportToCsv(e.value,a);break;case"resource-policy-lists":let s=this.shadowRoot.querySelector("#resource-policy-list").resourcePolicy;v.exportToCsv(e.value,s)}this.notification.text="Downloading CSV file...",this.notification.show(),this.exportToCsvDialog.hide()}}_getResourceInfo(){this.cpu_resource=this.shadowRoot.querySelector("#cpu-resource"),this.ram_resource=this.shadowRoot.querySelector("#ram-resource"),this.gpu_resource=this.shadowRoot.querySelector("#gpu-resource"),this.fgpu_resource=this.shadowRoot.querySelector("#fgpu-resource"),this.concurrency_limit=this.shadowRoot.querySelector("#concurrency-limit"),this.idle_timeout=this.shadowRoot.querySelector("#idle-timeout"),this.container_per_session_limit=this.shadowRoot.querySelector("#container-per-session-limit"),this.vfolder_capacity=this.shadowRoot.querySelector("#vfolder-capacity-limit"),this.vfolder_max_limit=this.shadowRoot.querySelector("#vfolder-count-limit")}_getDefaultCSVFileName(){return(new Date).toISOString().substring(0,10)+"_"+(new Date).toTimeString().slice(0,8).replace(/:/gi,"-")}_toggleDropdown(){let e=this.shadowRoot.querySelector("#dropdown-menu");e.open=!e.open,this.exportToCsvDialog.open&&(e.open=!1)}render(){return h`
       <wl-card class="admin item" elevation="1">
         <h3 class="tab horizontal wrap layout">
           <wl-tab-group>
             ${"active"===this._status&&!0===this.use_user_list?h`
-              <wl-tab value="user-lists" checked @click="${e=>this._showTab(e.target)}">Users</wl-tab>
+              <wl-tab value="user-lists" checked @click="${e=>this._showTab(e.target)}">${p("credential.Users")}</wl-tab>
             `:h``}
-            <wl-tab value="credential-lists" ?checked="${"active"===this._status&&!0===this.use_user_list}" @click="${e=>this._showTab(e.target)}">Credentials</wl-tab>
-            <wl-tab value="resource-policy-lists" @click="${e=>this._showTab(e.target)}">Resource Policies</wl-tab>
+            <wl-tab value="credential-lists" ?checked="${"active"===this._status&&!0===this.use_user_list}" @click="${e=>this._showTab(e.target)}">${p("credential.Credentials")}</wl-tab>
+            <wl-tab value="resource-policy-lists" @click="${e=>this._showTab(e.target)}">${p("credential.ResourcePolicies")}</wl-tab>
           </wl-tab-group>
           ${this.isAdmin?h`
               <span class="flex"></span>
@@ -1092,7 +1083,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                   <mwc-list-item>
                     <a class="horizontal layout start center" @click="${this._openExportToCsvDialog}">
                       <mwc-icon style="color:#242424;padding-right:10px;">get_app</mwc-icon>
-                      export CSV
+                      ${p("credential.exportCSV")}
                     </a>
                   </mwc-list-item>
                 </mwc-menu>
@@ -1101,11 +1092,11 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
         </h3>
         <wl-card id="user-lists" class="admin item tab-content">
           <h4 class="horizontal flex center center-justified layout">
-            <span>Users</span>
+            <span>${p("credential.Users")}</span>
             <span class="flex"></span>
             <wl-button class="fg green" id="add-user" outlined @click="${this._launchUserAddDialog}">
               <wl-icon>add</wl-icon>
-              Create user
+              ${p("credential.CreateUser")}
             </wl-button>
           </h4>
           <div>
@@ -1117,11 +1108,11 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
           <span class="flex"></span>
           <wl-button class="fg green" id="add-keypair" outlined @click="${this._launchKeyPairDialog}">
             <wl-icon>add</wl-icon>
-            Add credential
+            ${p("credential.AddCredential")}
           </wl-button>
         </h4>
           <wl-expansion name="credential-group" open role="list">
-            <h4 slot="title">Active</h4>
+            <h4 slot="title">${p("credential.Active")}</h4>
             <span slot="description">
             </span>
             <div>
@@ -1129,7 +1120,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
             </div>
           </wl-expansion>
           <wl-expansion name="credential-group" role="list">
-            <h4 slot="title">Inactive</h4>
+            <h4 slot="title">${p("credential.Inactive")}</h4>
             <div>
               <backend-ai-credential-list id="inactive-credential-list" condition="inactive" ?active="${"credential-lists"===this._activeTab}"></backend-ai-credential-list>
             </div>
@@ -1137,11 +1128,11 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
         </wl-card>
         <wl-card id="resource-policy-lists" class="admin item tab-content" style="display:none;">
           <h4 class="horizontal flex center center-justified layout">
-            <span>Policy groups</span>
+            <span>${p("credential.PolicyGroup")}</span>
             <span class="flex"></span>
             <wl-button class="fg green" id="add-policy" outlined @click="${this._launchResourcePolicyDialog}">
               <wl-icon>add</wl-icon>
-              Create policy
+              ${p("credential.CreatePolicy")}
             </wl-button>
           </h4>
           <div>
@@ -1153,7 +1144,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
         <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
 
           <h3 class="horizontal center layout" style="border-bottom:1px solid #ddd;">
-            <span style="margin-right:15px;">Add credential</span>
+            <span style="margin-right:15px;">${p("credential.AddCredential")}</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
@@ -1180,7 +1171,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                 </paper-dropdown-menu>
               </div>
               <wl-expansion name="advanced-keypair-info">
-                <span slot="title">Advanced</span>
+                <span slot="title">${p("general.Advanced")}</span>
                 <span slot="description"></span>
                 <wl-textfield type="text" name="new_access_key" id="id_new_access_key" label="Access Key (optional)"
                               auto-validate .value="${this.new_access_key}">
@@ -1193,7 +1184,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
               <wl-button class="fg blue create-button" id="create-keypair-button" outlined type="button"
               @click="${this._addKeyPair}">
                          <wl-icon>add</wl-icon>
-                         Add
+                         ${p("general.Add")}
                          </wl-button>
             </fieldset>
           </form>
@@ -1202,7 +1193,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
       <wl-dialog id="new-policy-dialog" fixed backdrop blockscrolling>
         <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
           <h3 class="horizontal center layout">
-            <span>Create resource policy</span>
+            <span>${p("credential.CreateResourcePolicy")}</span>
             <div class="flex"></div>
             <wl-button class="fab" fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
@@ -1213,7 +1204,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
             <mwc-textfield id="id_new_policy_name" label="Policy Name" pattern="^[a-zA-Z0-9_-]+$"
                              validationMessage="Policy name is Required."
                              required></mwc-textfield>
-              <h4>Resource Policy</h4>
+              <h4>${p("credential.ResourcePolicy")}</h4>
               <div class="horizontal center layout">
                   <div class="vertical layout" style="width:75px; margin:0px 10px 0px 0px;">
                     <wl-label>CPU</wl-label>
@@ -1221,7 +1212,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                       <wl-label class="unlimited">
                         <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                        Unlimited
+                        ${p("credential.Unlimited")}
                       </wl-label>
                   </div>
                   <div class="vertical layout" style="width:75px; margin:0px 10px 0px 10px;">
@@ -1230,7 +1221,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("credential.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical layout" style="width:75px; margin:0px 10px 0px 10px;">
@@ -1239,7 +1230,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("credential.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical layout" style="width:75px; margin:0px 0px 0px 10px;">
@@ -1248,38 +1239,38 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                                   @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("credential.Unlimited")}
                     </wl-label>
                   </div>
               </div>
-              <h4>Sessions</h4>
+              <h4>${p("credential.Sessions")}</h4>
               <div class="horizontal center layout">
                 <div class="vertical left layout" style="width: 110px;">
-                    <wl-label>Container per session</wl-label>
+                    <wl-label>${p("credential.ContainerPerSession")}</wl-label>
                     <wl-textfield id="container-per-session-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("credential.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical left layout" style="width: 110px; margin: 0px 15px;">
-                    <wl-label>Idle timeout (sec.)</wl-label>
+                    <wl-label>${p("credential.IdleTimeoutSec")}</wl-label>
                     <wl-textfield id="idle-timeout" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                     <wl-label class="unlimited">
                       <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                      Unlimited
+                      ${p("credential.Unlimited")}
                     </wl-label>
                   </div>
                   <div class="vertical left layout" style="width: 110px;">
-                      <wl-label>Concurrent Jobs</wl-label>
+                      <wl-label>${p("credential.ConcurrentJobs")}</wl-label>
                       <wl-textfield id="concurrency-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                       <wl-label class="unlimited">
                         <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                        Unlimited
+                        ${p("credential.Unlimited")}
                       </wl-label>
                   </div>
               </div>
-              <h4 style="margin-bottom:0px;">Folders</h4>
+              <h4 style="margin-bottom:0px;">${p("credential.Folders")}</h4>
               <div class="horizontal center layout">
                 <div class="vertical layout" style="width: 110px;">
                 <paper-dropdown-menu id="allowed_vfolder-hosts" label="Allowed hosts">
@@ -1291,15 +1282,15 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                 </paper-dropdown-menu>
                 </div>
                 <div class="vertical layout" style="width: 110px; margin: 21px 15px 0;">
-                  <wl-label class="folders">Capacity(GB)</wl-label>
+                  <wl-label class="folders">${p("credential.Capacity(GB)")}</wl-label>
                   <wl-textfield id="vfolder-capacity-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                   <wl-label class="unlimited">
                     <wl-checkbox @change="${e=>this._toggleCheckbox(e)}" style="border-width: 1px;"></wl-checkbox>
-                    Unlimited
+                    ${p("credential.Unlimited")}
                 </wl-label>
                 </div>
                 <div class="vertical layout" style="width: 110px;">
-                  <wl-label class="folders">Max.#</wl-label>
+                  <wl-label class="folders">${p("credential.Max#")}</wl-label>
                   <wl-textfield id="vfolder-count-limit" type="number" @change="${e=>this._validateResourceInput(e)}"></wl-textfield>
                 </div>
               </div>
@@ -1308,7 +1299,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
               <wl-button class="fg blue create-button" id="create-policy-button" type="button" outlined
                @click="${()=>this._addResourcePolicy()}">
                          <wl-icon>add</wl-icon>
-                         Create
+                         ${p("credential.Create")}
               </wl-button>
             </fieldset>
           </form>
@@ -1317,7 +1308,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
       <wl-dialog id="new-user-dialog" fixed backdrop blockscrolling>
         <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
           <h3 class="horizontal center layout">
-            <span>Create User</span>
+            <span>${p("credential.CreateUser")}</span>
             <div class="flex"></div>
             <wl-button class="fab" fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
@@ -1329,21 +1320,21 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                 type="email"
                 name="user_email"
                 id="id_user_email"
-                label="E-mail"
+                label="${p("general.E-Mail")}"
               >
               </wl-textfield>
               <wl-textfield
                 type="text"
                 name="user_name"
                 id="id_user_name"
-                label="Username"
+                label="${p("general.Username")}"
               >
               </wl-textfield>
               <wl-textfield
                 type="password"
                 name="user_password"
                 id="id_user_password"
-                label="Password"
+                label="${p("general.Password")}"
                 pattern="^(?=.*?[a-zA-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
               >
               </wl-textfield>
@@ -1351,13 +1342,13 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
                 type="password"
                 name="user_confirm"
                 id="id_user_confirm"
-                label="Password Confirm"
+                label="${p("general.ConfirmPassword")}"
               >
               </wl-textfield>
               <wl-button class="fg blue create-button" id="create-user-button" outlined type="button"
               @click="${this._addUser}">
                 <wl-icon>add</wl-icon>
-                Create User
+                ${p("credential.CreateUser")}
               </wl-button>
             </fieldset>
           </form>
@@ -1366,7 +1357,7 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
       <wl-dialog id="export-to-csv" fixed backdrop blockscrolling>
       <wl-card elevation="1" class="intro centered login-panel" style="margin:0;">
         <h3 class="horizontal center layout" style="padding:10px;">
-          <span style="margin-left:10px; font-size:18px;">Export ${this._activeTab} to csv file</span>
+          <span style="margin-left:10px; font-size:18px;">${p("credential.ExportCSVFile")} (${this._activeTab})</span>
           <div class="flex"></div>
           <wl-button flat fab @click="${e=>this._hideDialog(e)}">
             <wl-icon class="close">close</wl-icon>
@@ -1381,10 +1372,10 @@ let m=class extends o{constructor(){super(),this.isAdmin=!1,this.editMode=!1,thi
             <wl-button class="fg green" type="button" inverted outlined style="width:100%;"
             @click="${this._exportToCSV}">
               <wl-icon>get_app</wl-icon>
-              Export CSV File
+              ${p("credential.ExportCSVFile")}
             </wl-button>
           </div>
           </section>
         </wl-card>
       </wl-dialog>
-    `}};e([t({type:Object})],y.prototype,"cpu_resource",void 0),e([t({type:Object})],y.prototype,"ram_resource",void 0),e([t({type:Object})],y.prototype,"gpu_resource",void 0),e([t({type:Object})],y.prototype,"fgpu_resource",void 0),e([t({type:Object})],y.prototype,"concurrency_limit",void 0),e([t({type:Object})],y.prototype,"idle_timeout",void 0),e([t({type:Object})],y.prototype,"vfolder_capacity",void 0),e([t({type:Object})],y.prototype,"vfolder_max_limit",void 0),e([t({type:Object})],y.prototype,"container_per_session_limit",void 0),e([t({type:Array})],y.prototype,"rate_metric",void 0),e([t({type:Object})],y.prototype,"resource_policies",void 0),e([t({type:Array})],y.prototype,"resource_policy_names",void 0),e([t({type:Boolean})],y.prototype,"isAdmin",void 0),e([t({type:String})],y.prototype,"_status",void 0),e([t({type:Array})],y.prototype,"allowed_vfolder_hosts",void 0),e([t({type:String})],y.prototype,"default_vfolder_host",void 0),e([t({type:Boolean})],y.prototype,"use_user_list",void 0),e([t({type:String})],y.prototype,"new_access_key",void 0),e([t({type:String})],y.prototype,"new_secret_key",void 0),e([t({type:String})],y.prototype,"_activeTab",void 0),e([t({type:Object})],y.prototype,"notification",void 0),e([t({type:Object})],y.prototype,"exportToCsvDialog",void 0),e([t({type:String})],y.prototype,"_defaultFileName",void 0),y=e([i("backend-ai-credential-view")],y);var g=y;export default g;
+    `}};e([t({type:Object})],w.prototype,"cpu_resource",void 0),e([t({type:Object})],w.prototype,"ram_resource",void 0),e([t({type:Object})],w.prototype,"gpu_resource",void 0),e([t({type:Object})],w.prototype,"fgpu_resource",void 0),e([t({type:Object})],w.prototype,"concurrency_limit",void 0),e([t({type:Object})],w.prototype,"idle_timeout",void 0),e([t({type:Object})],w.prototype,"vfolder_capacity",void 0),e([t({type:Object})],w.prototype,"vfolder_max_limit",void 0),e([t({type:Object})],w.prototype,"container_per_session_limit",void 0),e([t({type:Array})],w.prototype,"rate_metric",void 0),e([t({type:Object})],w.prototype,"resource_policies",void 0),e([t({type:Array})],w.prototype,"resource_policy_names",void 0),e([t({type:Boolean})],w.prototype,"isAdmin",void 0),e([t({type:String})],w.prototype,"_status",void 0),e([t({type:Array})],w.prototype,"allowed_vfolder_hosts",void 0),e([t({type:String})],w.prototype,"default_vfolder_host",void 0),e([t({type:Boolean})],w.prototype,"use_user_list",void 0),e([t({type:String})],w.prototype,"new_access_key",void 0),e([t({type:String})],w.prototype,"new_secret_key",void 0),e([t({type:String})],w.prototype,"_activeTab",void 0),e([t({type:Object})],w.prototype,"notification",void 0),e([t({type:Object})],w.prototype,"exportToCsvDialog",void 0),e([t({type:String})],w.prototype,"_defaultFileName",void 0),w=e([i("backend-ai-credential-view")],w);var b=w;export default b;

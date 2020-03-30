@@ -1,4 +1,4 @@
-import{_ as __decorate,p as property,c as customElement,d as BackendAIPage,e as BackendAiStyles,I as IronFlex,a as IronFlexAlignment,f as IronPositioning,b as css,h as html$1,$ as render,g as BackendAIPainKiller}from"./backend-ai-console-7b9ac755.js";import"./lablup-loading-indicator-e94e6bf2.js";import{h as html,E as ElementMixin,T as ThemableMixin,G as GestureEventListeners,P as PolymerElement,k as addListener,r as resetMouseCanceller}from"./iron-resizable-behavior-5743f649.js";import"./vaadin-progress-bar-c86f5342.js";import{C as ControlStateMixin}from"./vaadin-grid-369d5b12.js";import"./paper-dropdown-menu-ae71b683.js";import"./iron-iconset-svg-c8634dd5.js";import"./paper-item-8b2d5caf.js";import"./radio-behavior-377efe60.js";import"./label-b2639996.js";import"./vaadin-grid-selection-column-0e68f6ca.js";import"./vaadin-grid-sorter-250e386d.js";import"./vaadin-grid-sort-column-8ac4f625.js";import"./divider-18a82560.js";import"./tab-group-7d48e0ac.js";import"./vaadin-item-03518044.js";const $_documentContainer=document.createElement("template");$_documentContainer.innerHTML='<dom-module id="lumo-field-button">\n  <template>\n    <style>\n      [part$="button"] {\n        flex: none;\n        width: 1em;\n        height: 1em;\n        line-height: 1;\n        font-size: var(--lumo-icon-size-m);\n        text-align: center;\n        color: var(--lumo-contrast-60pct);\n        transition: 0.2s color;\n        cursor: var(--lumo-clickable-cursor);\n      }\n\n      :host(:not([readonly])) [part$="button"]:hover {\n        color: var(--lumo-contrast-90pct);\n      }\n\n      :host([disabled]) [part$="button"],\n      :host([readonly]) [part$="button"] {\n        color: var(--lumo-contrast-20pct);\n      }\n\n      [part$="button"]::before {\n        font-family: "lumo-icons";\n        display: block;\n      }\n    </style>\n  </template>\n</dom-module>',document.head.appendChild($_documentContainer.content);const $_documentContainer$1=html`<dom-module id="lumo-button" theme-for="vaadin-button">
+import{_ as __decorate,p as property,c as customElement,d as BackendAIPage,e as BackendAiStyles,I as IronFlex,a as IronFlexAlignment,f as IronPositioning,b as css,h as html$1,t as translate,a1 as render,g as BackendAIPainKiller}from"./backend-ai-console-52da7ce1.js";import"./lablup-loading-indicator-320198e1.js";import{h as html,E as ElementMixin,T as ThemableMixin,G as GestureEventListeners,P as PolymerElement,k as addListener,r as resetMouseCanceller}from"./iron-resizable-behavior-5743f649.js";import"./vaadin-progress-bar-c86f5342.js";import{C as ControlStateMixin}from"./vaadin-grid-369d5b12.js";import"./paper-dropdown-menu-ae71b683.js";import"./iron-iconset-svg-c8634dd5.js";import"./paper-item-8b2d5caf.js";import"./radio-behavior-4d4215af.js";import"./label-9371cb47.js";import"./vaadin-grid-selection-column-0e68f6ca.js";import"./vaadin-grid-sorter-250e386d.js";import"./vaadin-grid-sort-column-8ac4f625.js";import"./divider-b0c28a83.js";import"./tab-group-3ed06448.js";import"./vaadin-item-03518044.js";const $_documentContainer=document.createElement("template");$_documentContainer.innerHTML='<dom-module id="lumo-field-button">\n  <template>\n    <style>\n      [part$="button"] {\n        flex: none;\n        width: 1em;\n        height: 1em;\n        line-height: 1;\n        font-size: var(--lumo-icon-size-m);\n        text-align: center;\n        color: var(--lumo-contrast-60pct);\n        transition: 0.2s color;\n        cursor: var(--lumo-clickable-cursor);\n      }\n\n      :host(:not([readonly])) [part$="button"]:hover {\n        color: var(--lumo-contrast-90pct);\n      }\n\n      :host([disabled]) [part$="button"],\n      :host([readonly]) [part$="button"] {\n        color: var(--lumo-contrast-20pct);\n      }\n\n      [part$="button"]::before {\n        font-family: "lumo-icons";\n        display: block;\n      }\n    </style>\n  </template>\n</dom-module>',document.head.appendChild($_documentContainer.content);const $_documentContainer$1=html`<dom-module id="lumo-button" theme-for="vaadin-button">
   <template>
     <style>
       :host {
@@ -595,7 +595,7 @@ class UploadElement extends(ElementMixin(ThemableMixin(PolymerElement))){static 
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
  */
-let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.storageType="general",this.folders=Object(),this.folderInfo=Object(),this.is_admin=!1,this.authenticated=!1,this.deleteFolderId="",this.explorer=Object(),this.explorerFiles=[],this.invitees=[],this.selectedFolder="",this.uploadFiles=[],this.vhost="",this.vhosts=[],this.allowedGroups=[],this.fileListGrid=Object(),this.notification=Object(),this.deleteFileDialog=Object(),this.indicator=Object(),this.allowed_folder_type=[],this.uploadFilesExist=!1,this._boundIndexRenderer=Object(),this._boundTypeRenderer=Object(),this._boundControlFolderListRenderer=Object(),this._boundControlFileListRenderer=Object(),this._boundPermissionViewRenderer=Object(),this._boundFileNameRenderer=Object(),this._boundCreatedTimeRenderer=Object(),this._boundPermissionRenderer=Object(),this._uploadFlag=!0,this._boundIndexRenderer=this.indexRenderer.bind(this),this._boundTypeRenderer=this.typeRenderer.bind(this),this._boundControlFolderListRenderer=this.controlFolderListRenderer.bind(this),this._boundControlFileListRenderer=this.controlFileListRenderer.bind(this),this._boundPermissionViewRenderer=this.permissionViewRenderer.bind(this),this._boundFileNameRenderer=this.fileNameRenderer.bind(this),this._boundCreatedTimeRenderer=this.createdTimeRenderer.bind(this),this._boundPermissionRenderer=this.permissionRenderer.bind(this)}static get styles(){return[BackendAiStyles,IronFlex,IronFlexAlignment,IronPositioning,css`
+let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.storageType="general",this.folders=Object(),this.folderInfo=Object(),this.is_admin=!1,this.authenticated=!1,this.renameFolderId="",this.deleteFolderId="",this.explorer=Object(),this.explorerFiles=[],this.invitees=[],this.selectedFolder="",this.uploadFiles=[],this.vhost="",this.vhosts=[],this.allowedGroups=[],this.fileListGrid=Object(),this.notification=Object(),this.deleteFileDialog=Object(),this.indicator=Object(),this.allowed_folder_type=[],this.uploadFilesExist=!1,this._boundIndexRenderer=Object(),this._boundTypeRenderer=Object(),this._boundControlFolderListRenderer=Object(),this._boundControlFileListRenderer=Object(),this._boundPermissionViewRenderer=Object(),this._boundFileNameRenderer=Object(),this._boundCreatedTimeRenderer=Object(),this._boundPermissionRenderer=Object(),this._uploadFlag=!0,this._boundIndexRenderer=this.indexRenderer.bind(this),this._boundTypeRenderer=this.typeRenderer.bind(this),this._boundControlFolderListRenderer=this.controlFolderListRenderer.bind(this),this._boundControlFileListRenderer=this.controlFileListRenderer.bind(this),this._boundPermissionViewRenderer=this.permissionViewRenderer.bind(this),this._boundFileNameRenderer=this.fileNameRenderer.bind(this),this._boundCreatedTimeRenderer=this.createdTimeRenderer.bind(this),this._boundPermissionRenderer=this.permissionRenderer.bind(this)}static get styles(){return[BackendAiStyles,IronFlex,IronFlexAlignment,IronPositioning,css`
         vaadin-grid {
           border: 0 !important;
         }
@@ -726,6 +726,11 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
           font-size: 16px;
         }
 
+        .breadcrumb mwc-icon-button {
+          --mdc-icon-size: 20px;
+          --mdc-icon-button-size: 22px;
+        }
+
         mwc-textfield {
           width: 100%;
           --mdc-theme-primary: #242424;
@@ -836,7 +841,7 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
       <vaadin-grid class="folderlist" theme="row-stripes column-borders compact" aria-label="Folder list" .items="${this.folders}">
         <vaadin-grid-column width="40px" flex-grow="0" resizable header="#" .renderer="${this._boundIndexRenderer}">
         </vaadin-grid-column>
-        <vaadin-grid-column resizable header="Name">
+        <vaadin-grid-column resizable header="${translate("data.folders.Name")}">
           <template>
             <div class="indicator" @click="[[_folderExplorer()]]" .folder-id="[[item.name]]">[[item.name]]</div>
           </template>
@@ -851,29 +856,53 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
           </template>
         </vaadin-grid-column>
 
-        <vaadin-grid-column width="85px" flex-grow="0" resizable header="Location">
+        <vaadin-grid-column width="85px" flex-grow="0" resizable header="${translate("data.folders.Location")}">
           <template>
             <div class="layout vertical">
               <span>[[item.host]]</span>
             </div>
           </template>
         </vaadin-grid-column>
-        <vaadin-grid-column width="45px" flex-grow="0" resizable header="Type" .renderer="${this._boundTypeRenderer}"></vaadin-grid-column>
-        <vaadin-grid-column width="85px" flex-grow="0" resizable header="Permission" .renderer="${this._boundPermissionViewRenderer}"></vaadin-grid-column>
-        <vaadin-grid-column resizable header="Control" .renderer="${this._boundControlFolderListRenderer}"></vaadin-grid-column>
+        <vaadin-grid-column width="45px" flex-grow="0" resizable header="${translate("data.folders.Type")}" .renderer="${this._boundTypeRenderer}"></vaadin-grid-column>
+        <vaadin-grid-column width="85px" flex-grow="0" resizable header="${translate("data.folders.Permission")}" .renderer="${this._boundPermissionViewRenderer}"></vaadin-grid-column>
+        <vaadin-grid-column resizable header="${translate("data.folders.Control")}" .renderer="${this._boundControlFolderListRenderer}"></vaadin-grid-column>
       </vaadin-grid>
 
-      <wl-dialog id="delete-folder-dialog" class="dialog-ask" fixed backdrop blockscrolling>
+      <wl-dialog id="rename-folder-dialog" class="dialog-ask" fixed backdrop blockscrolling>
         <wl-card class="login-panel intro centered">
           <h3 class="horizontal center layout">
-            <span>Delete a folder</span>
+            <span>Rename a folder</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
             </wl-button>
           </h3>
           <section>
-            <div class="warning">WARNING: this cannot be undone!</div>
+            <div>
+              <mwc-textfield class="red" id="new-folder-name" label="Type new folder name"
+                pattern="[a-zA-Z0-9_-.]*"
+                validationMessage="Allows letters, numbers and -_." auto-validate></mwc-textfield>
+              <br/>
+              <wl-button class="blue button" type="submit" id="rename-button" outlined @click="${()=>this._renameFolder()}">
+                <wl-icon>edit</wl-icon>
+                Rename
+              </wl-button>
+            </div>
+            </section>
+        </wl-card>
+      </wl-dialog>
+
+      <wl-dialog id="delete-folder-dialog" class="dialog-ask" fixed backdrop blockscrolling>
+        <wl-card class="login-panel intro centered">
+          <h3 class="horizontal center layout">
+            <span>${translate("data.folders.DeleteAFolder")}</span>
+            <div class="flex"></div>
+            <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
+              <wl-icon>close</wl-icon>
+            </wl-button>
+          </h3>
+          <section>
+            <div class="warning">${translate("dialog.warning.CannotBeUndone")}</div>
             <div>
               <mwc-textfield class="red" id="delete-folder-name" label="Type folder name to delete"
                            pattern="[a-zA-Z0-9_-.]*"
@@ -881,12 +910,13 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
               <br/>
               <wl-button class="blue button" type="submit" id="delete-button" outlined @click="${()=>this._deleteFolderWithCheck()}">
                 <wl-icon>close</wl-icon>
-                Delete
+                ${translate("data.folders.Delete")}
               </wl-button>
             </div>
             </section>
         </wl-card>
       </wl-dialog>
+
       <wl-dialog id="info-folder-dialog" class="dialog-ask" fixed backdrop blockscrolling>
         <wl-card class="intro centered" style="margin: 0;">
           <h3 class="horizontal center layout" style="border-bottom:1px solid #ddd;">
@@ -902,21 +932,21 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
               <div class="monospace" secondary>${this.folderInfo.id}</div>
             </vaadin-item>
             <vaadin-item>
-              <div><strong>Location</strong></div>
+              <div><strong>${translate("data.folders.Location")}</strong></div>
               <div secondary>${this.folderInfo.host}</div>
             </vaadin-item>
             <vaadin-item>
-              <div><strong>Number of Files</strong></div>
+              <div><strong>${translate("data.folders.NumberOfFiles")}</strong></div>
               <div secondary>${this.folderInfo.numFiles}</div>
             </vaadin-item>
             ${this.folderInfo.is_owner?html$1`
               <vaadin-item>
-                <div><strong>Ownership</strong></div>
-                <div secondary>You are the owner of this folder.</div>
+                <div><strong>${translate("data.folders.Ownership")}</strong></div>
+                <div secondary>${translate("data.folders.DescYouAreFolderOwner")}</div>
               </vaadin-item>
             `:html$1``}
             <vaadin-item>
-              <div><strong>Permission</strong></div>
+              <div><strong>${translate("data.folders.Permission")}</strong></div>
               <div secondary>${this.folderInfo.permission}</div>
             </vaadin-item>
           </div>
@@ -933,35 +963,42 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
           </h3>
 
           <div class="breadcrumb">
-          ${this.explorer.breadcrumb?html$1`
-          <ul>
-              ${this.explorer.breadcrumb.map(e=>html$1`
-               <li>
-                 <a outlined class="goto" path="item" @click="${e=>this._gotoFolder(e)}" dest="${e}">${e}</a>
-               </li>
-              `)}
-          </ul>
-          `:html$1``}
+            ${this.explorer.breadcrumb?html$1`
+              <ul>
+                ${this.explorer.breadcrumb.map(e=>html$1`
+                  <li>
+                    ${"."===e?html$1`
+                      <mwc-icon-button
+                        icon="folder_open" dest="${e}"
+                        @click="${e=>this._gotoFolder(e)}"
+                      ></mwc-icon-button>
+                    `:html$1`
+                      <a outlined class="goto" path="item" @click="${e=>this._gotoFolder(e)}" dest="${e}">${e}</a>
+                    `}
+                  </li>
+                `)}
+              </ul>
+            `:html$1``}
           </div>
           <div class="horizontal layout folder-action-buttons">
             <wl-button outlined class="multiple-action-buttons" @click="${()=>this._openDeleteMultipleFileDialog()}" style="display:none;">
               <div class="horizontal center layout">
-              <wl-icon style="--icon-size: 20px;margin-right:5px;">delete</wl-icon><span>Delete...</span></div>
+              <wl-icon style="--icon-size: 20px;margin-right:5px;">delete</wl-icon><span>${translate("data.explorer.Delete")}</span></div>
             </wl-button>
             <wl-button outlined id="add-btn" @click="${e=>this._uploadFileBtnClick(e)}">
               <wl-icon style="--icon-size: 20px;margin-right:5px;">cloud_upload</wl-icon>
-              Upload Files...
+              ${translate("data.explorer.UploadFiles")}
             </wl-button>
             <wl-button outlined id="mkdir" @click="${()=>this._mkdirDialog()}">
               <wl-icon style="--icon-size: 20px;margin-right:5px;">create_new_folder</wl-icon>
-              New Folder
+              ${translate("data.explorer.NewFolder")}
             </wl-button>
           </div>
           <div id="dropzone"><p>drag</p></div>
           <input type="file" id="fileInput" @change="${e=>this._uploadFileChange(e)}" hidden multiple>
           ${this.uploadFilesExist?html$1`
           <wl-button outlined id="cancel_upload" @click="${e=>this._cancelUpload(e)}">
-            <wl-icon>cancel</wl-icon> Stop uploading
+            <wl-icon>cancel</wl-icon> ${translate("data.explorer.StopUploading")}
           </wl-button>
           <vaadin-grid class="progress" theme="row-stripes compact" aria-label="uploadFiles" .items="${this.uploadFiles}"
                        height-by-rows>
@@ -998,15 +1035,15 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
             <vaadin-grid-column width="40px" flex-grow="0" resizable header="#" .renderer="${this._boundIndexRenderer}">
             </vaadin-grid-column>
 
-            <vaadin-grid-sort-column flex-grow="2" resizable header="Name" path="filename" .renderer="${this._boundFileNameRenderer}">
+            <vaadin-grid-sort-column flex-grow="2" resizable header="${translate("data.explorer.Name")}" path="filename" .renderer="${this._boundFileNameRenderer}">
             </vaadin-grid-sort-column>
 
-            <vaadin-grid-sort-column flex-grow="2" resizable header="Created" path="ctime" .renderer="${this._boundCreatedTimeRenderer}">
+            <vaadin-grid-sort-column flex-grow="2" resizable header="${translate("data.explorer.Created")}" path="ctime" .renderer="${this._boundCreatedTimeRenderer}">
             </vaadin-grid-sort-column>
 
             <vaadin-grid-column flex-grow="1" resizable>
               <template class="header">
-                <vaadin-grid-sorter path="size">Size</vaadin-grid-sorter>
+                <vaadin-grid-sorter path="size">${translate("data.explorer.Size")}</vaadin-grid-sorter>
               </template>
               <template>
                 <div class="layout vertical">
@@ -1014,7 +1051,7 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
                 </div>
               </template>
             </vaadin-grid-column>
-            <vaadin-grid-column resizable flex-grow="2" header="Actions" .renderer="${this._boundControlFileListRenderer}"></vaadin-grid-column>
+            <vaadin-grid-column resizable flex-grow="2" header="${translate("data.explorer.Actions")}" .renderer="${this._boundControlFileListRenderer}"></vaadin-grid-column>
           </vaadin-grid>
         </wl-card>
       </wl-dialog>
@@ -1022,7 +1059,7 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
       <wl-dialog id="mkdir-dialog" class="dialog-ask" fixed blockscrolling backdrop>
         <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
           <h3 class="horizontal center layout">
-            <span>Create a new folder</span>
+            <span>${translate("data.explorer.CreateANewFolder")}</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
@@ -1030,14 +1067,14 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
           </h3>
           <section>
             <mwc-textfield id="mkdir-name"
-                           label="Folder name"
+                           label="${translate("data.explorer.Foldername")}"
                            auto-validate
                            required
                            validationMessage="Value is required."></mwc-textfield>
             <br/>
             <wl-button class="blue button" type="submit" id="mkdir-btn" @click="${e=>this._mkdir(e)}" outlined>
               <wl-icon>rowing</wl-icon>
-              Create
+              ${translate("button.Create")}
             </wl-button>
           </section>
         </wl-card>
@@ -1052,17 +1089,17 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
       >
         <wl-card class="intro centered" style="margin: 0;">
           <h3 class="horizontal center layout" style="border-bottom:1px solid #ddd;">
-            <span>Share Folder</span>
+            <span>${translate("data.explorer.ShareFolder")}</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
             </wl-button>
           </h3>
           <div role="listbox" style="margin: 0; padding: 20px 25px 25px 25px;">
-            <div style="margin: 10px 0px">People</div>
+            <div style="margin: 10px 0px">${translate("data.explorer.People")}</div>
             <div style="display: flex;">
               <div id="textfields" style="flex-grow: 2">
-                <wl-textfield type="email" label="Enter e-mail address"></wl-textfield>
+                <wl-textfield type="email" label="${translate("data.explorer.EnterEmailAddress")}"></wl-textfield>
               </div>
               <div>
                 <wl-button fab flat @click="${e=>this._addTextField(e)}">
@@ -1073,15 +1110,15 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
                 </wl-button>
               </div>
             </div>
-            <div style="margin: 10px 0px">Permissions</div>
+            <div style="margin: 10px 0px">${translate("data.explorer.Permissions")}</div>
             <div style="display: flex; justify-content: space-evenly;">
               <wl-label>
                 <wl-checkbox checked disabled></wl-checkbox>
-                View
+                ${translate("button.View")}
               </wl-label>
               <wl-label>
                 <wl-checkbox id="share-folder-write"></wl-checkbox>
-                Edit
+                ${translate("button.Edit")}
               </wl-label>
             </div>
 
@@ -1093,7 +1130,7 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
               @click=${e=>this._shareFolder(e)}
             >
               <wl-icon>share</wl-icon>
-              Share
+              ${translate("button.Share")}
             </wl-button>
           </div>
         </wl-card>
@@ -1105,7 +1142,7 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
       >
         <wl-card class="intro" style="margin: 0; width: 100%;">
           <h3 class="horizontal center layout" style="border-bottom:1px solid #ddd;">
-            <span>Modify Permissions</span>
+            <span>${translate("data.explorer.ModifyPermissions")}</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
@@ -1119,12 +1156,12 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
                 header="#"
                 .renderer="${this._boundIndexRenderer}"
               ></vaadin-grid-column>
-              <vaadin-grid-column header="Invitee Email">
+              <vaadin-grid-column header="${translate("data.explorer.InviteeEmail")}">
                 <template>
                   <div>[[item.shared_to.email]]</div>
                 </template>
               </vaadin-grid-column>
-              <vaadin-grid-column header="Permission" .renderer="${this._boundPermissionRenderer}">
+              <vaadin-grid-column header="${translate("data.explorer.Permission")}" .renderer="${this._boundPermissionRenderer}">
               </vaadin-grid-column>
             </vaadin-grid>
           </div>
@@ -1137,18 +1174,19 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
             @click=${this._modifySharedFolderPermissions}
           >
             <wl-icon>check</wl-icon>
-            Save Changes
+            ${translate("button.SaveChanges")}
           </wl-button>
         </div>
       </wl-dialog>
       <wl-dialog id="delete-file-dialog" fixed backdrop blockscrolling>
          <wl-title level="3" slot="header">Let's double-check</wl-title>
          <div slot="content">
-            <p>This action cannot be undone. Do you want to proceed?</p>
+            <p>${translate("dialog.warning.CannotBeUndone")}
+            ${translate("dialog.ask.DoYouWantToProceed")}</p>
          </div>
          <div slot="footer">
-            <wl-button inverted flat @click="${e=>this._hideDialog(e)}">Cancel</wl-button>
-            <wl-button @click="${e=>this._deleteFileWithCheck(e)}">Okay</wl-button>
+            <wl-button inverted flat @click="${e=>this._hideDialog(e)}">${translate("button.Cancel")}</wl-button>
+            <wl-button @click="${e=>this._deleteFileWithCheck(e)}">${translate("button.Okay")}</wl-button>
          </div>
       </wl-dialog>
 
@@ -1200,6 +1238,11 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
 
           ${this._hasPermission(o.item,"d")?html$1`
               <mwc-icon-button
+                class="fg blue controls-running"
+                icon="edit"
+                @click="${e=>this._renameFolderDialog(e)}"
+              ></mwc-icon-button>
+              <mwc-icon-button
                 class="fg red controls-running"
                 icon="delete"
                 @click="${e=>this._deleteFolderDialog(e)}"
@@ -1208,11 +1251,11 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
         </div>
        `,e)}controlFileListRenderer(e,t,o){render(html$1`
         ${!this._isDir(o.item)&&this._isDownloadable(o.item)?html$1`
-            <mwc-icon-button id="download-btn" class="tiny fg blue" icon="cloud_download"
-                               filename="${o.item.filename}" @click="${e=>this._downloadFile(e)}"></mwc-icon-button>
-            <mwc-icon-button id="delete-btn" class="tiny fg red" icon="delete_forever"
-                               filename="${o.item.filename}" @click="${e=>this._openDeleteFileDialog(e)}"></mwc-icon-button>
-                               `:html$1``}
+          <mwc-icon-button id="download-btn" class="tiny fg blue" icon="cloud_download"
+              filename="${o.item.filename}" @click="${e=>this._downloadFile(e)}"></mwc-icon-button>
+        `:html$1``}
+        <mwc-icon-button id="delete-btn" class="tiny fg red" icon="delete_forever"
+              filename="${o.item.filename}" @click="${e=>this._openDeleteFileDialog(e)}"></mwc-icon-button>
        `,e)}fileNameRenderer(e,t,o){render(html$1`
         ${this._isDir(o.item)?html$1`
           <div class="indicator horizontal center layout" @click="${e=>this._enqueueFolder(e)}" name="${o.item.filename}">
@@ -1247,12 +1290,7 @@ let BackendAiStorageList=class extends BackendAIPage{constructor(){super(),this.
         `:html$1`
           <wl-icon>group</wl-icon>
         `}
-        </div>`,e)}refreshFolderList(){return this._refreshFolderList()}_refreshFolderList(){this.indicator.show();let e=null;e=globalThis.backendaiclient.current_group_id(),globalThis.backendaiclient.vfolder.list(e).then(e=>{this.indicator.hide();let t=e.filter(e=>"general"!==this.storageType||e.name.startsWith(".")?"automount"===this.storageType&&e.name.startsWith(".")?e:void 0:e);this.folders=t}),globalThis.backendaiclient.vfolder.list_hosts().then(e=>{})}_refreshFolderUI(e){let t=this.shadowRoot.querySelector("#folder-explorer-dialog");e.detail.hasOwnProperty("mini-ui")&&!0===e.detail["mini-ui"]?t.classList.add("mini_ui"):t.classList.remove("mini_ui")}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.is_admin=globalThis.backendaiclient.is_admin,this.authenticated=!0,this._refreshFolderList()},!0):(this.is_admin=globalThis.backendaiclient.is_admin,this.authenticated=!0,this._refreshFolderList()))}async _addFolderDialog(){let e=await globalThis.backendaiclient.vfolder.list_hosts();if(this.vhosts=e.allowed,this.vhost=e.default,this.allowed_folder_type.includes("group")){const e=await globalThis.backendaiclient.group.list();this.allowedGroups=e.groups}this.openDialog("add-folder-dialog")}_folderExplorerDialog(){this.openDialog("folder-explorer-dialog")}_mkdirDialog(){this.shadowRoot.querySelector("#mkdir-name").value="",this.openDialog("mkdir-dialog")}openDialog(e){this.shadowRoot.querySelector("#"+e).show()}closeDialog(e){this.shadowRoot.querySelector("#"+e).hide()}_indexFrom1(e){return e+1}_hasPermission(e,t){return!!e.permission.includes(t)||!(!e.permission.includes("w")||"r"!==t)}_getControlId(e){return e.target.closest("#controls").getAttribute("folder-id")}_infoFolder(e){const t=this._getControlId(e);globalThis.backendaiclient.vfolder.info(t).then(e=>{this.folderInfo=e,this.openDialog("info-folder-dialog")}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_deleteFolderDialog(e){this.deleteFolderId=this._getControlId(e),this.shadowRoot.querySelector("#delete-folder-name").value="",this.openDialog("delete-folder-dialog")}_deleteFolderWithCheck(){if(this.shadowRoot.querySelector("#delete-folder-name").value!=this.deleteFolderId)return this.notification.text="Folder name mismatched. Check your typing.",void this.notification.show();this.closeDialog("delete-folder-dialog"),this._deleteFolder(this.deleteFolderId)}_deleteFolder(e){globalThis.backendaiclient.vfolder.delete(e).then(e=>{this.notification.text="Folder is successfully deleted.",this.notification.show(),this._refreshFolderList()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_clearExplorer(e=this.explorer.breadcrumb.join("/"),t=this.explorer.id,o=!1){globalThis.backendaiclient.vfolder.list_files(e,t).then(e=>{this.shadowRoot.querySelector("#fileList-grid").selectedItems=[],this.explorer.files=JSON.parse(e.files),this.explorerFiles=this.explorer.files,o&&this.openDialog("folder-explorer-dialog")})}_folderExplorer(e){let t={id:this._getControlId(e),breadcrumb:["."]};this.explorer=t,this._clearExplorer(t.breadcrumb.join("/"),t.id,!0)}_enqueueFolder(e){const t=e.target.getAttribute("name");this.explorer.breadcrumb.push(t),this._clearExplorer()}_gotoFolder(e){const t=e.target.getAttribute("dest");let o=this.explorer.breadcrumb;const i=o.indexOf(t);-1!==i&&(o=o.slice(0,i+1),this.explorer.breadcrumb=o,this._clearExplorer(o.join("/"),this.explorer.id,!1))}_mkdir(e){const t=this.shadowRoot.querySelector("#mkdir-name"),o=t.value,i=this.explorer;if(t.reportValidity(),t.checkValidity()){globalThis.backendaiclient.vfolder.mkdir([...i.breadcrumb,o].join("/"),i.id).catch(e=>{console.log(e),e&e.message?(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e)):e&&e.title&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.show(!0,e))}).then(e=>{this.closeDialog("mkdir-dialog"),this._clearExplorer()})}}_isDir(e){return e.mode.startsWith("d")}_addEventListenerDropZone(){const e=this.shadowRoot.querySelector("#folder-explorer-dialog"),t=this.shadowRoot.querySelector("#dropzone");t.addEventListener("dragleave",()=>{t.style.display="none"}),e.addEventListener("dragover",e=>(e.stopPropagation(),e.preventDefault(),e.dataTransfer.dropEffect="copy",t.style.display="flex",!1)),e.addEventListener("drop",e=>{e.stopPropagation(),e.preventDefault(),t.style.display="none";let o=[];for(let t=0;t<e.dataTransfer.files.length;t++){const i=e.dataTransfer.files[t];i.size>2**20?console.log("File size limit (< 1 MiB)"):(i.progress=0,i.caption="",i.error=!1,i.complete=!1,o.push(i),this.uploadFiles.push(i))}for(let e=0;e<o.length;e++)this.fileUpload(o[e]),this._clearExplorer()})}_uploadFileBtnClick(e){const t=this.shadowRoot.querySelector("#fileInput");if(t&&document.createEvent){const e=document.createEvent("MouseEvents");e.initEvent("click",!0,!1),t.dispatchEvent(e)}}_uploadFileChange(e){const t=e.target.files.length;for(let o=0;o<t;o++){const t=e.target.files[o];let i="",r="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(let e=0;e<5;e++)i+=r.charAt(Math.floor(Math.random()*r.length));t.id=i,t.progress=0,t.caption="",t.error=!1,t.complete=!1,this.uploadFiles.push(t)}for(let e=0;e<t;e++)this.fileUpload(this.uploadFiles[e]);this.shadowRoot.querySelector("#fileInput").value=""}fileUpload(e){this._uploadFlag=!0,this.uploadFilesExist=this.uploadFiles.length>0;const t=this.explorer.breadcrumb.concat(e.name).join("/");globalThis.backendaiclient.vfolder.create_upload_session(t,e,this.explorer.id).then(o=>{const i=(new Date).getTime(),r=new tus.Upload(e,{endpoint:o,retryDelays:[0,3e3,5e3,1e4,2e4],uploadUrl:o,chunkSize:15728640,metadata:{filename:t,filetype:e.type},onError:function(e){console.log("Failed because: "+e)},onProgress:(t,o)=>{if(!this._uploadFlag)return r.abort(),this.uploadFiles[this.uploadFiles.indexOf(e)].caption="Canceling...",this.uploadFiles=this.uploadFiles.slice(),void setTimeout(()=>{this.uploadFiles=[],this.uploadFilesExist=!1},1e3);const a=(new Date).getTime(),n=(t/1048576/((a-i)/1e3)).toFixed(1)+"MB/s",l=Math.floor((o-t)/(t/(a-i)*1e3));let s="Less than 10 seconds";if(l>=86400)s="More than a day";else if(l>10){s=`${Math.floor(l/3600)}:${Math.floor(l%3600/60)}:${l%60}`}const d=(t/o*100).toFixed(1);this.uploadFiles[this.uploadFiles.indexOf(e)].progress=t/o,this.uploadFiles[this.uploadFiles.indexOf(e)].caption=`${d}% / Time left : ${s} / Speed : ${n}`,this.uploadFiles=this.uploadFiles.slice()},onSuccess:()=>{this._clearExplorer(),this.uploadFiles[this.uploadFiles.indexOf(e)].complete=!0,this.uploadFiles=this.uploadFiles.slice(),setTimeout(()=>{this.uploadFiles.splice(this.uploadFiles.indexOf(e),1),this.uploadFilesExist=this.uploadFiles.length>0,this.uploadFiles=this.uploadFiles.slice()},1e3)}});r.start()})}_cancelUpload(e){this._uploadFlag=!1}_downloadFile(e){let t=e.target.getAttribute("filename"),o=this.explorer.breadcrumb.concat(t).join("/");globalThis.backendaiclient.vfolder.request_download_token(o,this.explorer.id).then(e=>{const o=e.token,i=globalThis.backendaiclient.vfolder.get_download_url_with_token(o);let r=document.createElement("a");r.addEventListener("click",(function(e){e.stopPropagation()})),r.href=i,r.download=t,document.body.appendChild(r),r.click(),r.remove(),URL.revokeObjectURL(i)})}_openDeleteFileDialog(e){let t=e.target.getAttribute("filename");this.deleteFileDialog.filename=t,this.deleteFileDialog.files=[],this.deleteFileDialog.show()}_openDeleteMultipleFileDialog(e){this.deleteFileDialog.files=this.fileListGrid.selectedItems,this.deleteFileDialog.filename="",this.deleteFileDialog.show()}_deleteFileWithCheck(e){let t=this.deleteFileDialog.files;if(t.length>0){let e=[];t.forEach(t=>{let o=this.explorer.breadcrumb.concat(t.filename).join("/");e.push(o)}),globalThis.backendaiclient.vfolder.delete_files(e,!0,this.explorer.id).then(e=>{this.notification.text="Files deleted.",this.notification.show(),this._clearExplorer(),this.deleteFileDialog.hide()})}else if(""!=this.deleteFileDialog.filename){let e=this.explorer.breadcrumb.concat(this.deleteFileDialog.filename).join("/");globalThis.backendaiclient.vfolder.delete_files([e],!0,this.explorer.id).then(e=>{this.notification.text="File deleted.",this.notification.show(),this._clearExplorer(),this.deleteFileDialog.hide()})}}_deleteFile(e){let t=e.target.getAttribute("filename"),o=this.explorer.breadcrumb.concat(t).join("/");globalThis.backendaiclient.vfolder.delete_files([o],!0,this.explorer.id).then(e=>{this.notification.text="File deleted.",this.notification.show(),this._clearExplorer()})}_humanReadableTime(e){const t=new Date(1e3*e),o=t.getTimezoneOffset()/60,i=t.getHours();return t.setHours(i-o),t.toUTCString()}_isDownloadable(e){return!0}_hideDialog(e){e.target.closest("wl-dialog").hide()}_shareFolderDialog(e){this.selectedFolder=this._getControlId(e),this.openDialog("share-folder-dialog")}_modifyPermissionDialog(e){globalThis.backendaiclient.vfolder.list_invitees(e).then(e=>{this.invitees=e.shared,this.openDialog("modify-permission-dialog")})}_shareFolder(e){const t=this.shadowRoot.querySelector("#textfields").children,o=Array.prototype.filter.call(t,e=>!e.hasAttribute("invalid")&&""!==e.value).map(e=>e.value.trim()),i="r"+(this.shadowRoot.querySelector("#share-folder-write").checked?"w":"o");if(0!==o.length)globalThis.backendaiclient.vfolder.invite(i,o,this.selectedFolder).then(e=>{let i;i=e.invited_ids&&e.invited_ids.length>0?e.invited_ids.reduce((e,t)=>e+t+" ","")+(1===o.length?"was":"were")+" successfully invited":"No one was invited",this.notification.text=i,this.notification.show(),this.shadowRoot.querySelector("#share-folder-dialog").hide();for(let e of t)e.value=""});else{this.notification.text="No valid emails were entered",this.notification.show(),this.shadowRoot.querySelector("#share-folder-dialog").hide();for(let e of t)e.value=""}}_validatePathName(){let e=this.shadowRoot.querySelector("#mkdir-name");e.validityTransform=(t,o)=>{if(o.valid){let t=/^([.a-zA-Z0-9-_]{1,})+(\/[a-zA-Z0-9-_]{1,})*([\/,\\]{0,1})$/gm.exec(e.value);return t||(e.validationMessage="Path should start with .(dot) or letters, numbers only."),{valid:t,customError:!t}}return o.valueMissing?(e.validationMessage="Value is required.",{valid:o.valid,valueMissing:!o.valid}):{valid:o.valid,badInput:!o.valid}}}};__decorate([property({type:String})],BackendAiStorageList.prototype,"storageType",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"folders",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"folderInfo",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"is_admin",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"authenticated",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"deleteFolderId",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"explorer",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"explorerFiles",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"invitees",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"selectedFolder",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"uploadFiles",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"vhost",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"vhosts",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"allowedGroups",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"fileListGrid",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"notification",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"deleteFileDialog",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"indicator",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"allowed_folder_type",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"uploadFilesExist",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundIndexRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundTypeRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundControlFolderListRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundControlFileListRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundPermissionViewRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundFileNameRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundCreatedTimeRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundPermissionRenderer",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"_uploadFlag",void 0),BackendAiStorageList=__decorate([customElement("backend-ai-storage-list")],BackendAiStorageList);
-/**
- @license
- Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */
-let BackendAIData=class extends BackendAIPage{constructor(){super(),this.folders=Object(),this.folderInfo=Object(),this.is_admin=!1,this.authenticated=!1,this.deleteFolderId="",this.vhost="",this.vhosts=[],this.allowedGroups=[],this.allowed_folder_type=[],this.notification=Object(),this.indicator=Object(),this.folderLists=Object(),this._status="inactive",this.active=!0,this._lists=Object()}static get styles(){return[BackendAiStyles,IronFlex,IronFlexAlignment,IronPositioning,css`
+        </div>`,e)}refreshFolderList(){return this._refreshFolderList()}_refreshFolderList(){this.indicator.show();let e=null;e=globalThis.backendaiclient.current_group_id(),globalThis.backendaiclient.vfolder.list(e).then(e=>{this.indicator.hide();let t=e.filter(e=>"general"!==this.storageType||e.name.startsWith(".")?"automount"===this.storageType&&e.name.startsWith(".")?e:void 0:e);this.folders=t}),globalThis.backendaiclient.vfolder.list_hosts().then(e=>{})}_refreshFolderUI(e){let t=this.shadowRoot.querySelector("#folder-explorer-dialog");e.detail.hasOwnProperty("mini-ui")&&!0===e.detail["mini-ui"]?t.classList.add("mini_ui"):t.classList.remove("mini_ui")}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.is_admin=globalThis.backendaiclient.is_admin,this.authenticated=!0,this._refreshFolderList()},!0):(this.is_admin=globalThis.backendaiclient.is_admin,this.authenticated=!0,this._refreshFolderList()))}async _addFolderDialog(){let e=await globalThis.backendaiclient.vfolder.list_hosts();if(this.vhosts=e.allowed,this.vhost=e.default,this.allowed_folder_type.includes("group")){const e=await globalThis.backendaiclient.group.list();this.allowedGroups=e.groups}this.openDialog("add-folder-dialog")}_folderExplorerDialog(){this.openDialog("folder-explorer-dialog")}_mkdirDialog(){this.shadowRoot.querySelector("#mkdir-name").value="",this.openDialog("mkdir-dialog")}openDialog(e){this.shadowRoot.querySelector("#"+e).show()}closeDialog(e){this.shadowRoot.querySelector("#"+e).hide()}_indexFrom1(e){return e+1}_hasPermission(e,t){return!!e.permission.includes(t)||!(!e.permission.includes("w")||"r"!==t)}_getControlId(e){return e.target.closest("#controls").getAttribute("folder-id")}_infoFolder(e){const t=this._getControlId(e);globalThis.backendaiclient.vfolder.info(t).then(e=>{this.folderInfo=e,this.openDialog("info-folder-dialog")}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_renameFolderDialog(e){this.renameFolderId=this._getControlId(e),this.shadowRoot.querySelector("#new-folder-name").value="",this.openDialog("rename-folder-dialog")}_renameFolder(){globalThis.backendaiclient.vfolder.name=this.renameFolderId;const e=this.shadowRoot.querySelector("#new-folder-name").value,t=globalThis.backendaiclient.vfolder.rename(e);this.closeDialog("rename-folder-dialog"),t.then(e=>{this.notification.text="Folder renamed.",this.notification.show(),this._refreshFolderList()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_deleteFolderDialog(e){this.deleteFolderId=this._getControlId(e),this.shadowRoot.querySelector("#delete-folder-name").value="",this.openDialog("delete-folder-dialog")}_deleteFolderWithCheck(){if(this.shadowRoot.querySelector("#delete-folder-name").value!=this.deleteFolderId)return this.notification.text="Folder name mismatched. Check your typing.",void this.notification.show();this.closeDialog("delete-folder-dialog"),this._deleteFolder(this.deleteFolderId)}_deleteFolder(e){globalThis.backendaiclient.vfolder.delete(e).then(e=>{this.notification.text="Folder is successfully deleted.",this.notification.show(),this._refreshFolderList()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_clearExplorer(e=this.explorer.breadcrumb.join("/"),t=this.explorer.id,o=!1){globalThis.backendaiclient.vfolder.list_files(e,t).then(e=>{this.shadowRoot.querySelector("#fileList-grid").selectedItems=[],this.explorer.files=JSON.parse(e.files),this.explorerFiles=this.explorer.files,o&&this.openDialog("folder-explorer-dialog")})}_folderExplorer(e){let t={id:this._getControlId(e),breadcrumb:["."]};this.explorer=t,this._clearExplorer(t.breadcrumb.join("/"),t.id,!0)}_enqueueFolder(e){const t=e.target.getAttribute("name");this.explorer.breadcrumb.push(t),this._clearExplorer()}_gotoFolder(e){const t=e.target.getAttribute("dest");let o=this.explorer.breadcrumb;const i=o.indexOf(t);-1!==i&&(o=o.slice(0,i+1),this.explorer.breadcrumb=o,this._clearExplorer(o.join("/"),this.explorer.id,!1))}_mkdir(e){const t=this.shadowRoot.querySelector("#mkdir-name"),o=t.value,i=this.explorer;if(t.reportValidity(),t.checkValidity()){globalThis.backendaiclient.vfolder.mkdir([...i.breadcrumb,o].join("/"),i.id).catch(e=>{console.log(e),e&e.message?(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e)):e&&e.title&&(this.notification.text=BackendAIPainKiller.relieve(e.title),this.notification.show(!0,e))}).then(e=>{this.closeDialog("mkdir-dialog"),this._clearExplorer()})}}_isDir(e){return e.mode.startsWith("d")}_addEventListenerDropZone(){const e=this.shadowRoot.querySelector("#folder-explorer-dialog"),t=this.shadowRoot.querySelector("#dropzone");t.addEventListener("dragleave",()=>{t.style.display="none"}),e.addEventListener("dragover",e=>(e.stopPropagation(),e.preventDefault(),e.dataTransfer.dropEffect="copy",t.style.display="flex",!1)),e.addEventListener("drop",e=>{e.stopPropagation(),e.preventDefault(),t.style.display="none";let o=[];for(let t=0;t<e.dataTransfer.files.length;t++){const i=e.dataTransfer.files[t];i.size>2**20?console.log("File size limit (< 1 MiB)"):(i.progress=0,i.caption="",i.error=!1,i.complete=!1,o.push(i),this.uploadFiles.push(i))}for(let e=0;e<o.length;e++)this.fileUpload(o[e]),this._clearExplorer()})}_uploadFileBtnClick(e){const t=this.shadowRoot.querySelector("#fileInput");if(t&&document.createEvent){const e=document.createEvent("MouseEvents");e.initEvent("click",!0,!1),t.dispatchEvent(e)}}_uploadFileChange(e){const t=e.target.files.length;for(let o=0;o<t;o++){const t=e.target.files[o];let i="",r="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";for(let e=0;e<5;e++)i+=r.charAt(Math.floor(Math.random()*r.length));t.id=i,t.progress=0,t.caption="",t.error=!1,t.complete=!1,this.uploadFiles.push(t)}for(let e=0;e<t;e++)this.fileUpload(this.uploadFiles[e]);this.shadowRoot.querySelector("#fileInput").value=""}fileUpload(e){this._uploadFlag=!0,this.uploadFilesExist=this.uploadFiles.length>0;const t=this.explorer.breadcrumb.concat(e.name).join("/");globalThis.backendaiclient.vfolder.create_upload_session(t,e,this.explorer.id).then(o=>{const i=(new Date).getTime(),r=new tus.Upload(e,{endpoint:o,retryDelays:[0,3e3,5e3,1e4,2e4],uploadUrl:o,chunkSize:15728640,metadata:{filename:t,filetype:e.type},onError:function(e){console.log("Failed because: "+e)},onProgress:(t,o)=>{if(!this._uploadFlag)return r.abort(),this.uploadFiles[this.uploadFiles.indexOf(e)].caption="Canceling...",this.uploadFiles=this.uploadFiles.slice(),void setTimeout(()=>{this.uploadFiles=[],this.uploadFilesExist=!1},1e3);const a=(new Date).getTime(),n=(t/1048576/((a-i)/1e3)).toFixed(1)+"MB/s",l=Math.floor((o-t)/(t/(a-i)*1e3));let s="Less than 10 seconds";if(l>=86400)s="More than a day";else if(l>10){s=`${Math.floor(l/3600)}:${Math.floor(l%3600/60)}:${l%60}`}const d=(t/o*100).toFixed(1);this.uploadFiles[this.uploadFiles.indexOf(e)].progress=t/o,this.uploadFiles[this.uploadFiles.indexOf(e)].caption=`${d}% / Time left : ${s} / Speed : ${n}`,this.uploadFiles=this.uploadFiles.slice()},onSuccess:()=>{this._clearExplorer(),this.uploadFiles[this.uploadFiles.indexOf(e)].complete=!0,this.uploadFiles=this.uploadFiles.slice(),setTimeout(()=>{this.uploadFiles.splice(this.uploadFiles.indexOf(e),1),this.uploadFilesExist=this.uploadFiles.length>0,this.uploadFiles=this.uploadFiles.slice()},1e3)}});r.start()})}_cancelUpload(e){this._uploadFlag=!1}_downloadFile(e){let t=e.target.getAttribute("filename"),o=this.explorer.breadcrumb.concat(t).join("/");globalThis.backendaiclient.vfolder.request_download_token(o,this.explorer.id).then(e=>{const o=e.token,i=globalThis.backendaiclient.vfolder.get_download_url_with_token(o);let r=document.createElement("a");r.addEventListener("click",(function(e){e.stopPropagation()})),r.href=i,r.download=t,document.body.appendChild(r),r.click(),r.remove(),URL.revokeObjectURL(i)})}_openDeleteFileDialog(e){let t=e.target.getAttribute("filename");this.deleteFileDialog.filename=t,this.deleteFileDialog.files=[],this.deleteFileDialog.show()}_openDeleteMultipleFileDialog(e){this.deleteFileDialog.files=this.fileListGrid.selectedItems,this.deleteFileDialog.filename="",this.deleteFileDialog.show()}_deleteFileWithCheck(e){let t=this.deleteFileDialog.files;if(t.length>0){let e=[];t.forEach(t=>{let o=this.explorer.breadcrumb.concat(t.filename).join("/");e.push(o)}),globalThis.backendaiclient.vfolder.delete_files(e,!0,this.explorer.id).then(e=>{this.notification.text="Files deleted.",this.notification.show(),this._clearExplorer(),this.deleteFileDialog.hide()})}else if(""!=this.deleteFileDialog.filename){let e=this.explorer.breadcrumb.concat(this.deleteFileDialog.filename).join("/");globalThis.backendaiclient.vfolder.delete_files([e],!0,this.explorer.id).then(e=>{this.notification.text="File deleted.",this.notification.show(),this._clearExplorer(),this.deleteFileDialog.hide()})}}_deleteFile(e){let t=e.target.getAttribute("filename"),o=this.explorer.breadcrumb.concat(t).join("/");globalThis.backendaiclient.vfolder.delete_files([o],!0,this.explorer.id).then(e=>{this.notification.text="File deleted.",this.notification.show(),this._clearExplorer()})}_humanReadableTime(e){const t=new Date(1e3*e),o=t.getTimezoneOffset()/60,i=t.getHours();return t.setHours(i-o),t.toUTCString()}_isDownloadable(e){return!0}_hideDialog(e){e.target.closest("wl-dialog").hide()}_shareFolderDialog(e){this.selectedFolder=this._getControlId(e),this.openDialog("share-folder-dialog")}_modifyPermissionDialog(e){globalThis.backendaiclient.vfolder.list_invitees(e).then(e=>{this.invitees=e.shared,this.openDialog("modify-permission-dialog")})}_shareFolder(e){const t=this.shadowRoot.querySelector("#textfields").children,o=Array.prototype.filter.call(t,e=>!e.hasAttribute("invalid")&&""!==e.value).map(e=>e.value.trim()),i="r"+(this.shadowRoot.querySelector("#share-folder-write").checked?"w":"o");if(0!==o.length)globalThis.backendaiclient.vfolder.invite(i,o,this.selectedFolder).then(e=>{let i;i=e.invited_ids&&e.invited_ids.length>0?e.invited_ids.reduce((e,t)=>e+t+" ","")+(1===o.length?"was":"were")+" successfully invited":"No one was invited",this.notification.text=i,this.notification.show(),this.shadowRoot.querySelector("#share-folder-dialog").hide();for(let e of t)e.value=""});else{this.notification.text="No valid emails were entered",this.notification.show(),this.shadowRoot.querySelector("#share-folder-dialog").hide();for(let e of t)e.value=""}}_validatePathName(){let e=this.shadowRoot.querySelector("#mkdir-name");e.validityTransform=(t,o)=>{if(o.valid){let t=/^([.a-zA-Z0-9-_]{1,})+(\/[a-zA-Z0-9-_]{1,})*([\/,\\]{0,1})$/gm.exec(e.value);return t||(e.validationMessage="Path should start with .(dot) or letters, numbers only."),{valid:t,customError:!t}}return o.valueMissing?(e.validationMessage="Value is required.",{valid:o.valid,valueMissing:!o.valid}):{valid:o.valid,badInput:!o.valid}}}};__decorate([property({type:String})],BackendAiStorageList.prototype,"storageType",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"folders",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"folderInfo",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"is_admin",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"authenticated",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"renameFolderId",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"deleteFolderId",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"explorer",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"explorerFiles",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"invitees",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"selectedFolder",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"uploadFiles",void 0),__decorate([property({type:String})],BackendAiStorageList.prototype,"vhost",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"vhosts",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"allowedGroups",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"fileListGrid",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"notification",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"deleteFileDialog",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"indicator",void 0),__decorate([property({type:Array})],BackendAiStorageList.prototype,"allowed_folder_type",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"uploadFilesExist",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundIndexRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundTypeRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundControlFolderListRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundControlFileListRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundPermissionViewRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundFileNameRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundCreatedTimeRenderer",void 0),__decorate([property({type:Object})],BackendAiStorageList.prototype,"_boundPermissionRenderer",void 0),__decorate([property({type:Boolean})],BackendAiStorageList.prototype,"_uploadFlag",void 0),BackendAiStorageList=__decorate([customElement("backend-ai-storage-list")],BackendAiStorageList);let BackendAIData=class extends BackendAIPage{constructor(){super(),this.folders=Object(),this.folderInfo=Object(),this.is_admin=!1,this.authenticated=!1,this.deleteFolderId="",this.vhost="",this.vhosts=[],this.allowedGroups=[],this.allowed_folder_type=[],this.notification=Object(),this.indicator=Object(),this.folderLists=Object(),this._status="inactive",this.active=!0,this._lists=Object()}static get styles(){return[BackendAiStyles,IronFlex,IronFlexAlignment,IronPositioning,css`
         ul {
           padding-left: 0;
         }
@@ -1356,59 +1394,59 @@ let BackendAIData=class extends BackendAIPage{constructor(){super(),this.folders
       <wl-card class="item" elevation="1" style="padding-bottom:20px;">
         <h3 class="horizontal center flex layout tab">
           <wl-tab-group>
-            <wl-tab value="general-folder" checked @click="${e=>this._showTab(e.target)}">Folders</wl-tab>
-            <wl-tab value="automount-folder" @click="${e=>this._showTab(e.target)}">Automount Folders</wl-tab>
-            <wl-tab value="shared-folder" disabled>Shared Data</wl-tab>
-            <wl-tab value="model" disabled>Models</wl-tab>
+            <wl-tab value="general-folder" checked @click="${e=>this._showTab(e.target)}">${translate("data.Folders")}</wl-tab>
+            <wl-tab value="automount-folder" @click="${e=>this._showTab(e.target)}">${translate("data.AutomountFolders")}</wl-tab>
+            <wl-tab value="shared-folder" disabled>${translate("data.SharedData")}</wl-tab>
+            <wl-tab value="model" disabled>${translate("data.Models")}</wl-tab>
           </wl-tab-group>
           <span class="flex"></span>
           <wl-button class="fg red" id="add-folder" outlined @click="${()=>this._addFolderDialog()}">
             <wl-icon>add</wl-icon>
-            New folder
+            ${translate("data.NewFolder")}
           </wl-button>
         </h3>
         <div id="general-folder-lists" class="tab-content">
           <backend-ai-storage-list id="general-folder-storage" storageType="general" ?active="${!0===this.active}"></backend-ai-storage-list>
         </div>
         <div id="automount-folder-lists" class="tab-content" style="display:none;">
-        <p>Folders starting with a <span class="monospace">.</span>(dot) are automatically mounted when a new session is started.</p>
+          <p>${translate("data.DialogFolderStartingWithDotAutomount")}</p>
           <backend-ai-storage-list id="automount-folder-storage" storageType="automount" ?active="${!0===this.active}"></backend-ai-storage-list>
         </div>
       </wl-card>
       <wl-dialog id="add-folder-dialog" class="dialog-ask" fixed backdrop blockscrolling>
         <wl-card elevation="1" class="login-panel intro centered">
           <h3 class="horizontal center layout">
-            <span>Create a new storage folder</span>
+            <span>${translate("data.CreateANewStorageFolder")}</span>
             <div class="flex"></div>
             <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
               <wl-icon>close</wl-icon>
             </wl-button>
           </h3>
           <section>
-            <mwc-textfield id="add-folder-name" label="Folder name" pattern="[a-zA-Z0-9_-.]*"
-            auto-validate required validationMessage="Allows letters, numbers and -_."></mwc-textfield>
+            <mwc-textfield id="add-folder-name" label="${translate("data.Foldername")}" pattern="[a-zA-Z0-9_-.]*"
+            auto-validate required validationMessage="${translate("data.Allowslettersnumbersand-_dot")}"></mwc-textfield>
             <div class="horizontal layout">
-              <paper-dropdown-menu id="add-folder-host" label="Host">
+              <paper-dropdown-menu id="add-folder-host" label="${translate("data.Host")}">
                 <paper-listbox slot="dropdown-content" selected="0">
                 ${this.vhosts.map(e=>html$1`
                   <paper-item id="${e}" label="${e}">${e}</paper-item>
                 `)}
                 </paper-listbox>
               </paper-dropdown-menu>
-              <paper-dropdown-menu id="add-folder-type" label="Type">
+              <paper-dropdown-menu id="add-folder-type" label="${translate("data.Type")}">
                 <paper-listbox slot="dropdown-content" selected="0">
                 ${this.allowed_folder_type.includes("user")?html$1`
-                  <paper-item label="user">User</paper-item>
+                  <paper-item label="user">${translate("data.User")}</paper-item>
                 `:html$1``}
                 ${this.is_admin&&this.allowed_folder_type.includes("group")?html$1`
-                  <paper-item label="group">Group</paper-item>
+                  <paper-item label="group">${translate("data.Group")}</paper-item>
                 `:html$1``}
                 </paper-listbox>
               </paper-dropdown-menu>
             </div>
             ${this.is_admin&&this.allowed_folder_type.includes("group")?html$1`
             <div class="horizontal layout">
-              <paper-dropdown-menu id="add-folder-group" label="Group">
+              <paper-dropdown-menu id="add-folder-group" label=" ${translate("data.Group")}">
                 <paper-listbox slot="dropdown-content" selected="0">
                 ${this.allowedGroups.map(e=>html$1`
                   <paper-item id="${e.name}" label="${e.name}">${e.name}</paper-item>
@@ -1418,13 +1456,12 @@ let BackendAIData=class extends BackendAIPage{constructor(){super(),this.folders
             </div>
             `:html$1``}
             <div style="font-size:11px;">
-              Folders starting with a <span class="monospace">.</span>(dot) are automatically mounted
-              <br/>when a new session is started.
+              ${translate("data.DialogFolderStartingWithDotAutomount")}
             </div>
             <br/>
             <wl-button class="blue button" type="button" id="add-button" outlined @click="${()=>this._addFolder()}">
               <wl-icon>rowing</wl-icon>
-              Create
+               ${translate("data.Create")}
             </wl-button>
           </section>
         </wl-card>

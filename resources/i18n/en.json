@@ -63,7 +63,10 @@
     "UpdateEnvironmentImages": "Update environment images",
     "CheckResources": "Check resources",
     "ChangeSystemSetting": "Change system setting",
-    "SystemMaintenance": "System maintenance"
+    "SystemMaintenance": "System maintenance",
+    "Invitation": "Invitation",
+    "FolderName": "Folder Name",
+    "Permission": "Permission"
   },
   "session": {
     "launcher": {
@@ -170,7 +173,8 @@
     "ConfirmPassword": "Confirm Password",
     "Create": "Create",
     "Control": "Control",
-    "NewPassword": "New Password"
+    "NewPassword": "New Password",
+    "Enabled": "Enabled"
   },
   "credential": {
     "Permission": "Permission",
@@ -394,7 +398,9 @@
     "RegistryType": "Registry Type",
     "ProjectName": "Project Name",
     "ProjectNameIsRequired": "Project name is required",
-    "TypeRegistryNameToDelete": "Type registry hostname to delete"
+    "TypeRegistryNameToDelete": "Type registry hostname to delete",
+    "RegistryTurnedOn": "Registry enabled",
+    "RegistryTurnedOff": "Registry disabled"
   },
   "resourceGroup": {
     "ResourceGroups": "Resource Groups",
@@ -460,12 +466,48 @@
     "Scheduler": "Scheduler",
     "JobScheduler": "Choose default job scheduler",
     "Require1912orAbove": "Requires Backend.AI 19.12 or above.",
+    "Require2003orAbove": "Requires Backend.AI 20.03 or above.",
     "EnterpriseFeatures": "Enterprise Features",
     "FractionalGPU": "Fractional GPU",
     "DescFractionalGPU": "Use Fractional GPU feature with GPU virtualization.",
     "RequireFGPUPlugin": "Requires Backend.AI Virtual CUDA API Layer Plugin.",
     "TPU": "TPU",
     "DescTPU": "Use TPU accelerator.",
-    "RequireTPUPlugin": "Requires resource nodes on Google Cloud with Cloud TPU enabled / binded."
+    "RequireTPUPlugin": "Requires resource nodes on Google Cloud with Cloud TPU enabled / binded.",
+    "Image": "Image",
+    "ImagePullBehavior": "Image auto install / update rule",
+    "DescImagePullBehavior": "Determines the conditions for automatically downloading new images when a new version is registered in the registry.<br />For none, new images will not be automatically downloaded.",
+    "GUI": "GUI",
+    "image": {
+      "digest": "Digest",
+      "tag": "Tag",
+      "none": "None"
+    }
+  },
+  "notification": {
+    "SuccessfullyUpdated": "Successfully Updated"
+  },
+  "information": {
+    "System": "System",
+    "Core": "Core",
+    "ManagerVersion": "Manager version",
+    "APIVersion": "API version",
+    "DockerVersion": "Docker version",
+    "PostgreSQLVersion": "PostgreSQL version",
+    "ETCDVersion": "ETCD version",
+    "RedisVersion": "Redis version",
+    "Security": "Security",
+    "Component": "Component",
+    "Installation": "Installation",
+    "LatestRelease": "Latest release",
+    "DescDockerVersion": "Docker version on the cluster",
+    "DescPostgreSQLVersion": "Database system for Backend.AI",
+    "DescETCDVersion": "Settings registry for Backend.AI",
+    "DescRedisVersion": "Cache / temporary storage for Backend.AI. <br />Also uses as asynchronous communication along agents.",
+    "DefaultAdministratorAccountChanged": "Default administrator account changed",
+    "DescDefaultAdministratorAccountChanged": "SHOULD change the default account / password for production use.",
+    "UsesSSL": "Uses SSL",
+    "DescUsesSSL": "HTTPS with proper SSL setup helps system security.",
+    "Compatible": "Compatible"
   }
 }

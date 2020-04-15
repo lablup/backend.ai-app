@@ -138,7 +138,7 @@
   "button": {
     "Cancel": "취소",
     "Okay": "승인",
-    "Create": "만들",
+    "Create": "만들기",
     "View": "보기",
     "Edit": "수정",
     "Share": "공유",
@@ -254,6 +254,8 @@
     "Host": "호스트",
     "Foldername": "폴더 이름",
     "Type": "종류",
+    "UsageMode": "사용 방식",
+    "Permission": "권한",
     "folders": {
       "Name": "이름",
       "Location": "위치",
@@ -261,10 +263,19 @@
       "Permission": "권한",
       "Control": "제어",
       "DeleteAFolder": "폴더 삭제",
+      "TypeFolderNameToDelete": "삭제 확인을 위해 폴더 이름을 입력하세요",
       "Delete": "삭제",
+      "RenameAFolder": "폴더 이름 변경",
+      "TypeNewFolderName": "새 폴더 이름을 입력하세요",
+      "Rename": "이름 변경",
+      "FolderRenamed": "폴더 이름이 변경되었습니다",
       "NumberOfFiles": "파일 갯수",
       "Ownership": "소유",
-      "DescYouAreFolderOwner": "이 폴더의 소유자입니다."
+      "DescYouAreFolderOwner": "이 폴더의 소유자입니다.",
+      "SelectPermission": "권한 선택",
+      "View": "읽기 전용",
+      "Edit": "수정",
+      "EditDelete": "수정 및 삭제"
     },
     "explorer": {
       "Delete": "삭제...",
@@ -360,7 +371,9 @@
     "DescScriptUpdated": "사용자 스크립트를 수정했습니다. 이 스크립트는 이후 새로 생성하는 세션부터 적용됩니다.",
     "DescScriptCreated": "사용자 스크립트를 생성했습니다. 이 스크립트는 이후 새로 생성하는 세션부터 적용됩니다.",
     "DescNewUserConfigFileCreated": "새 사용자 스크립트 생성을 위한 내용이 필요합니다.",
-    "DescLetUserUpdateScriptWithNonEmptyValue": "스크립트 수정을 위한 내용을 입력하세요."
+    "DescLetUserUpdateScriptWithNonEmptyValue": "스크립트 수정을 위한 내용을 입력하세요.",
+    "AutomaticUpdateCheck": "자동 업데이트 체크",
+    "DescAutomaticUpdateCheck": "새 콘솔 버전이 출시된 경우 알려줍니다.<br />오프라인 또는 인터넷 연경 상태가 불안정한 환경에서는 몇 차례 시도후 자동으로 사용이 중지됩니다. 이 경우 이 스위치를 켜서 다시 자동 업데이트 체크를 시작할 수 있습니다."
   },
   "logs": {
     "LogMessages": "로그 메세지",
@@ -453,7 +466,8 @@
     "Browser": "브라우저 기본",
     "English": "English",
     "Korean": "한국어",
-    "Language": "언어"
+    "Language": "언어",
+    "OSDefault": "운영체제 언어"
   },
   "settings": {
     "General": "일반",
@@ -497,7 +511,9 @@
     }
   },
   "notification": {
-    "SuccessfullyUpdated": "성공적으로 수정되었습니다."
+    "SuccessfullyUpdated": "성공적으로 수정되었습니다.",
+    "Visit": "방문",
+    "SeeDetail": "상세보기"
   },
   "information": {
     "System": "시스템",
@@ -521,5 +537,39 @@
     "UsesSSL": "SSL 사용",
     "DescUsesSSL": "적절하게 설정된 SSL을 통한 HTTPS 통신은 시스템 보안을 강화합니다.",
     "Compatible": "호환"
+  },
+  "login": {
+    "Login": "로그인",
+    "LeaveService": "서비스 탈퇴",
+    "DescConfirmLeave": "확인을 위해 E-mail 및 패스워드를 다시 입력해주세요.",
+    "Password": "암호",
+    "E-mail": "E-mail",
+    "APIKey": "접근키",
+    "SecretKey": "비밀키",
+    "Endpoint": "엔드포인트",
+    "NotAUser": "아직 가입 전이면",
+    "LoginAnotherway": "다른 방식으로 로그인하기",
+    "SignUp": "가입하기",
+    "ClickToUseMethod": "Click To Use",
+    "LoginWithE-mail": "E-mail로 로그인",
+    "LoginWithIAM": "IAM으로 로그인",
+    "ClickToUseIAM": "IAM 사용",
+    "ClickToUseID": "ID 사용",
+    "EndpointHistory": "엔드포인트 기록",
+    "NoEndpointSaved": "저장된 엔드포인트가 없습니다."
+  },
+  "signup": {
+    "SignupBETA": "가입 (베타 초대 대상)",
+    "E-mail": "E-mail",
+    "UserName": "사용자명",
+    "Password": " 암호",
+    "PasswordAgain": "암호 (다시입력)",
+    "Signup": "가입",
+    "InvitationToken": "초대 토큰",
+    "TermsOfService": "약관",
+    "PrivacyPolicy": "개인정보보호정책"
+  },
+  "update": {
+    "NewConsoleVersionAvailable": "새 버전이 출시되었습니다:"
   }
 }

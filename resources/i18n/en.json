@@ -256,6 +256,8 @@
     "Host": "Host",
     "Foldername": "Folder name",
     "Type": "Type",
+    "UsageMode": "Usage Mode",
+    "Permission": "Permission",
     "folders": {
       "Location": "Location",
       "Type": "Type",
@@ -263,10 +265,19 @@
       "Control": "Control",
       "Name": "Name",
       "DeleteAFolder": "Delete a folder",
+      "TypeFolderNameToDelete": "Type folder name to delete",
       "Delete": "Delete",
+      "RenameAFolder": "Rename a folder",
+      "TypeNewFolderName": "Type new folder name",
+      "Rename": "Rename",
+      "FolderRenamed": "Folder renamed",
       "NumberOfFiles": "Number of files",
       "Ownership": "Ownership",
-      "DescYouAreFolderOwner": "You are the owner of this folder."
+      "DescYouAreFolderOwner": "You are the owner of this folder.",
+      "SelectPermission": "Select permission",
+      "View": "View",
+      "Edit": "Edit",
+      "EditDelete": "Edit+Delete"
     },
     "explorer": {
       "Delete": "Delete...",
@@ -353,16 +364,18 @@
     "BetaFeatures": "Beta Features",
     "DescBetaFeatures": "Use beta features for GUI.<br />Beta features may be unstable. Some beta features may not be adopted as official feature.",
     "DescNoBetaFeatures": "No beta feature available now. :)",
-    "EditBootstrapScript": "EditBootstrapScript",
-    "EditUserConfigScript": "EditUserConfigScript",
-    "PackageInstallation": "PackageInstallation",
-    "BootstrapScript": "BootstrapScript",
+    "EditBootstrapScript": "Edit Bootstrap Script",
+    "EditUserConfigScript": "Edit User Config Script",
+    "PackageInstallation": "Package Installation",
+    "BootstrapScript": "Bootstrap Script",
     "DialogSaveToSpecificFile": "Do you want to save the changes you made to File?",
     "DialogNoSaveNoPreserve": "Your changes will be lost if you don't save them.",
     "DescScriptUpdated": "User config script updated. This will be applied to new sessions only.",
     "DescScriptCreated": "User config script created. This will be applied to new sessions only.",
     "DescNewUserConfigFileCreated": "New User config file can be created with non-empty data.",
-    "DescLetUserUpdateScriptWithNonEmptyValue": "Please update script with non empty value."
+    "DescLetUserUpdateScriptWithNonEmptyValue": "Please update script with non empty value.",
+    "AutomaticUpdateCheck": "Automatic Update Check",
+    "DescAutomaticUpdateCheck": "Notify when a new console version is released.<br />In where the Internet is unstable or offline, this option will be automatically turned off. You can toggle this switch to start the automatic update check again."
   },
   "logs": {
     "LogMessages": "Log Messages",
@@ -455,7 +468,8 @@
     "Browser": "Browser",
     "English": "English",
     "Korean": "Korean",
-    "Language": "Language"
+    "Language": "Language",
+    "OSDefault": "OS Default"
   },
   "settings": {
     "General": "General",
@@ -499,7 +513,9 @@
     }
   },
   "notification": {
-    "SuccessfullyUpdated": "Successfully Updated"
+    "SuccessfullyUpdated": "Successfully Updated",
+    "Visit": "Visit",
+    "SeeDetail": "See Detail"
   },
   "information": {
     "System": "System",
@@ -523,5 +539,39 @@
     "UsesSSL": "Uses SSL",
     "DescUsesSSL": "HTTPS with proper SSL setup helps system security.",
     "Compatible": "Compatible"
+  },
+  "login": {
+    "Login": "Login",
+    "LeaveService": "Leave Service",
+    "DescConfirmLeave": "To confirm, please type your E-mail and password again.",
+    "Password": "Password",
+    "E-mail": "E-mail",
+    "APIKey": "API Key",
+    "SecretKey": "Secret Key",
+    "Endpoint": "Endpoint",
+    "NotAUser": "Not a user?",
+    "LoginAnotherway": "Want to login another way?",
+    "SignUp": "Sign up",
+    "ClickToUseMethod": "Click To Use",
+    "LoginWithE-mail": "Login With E-mail",
+    "LoginWithIAM": "Login With IAM",
+    "ClickToUseIAM": "Click To Use IAM",
+    "ClickToUseID": "Click To Use ID",
+    "EndpointHistory": "Endpoint History",
+    "NoEndpointSaved": "No endpoint saved."
+  },
+  "signup": {
+    "SignupBETA": "Signup (Beta invitation only)",
+    "E-mail": "E-mail",
+    "UserName": "UserName",
+    "Password": "Password",
+    "PasswordAgain": "Password (again)",
+    "Signup": "Signup",
+    "InvitationToken": "Invitation Token",
+    "TermsOfService": "Terms of service",
+    "PrivacyPolicy": "Privacy Policy"
+  },
+  "update": {
+    "NewConsoleVersionAvailable": "New version is available:"
   }
 }

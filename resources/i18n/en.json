@@ -456,7 +456,8 @@
     "CleanupImages": "Cleanup Images",
     "RescanImageList": "Rescan image list from repository",
     "DescRescanImageList": "Rescan image list from registered repositories.<br />It may take a long time, so please wait after execution.",
-    "Recalculating": "Recalculating..."
+    "Recalculating": "Recalculating...",
+    "RescanImageScanning": "Scanning..."
   },
   "statistics": {
     "Usage": "Usage",
@@ -558,7 +559,8 @@
     "ClickToUseIAM": "Click To Use IAM",
     "ClickToUseID": "Click To Use ID",
     "EndpointHistory": "Endpoint History",
-    "NoEndpointSaved": "No endpoint saved."
+    "NoEndpointSaved": "No endpoint saved.",
+    "CancelLogin": "Cancel Login"
   },
   "signup": {
     "SignupBETA": "Signup (Beta invitation only)",

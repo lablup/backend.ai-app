@@ -1,1 +1,32 @@
-#left to blank. It is provided by console server.
+[general]
+#apiEndpoint = ""
+#apiEndpointText = ""
+#defaultSessionEnvironment = ""
+siteDescription = "Console"
+connectionMode = "SESSION"
+# Allows user to change signin mode
+allowChangeSigninMode = true
+# Allows user to sign out
+allowSignout = true
+signupSupport = false
+debug = true
+
+[wsproxy]
+#proxyURL = "https://wsproxy.onprem.backend.ai:9443/"
+proxyURL = "http://127.0.0.1:5050/"
+#proxyBaseURL = ""
+
+[server]
+consoleServerURL =
+
+[plugin]
+[plugin.page]
+[plugin.page.example]
+title = "Example"
+module = "example/example-view.js"
+moduleName = 'backend-ai-example';
+url = "example"
+
+
+#login = "signup-cloud.js"
+#sidebar = "report-cloud.js"

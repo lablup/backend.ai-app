@@ -1,32 +1,26 @@
 [general]
-#apiEndpoint = ""
-#apiEndpointText = ""
-#defaultSessionEnvironment = ""
+#apiEndpoint = "http://127.0.0.1:8080"
+#apiEndpointText = "TEST"
+defaultSessionEnvironment = "index.docker.io/lablup/ngc-tensorflow"
 siteDescription = "Console"
 connectionMode = "SESSION"
-# Allows user to change signin mode
+#connectionMode = "API"
 allowChangeSigninMode = true
-# Allows user to sign out
-allowSignout = true
-signupSupport = false
-debug = true
+signupSupport = true
+allowProjectResourceMonitor = true
+debug = false
 
 [wsproxy]
 #proxyURL = "https://wsproxy.onprem.backend.ai:9443/"
 proxyURL = "http://127.0.0.1:5050/"
+
 #proxyBaseURL = ""
 
-[server]
-consoleServerURL =
-
 [plugin]
-[plugin.page]
-[plugin.page.example]
-title = "Example"
-module = "example/example-view.js"
-moduleName = 'backend-ai-example';
-url = "example"
-
-
 #login = "signup-cloud.js"
 #sidebar = "report-cloud.js"
+
+[license]
+edition = "Enterprise"
+#validSince = ""
+#validUntil = "2021-12-31"

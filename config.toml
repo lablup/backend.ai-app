@@ -18,7 +18,7 @@ proxyURL = "http://127.0.0.1:5050/"
 #proxyBaseURL = ""
 
 [menu]
-blocklist = "statistics,data"
+#blocklist = "statistics,data"
 
 [plugin]
 #login = "signup-cloud.js"

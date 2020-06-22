@@ -1,8 +1,8 @@
-import{_ as e,p as t,c as i,B as a,d as s,I as o,a as n,b as l,f as r,Z as c,h as d,t as u}from"./backend-ai-console-08beed35.js";import"./mwc-linear-progress-2487daa0.js";import"./iron-resizable-behavior-d47f1a1f.js";import"./vaadin-grid-1c9a6db0.js";import"./radio-behavior-98768496.js";import"./label-b667f462.js";import"./select-eb203a8d.js";import"./vaadin-progress-bar-89e13e1c.js";import"./tab-group-da68e71d.js";import"./switch-ab61c8a8.js";import"./textarea-12c29b8b.js";
+import{_ as e,p as t,c as i,B as a,d as s,I as o,a as n,b as r,f as l,Z as c,h as d,t as u}from"./backend-ai-console-1b71da62.js";import"./mwc-linear-progress-a889c223.js";import"./iron-resizable-behavior-d47f1a1f.js";import"./vaadin-grid-1c9a6db0.js";import"./radio-behavior-5b7b3939.js";import"./label-e57358f1.js";import"./select-0d9f1007.js";import"./vaadin-progress-bar-89e13e1c.js";import"./tab-group-c08eec68.js";import"./switch-9072d0a0.js";import"./textarea-b293e3d6.js";
 /**
  @license
  Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
- */let p=class extends a{constructor(){super(),this.condition="running",this.agents=Array(),this.notification=Object(),this._boundRegionRenderer=this.regionRenderer.bind(this),this._boundContactDateRenderer=this.contactDateRenderer.bind(this),this._boundStatusRenderer=this.statusRenderer.bind(this),this._boundControlRenderer=this.controlRenderer.bind(this)}static get styles(){return[s,o,n,l`
+ */let p=class extends a{constructor(){super(),this.condition="running",this.agents=Array(),this.notification=Object(),this._boundRegionRenderer=this.regionRenderer.bind(this),this._boundContactDateRenderer=this.contactDateRenderer.bind(this),this._boundStatusRenderer=this.statusRenderer.bind(this),this._boundControlRenderer=this.controlRenderer.bind(this)}static get styles(){return[s,o,n,r`
         vaadin-grid {
           border: 0;
           font-size: 14px;
@@ -67,9 +67,9 @@ import{_ as e,p as t,c as i,B as a,d as s,I as o,a as n,b as l,f as r,Z as c,h a
         .terminated mwc-linear-progress {
           --mdc-linear-progress-buffering-dots-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 1 1'%3E%3Cpath d='M0,0h1v1H0' fill='#fff'/%3E%3C/svg%3E");
         }
-      `]}firstUpdated(){this.notification=globalThis.lablupNotification}connectedCallback(){super.connectedCallback()}async _viewStateChanged(e){if(await this.updateComplete,!1!==e)if(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready)document.addEventListener("backend-ai-connected",()=>{this._loadAgentList("ALIVE")},!0);else{let e="ALIVE";this._loadAgentList(e)}}_loadAgentList(e="running"){if(!0!==this.active)return;switch(this.condition){case"running":e="ALIVE";break;case"terminated":e="TERMINATED";break;case"archived":default:e="ALIVE"}globalThis.backendaiclient.agent.list(e,["id","status","addr","region","first_contact","cpu_cur_pct","mem_cur_bytes","available_slots","occupied_slots"]).then(t=>{let i=t.agents;void 0!==i&&0!=i.length&&Object.keys(i).map((e,t)=>{var a=i[e],s=JSON.parse(a.occupied_slots),o=JSON.parse(a.available_slots);["cpu","mem"].forEach(e=>{e in s==!1&&(s[e]="0")}),i[e].cpu_slots=parseInt(o.cpu),i[e].used_cpu_slots=parseInt(s.cpu),null!==a.cpu_cur_pct?(i[e].current_cpu_percent=a.cpu_cur_pct,i[e].cpu_total_usage_ratio=i[e].used_cpu_slots/i[e].cpu_slots,i[e].cpu_current_usage_ratio=i[e].current_cpu_percent/i[e].cpu_slots/100,i[e].current_cpu_percent=i[e].current_cpu_percent.toFixed(2)):(i[e].current_cpu_percent=0,i[e].cpu_total_usage_ratio=0,i[e].cpu_current_usage_ratio=0),null!==a.mem_cur_bytes?i[e].current_mem_bytes=a.mem_cur_bytes:i[e].current_mem_bytes=0,i[e].current_mem=globalThis.backendaiclient.utils.changeBinaryUnit(a.current_mem_bytes,"g"),i[e].mem_slots=parseInt(globalThis.backendaiclient.utils.changeBinaryUnit(o.mem,"g")),i[e].used_mem_slots=parseInt(globalThis.backendaiclient.utils.changeBinaryUnit(s.mem,"g")),i[e].mem_total_usage_ratio=i[e].used_mem_slots/i[e].mem_slots,i[e].mem_current_usage_ratio=i[e].current_mem/i[e].mem_slots,i[e].current_mem=i[e].current_mem.toFixed(2),"cuda.device"in o&&(i[e].cuda_gpu_slots=parseInt(o["cuda.device"]),i[e].used_cuda_gpu_slots="cuda.device"in s?parseInt(s["cuda.device"]):0,i[e].used_cuda_gpu_slots_ratio=i[e].used_cuda_gpu_slots/i[e].cuda_gpu_slots),"cuda.shares"in o&&(i[e].cuda_fgpu_slots=parseInt(o["cuda.shares"]),i[e].used_cuda_fgpu_slots="cuda.shares"in s?parseInt(s["cuda.shares"]):0,i[e].used_cuda_fgpu_slots_ratio=i[e].used_cuda_fgpu_slots/i[e].cuda_fgpu_slots),"rocm.device"in o&&(i[e].rocm_gpu_slots=parseInt(o["rocm.device"]),i[e].used_rocm_gpu_slots="rocm.device"in s?parseInt(s["rocm.device"]):0,i[e].used_rocm_gpu_slots_ratio=i[e].used_rocm_gpu_slots/i[e].rocm_gpu_slots)}),this.agents=i,!0===this.active&&setTimeout(()=>{this._loadAgentList(e)},15e3)}).catch(e=>{e&&e.message&&(this.notification.text=r.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_isRunning(){return"running"===this.condition}_byteToMB(e){return Math.floor(e/1e6)}_MBtoGB(e){return Math.floor(e/1024)}_elapsed(e,t){let i,a=new Date(e);i="running"===this.condition?new Date:new Date(t);var s=Math.floor((i.getTime()-a.getTime())/1e3);return"running"===this.condition?"Running "+s+"sec.":"Reserved for "+s+"sec."}_humanReadableDate(e){return new Date(e).toLocaleString("ko-KR")}_indexFrom1(e){return e+1}_heartbeatStatus(e){return e}_heartbeatColor(e){switch(e){case"ALIVE":return"green";case"TERMINATED":return"red";default:return"blue"}}_indexRenderer(e,t,i){let a=i.index+1;c(d`
+      `]}firstUpdated(){this.notification=globalThis.lablupNotification}connectedCallback(){super.connectedCallback()}async _viewStateChanged(e){if(await this.updateComplete,!1!==e)if(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready)document.addEventListener("backend-ai-connected",()=>{this._loadAgentList("ALIVE")},!0);else{let e="ALIVE";this._loadAgentList(e)}}_loadAgentList(e="running"){if(!0!==this.active)return;switch(this.condition){case"running":e="ALIVE";break;case"terminated":e="TERMINATED";break;case"archived":default:e="ALIVE"}globalThis.backendaiclient.agent.list(e,["id","status","addr","region","first_contact","cpu_cur_pct","mem_cur_bytes","available_slots","occupied_slots"]).then(t=>{let i=t.agents;void 0!==i&&0!=i.length&&Object.keys(i).map((e,t)=>{var a=i[e],s=JSON.parse(a.occupied_slots),o=JSON.parse(a.available_slots);["cpu","mem"].forEach(e=>{e in s==!1&&(s[e]="0")}),i[e].cpu_slots=parseInt(o.cpu),i[e].used_cpu_slots=parseInt(s.cpu),null!==a.cpu_cur_pct?(i[e].current_cpu_percent=a.cpu_cur_pct,i[e].cpu_total_usage_ratio=i[e].used_cpu_slots/i[e].cpu_slots,i[e].cpu_current_usage_ratio=i[e].current_cpu_percent/i[e].cpu_slots/100,i[e].current_cpu_percent=i[e].current_cpu_percent.toFixed(2)):(i[e].current_cpu_percent=0,i[e].cpu_total_usage_ratio=0,i[e].cpu_current_usage_ratio=0),null!==a.mem_cur_bytes?i[e].current_mem_bytes=a.mem_cur_bytes:i[e].current_mem_bytes=0,i[e].current_mem=globalThis.backendaiclient.utils.changeBinaryUnit(a.current_mem_bytes,"g"),i[e].mem_slots=parseInt(globalThis.backendaiclient.utils.changeBinaryUnit(o.mem,"g")),i[e].used_mem_slots=parseInt(globalThis.backendaiclient.utils.changeBinaryUnit(s.mem,"g")),i[e].mem_total_usage_ratio=i[e].used_mem_slots/i[e].mem_slots,i[e].mem_current_usage_ratio=i[e].current_mem/i[e].mem_slots,i[e].current_mem=i[e].current_mem.toFixed(2),"cuda.device"in o&&(i[e].cuda_gpu_slots=parseInt(o["cuda.device"]),i[e].used_cuda_gpu_slots="cuda.device"in s?parseInt(s["cuda.device"]):0,i[e].used_cuda_gpu_slots_ratio=i[e].used_cuda_gpu_slots/i[e].cuda_gpu_slots),"cuda.shares"in o&&(i[e].cuda_fgpu_slots=parseInt(o["cuda.shares"]),i[e].used_cuda_fgpu_slots="cuda.shares"in s?parseInt(s["cuda.shares"]):0,i[e].used_cuda_fgpu_slots_ratio=i[e].used_cuda_fgpu_slots/i[e].cuda_fgpu_slots),"rocm.device"in o&&(i[e].rocm_gpu_slots=parseInt(o["rocm.device"]),i[e].used_rocm_gpu_slots="rocm.device"in s?parseInt(s["rocm.device"]):0,i[e].used_rocm_gpu_slots_ratio=i[e].used_rocm_gpu_slots/i[e].rocm_gpu_slots)}),this.agents=i,!0===this.active&&setTimeout(()=>{this._loadAgentList(e)},15e3)}).catch(e=>{e&&e.message&&(this.notification.text=l.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_isRunning(){return"running"===this.condition}_byteToMB(e){return Math.floor(e/1e6)}_MBtoGB(e){return Math.floor(e/1024)}_elapsed(e,t){let i,a=new Date(e);i="running"===this.condition?new Date:new Date(t);var s=Math.floor((i.getTime()-a.getTime())/1e3);return"running"===this.condition?"Running "+s+"sec.":"Reserved for "+s+"sec."}_humanReadableDate(e){return new Date(e).toLocaleString("ko-KR")}_indexFrom1(e){return e+1}_heartbeatStatus(e){return e}_heartbeatColor(e){switch(e){case"ALIVE":return"green";case"TERMINATED":return"red";default:return"blue"}}_indexRenderer(e,t,i){let a=i.index+1;c(d`
         <div>${a}</div>
-      `,e)}regionRenderer(e,t,i){let a,s,o,n,l=i.item.region.split("/");switch(l.length>1?(a=l[0],s=l[1]):(a=l[0],s=""),a){case"aws":o="orange",n="aws";break;case"azure":o="blue",n="azure";break;case"gcp":o="lightblue",n="gcp";break;case"nbp":o="green",n="nbp";break;case"openstack":o="red",n="openstack";break;case"local":o="yellow",n="local";break;default:o="yellow",n="local"}c(d`
+      `,e)}regionRenderer(e,t,i){let a,s,o,n,r=i.item.region.split("/");switch(r.length>1?(a=r[0],s=r[1]):(a=r[0],s=""),a){case"aws":o="orange",n="aws";break;case"azure":o="blue",n="azure";break;case"gcp":o="lightblue",n="gcp";break;case"nbp":o="green",n="nbp";break;case"openstack":o="red",n="openstack";break;case"local":o="yellow",n="local";break;default:o="yellow",n="local"}c(d`
         <div class="horizontal start-justified center layout">
           <img src="/resources/icons/${n}.png" style="width:32px;height:32px;"/>
           <lablup-shields app="${s}" color="${o}"
@@ -193,7 +193,7 @@ import{_ as e,p as t,c as i,B as a,d as s,I as o,a as n,b as l,f as r,Z as c,h a
  @license
  Copyright (c) 2015-2018 Lablup Inc. All rights reserved.
  */
-let g=class extends a{constructor(){super(),this._boundControlRenderer=this._controlRenderer.bind(this),this.selectedIndex=0,this.domains=Array(),this.scalingGroups=Array(),this.schedulerTypes=Array(),this.active=!1,this.schedulerTypes=["fifo","lifo","drf"]}static get styles(){return[s,o,n,l`
+let g=class extends a{constructor(){super(),this._boundControlRenderer=this._controlRenderer.bind(this),this.selectedIndex=0,this.domains=Array(),this.scalingGroups=Array(),this.schedulerTypes=Array(),this.active=!1,this.schedulerTypes=["fifo","lifo","drf"]}static get styles(){return[s,o,n,r`
         h4 {
           font-weight: 200;
           font-size: 14px;
@@ -214,20 +214,20 @@ let g=class extends a{constructor(){super(),this._boundControlRenderer=this._con
           margin-top: 20px;
         }
 
-        wl-dialog wl-textfield,
-        wl-dialog wl-textarea,
-        wl-dialog wl-select {
+        backend-ai-dialog wl-textfield,
+        backend-ai-dialog wl-textarea,
+        backend-ai-dialog wl-select {
           margin-bottom: 20px;
           --input-font-family: Roboto, Noto, sans-serif;
         }
 
-        wl-dialog wl-label {
+        backend-ai-dialog wl-label {
           --label-font-family: Roboto, Noto, sans-serif;
           --label-color: #282828;
           margin-bottom: 5px;
         }
 
-        wl-dialog wl-switch {
+        backend-ai-dialog wl-switch {
           margin-bottom: 20px;
           --switch-color-checked: #29b6f6;
           --switch-bg-checked: #bbdefb;
@@ -240,8 +240,8 @@ let g=class extends a{constructor(){super(),this._boundControlRenderer=this._con
           --input-border-style-disabled: 1px solid #ccc;
         }
 
-        wl-dialog {
-          --dialog-min-width: 350px;
+        backend-ai-dialog {
+          --component-min-width: 350px;
         }
       `]}firstUpdated(){this.notification=globalThis.lablupNotification}connectedCallback(){super.connectedCallback()}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{globalThis.backendaiclient.scalingGroup.list_all().then(e=>{this.scalingGroups=e.scaling_groups}),globalThis.backendaiclient.domain.list().then(({domains:e})=>{this.domains=e,this.requestUpdate()})},!0):(globalThis.backendaiclient.scalingGroup.list_all().then(e=>{this.scalingGroups=e.scaling_groups}),globalThis.backendaiclient.domain.list().then(({domains:e})=>{this.domains=e,this.requestUpdate()})))}_activeStatusRenderer(e,t,i){c(d`
         <lablup-shields
@@ -267,7 +267,7 @@ let g=class extends a{constructor(){super(),this._boundControlRenderer=this._con
             class="fg red"
             @click=${()=>{this.selectedIndex=i.index,this._launchDialogById("#delete-scaling-group-dialog")}}><wl-icon>delete</wl-icon></wl-button>
         </div>
-      `,e)}_hideDialog(e){e.target.closest("wl-dialog").hide()}_createScalingGroup(){const e=this.shadowRoot.querySelector("#scaling-group-name").value,t=this.shadowRoot.querySelector("#scaling-group-description").value,i=this.shadowRoot.querySelector("#scaling-group-domain").value;if(""===e)return this.notification.text="Enter valid Resource group name",this.notification.show(),void this._hideDialogById("#create-scaling-group-dialog");globalThis.backendaiclient.scalingGroup.create(e,t).then(({create_scaling_group:t})=>t.ok?globalThis.backendaiclient.scalingGroup.associateWithDomain(i,e):(this.notification.text=r.relieve(t.title),this.notification.detail=t.msg,this.notification.show(),Promise.reject(t.msg))).then(({associate_scaling_group_with_domain:e})=>{e.ok?(this.notification.text="Resource group succesfully created",this._refreshList(),this.shadowRoot.querySelector("#scaling-group-name").value="",this.shadowRoot.querySelector("#scaling-group-description").value=""):(this.notification.text=r.relieve(e.title),this.notification.detail=e.msg),this._hideDialogById("#create-scaling-group-dialog"),this.notification.show()}).catch(e=>{this.notification.text=r.relieve(e.title),this.notification.detail=e,this._hideDialogById("#create-scaling-group-dialog"),this.notification.show(!0,e)})}_modifyScalingGroup(){const e=this.shadowRoot.querySelector("#modify-scaling-group-description").value,t=this.shadowRoot.querySelector("#modify-scaling-group-scheduler").value,i=this.shadowRoot.querySelector("#modify-scaling-group-active").checked,a=this.scalingGroups[this.selectedIndex].name;let s={};if(e!==this.scalingGroups[this.selectedIndex].description&&(s.description=e),t!==this.scalingGroups[this.selectedIndex].scheduler&&(s.scheduler=t),i!==this.scalingGroups[this.selectedIndex].is_active&&(s.is_active=i),0===Object.keys(s).length)return this.notification.text="No changes made",void this.notification.show();globalThis.backendaiclient.scalingGroup.modify(a,s).then(({modify_scaling_group:e})=>{e.ok?(this.notification.text="Resource group successfully modified",this._refreshList()):(this.notification.text=r.relieve(e.msg),this.notification.detail=e.msg),this._hideDialogById("#modify-scaling-group-dialog"),this.notification.show()})}_deleteScalingGroup(){const e=this.scalingGroups[this.selectedIndex].name;if(this.shadowRoot.querySelector("#delete-scaling-group").value!==e)return this.notification.text="Resource group name does not match!",this._hideDialogById("#delete-scaling-group-dialog"),void this.notification.show();globalThis.backendaiclient.scalingGroup.delete(e).then(({delete_scaling_group:e})=>{e.ok?(this.notification.text="Resource group successfully deleted",this._refreshList(),this.shadowRoot.querySelector("#delete-scaling-group").value=""):(this.notification.text=r.relieve(e.msg),this.notification.detail=e.msg),this._hideDialogById("#delete-scaling-group-dialog"),this.notification.show()})}_refreshList(){globalThis.backendaiclient.scalingGroup.list_all().then(({scaling_groups:e})=>{this.scalingGroups=e,this.requestUpdate()})}render(){return d`
+      `,e)}_createScalingGroup(){const e=this.shadowRoot.querySelector("#scaling-group-name").value,t=this.shadowRoot.querySelector("#scaling-group-description").value,i=this.shadowRoot.querySelector("#scaling-group-domain").value;if(""===e)return this.notification.text="Enter valid Resource group name",this.notification.show(),void this._hideDialogById("#create-scaling-group-dialog");globalThis.backendaiclient.scalingGroup.create(e,t).then(({create_scaling_group:t})=>t.ok?globalThis.backendaiclient.scalingGroup.associateWithDomain(i,e):(this.notification.text=l.relieve(t.title),this.notification.detail=t.msg,this.notification.show(),Promise.reject(t.msg))).then(({associate_scaling_group_with_domain:e})=>{e.ok?(this.notification.text="Resource group succesfully created",this._refreshList(),this.shadowRoot.querySelector("#scaling-group-name").value="",this.shadowRoot.querySelector("#scaling-group-description").value=""):(this.notification.text=l.relieve(e.title),this.notification.detail=e.msg),this._hideDialogById("#create-scaling-group-dialog"),this.notification.show()}).catch(e=>{this.notification.text=l.relieve(e.title),this.notification.detail=e,this._hideDialogById("#create-scaling-group-dialog"),this.notification.show(!0,e)})}_modifyScalingGroup(){const e=this.shadowRoot.querySelector("#modify-scaling-group-description").value,t=this.shadowRoot.querySelector("#modify-scaling-group-scheduler").value,i=this.shadowRoot.querySelector("#modify-scaling-group-active").checked,a=this.scalingGroups[this.selectedIndex].name;let s={};if(e!==this.scalingGroups[this.selectedIndex].description&&(s.description=e),t!==this.scalingGroups[this.selectedIndex].scheduler&&(s.scheduler=t),i!==this.scalingGroups[this.selectedIndex].is_active&&(s.is_active=i),0===Object.keys(s).length)return this.notification.text="No changes made",void this.notification.show();globalThis.backendaiclient.scalingGroup.modify(a,s).then(({modify_scaling_group:e})=>{e.ok?(this.notification.text="Resource group successfully modified",this._refreshList()):(this.notification.text=l.relieve(e.msg),this.notification.detail=e.msg),this._hideDialogById("#modify-scaling-group-dialog"),this.notification.show()})}_deleteScalingGroup(){const e=this.scalingGroups[this.selectedIndex].name;if(this.shadowRoot.querySelector("#delete-scaling-group").value!==e)return this.notification.text="Resource group name does not match!",this._hideDialogById("#delete-scaling-group-dialog"),void this.notification.show();globalThis.backendaiclient.scalingGroup.delete(e).then(({delete_scaling_group:e})=>{e.ok?(this.notification.text="Resource group successfully deleted",this._refreshList(),this.shadowRoot.querySelector("#delete-scaling-group").value=""):(this.notification.text=l.relieve(e.msg),this.notification.detail=e.msg),this._hideDialogById("#delete-scaling-group-dialog"),this.notification.show()})}_refreshList(){globalThis.backendaiclient.scalingGroup.list_all().then(({scaling_groups:e})=>{this.scalingGroups=e,this.requestUpdate()})}render(){return d`
       <h4 class="horizontal flex center center-justified layout">
         <span>${u("resourceGroup.ResourceGroups")}</span>
         <span class="flex"></span>
@@ -319,103 +319,89 @@ let g=class extends a{constructor(){super(),this._boundControlRenderer=this._con
         <vaadin-grid-column flex-grow="1" header="${u("general.Control")}" .renderer=${this._boundControlRenderer}>
         </vaadin-grid-column>
       </vaadin-grid>
-      <wl-dialog id="create-scaling-group-dialog" fixed backdrop blockscrolling>
-        <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
-          <h3 class="horizontal center layout">
-            <span>${u("resourceGroup.CreateResourceGroup")}</span>
-            <div class="flex"></div>
-            <wl-button class="fab" fab flat inverted @click=${e=>this._hideDialog(e)}>
-              <wl-icon>close</wl-icon>
-            </wl-button>
-          </h3>
-          <form>
-            <fieldset>
-              <wl-textfield
-                type="text"
-                id="scaling-group-name"
-                label="${u("resourceGroup.ResourceGroupName")}"
-              ></wl-textfield>
-              <wl-textarea
-                name="description"
-                id="scaling-group-description"
-                label="${u("resourceGroup.Description")}"
-              ></wl-textarea>
-              <wl-select
-                id="scaling-group-domain"
-                label="${u("resourceGroup.SelectDomain")}"
-              >
-                <option disabled>${u("resourceGroup.SelectDomain")}</option>
-                ${this.domains.map(e=>d`
-                    <option value="${e.name}">
-                      ${e.name}
-                    </option>
-                  `)}
-              </wl-select>
-              <div class="horizontal layout center-justified">
-                <wl-button class="fg blue create-button" id="create-user-button" outlined type="button"
-                  @click="${this._createScalingGroup}">
-                  <wl-icon>add</wl-icon>
-                  ${u("button.Create")}
-                </wl-button>
-              </div>
-            </fieldset>
-          </form>
-        </wl-card>
-      </wl-dialog>
-      <wl-dialog id="modify-scaling-group-dialog" fixed backdrop blockscrolling>
-        <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
-          <h3 class="horizontal center layout">
-            <span>${u("resourceGroup.ModifyResourceGroup")}</span>
-            <div class="flex"></div>
-            <wl-button class="fab" fab flat inverted @click="${e=>this._hideDialog(e)}">
-              <wl-icon>close</wl-icon>
-            </wl-button>
-          </h3>
-          <form>
-            <fieldset>
-              <wl-textarea
-                id="modify-scaling-group-description"
-                type="text"
-                label="Description"
-                value=${0===this.scalingGroups.length?"":this.scalingGroups[this.selectedIndex].description}
-              ></wl-textarea>
-              <wl-select id="modify-scaling-group-scheduler" label="Select scheduler"
-                  value="${0===this.scalingGroups.length?"":this.scalingGroups[this.selectedIndex].scheduler}">
-                <option disabled>Select Scheduler</option>
-                ${this.schedulerTypes.map(e=>d`
-                  <option value="${e}">${e}</option>
-                `)}
-              </wl-select>
-              <wl-label for="switch">
-                ${u("resourceGroup.ActiveStatus")}
-              </wl-label>
-              <div id="switch">
-                <wl-switch
-                  id="modify-scaling-group-active"
-                ></wl-switch>
-              </div>
-              <wl-button
-                class="fg blue"
-                type="button"
-                outlined
-                style="width: 100%; box-sizing: border-box;"
-                @click=${this._modifyScalingGroup}
-              >
-                <wl-icon>check</wl-icon>
-                ${u("button.Save")}
-              </wl-button>
-            </fieldset>
-          </form>
-        </wl-card>
-      </wl-dialog>
-      <wl-dialog id="delete-scaling-group-dialog" fixed backdrop blockscrolling>
-        <wl-title slot="header" level="3" style="color: #EF1320">${u("dialog.warning.CannotBeUndone")}</wl-title>
+      <backend-ai-dialog id="create-scaling-group-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${u("resourceGroup.CreateResourceGroup")}</span>
+
+        <div slot="content" class="login-panel intro centered">
+          <wl-textfield
+            type="text"
+            id="scaling-group-name"
+            label="${u("resourceGroup.ResourceGroupName")}"
+          ></wl-textfield>
+          <wl-textarea
+            name="description"
+            id="scaling-group-description"
+            label="${u("resourceGroup.Description")}"
+          ></wl-textarea>
+          <wl-select
+            id="scaling-group-domain"
+            label="${u("resourceGroup.SelectDomain")}"
+          >
+            <option disabled>${u("resourceGroup.SelectDomain")}</option>
+            ${this.domains.map(e=>d`
+                <option value="${e.name}">
+                  ${e.name}
+                </option>
+              `)}
+          </wl-select>
+        </div>
+        <div slot="footer" class="horizontal end-justified flex layout">
+          <wl-button class="fg blue create-button" id="create-user-button" outlined type="button"
+            @click="${this._createScalingGroup}">
+            <wl-icon>add</wl-icon>
+            ${u("button.Create")}
+          </wl-button>
+        </div>
+      </backend-ai-dialog>
+      <backend-ai-dialog id="modify-scaling-group-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${u("resourceGroup.ModifyResourceGroup")}</span>
+
+        <div slot="content" class="login-panel intro centered">
+          <wl-textarea
+            id="modify-scaling-group-description"
+            type="text"
+            label="Description"
+            value=${0===this.scalingGroups.length?"":this.scalingGroups[this.selectedIndex].description}
+          ></wl-textarea>
+          <wl-select id="modify-scaling-group-scheduler" label="Select scheduler"
+              value="${0===this.scalingGroups.length?"":this.scalingGroups[this.selectedIndex].scheduler}">
+            <option disabled>Select Scheduler</option>
+            ${this.schedulerTypes.map(e=>d`
+              <option value="${e}">${e}</option>
+            `)}
+          </wl-select>
+          <wl-label for="switch">
+            ${u("resourceGroup.ActiveStatus")}
+          </wl-label>
+          <div id="switch">
+            <wl-switch
+              id="modify-scaling-group-active"
+            ></wl-switch>
+          </div>
+        </div>
+        <div slot="footer" class="horizontal end-justified flex layout">
+          <wl-button
+            class="fg blue"
+            type="button"
+            outlined
+            style="width: 100%; box-sizing: border-box;"
+            @click=${this._modifyScalingGroup}
+          >
+            <wl-icon>check</wl-icon>
+            ${u("button.Save")}
+          </wl-button>
+        </div>
+      </backend-ai-dialog>
+      <backend-ai-dialog id="delete-scaling-group-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${u("dialog.warning.CannotBeUndone")}</span>
         <div slot="content">
           <wl-textfield
             id="delete-scaling-group"
             type="text"
             label="${u("resourceGroup.TypeResourceGroupNameToDelete")}"
           ></wl-textfield>
+        </div>
+        <div slot="footer" class="horizontal end-justified flex layout">
           <wl-button
             class="fg red delete"
             type="button"
@@ -427,7 +413,7 @@ let g=class extends a{constructor(){super(),this._boundControlRenderer=this._con
             ${u("button.Delete")}
           </wl-button>
         </div>
-      </wl-dialog>
+      </backend-ai-dialog>
     `}};e([t({type:Object})],g.prototype,"_boundControlRenderer",void 0),e([t({type:Number})],g.prototype,"selectedIndex",void 0),e([t({type:Array})],g.prototype,"domains",void 0),e([t({type:Array})],g.prototype,"scalingGroups",void 0),e([t({type:Array})],g.prototype,"schedulerTypes",void 0),g=e([i("backend-ai-scaling-group-list")],g);
 /**
  @license

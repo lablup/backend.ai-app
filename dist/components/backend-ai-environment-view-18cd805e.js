@@ -1,4 +1,4 @@
-import{_ as e,p as t,c as i,B as a,d as o,I as s,a as l,D as r,e as n,b as d,f as c,t as h,Z as u,h as m,g as p}from"./backend-ai-console-08beed35.js";import"./iron-resizable-behavior-d47f1a1f.js";import"./vaadin-grid-1c9a6db0.js";import"./paper-dropdown-menu-b2129442.js";import"./iron-iconset-svg-bcb33a8c.js";import"./radio-behavior-98768496.js";import"./label-b667f462.js";import"./select-eb203a8d.js";import"./vaadin-grid-sorter-7983e66b.js";import"./iconset-ed66deb2.js";import"./vaadin-progress-bar-89e13e1c.js";import"./tab-group-da68e71d.js";import"./vaadin-item-7d91b4ad.js";import"./switch-ab61c8a8.js";let g=class extends a{constructor(){super(),this.images=Array(),this.allowed_registries=Array(),this._boundRequirementsRenderer=this.requirementsRenderer.bind(this),this._boundControlsRenderer=this.controlsRenderer.bind(this),this._boundInstallRenderer=this.installRenderer.bind(this),this.servicePorts=Array(),this.selectedIndex=0,this._cuda_gpu_disabled=!1,this._cuda_fgpu_disabled=!1,this._rocm_gpu_disabled=!1,this._tpu_disabled=!1,this.alias=Object(),this.spinner=Object(),this.indicator=Object(),this.installImageDialog=Object(),this.installImageName="",this.installImageResource=Object(),this.selectedCheckbox=Object(),this._grid=Object()}static get styles(){return[o,s,l,r,n,d`
+import{_ as e,p as t,c as i,B as a,d as o,I as s,a as l,D as r,e as n,b as d,f as c,t as h,Z as u,h as m,g as p}from"./backend-ai-console-1b71da62.js";import"./iron-resizable-behavior-d47f1a1f.js";import"./vaadin-grid-1c9a6db0.js";import"./paper-dropdown-menu-b2129442.js";import"./iron-iconset-svg-bcb33a8c.js";import"./radio-behavior-5b7b3939.js";import"./label-e57358f1.js";import"./select-0d9f1007.js";import"./vaadin-grid-sorter-7983e66b.js";import"./iconset-ed66deb2.js";import"./vaadin-progress-bar-89e13e1c.js";import"./tab-group-c08eec68.js";import"./vaadin-item-7d91b4ad.js";import"./switch-9072d0a0.js";let g=class extends a{constructor(){super(),this.images=Array(),this.allowed_registries=Array(),this._boundRequirementsRenderer=this.requirementsRenderer.bind(this),this._boundControlsRenderer=this.controlsRenderer.bind(this),this._boundInstallRenderer=this.installRenderer.bind(this),this.servicePorts=Array(),this.selectedIndex=0,this._cuda_gpu_disabled=!1,this._cuda_fgpu_disabled=!1,this._rocm_gpu_disabled=!1,this._tpu_disabled=!1,this.alias=Object(),this.spinner=Object(),this.indicator=Object(),this.installImageDialog=Object(),this.installImageName="",this.installImageResource=Object(),this.selectedCheckbox=Object(),this._grid=Object()}static get styles(){return[o,s,l,r,n,d`
         vaadin-grid {
           border: 0;
           font-size: 14px;
@@ -326,7 +326,7 @@ import{_ as e,p as t,c as i,B as a,d as o,I as s,a as l,D as r,e as n,b as d,f a
               </wl-button>
         </div>
       </backend-ai-dialog>
-      <backend-ai-dialog id="modify-app-dialog" backdrop>
+      <backend-ai-dialog id="modify-app-dialog" fixed backdrop>
         <span slot="title">${h("environment.ManageApps")}</span>
         <div slot="content" id="modify-app-container" class="container">
           <div class="row header">
@@ -382,7 +382,7 @@ import{_ as e,p as t,c as i,B as a,d as o,I as s,a as l,D as r,e as n,b as d,f a
           ${h("button.Finish")}
         </wl-button>
       </backend-ai-dialog>
-      <backend-ai-dialog id="install-image-dialog" backdrop persistent>
+      <backend-ai-dialog id="install-image-dialog" fixed backdrop persistent>
         <span slot="title">Let's double-check</span>
         <div slot="content">
           <p>${h("environment.DescDownloadImage")} <span style="color:blue;">${this.installImageName}</span></p>
@@ -457,7 +457,6 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
         }
 
         wl-button.create-button {
-          width: 335px;
           --button-bg: white;
           --button-bg-hover: var(--paper-yellow-100);
           --button-bg-active: var(--paper-yellow-600);
@@ -565,15 +564,9 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
           </vaadin-grid>
         </div>
       </wl-card>
-      <wl-dialog id="modify-template-dialog" fixed backdrop blockscrolling>
-        <wl-card elevation="1" class="login-panel intro centered">
-          <h3 class="horizontal center layout">
-            <span>${h("resourcePreset.ModifyResourcePreset")}</span>
-            <div class="flex"></div>
-            <wl-button class="fg orange" fab flat inverted @click="${e=>this._hideDialog(e)}">
-              <wl-icon>close</wl-icon>
-            </wl-button>
-          </h3>
+      <backend-ai-dialog id="modify-template-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${h("resourcePreset.ModifyResourcePreset")}</span>
+        <div slot="content" class="login-panel intro centered">
           <form id="login-form">
             <fieldset>
               <mwc-textfield type="text" name="preset_name" id="id_preset_name" label="${h("resourcePreset.PresetName")}"
@@ -598,79 +591,71 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
                 <mwc-textfield id="shmem-resource" type="number" label="Shared Memory (GB)" min="0"></mwc-textfield>
               </div>
               <br/><br/>
-              <wl-button class="fg orange create-button" outlined type="button"
+              <wl-button class="fg orange create-button full-size" outlined type="button"
                 @click="${()=>this._modifyResourceTemplate()}">
                 <wl-icon>check</wl-icon>
                 ${h("button.SaveChanges")}
               </wl-button>
             </fieldset>
           </form>
-        </wl-card>
-      </wl-dialog>
-      <wl-dialog id="create-preset-dialog" fixed backdrop blockscrolling>
-        <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
-          <h3 class="horizontal center layout">
-            <span>${h("resourcePreset.CreateResourcePreset")}</span>
-            <div class="flex"></div>
-            <wl-button fab flat inverted @click="${e=>this._hideDialog(e)}">
-              <wl-icon>close</wl-icon>
-            </wl-button>
-          </h3>
-          <form id="preset-creation-form">
-            <fieldset>
-              <mwc-textfield
-                type="text"
-                name="preset_name"
-                id="create-preset-name"
-                label="Preset Name"
-                auto-validate
-                required
-                pattern="[a-zA-Z0-9-_]+"
-                error-message="Preset name only accepts letters and numbers"
-              ></mwc-textfield>
-              <h4>${h("resourcePreset.ResourcePreset")}</h4>
-              <div class="horizontal center layout">
-                <mwc-textfield id="create-cpu-resource" type="number" label="CPU"
-                    min="1" value="1"></mwc-textfield>
-                <mwc-textfield id="create-ram-resource" type="number" label="RAM (GB)"
-                    min="1" value="1"></mwc-textfield>
-              </div>
-              <div class="horizontal center layout">
-                <mwc-textfield id="create-gpu-resource" type="number" label="GPU"
-                    min="0" value="0" ?disabled=${"fractional"===this.gpuAllocationMode}></mwc-textfield>
-                <mwc-textfield id="create-fgpu-resource" type="number" label="fGPU"
-                    min="0" value="0" ?disabled=${"fractional"!==this.gpuAllocationMode}></mwc-textfield>
-              </div>
-              <div class="horizontal center layout">
-                <mwc-textfield id="create-shmem-resource" type="number" label="Shared Memory (GB)" min="0"></mwc-textfield>
-              </div>
-              <wl-button
-                class="fg orange create-button"
-                id="create-policy-button"
-                outlined
-                type="button"
-                @click="${this._createPreset}"
-              >
-                <wl-icon>add</wl-icon>
-                ${h("button.Add")}
-              </wl-button>
-            </fieldset>
-          </form>
-        </wl-card>
-      </wl-dialog>
-      <wl-dialog id="delete-resource-preset-dialog" fixed backdrop blockscrolling>
-         <wl-title level="3" slot="header">${h("dialog.title.LetsDouble-Check")}</wl-title>
+        </div>
+      </backend-ai-dialog>
+      <backend-ai-dialog id="create-preset-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${h("resourcePreset.CreateResourcePreset")}</span>
+        <div slot="content">
+          <mwc-textfield
+            type="text"
+            name="preset_name"
+            id="create-preset-name"
+            label="Preset Name"
+            auto-validate
+            required
+            pattern="[a-zA-Z0-9-_]+"
+            error-message="Preset name only accepts letters and numbers"
+          ></mwc-textfield>
+          <h4>${h("resourcePreset.ResourcePreset")}</h4>
+          <div class="horizontal center layout">
+            <mwc-textfield id="create-cpu-resource" type="number" label="CPU"
+                min="1" value="1"></mwc-textfield>
+            <mwc-textfield id="create-ram-resource" type="number" label="RAM (GB)"
+                min="1" value="1"></mwc-textfield>
+          </div>
+          <div class="horizontal center layout">
+            <mwc-textfield id="create-gpu-resource" type="number" label="GPU"
+                min="0" value="0" ?disabled=${"fractional"===this.gpuAllocationMode}></mwc-textfield>
+            <mwc-textfield id="create-fgpu-resource" type="number" label="fGPU"
+                min="0" value="0" ?disabled=${"fractional"!==this.gpuAllocationMode}></mwc-textfield>
+          </div>
+          <div class="horizontal center layout">
+            <mwc-textfield id="create-shmem-resource" type="number" label="Shared Memory (GB)" min="0"></mwc-textfield>
+          </div>
+        </div>
+        <div slot="footer" class="horizontal end-justified flex layout">
+          <wl-button
+            class="fg orange create-button full-size"
+            id="create-policy-button"
+            outlined
+            type="button"
+            @click="${this._createPreset}"
+          >
+            <wl-icon>add</wl-icon>
+            ${h("button.Add")}
+          </wl-button>
+        </div>
+      </backend-ai-dialog>
+      <backend-ai-dialog id="delete-resource-preset-dialog" fixed backdrop blockscrolling>
+         <span slot="title">${h("dialog.title.LetsDouble-Check")}</span>
          <div slot="content">
             <p>${h("resourcePreset.AboutToDeletePreset")}</p>
             <p style="text-align:center;">${this.presetName}</p>
             <p>${h("dialog.warning.CannotBeUndone")} ${h("dialog.ask.DoYouWantToProceed")}</p>
          </div>
-         <div slot="footer">
+         <div slot="footer" class="horizontal end-justified flex layout">
             <wl-button class="fg orange cancel" inverted flat @click="${e=>this._hideDialog(e)}">${h("button.Cancel")}</wl-button>
             <wl-button class="fg orange ok" @click="${e=>this._deleteResourcePresetWithCheck(e)}">${h("button.Okay")}</wl-button>
          </div>
-      </wl-dialog>
-    `}firstUpdated(){this.notification=globalThis.lablupNotification;let e=this.shadowRoot.querySelectorAll("mwc-textfield");for(const t of e)this._addInputValidator(t)}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._refreshTemplateData(),this.is_admin=globalThis.backendaiclient.is_admin},!0):(this._refreshTemplateData(),this.is_admin=globalThis.backendaiclient.is_admin,globalThis.backendaiclient.getResourceSlots().then(e=>{this.gpu_allocatable=2!==Object.keys(e).length,Object.keys(e).includes("cuda.shares")?this.gpuAllocationMode="fractional":this.gpuAllocationMode="device"})))}_hideDialog(e){e.target.closest("wl-dialog").hide()}_launchResourcePresetDialog(e){this.updateCurrentPresetToDialog(e),this.shadowRoot.querySelector("#modify-template-dialog").show()}_launchDeleteResourcePresetDialog(e){const t=e.target.closest("#controls")["preset-name"];this.presetName=t,this.shadowRoot.querySelector("#delete-resource-preset-dialog").show()}_deleteResourcePresetWithCheck(e){globalThis.backendaiclient.resourcePreset.delete(this.presetName).then(e=>{this.shadowRoot.querySelector("#delete-resource-preset-dialog").hide(),this.notification.text="Resource preset is successfully deleted.",this.notification.show(),this._refreshTemplateData()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#delete-resource-preset-dialog").hide(),this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}updateCurrentPresetToDialog(e){const t=e.target.closest("#controls")["preset-name"];let i=globalThis.backendaiclient.utils.gqlToObject(this.resourcePresets,"name")[t];console.log(i),this.shadowRoot.querySelector("#id_preset_name").value=t,this.shadowRoot.querySelector("#cpu-resource").value=i.resource_slots.cpu,"cuda.device"in i.resource_slots?this.shadowRoot.querySelector("#gpu-resource").value=i.resource_slots["cuda.device"]:this.shadowRoot.querySelector("#gpu-resource").value="","cuda.shares"in i.resource_slots?this.shadowRoot.querySelector("#fgpu-resource").value=i.resource_slots["cuda.shares"]:this.shadowRoot.querySelector("#fgpu-resource").value="",this.shadowRoot.querySelector("#ram-resource").value=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(i.resource_slots.mem,"g")),i.shared_memory?this.shadowRoot.querySelector("#shmem-resource").value=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(i.shared_memory,"g")).toFixed(2):this.shadowRoot.querySelector("#shmem-resource").value=""}_refreshTemplateData(){let e={group:globalThis.backendaiclient.current_group};return globalThis.backendaiclient.resourcePreset.check(e).then(e=>{let t=e.presets;Object.keys(t).map((e,i)=>{let a=t[e];a.resource_slots.mem_gb=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(a.resource_slots.mem,"g")),a.shared_memory?a.shared_memory_gb=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(a.shared_memory,"g")).toFixed(2):a.shared_memory_gb=null}),this.resourcePresets=t}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}refresh(){this._refreshTemplateData()}_isActive(){return"active"===this.condition}_readResourcePresetInput(){const e=e=>void 0!==e&&e.includes("Unlimited")?"Infinity":e,t=e(this.shadowRoot.querySelector("#cpu-resource").value),i=e(this.shadowRoot.querySelector("#ram-resource").value+"g"),a=e(this.shadowRoot.querySelector("#gpu-resource").value),o=e(this.shadowRoot.querySelector("#fgpu-resource").value);let s=this.shadowRoot.querySelector("#shmem-resource").value;s&&(s+="g");let l={cpu:t,mem:i};null!=a&&""!==a&&"0"!==a&&(l["cuda.device"]=parseInt(a)),null!=o&&""!==o&&"0"!==o&&(l["cuda.shares"]=parseFloat(o));return{resource_slots:JSON.stringify(l),shared_memory:s}}_modifyResourceTemplate(){const e=this.shadowRoot.querySelector("#id_preset_name").value,t=void 0!==(i=this.shadowRoot.querySelector("#ram-resource").value+"g")&&i.includes("Unlimited")?"Infinity":i;var i;if(!e)return this.notification.text="No preset name",void this.notification.show();let a=this._readResourcePresetInput();if(parseInt(a.shared_memory)>=parseInt(t))return this.notification.text="Memory should be larger than shared memory",void this.notification.show();globalThis.backendaiclient.resourcePreset.mutate(e,a).then(e=>{this.shadowRoot.querySelector("#modify-template-dialog").hide(),this.notification.text="Resource preset successfully updated.",this.notification.show(),this._refreshTemplateData()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#modify-template-dialog").hide(),this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_deleteKey(e){const t=e.target.closest("#controls").accessKey;globalThis.backendaiclient.keypair.delete(t).then(e=>{this.refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_findKeyItem(e){return e.access_key=this}_elapsed(e,t){var i=new Date(e);if("active"==this.condition)var a=new Date;else a=new Date;var o=Math.floor((a.getTime()-i.getTime())/1e3);return Math.floor(o/86400)}_humanReadableTime(e){return(e=new Date(e)).toUTCString()}_indexFrom1(e){return e+1}_markIfUnlimited(e){return["-",0,"Unlimited",1/0,"Infinity"].includes(e)?"∞":e}_createPreset(){const e=e=>void 0!==(e=e.toString())&&e.includes("Unlimited")?"Infinity":e,t=e(this.shadowRoot.querySelector("#create-preset-name").value),i=e(this.shadowRoot.querySelector("#create-cpu-resource").value),a=e(this.shadowRoot.querySelector("#create-ram-resource").value+"g"),o=e(this.shadowRoot.querySelector("#create-gpu-resource").value),s=e(this.shadowRoot.querySelector("#create-fgpu-resource").value);let l=this.shadowRoot.querySelector("#create-shmem-resource").value;if(l&&(l+="g"),!t)return this.notification.text="No preset name",void this.notification.show();if(l>=a)return this.notification.text="Memory should be larger than shared memory",void this.notification.show();let r={cpu:i,mem:a};null!=o&&""!==o&&"0"!==o&&(r["cuda.device"]=parseInt(o)),null!=s&&""!==s&&"0"!==s&&(r["cuda.shares"]=parseFloat(s));const n={resource_slots:JSON.stringify(r),shared_memory:l};globalThis.backendaiclient.resourcePreset.add(t,n).then(e=>{this.shadowRoot.querySelector("#create-preset-dialog").hide(),e.create_resource_preset.ok?(this.notification.text="Resource preset successfully created",this.refresh(),this.shadowRoot.querySelector("#create-preset-name").value="",this.shadowRoot.querySelector("#create-cpu-resource").value=1,this.shadowRoot.querySelector("#create-ram-resource").value=1,this.shadowRoot.querySelector("#create-gpu-resource").value=0,this.shadowRoot.querySelector("#create-fgpu-resource").value=0,this.shadowRoot.querySelector("#create-shmem-resource").value=""):this.notification.text=c.relieve(e.create_resource_preset.msg),this.notification.show()})}};e([t({type:Array})],y.prototype,"resourcePolicy",void 0),e([t({type:Boolean})],y.prototype,"is_admin",void 0),e([t({type:Boolean})],y.prototype,"active",void 0),e([t({type:Boolean})],y.prototype,"gpu_allocatable",void 0),e([t({type:String})],y.prototype,"gpuAllocationMode",void 0),e([t({type:String})],y.prototype,"condition",void 0),e([t({type:String})],y.prototype,"presetName",void 0),e([t({type:Object})],y.prototype,"resourcePresets",void 0),e([t({type:Array})],y.prototype,"_boundResourceRenderer",void 0),e([t({type:Array})],y.prototype,"_boundControlRenderer",void 0),y=e([i("backend-ai-resource-preset-list")],y);let b=class extends a{constructor(){super(),this.indicator=Object(),this.selectedIndex=0,this.boundIsEnabledRenderer=this._isEnabledRenderer.bind(this),this.boundControlsRenderer=this._controlsRenderer.bind(this),this._registryType=Array(),this.allowed_registries=Array(),this.registryList=[]}static get styles(){return[o,s,l,d`
+      </backend-ai-dialog>
+    `}firstUpdated(){this.notification=globalThis.lablupNotification;let e=this.shadowRoot.querySelectorAll("mwc-textfield");for(const t of e)this._addInputValidator(t)}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._refreshTemplateData(),this.is_admin=globalThis.backendaiclient.is_admin},!0):(this._refreshTemplateData(),this.is_admin=globalThis.backendaiclient.is_admin,globalThis.backendaiclient.getResourceSlots().then(e=>{this.gpu_allocatable=2!==Object.keys(e).length,Object.keys(e).includes("cuda.shares")?this.gpuAllocationMode="fractional":this.gpuAllocationMode="device"})))}_hideDialog(e){e.target.closest("backend-ai-dialog").hide()}_launchResourcePresetDialog(e){this.updateCurrentPresetToDialog(e),this.shadowRoot.querySelector("#modify-template-dialog").show()}_launchDeleteResourcePresetDialog(e){const t=e.target.closest("#controls")["preset-name"];this.presetName=t,this.shadowRoot.querySelector("#delete-resource-preset-dialog").show()}_deleteResourcePresetWithCheck(e){globalThis.backendaiclient.resourcePreset.delete(this.presetName).then(e=>{this.shadowRoot.querySelector("#delete-resource-preset-dialog").hide(),this.notification.text="Resource preset is successfully deleted.",this.notification.show(),this._refreshTemplateData()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#delete-resource-preset-dialog").hide(),this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}updateCurrentPresetToDialog(e){const t=e.target.closest("#controls")["preset-name"];let i=globalThis.backendaiclient.utils.gqlToObject(this.resourcePresets,"name")[t];console.log(i),this.shadowRoot.querySelector("#id_preset_name").value=t,this.shadowRoot.querySelector("#cpu-resource").value=i.resource_slots.cpu,"cuda.device"in i.resource_slots?this.shadowRoot.querySelector("#gpu-resource").value=i.resource_slots["cuda.device"]:this.shadowRoot.querySelector("#gpu-resource").value="","cuda.shares"in i.resource_slots?this.shadowRoot.querySelector("#fgpu-resource").value=i.resource_slots["cuda.shares"]:this.shadowRoot.querySelector("#fgpu-resource").value="",this.shadowRoot.querySelector("#ram-resource").value=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(i.resource_slots.mem,"g")),i.shared_memory?this.shadowRoot.querySelector("#shmem-resource").value=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(i.shared_memory,"g")).toFixed(2):this.shadowRoot.querySelector("#shmem-resource").value=""}_refreshTemplateData(){let e={group:globalThis.backendaiclient.current_group};return globalThis.backendaiclient.resourcePreset.check(e).then(e=>{let t=e.presets;Object.keys(t).map((e,i)=>{let a=t[e];a.resource_slots.mem_gb=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(a.resource_slots.mem,"g")),a.shared_memory?a.shared_memory_gb=parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(a.shared_memory,"g")).toFixed(2):a.shared_memory_gb=null}),this.resourcePresets=t}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}refresh(){this._refreshTemplateData()}_isActive(){return"active"===this.condition}_readResourcePresetInput(){const e=e=>void 0!==e&&e.includes("Unlimited")?"Infinity":e,t=e(this.shadowRoot.querySelector("#cpu-resource").value),i=e(this.shadowRoot.querySelector("#ram-resource").value+"g"),a=e(this.shadowRoot.querySelector("#gpu-resource").value),o=e(this.shadowRoot.querySelector("#fgpu-resource").value);let s=this.shadowRoot.querySelector("#shmem-resource").value;s&&(s+="g");let l={cpu:t,mem:i};null!=a&&""!==a&&"0"!==a&&(l["cuda.device"]=parseInt(a)),null!=o&&""!==o&&"0"!==o&&(l["cuda.shares"]=parseFloat(o));return{resource_slots:JSON.stringify(l),shared_memory:s}}_modifyResourceTemplate(){const e=this.shadowRoot.querySelector("#id_preset_name").value,t=void 0!==(i=this.shadowRoot.querySelector("#ram-resource").value+"g")&&i.includes("Unlimited")?"Infinity":i;var i;if(!e)return this.notification.text="No preset name",void this.notification.show();let a=this._readResourcePresetInput();if(parseInt(a.shared_memory)>=parseInt(t))return this.notification.text="Memory should be larger than shared memory",void this.notification.show();globalThis.backendaiclient.resourcePreset.mutate(e,a).then(e=>{this.shadowRoot.querySelector("#modify-template-dialog").hide(),this.notification.text="Resource preset successfully updated.",this.notification.show(),this._refreshTemplateData()}).catch(e=>{console.log(e),e&&e.message&&(this.shadowRoot.querySelector("#modify-template-dialog").hide(),this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_deleteKey(e){const t=e.target.closest("#controls").accessKey;globalThis.backendaiclient.keypair.delete(t).then(e=>{this.refresh()}).catch(e=>{console.log(e),e&&e.message&&(this.notification.text=c.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e))})}_findKeyItem(e){return e.access_key=this}_elapsed(e,t){var i=new Date(e);if("active"==this.condition)var a=new Date;else a=new Date;var o=Math.floor((a.getTime()-i.getTime())/1e3);return Math.floor(o/86400)}_humanReadableTime(e){return(e=new Date(e)).toUTCString()}_indexFrom1(e){return e+1}_markIfUnlimited(e){return["-",0,"Unlimited",1/0,"Infinity"].includes(e)?"∞":e}_createPreset(){const e=e=>void 0!==(e=e.toString())&&e.includes("Unlimited")?"Infinity":e,t=e(this.shadowRoot.querySelector("#create-preset-name").value),i=e(this.shadowRoot.querySelector("#create-cpu-resource").value),a=e(this.shadowRoot.querySelector("#create-ram-resource").value+"g"),o=e(this.shadowRoot.querySelector("#create-gpu-resource").value),s=e(this.shadowRoot.querySelector("#create-fgpu-resource").value);let l=this.shadowRoot.querySelector("#create-shmem-resource").value;if(l&&(l+="g"),!t)return this.notification.text="No preset name",void this.notification.show();if(l>=a)return this.notification.text="Memory should be larger than shared memory",void this.notification.show();let r={cpu:i,mem:a};null!=o&&""!==o&&"0"!==o&&(r["cuda.device"]=parseInt(o)),null!=s&&""!==s&&"0"!==s&&(r["cuda.shares"]=parseFloat(s));const n={resource_slots:JSON.stringify(r),shared_memory:l};globalThis.backendaiclient.resourcePreset.add(t,n).then(e=>{this.shadowRoot.querySelector("#create-preset-dialog").hide(),e.create_resource_preset.ok?(this.notification.text="Resource preset successfully created",this.refresh(),this.shadowRoot.querySelector("#create-preset-name").value="",this.shadowRoot.querySelector("#create-cpu-resource").value=1,this.shadowRoot.querySelector("#create-ram-resource").value=1,this.shadowRoot.querySelector("#create-gpu-resource").value=0,this.shadowRoot.querySelector("#create-fgpu-resource").value=0,this.shadowRoot.querySelector("#create-shmem-resource").value=""):this.notification.text=c.relieve(e.create_resource_preset.msg),this.notification.show()})}};e([t({type:Array})],y.prototype,"resourcePolicy",void 0),e([t({type:Boolean})],y.prototype,"is_admin",void 0),e([t({type:Boolean})],y.prototype,"active",void 0),e([t({type:Boolean})],y.prototype,"gpu_allocatable",void 0),e([t({type:String})],y.prototype,"gpuAllocationMode",void 0),e([t({type:String})],y.prototype,"condition",void 0),e([t({type:String})],y.prototype,"presetName",void 0),e([t({type:Object})],y.prototype,"resourcePresets",void 0),e([t({type:Array})],y.prototype,"_boundResourceRenderer",void 0),e([t({type:Array})],y.prototype,"_boundControlRenderer",void 0),y=e([i("backend-ai-resource-preset-list")],y);let b=class extends a{constructor(){super(),this.indicator=Object(),this.selectedIndex=0,this.boundIsEnabledRenderer=this._isEnabledRenderer.bind(this),this.boundControlsRenderer=this._controlsRenderer.bind(this),this._registryType=Array(),this.allowed_registries=Array(),this.registryList=[]}static get styles(){return[o,s,l,d`
         vaadin-grid {
           border: 0;
           font-size: 14px;
@@ -696,14 +681,14 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
           --button-bg-active: var(--paper-red-600);
         }
 
-        wl-dialog wl-textfield {
+        backend-ai-dialog wl-textfield {
           --input-font-family: Roboto, Noto, sans-serif;
           --input-state-color-invalid: #b00020;
           margin-bottom: 20px;
         }
 
-        wl-dialog {
-          --dialog-min-width: 350px;
+        backend-ai-dialog {
+          --component-min-width: 350px;
         }
 
         wl-textfield.helper-text {
@@ -731,7 +716,7 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
           height: 30px;
           --mdc-list-item-graphic-margin: 0px;
         }
-      `]}firstUpdated(){this.notification=globalThis.lablupNotification,this.indicator=globalThis.lablupIndicator}_parseRegistryList(e){return Object.keys(e).map(t=>{return"string"==typeof(i=e[t])||i instanceof String?{"":e[t],hostname:t}:Object.assign(Object.assign({},e[t]),{hostname:t});var i})}_refreshRegistryList(){globalThis.backendaiclient.domain.get(globalThis.backendaiclient._config.domainName,["allowed_docker_registries"]).then(e=>(this.allowed_registries=e.domain.allowed_docker_registries,console.log(this.allowed_registries),globalThis.backendaiclient.registry.list())).then(({result:e})=>{this.registryList=this._parseRegistryList(e),this.requestUpdate()})}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._registryType=["docker","harbor"]},!0):(this._refreshRegistryList(),this._registryType=["docker","harbor"]))}_getHostname(e){const t=document.createElement("a");return t.href=e,t.hostname}_addRegistry(){const e=this.shadowRoot.querySelector("#add-registry-hostname").value,t=this.shadowRoot.querySelector("#add-registry-url").value,i=this.shadowRoot.querySelector("#add-registry-username").value,a=this.shadowRoot.querySelector("#add-registry-password").value,o=this.shadowRoot.querySelector("#select-registry-type").value,s=this.shadowRoot.querySelector("#add-project-name").value;if(!this.shadowRoot.querySelector("#add-registry-hostname").valid){let e=this.shadowRoot.querySelector("#registry-hostname-validation");return void(e&&(e.style.display="block"))}if(!this.shadowRoot.querySelector("#add-registry-url").valid){let e=this.shadowRoot.querySelector("#registry-url-validation");return void(e&&(e.style.display="block"))}let l={};if(l[""]=t,""!==i&&(l.username=i,""!==a&&(l.password=a)),l.type=o,"harbor"===o){if(!s||""===s)return;l.project=s}globalThis.backendaiclient.registry.add(e,l).then(({result:e})=>{"ok"===e?(this.notification.text="Registry successfully added",this._refreshRegistryList()):this.notification.text="Error occurred",this._hideDialogById("#add-registry-dialog"),this.notification.show()})}_deleteRegistry(){const e=this.shadowRoot.querySelector("#delete-registry").value;this.registryList[this.selectedIndex].hostname===encodeURIComponent(e)?globalThis.backendaiclient.registry.delete(e).then(({result:e})=>{"ok"===e?(this.notification.text="Registry successfully deleted",this._refreshRegistryList()):this.notification.text="Error Occurred",this._hideDialogById("#delete-registry-dialog"),this.notification.show()}):(this.notification.text="Hostname does not match!",this.notification.show())}async _rescanImage(){let e=await this.indicator.start("indeterminate");e.set(10,"Updating registry information..."),globalThis.backendaiclient.maintenance.rescan_images(this.registryList[this.selectedIndex].hostname).then(({rescan_images:t})=>{t.ok?e.set(100,"Registry update finished."):(e.set(50,"Registry update failed."),e.end(1e3),this.notification.text=c.relieve(t.msg),this.notification.detail=t.msg,this.notification.show())}).catch(t=>{console.log(t),e.set(50,"Rescan failed."),e.end(1e3),t&&t.message&&(this.notification.text=c.relieve(t.title),this.notification.detail=t.message,this.notification.show(!0,t))})}_launchDialogById(e){this.shadowRoot.querySelector(e).show()}_hideDialogById(e){this.shadowRoot.querySelector(e).hide()}_hideDialog(e){e.target.closest("wl-dialog").hide()}_toggleProjectNameInput(){let e=this.shadowRoot.querySelector("#select-registry-type"),t=this.shadowRoot.querySelector("#add-project-name");t.disabled=!(e.value&&"harbor"===e.value),this.shadowRoot.querySelector("#project-name-validation").style.display="block",t.disabled?this.shadowRoot.querySelector("#project-name-validation").textContent=p("registry.ForHarborOnly"):this.shadowRoot.querySelector("#project-name-validation").textContent=p("registry.ProjectNameIsRequired")}_validateUrl(){let e=this.shadowRoot.querySelector("#add-registry-url").value,t=this.shadowRoot.querySelector("#registry-url-validation"),i=new RegExp("^(http|https|ftp)://[a-zA-Z0-9-.]+.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9-._?,'/\\+&amp;%$#=~])*$");e&&e.match(i)?(this.shadowRoot.querySelector("#add-registry-url").invalid=!1,t.style.display="none"):(this.shadowRoot.querySelector("#add-registry-url").invalid=!0,t.style.display="block")}_validateHostname(){let e=this.shadowRoot.querySelector("#add-registry-hostname").value,t=this.shadowRoot.querySelector("#registry-hostname-validation");t.style.display=e&&""!==e?"none":"block"}_validateProjectName(){let e=this.shadowRoot.querySelector("#add-project-name").value,t=this.shadowRoot.querySelector("#project-name-validation");t.style.display=e&&""!==e?"none":"block"}toggleRegistry(e,t){console.log(e,t),e.target.checked?this._changeRegistryState(t,!0):this._changeRegistryState(t,!1)}_changeRegistryState(e,t){if(!0===t)this.allowed_registries.push(e),this.notification.text=p("registry.RegistryTurnedOn");else{let t=this.allowed_registries.indexOf(e);1!==t&&this.allowed_registries.splice(t,1),this.notification.text=p("registry.RegistryTurnedOff")}globalThis.backendaiclient.domain.modify(globalThis.backendaiclient._config.domainName,{allowed_docker_registries:this.allowed_registries}).then(e=>{this.notification.show()})}_indexRenderer(e,t,i){let a=i.index+1;u(m`
+      `]}firstUpdated(){this.notification=globalThis.lablupNotification,this.indicator=globalThis.lablupIndicator}_parseRegistryList(e){return Object.keys(e).map(t=>{return"string"==typeof(i=e[t])||i instanceof String?{"":e[t],hostname:t}:Object.assign(Object.assign({},e[t]),{hostname:t});var i})}_refreshRegistryList(){globalThis.backendaiclient.domain.get(globalThis.backendaiclient._config.domainName,["allowed_docker_registries"]).then(e=>(this.allowed_registries=e.domain.allowed_docker_registries,console.log(this.allowed_registries),globalThis.backendaiclient.registry.list())).then(({result:e})=>{this.registryList=this._parseRegistryList(e),this.requestUpdate()})}async _viewStateChanged(e){await this.updateComplete,!1!==e&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._registryType=["docker","harbor"]},!0):(this._refreshRegistryList(),this._registryType=["docker","harbor"]))}_getHostname(e){const t=document.createElement("a");return t.href=e,t.hostname}_addRegistry(){const e=this.shadowRoot.querySelector("#add-registry-hostname").value,t=this.shadowRoot.querySelector("#add-registry-url").value,i=this.shadowRoot.querySelector("#add-registry-username").value,a=this.shadowRoot.querySelector("#add-registry-password").value,o=this.shadowRoot.querySelector("#select-registry-type").value,s=this.shadowRoot.querySelector("#add-project-name").value;if(!this.shadowRoot.querySelector("#add-registry-hostname").valid){let e=this.shadowRoot.querySelector("#registry-hostname-validation");return void(e&&(e.style.display="block"))}if(!this.shadowRoot.querySelector("#add-registry-url").valid){let e=this.shadowRoot.querySelector("#registry-url-validation");return void(e&&(e.style.display="block"))}let l={};if(l[""]=t,""!==i&&(l.username=i,""!==a&&(l.password=a)),l.type=o,"harbor"===o){if(!s||""===s)return;l.project=s}globalThis.backendaiclient.registry.add(e,l).then(({result:e})=>{"ok"===e?(this.notification.text="Registry successfully added",this._refreshRegistryList()):this.notification.text="Error occurred",this._hideDialogById("#add-registry-dialog"),this.notification.show()})}_deleteRegistry(){const e=this.shadowRoot.querySelector("#delete-registry").value;this.registryList[this.selectedIndex].hostname===encodeURIComponent(e)?globalThis.backendaiclient.registry.delete(e).then(({result:e})=>{"ok"===e?(this.notification.text="Registry successfully deleted",this._refreshRegistryList()):this.notification.text="Error Occurred",this._hideDialogById("#delete-registry-dialog"),this.notification.show()}):(this.notification.text="Hostname does not match!",this.notification.show())}async _rescanImage(){let e=await this.indicator.start("indeterminate");e.set(10,"Updating registry information..."),globalThis.backendaiclient.maintenance.rescan_images(this.registryList[this.selectedIndex].hostname).then(({rescan_images:t})=>{t.ok?e.set(100,"Registry update finished."):(e.set(50,"Registry update failed."),e.end(1e3),this.notification.text=c.relieve(t.msg),this.notification.detail=t.msg,this.notification.show())}).catch(t=>{console.log(t),e.set(50,"Rescan failed."),e.end(1e3),t&&t.message&&(this.notification.text=c.relieve(t.title),this.notification.detail=t.message,this.notification.show(!0,t))})}_launchDialogById(e){this.shadowRoot.querySelector(e).show()}_hideDialogById(e){this.shadowRoot.querySelector(e).hide()}_toggleProjectNameInput(){let e=this.shadowRoot.querySelector("#select-registry-type"),t=this.shadowRoot.querySelector("#add-project-name");t.disabled=!(e.value&&"harbor"===e.value),this.shadowRoot.querySelector("#project-name-validation").style.display="block",t.disabled?this.shadowRoot.querySelector("#project-name-validation").textContent=p("registry.ForHarborOnly"):this.shadowRoot.querySelector("#project-name-validation").textContent=p("registry.ProjectNameIsRequired")}_validateUrl(){let e=this.shadowRoot.querySelector("#add-registry-url").value,t=this.shadowRoot.querySelector("#registry-url-validation"),i=new RegExp("^(http|https|ftp)://[a-zA-Z0-9-.]+.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9-._?,'/\\+&amp;%$#=~])*$");e&&e.match(i)?(this.shadowRoot.querySelector("#add-registry-url").invalid=!1,t.style.display="none"):(this.shadowRoot.querySelector("#add-registry-url").invalid=!0,t.style.display="block")}_validateHostname(){let e=this.shadowRoot.querySelector("#add-registry-hostname").value,t=this.shadowRoot.querySelector("#registry-hostname-validation");t.style.display=e&&""!==e?"none":"block"}_validateProjectName(){let e=this.shadowRoot.querySelector("#add-project-name").value,t=this.shadowRoot.querySelector("#project-name-validation");t.style.display=e&&""!==e?"none":"block"}toggleRegistry(e,t){console.log(e,t),e.target.checked?this._changeRegistryState(t,!0):this._changeRegistryState(t,!1)}_changeRegistryState(e,t){if(!0===t)this.allowed_registries.push(e),this.notification.text=p("registry.RegistryTurnedOn");else{let t=this.allowed_registries.indexOf(e);1!==t&&this.allowed_registries.splice(t,1),this.notification.text=p("registry.RegistryTurnedOff")}globalThis.backendaiclient.domain.modify(globalThis.backendaiclient._config.domainName,{allowed_docker_registries:this.allowed_registries}).then(e=>{this.notification.show()})}_indexRenderer(e,t,i){let a=i.index+1;u(m`
         <div>${a}</div>
       `,e)}_hostRenderer(e,t,i){u(m`
         <div>
@@ -810,96 +795,89 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
         <vaadin-grid-column flex-grow="1" header="${h("general.Control")}" .renderer=${this.boundControlsRenderer}>
         </vaadin-grid-column>
       </vaadin-grid>
-      <wl-dialog id="add-registry-dialog" fixed backdrop blockscrolling>
-        <wl-card elevation="1" class="login-panel intro centered" style="margin: 0;">
-          <h3 class="horizontal center layout">
-            <span>${h("registry.AddRegistry")}</span>
-            <div class="flex"></div>
-            <wl-button class="fab" fab flat inverted @click=${e=>this._hideDialog(e)}>
-              <wl-icon>close</wl-icon>
-            </wl-button>
-          </h3>
-          <form>
-            <fieldset>
-              <wl-textfield
-                id="add-registry-hostname"
-                class="helper-text"
-                type="text"
-                label="${h("registry.RegistryHostname")}"
-                required
-                @click=${this._validateHostname}
-                @change=${this._validateHostname}
-              ></wl-textfield>
-              <wl-label class="helper-text" id="registry-hostname-validation" style="display:none;">${h("registry.DescHostnameIsEmpty")}</wl-label>
-              <wl-textfield
-                id="add-registry-url"
-                class="helper-text"
-                label="${h("registry.RegistryURL")}"
-                required
-                pattern="^(http|https)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*$"
-                @click=${this._validateUrl}
-                @change=${this._validateUrl}
-              ></wl-textfield>
-              <wl-label class="helper-text" id="registry-url-validation" style="display:none;">${h("registry.DescURLStartString")}</wl-label>
-             <div class="horizontal layout flex">
-              <wl-textfield
-                id="add-registry-username"
-                type="text"
-                label="${h("registry.UsernameOptional")}"
-                style="padding-right:10px;"
-              ></wl-textfield>
-              <wl-textfield
-                id="add-registry-password"
-                type="password"
-                label="${h("registry.PasswordOptional")}"
-                style="padding-left:10px;"
-              ></wl-textfield>
-             </div>
-             <div class="horizontal layout" style="padding-bottom:10px;">
-              <mwc-select id="select-registry-type" label="${h("registry.RegistryType")}"
-                          @change=${this._toggleProjectNameInput} required
-                          validationMessage="Please select one option.">
-                ${this._registryType.map(e=>m`
-                  <mwc-list-item value="${e}" ?selected="${"docker"===e}">${e}</mwc-list-item>
-                `)}
-              </mwc-select>
-               <div class="vertical layout" style="padding-left:10px;">
-                  <wl-textfield
-                  id="add-project-name"
-                  class="helper-text"
-                  type="text"
-                  label="${h("registry.ProjectName")}"
-                  required
-                  @change=${this._validateProjectName}
-                  ></wl-textfield>
-                  <wl-label class="helper-text" id="project-name-validation" style="display:block;">${h("registry.ForHarborOnly")}</wl-label>
-              </div>
-             </div>
-              <div class="horizontal layout center-justified">
-                <wl-button
-                  class="fg orange"
-                  outlined
-                  type="button"
-                  style="box-sizing: border-box; width: 100%"
-                  @click=${this._addRegistry}
-                >
-                  <wl-icon>add</wl-icon>
-                  ${h("button.Add")}
-                </wl-button>
-              </div>
-            </fieldset>
-          </form>
-        </wl-card>
-      </wl-dialog>
+      <backend-ai-dialog id="add-registry-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${h("registry.AddRegistry")}</span>
 
-      <wl-dialog id="delete-registry-dialog" fixed backdrop blockscrolling>
-        <wl-title level="3" slot="header" style="color: rgb(242, 100, 85)">${h("dialog.warning.CannotBeUndone")}</wl-title>
+        <div slot="content" class="login-panel intro centered">
+          <wl-textfield
+            id="add-registry-hostname"
+            class="helper-text"
+            type="text"
+            label="${h("registry.RegistryHostname")}"
+            required
+            @click=${this._validateHostname}
+            @change=${this._validateHostname}
+          ></wl-textfield>
+          <wl-label class="helper-text" id="registry-hostname-validation" style="display:none;">${h("registry.DescHostnameIsEmpty")}</wl-label>
+          <wl-textfield
+            id="add-registry-url"
+            class="helper-text"
+            label="${h("registry.RegistryURL")}"
+            required
+            pattern="^(http|https)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*$"
+            @click=${this._validateUrl}
+            @change=${this._validateUrl}
+          ></wl-textfield>
+          <wl-label class="helper-text" id="registry-url-validation" style="display:none;">${h("registry.DescURLStartString")}</wl-label>
+         <div class="horizontal layout flex">
+          <wl-textfield
+            id="add-registry-username"
+            type="text"
+            label="${h("registry.UsernameOptional")}"
+            style="padding-right:10px;"
+          ></wl-textfield>
+          <wl-textfield
+            id="add-registry-password"
+            type="password"
+            label="${h("registry.PasswordOptional")}"
+            style="padding-left:10px;"
+          ></wl-textfield>
+         </div>
+         <div class="horizontal layout" style="padding-bottom:10px;">
+          <mwc-select id="select-registry-type" label="${h("registry.RegistryType")}"
+                      @change=${this._toggleProjectNameInput} required
+                      validationMessage="Please select one option.">
+            ${this._registryType.map(e=>m`
+              <mwc-list-item value="${e}" ?selected="${"docker"===e}">${e}</mwc-list-item>
+            `)}
+          </mwc-select>
+           <div class="vertical layout" style="padding-left:10px;">
+              <wl-textfield
+              id="add-project-name"
+              class="helper-text"
+              type="text"
+              label="${h("registry.ProjectName")}"
+              required
+              @change=${this._validateProjectName}
+              ></wl-textfield>
+              <wl-label class="helper-text" id="project-name-validation" style="display:block;">${h("registry.ForHarborOnly")}</wl-label>
+          </div>
+         </div>
+        </div>
+        <div slot="footer" class="horizontal end-justified flex layout">
+          <wl-button
+            class="fg orange"
+            outlined
+            type="button"
+            style="box-sizing: border-box; width: 100%"
+            @click=${this._addRegistry}
+          >
+            <wl-icon>add</wl-icon>
+            ${h("button.Add")}
+          </wl-button>
+        </div>
+      </backend-ai-dialog>
+
+      <backend-ai-dialog id="delete-registry-dialog" fixed backdrop blockscrolling>
+        <span slot="title">${h("dialog.warning.CannotBeUndone")}</span>
         <div slot="content">
           <wl-textfield
             id="delete-registry"
             type="text"
             label="${h("registry.TypeRegistryNameToDelete")}"
           ></wl-textfield>
+        </div>
+        <div slot="footer" class="horizontal end-justified flex layout">
           <wl-button
             class="fg red delete"
             type="button"
@@ -911,7 +889,7 @@ let y=class extends a{constructor(){super(),this.resourcePolicy={},this.is_admin
             ${h("button.Delete")}
           </wl-button>
         </div>
-      </wl-dialog>
+      </backend-ai-dialog>
     `}};e([t({type:Object})],b.prototype,"indicator",void 0),e([t({type:Number})],b.prototype,"selectedIndex",void 0),e([t({type:String})],b.prototype,"boundIsEnabledRenderer",void 0),e([t({type:String})],b.prototype,"boundControlsRenderer",void 0),e([t({type:Array})],b.prototype,"_registryType",void 0),e([t({type:Array})],b.prototype,"allowed_registries",void 0),b=e([i("backend-ai-registry-list")],b);
 /**
  @license
@@ -949,7 +927,7 @@ let v=class extends a{constructor(){super(),this.images=Object(),this.is_superad
               --card-elevation: 0;
           }
 
-      `]}static get properties(){return{active:{type:Boolean},_activeTab:{type:Boolean}}}async _viewStateChanged(e){return await this.updateComplete,!1===e||(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.is_superadmin=globalThis.backendaiclient.is_superadmin},!0):this.is_superadmin=globalThis.backendaiclient.is_superadmin,!1)}_showTab(e){for(var t=this.shadowRoot.querySelectorAll(".tab-content"),i=0;i<t.length;i++)t[i].style.display="none";this._activeTab=e.value,this.shadowRoot.querySelector("#"+e.value).style.display="block"}_hideDialog(e){e.target.closest("wl-dialog").hide()}render(){return m`
+      `]}static get properties(){return{active:{type:Boolean},_activeTab:{type:Boolean}}}async _viewStateChanged(e){return await this.updateComplete,!1===e||(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.is_superadmin=globalThis.backendaiclient.is_superadmin},!0):this.is_superadmin=globalThis.backendaiclient.is_superadmin,!1)}_showTab(e){for(var t=this.shadowRoot.querySelectorAll(".tab-content"),i=0;i<t.length;i++)t[i].style.display="none";this._activeTab=e.value,this.shadowRoot.querySelector("#"+e.value).style.display="block"}render(){return m`
       <wl-card class="item" elevation="1">
         <h3 class="tab horizontal center layout">
           <wl-tab-group>
@@ -968,4 +946,4 @@ let v=class extends a{constructor(){super(),this.images=Object(),this.is_superad
           <backend-ai-registry-list ?active="${"registry-lists"===this._activeTab}"> </backend-ai-registry-list>
         </div>
       </wl-card>
-    `}firstUpdated(){}disconnectedCallback(){super.disconnectedCallback()}};e([t({type:String})],v.prototype,"images",void 0),e([t({type:Boolean})],v.prototype,"is_superadmin",void 0),e([t({type:String})],v.prototype,"_activeTab",void 0),v=e([i("backend-ai-environment-view")],v);var w=v;export default w;
+    `}firstUpdated(){}disconnectedCallback(){super.disconnectedCallback()}};e([t({type:String})],v.prototype,"images",void 0),e([t({type:Boolean})],v.prototype,"is_superadmin",void 0),e([t({type:String})],v.prototype,"_activeTab",void 0),v=e([i("backend-ai-environment-view")],v);var f=v;export default f;

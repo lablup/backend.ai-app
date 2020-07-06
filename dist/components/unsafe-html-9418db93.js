@@ -1,4 +1,4 @@
-import{i as e,N as n,j as t}from"./backend-ai-console-540580c6.js";
+import{i as e,N as n,j as t}from"./backend-ai-console-6dec094c.js";
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -12,4 +12,4 @@ import{i as e,N as n,j as t}from"./backend-ai-console-540580c6.js";
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const a=new WeakMap,o=e(e=>o=>{if(!(o instanceof n))throw new Error("unsafeHTML can only be used in text bindings");const s=a.get(o);if(void 0!==s&&t(e)&&e===s.value&&o.value===s.fragment)return;const r=document.createElement("template");r.innerHTML=e;const c=document.importNode(r.content,!0);o.setValue(c),a.set(o,{value:e,fragment:c})});export{o as u};
+const a=new WeakMap,o=e(e=>o=>{if(!(o instanceof n))throw new Error("unsafeHTML can only be used in text bindings");const s=a.get(o);if(void 0!==s&&t(e)&&e===s.value&&o.value===s.fragment)return;const c=document.createElement("template");c.innerHTML=e;const r=document.importNode(c.content,!0);o.setValue(r),a.set(o,{value:e,fragment:r})});export{o as u};

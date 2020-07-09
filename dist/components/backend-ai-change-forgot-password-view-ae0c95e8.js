@@ -1,4 +1,4 @@
-import{B as t,d as e,I as i,a as o,x as a,e as s,b as l,g as n,h as d,t as c,_ as r,p as h,c as p}from"./backend-ai-console-6bdaecb6.js";let g=class extends t{constructor(){super(...arguments),this.consoleShell=Object(),this.clientConfig=Object(),this.client=Object(),this.notification=Object(),this.passwordChangeDialog=Object(),this.failDialog=Object(),this.token=""}static get styles(){return[e,i,o,a,s,l`
+import{B as t,d as e,I as i,a as o,x as a,e as s,b as l,g as n,h as d,t as c,_ as r,p as h,c as p}from"./backend-ai-console-a3572160.js";let g=class extends t{constructor(){super(...arguments),this.consoleShell=Object(),this.clientConfig=Object(),this.client=Object(),this.notification=Object(),this.passwordChangeDialog=Object(),this.failDialog=Object(),this.token=""}static get styles(){return[e,i,o,a,s,l`
         mwc-textfield {
           width: 100%;
         }

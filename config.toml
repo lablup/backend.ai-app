@@ -1,24 +1,30 @@
 [general]
-#apiEndpoint = ""
-#apiEndpointText = ""
-#defaultSessionEnvironment = ""
+#apiEndpoint = "http://127.0.0.1:8080"
+#apiEndpointText = "TEST"
+defaultSessionEnvironment = "index.docker.io/lablup/python"
 siteDescription = "Console"
 connectionMode = "SESSION"
-# Allows user to change signin mode
+#connectionMode = "API"
 allowChangeSigninMode = true
-# Allows user to sign out
 signupSupport = true
-allowSignout = true
-debug = true
+allowProjectResourceMonitor = true
+debug = false
+allowAnonymousChangePassword = true
 
 [wsproxy]
 #proxyURL = "https://wsproxy.onprem.backend.ai:9443/"
 proxyURL = "http://127.0.0.1:5050/"
+
 #proxyBaseURL = ""
 
-[server]
-consoleServerURL =
+[menu]
+#blocklist = "statistics,data"
 
 [plugin]
 #login = "signup-cloud.js"
 #sidebar = "report-cloud.js"
+
+[license]
+edition = "Enterprise"
+#validSince = ""
+#validUntil = "2021-12-31"

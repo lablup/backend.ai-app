@@ -1,0 +1,1293 @@
+import{k as e,l as t,_ as r,q as i,p as o,o as s,u as a,F as c,h as n,s as d,r as l,v as u,w as h,b as p,c as m,L as b,d as g,I as _,a as v,x as y,e as k,B as f,g as x,f as w,t as $,m as S,y as R,R as T,z as C,A as j,C as A,D as q,E as z,G as B,H as I}from"./backend-ai-console-e6c7b7b2.js";import{u as E}from"./unsafe-html-4375680b.js";import"./mwc-linear-progress-d979fbe9.js";import"./paper-dropdown-menu-a208b033.js";import"./paper-item-9f2ac1d7.js";import{R as P}from"./radio-behavior-ced3ce22.js";import"./expansion-98ae7166.js";
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */var D={animation:{prefixed:"-webkit-animation",standard:"animation"},transform:{prefixed:"-webkit-transform",standard:"transform"},transition:{prefixed:"-webkit-transition",standard:"transition"}},L={animationend:{cssProperty:"animation",prefixed:"webkitAnimationEnd",standard:"animationend"},animationiteration:{cssProperty:"animation",prefixed:"webkitAnimationIteration",standard:"animationiteration"},animationstart:{cssProperty:"animation",prefixed:"webkitAnimationStart",standard:"animationstart"},transitionend:{cssProperty:"transition",prefixed:"webkitTransitionEnd",standard:"transitionend"}};function U(e){return Boolean(e.document)&&"function"==typeof e.document.createElement}
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var G=function(){function e(e){void 0===e&&(e={}),this.adapter=e}return Object.defineProperty(e,"cssClasses",{get:function(){return{}},enumerable:!0,configurable:!0}),Object.defineProperty(e,"strings",{get:function(){return{}},enumerable:!0,configurable:!0}),Object.defineProperty(e,"numbers",{get:function(){return{}},enumerable:!0,configurable:!0}),Object.defineProperty(e,"defaultAdapter",{get:function(){return{}},enumerable:!0,configurable:!0}),e.prototype.init=function(){},e.prototype.destroy=function(){},e}(),O={ACTIVE:"mdc-slider--active",DISABLED:"mdc-slider--disabled",DISCRETE:"mdc-slider--discrete",FOCUS:"mdc-slider--focus",HAS_TRACK_MARKER:"mdc-slider--display-markers",IN_TRANSIT:"mdc-slider--in-transit",IS_DISCRETE:"mdc-slider--discrete",DISABLE_TOUCH_ACTION:"mdc-slider--disable-touch-action"},N={ARIA_DISABLED:"aria-disabled",ARIA_VALUEMAX:"aria-valuemax",ARIA_VALUEMIN:"aria-valuemin",ARIA_VALUENOW:"aria-valuenow",CHANGE_EVENT:"MDCSlider:change",INPUT_EVENT:"MDCSlider:input",PIN_VALUE_MARKER_SELECTOR:".mdc-slider__pin-value-marker",STEP_DATA_ATTR:"data-step",THUMB_CONTAINER_SELECTOR:".mdc-slider__thumb-container",TRACK_MARKER_CONTAINER_SELECTOR:".mdc-slider__track-marker-container",TRACK_SELECTOR:".mdc-slider__track"},M={PAGE_FACTOR:4},F="undefined"!=typeof window,H=F&&!!window.PointerEvent,V=H?["pointerdown"]:["mousedown","touchstart"],K=H?["pointerup"]:["mouseup","touchend"],X={mousedown:"mousemove",pointerdown:"pointermove",touchstart:"touchmove"},W="ArrowDown",J="ArrowLeft",Q="ArrowRight",Y="ArrowUp",Z="End",ee="Home",te="PageDown",re="PageUp",ie=function(r){function i(e){var o=r.call(this,t(t({},i.defaultAdapter),e))||this;return o.savedTabIndex_=NaN,o.active_=!1,o.inTransit_=!1,o.isDiscrete_=!1,o.hasTrackMarker_=!1,o.handlingThumbTargetEvt_=!1,o.min_=0,o.max_=100,o.step_=0,o.value_=0,o.disabled_=!1,o.preventFocusState_=!1,o.thumbContainerPointerHandler_=function(){return o.handlingThumbTargetEvt_=!0},o.interactionStartHandler_=function(e){return o.handleDown_(e)},o.keydownHandler_=function(e){return o.handleKeydown_(e)},o.focusHandler_=function(){return o.handleFocus_()},o.blurHandler_=function(){return o.handleBlur_()},o.resizeHandler_=function(){return o.layout()},o}return e(i,r),Object.defineProperty(i,"cssClasses",{get:function(){return O},enumerable:!0,configurable:!0}),Object.defineProperty(i,"strings",{get:function(){return N},enumerable:!0,configurable:!0}),Object.defineProperty(i,"numbers",{get:function(){return M},enumerable:!0,configurable:!0}),Object.defineProperty(i,"defaultAdapter",{get:function(){return{hasClass:function(){return!1},addClass:function(){},removeClass:function(){},getAttribute:function(){return null},setAttribute:function(){},removeAttribute:function(){},computeBoundingRect:function(){return{top:0,right:0,bottom:0,left:0,width:0,height:0}},getTabIndex:function(){return 0},registerInteractionHandler:function(){},deregisterInteractionHandler:function(){},registerThumbContainerInteractionHandler:function(){},deregisterThumbContainerInteractionHandler:function(){},registerBodyInteractionHandler:function(){},deregisterBodyInteractionHandler:function(){},registerResizeHandler:function(){},deregisterResizeHandler:function(){},notifyInput:function(){},notifyChange:function(){},setThumbContainerStyleProperty:function(){},setTrackStyleProperty:function(){},setMarkerValue:function(){},setTrackMarkers:function(){},isRTL:function(){return!1}}},enumerable:!0,configurable:!0}),i.prototype.init=function(){var e=this;this.isDiscrete_=this.adapter.hasClass(O.IS_DISCRETE),this.hasTrackMarker_=this.adapter.hasClass(O.HAS_TRACK_MARKER),V.forEach((function(t){e.adapter.registerInteractionHandler(t,e.interactionStartHandler_),e.adapter.registerThumbContainerInteractionHandler(t,e.thumbContainerPointerHandler_)})),H&&this.adapter.addClass(O.DISABLE_TOUCH_ACTION),this.adapter.registerInteractionHandler("keydown",this.keydownHandler_),this.adapter.registerInteractionHandler("focus",this.focusHandler_),this.adapter.registerInteractionHandler("blur",this.blurHandler_),this.adapter.registerResizeHandler(this.resizeHandler_),this.layout(),this.isDiscrete_&&0===this.getStep()&&(this.step_=1)},i.prototype.destroy=function(){var e=this;V.forEach((function(t){e.adapter.deregisterInteractionHandler(t,e.interactionStartHandler_),e.adapter.deregisterThumbContainerInteractionHandler(t,e.thumbContainerPointerHandler_)})),this.adapter.deregisterInteractionHandler("keydown",this.keydownHandler_),this.adapter.deregisterInteractionHandler("focus",this.focusHandler_),this.adapter.deregisterInteractionHandler("blur",this.blurHandler_),this.adapter.deregisterResizeHandler(this.resizeHandler_)},i.prototype.setupTrackMarker=function(){this.isDiscrete_&&this.hasTrackMarker_&&0!==this.getStep()&&this.adapter.setTrackMarkers(this.getStep(),this.getMax(),this.getMin())},i.prototype.layout=function(){this.rect_=this.adapter.computeBoundingRect(),this.updateUIForCurrentValue_()},i.prototype.getValue=function(){return this.value_},i.prototype.setValue=function(e){this.setValue_(e,!1)},i.prototype.getMax=function(){return this.max_},i.prototype.setMax=function(e){if(e<this.min_)throw new Error("Cannot set max to be less than the slider's minimum value");this.max_=e,this.setValue_(this.value_,!1,!0),this.adapter.setAttribute(N.ARIA_VALUEMAX,String(this.max_)),this.setupTrackMarker()},i.prototype.getMin=function(){return this.min_},i.prototype.setMin=function(e){if(e>this.max_)throw new Error("Cannot set min to be greater than the slider's maximum value");this.min_=e,this.setValue_(this.value_,!1,!0),this.adapter.setAttribute(N.ARIA_VALUEMIN,String(this.min_)),this.setupTrackMarker()},i.prototype.getStep=function(){return this.step_},i.prototype.setStep=function(e){if(e<0)throw new Error("Step cannot be set to a negative number");this.isDiscrete_&&("number"!=typeof e||e<1)&&(e=1),this.step_=e,this.setValue_(this.value_,!1,!0),this.setupTrackMarker()},i.prototype.isDisabled=function(){return this.disabled_},i.prototype.setDisabled=function(e){this.disabled_=e,this.toggleClass_(O.DISABLED,this.disabled_),this.disabled_?(this.savedTabIndex_=this.adapter.getTabIndex(),this.adapter.setAttribute(N.ARIA_DISABLED,"true"),this.adapter.removeAttribute("tabindex")):(this.adapter.removeAttribute(N.ARIA_DISABLED),isNaN(this.savedTabIndex_)||this.adapter.setAttribute("tabindex",String(this.savedTabIndex_)))},i.prototype.handleDown_=function(e){var t=this;if(!this.disabled_){this.preventFocusState_=!0,this.setInTransit_(!this.handlingThumbTargetEvt_),this.handlingThumbTargetEvt_=!1,this.setActive_(!0);var r=function(e){t.handleMove_(e)},i=X[e.type],o=function(){t.handleUp_(),t.adapter.deregisterBodyInteractionHandler(i,r),K.forEach((function(e){return t.adapter.deregisterBodyInteractionHandler(e,o)}))};this.adapter.registerBodyInteractionHandler(i,r),K.forEach((function(e){return t.adapter.registerBodyInteractionHandler(e,o)})),this.setValueFromEvt_(e)}},i.prototype.handleMove_=function(e){e.preventDefault(),this.setValueFromEvt_(e)},i.prototype.handleUp_=function(){this.setActive_(!1),this.adapter.notifyChange()},i.prototype.getClientX_=function(e){return e.targetTouches&&e.targetTouches.length>0?e.targetTouches[0].clientX:e.clientX},i.prototype.setValueFromEvt_=function(e){var t=this.getClientX_(e),r=this.computeValueFromClientX_(t);this.setValue_(r,!0)},i.prototype.computeValueFromClientX_=function(e){var t=this.max_,r=this.min_,i=(e-this.rect_.left)/this.rect_.width;return this.adapter.isRTL()&&(i=1-i),r+i*(t-r)},i.prototype.handleKeydown_=function(e){var t=this.getKeyId_(e),r=this.getValueForKeyId_(t);isNaN(r)||(e.preventDefault(),this.adapter.addClass(O.FOCUS),this.setValue_(r,!0),this.adapter.notifyChange())},i.prototype.getKeyId_=function(e){return e.key===J||37===e.keyCode?J:e.key===Q||39===e.keyCode?Q:e.key===Y||38===e.keyCode?Y:e.key===W||40===e.keyCode?W:e.key===ee||36===e.keyCode?ee:e.key===Z||35===e.keyCode?Z:e.key===re||33===e.keyCode?re:e.key===te||34===e.keyCode?te:""},i.prototype.getValueForKeyId_=function(e){var t=this,r=t.max_,i=t.min_,o=t.step_||(r-i)/100;switch(this.adapter.isRTL()&&(e===J||e===Q)&&(o=-o),e){case J:case W:return this.value_-o;case Q:case Y:return this.value_+o;case ee:return this.min_;case Z:return this.max_;case re:return this.value_+o*M.PAGE_FACTOR;case te:return this.value_-o*M.PAGE_FACTOR;default:return NaN}},i.prototype.handleFocus_=function(){this.preventFocusState_||this.adapter.addClass(O.FOCUS)},i.prototype.handleBlur_=function(){this.preventFocusState_=!1,this.adapter.removeClass(O.FOCUS)},i.prototype.setValue_=function(e,t,r){if(void 0===r&&(r=!1),e!==this.value_||r){var i=this.min_,o=this.max_,s=e===i||e===o;this.step_&&!s&&(e=this.quantize_(e)),e<i?e=i:e>o&&(e=o),e=e||0,this.value_=e,this.adapter.setAttribute(N.ARIA_VALUENOW,String(this.value_)),this.updateUIForCurrentValue_(),t&&(this.adapter.notifyInput(),this.isDiscrete_&&this.adapter.setMarkerValue(e))}},i.prototype.quantize_=function(e){return Math.round(e/this.step_)*this.step_},i.prototype.updateUIForCurrentValue_=function(){var e=this,t=this,r=t.max_,i=t.min_,o=(t.value_-i)/(r-i),s=o*this.rect_.width;this.adapter.isRTL()&&(s=this.rect_.width-s);var a=F?function(e,t){if(U(e)&&t in D){var r=e.document.createElement("div"),i=D[t],o=i.standard,s=i.prefixed;return o in r.style?o:s}return t}(window,"transform"):"transform",c=F?function(e,t){if(U(e)&&t in L){var r=e.document.createElement("div"),i=L[t],o=i.standard,s=i.prefixed;return i.cssProperty in r.style?o:s}return t}(window,"transitionend"):"transitionend";if(this.inTransit_){var n=function(){e.setInTransit_(!1),e.adapter.deregisterThumbContainerInteractionHandler(c,n)};this.adapter.registerThumbContainerInteractionHandler(c,n)}requestAnimationFrame((function(){e.adapter.setThumbContainerStyleProperty(a,"translateX("+s+"px) translateX(-50%)"),e.adapter.setTrackStyleProperty(a,"scaleX("+o+")")}))},i.prototype.setActive_=function(e){this.active_=e,this.toggleClass_(O.ACTIVE,this.active_)},i.prototype.setInTransit_=function(e){this.inTransit_=e,this.toggleClass_(O.IN_TRANSIT,this.inTransit_)},i.prototype.toggleClass_=function(e,t){t?this.adapter.addClass(e):this.adapter.removeClass(e)},i}(G);
+/**
+ * @license
+ * Copyright 2017 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */class oe extends c{constructor(){super(...arguments),this.mdcFoundationClass=ie,this.min=0,this.max=100,this._value=0,this.step=0,this.disabled=!1,this.pin=!1,this.markers=!1,this.pinMarkerText="",this.trackMarkerContainerStyles={},this.thumbContainerStyles={},this.trackStyles={},this.isFoundationDestroyed=!1}set value(e){this.mdcFoundation&&this.mdcFoundation.setValue(e),this._value=e,this.requestUpdate("value",e)}get value(){return this.mdcFoundation?this.mdcFoundation.getValue():this._value}render(){const e=0!==this.step,t={"mdc-slider--discrete":e,"mdc-slider--display-markers":this.markers&&e};let r="";e&&this.markers&&(r=n`
+        <div
+            class="mdc-slider__track-marker-container"
+            style="${d(this.trackMarkerContainerStyles)}">
+        </div>`);let i="";return this.pin&&(i=n`
+      <div class="mdc-slider__pin">
+        <span class="mdc-slider__pin-value-marker">${this.pinMarkerText}</span>
+      </div>`),n`
+      <div class="mdc-slider ${l(t)}"
+           tabindex="0" role="slider"
+           aria-valuemin="${this.min}" aria-valuemax="${this.max}"
+           aria-valuenow="${this.value}"
+           aria-disabled="${this.disabled.toString()}"
+           data-step="${this.step}"
+           @mousedown=${this.layout}
+           @touchstart=${this.layout}>
+        <div class="mdc-slider__track-container">
+          <div
+              class="mdc-slider__track"
+              style="${d(this.trackStyles)}">
+          </div>
+          ${r}
+        </div>
+        <div
+            class="mdc-slider__thumb-container"
+            style="${d(this.thumbContainerStyles)}">
+          <!-- TODO: use cache() directive -->
+          ${i}
+          <svg class="mdc-slider__thumb" width="21" height="21">
+            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+          </svg>
+        <div class="mdc-slider__focus-ring"></div>
+      </div>
+    </div>`}connectedCallback(){super.connectedCallback(),this.mdcRoot&&this.isFoundationDestroyed&&(this.isFoundationDestroyed=!1,this.mdcFoundation.init())}updated(e){const t=e.has("min"),r=e.has("max");t&&r?this.max<this.mdcFoundation.getMin()?(this.mdcFoundation.setMin(this.min),this.mdcFoundation.setMax(this.max)):(this.mdcFoundation.setMax(this.max),this.mdcFoundation.setMin(this.min)):t?this.mdcFoundation.setMin(this.min):r&&this.mdcFoundation.setMax(this.max),super.updated(e)}disconnectedCallback(){super.disconnectedCallback(),this.isFoundationDestroyed=!0,this.mdcFoundation.destroy()}createAdapter(){return Object.assign(Object.assign({},u(this.mdcRoot)),{getAttribute:e=>this.mdcRoot.getAttribute(e),setAttribute:(e,t)=>this.mdcRoot.setAttribute(e,t),removeAttribute:e=>this.mdcRoot.removeAttribute(e),computeBoundingRect:()=>{const e=this.mdcRoot.getBoundingClientRect();return{bottom:e.bottom,height:e.height,left:e.left+window.pageXOffset,right:e.right,top:e.top,width:e.width}},getTabIndex:()=>this.mdcRoot.tabIndex,registerInteractionHandler:(e,t)=>{const r="touchstart"===e?h():void 0;this.mdcRoot.addEventListener(e,t,r)},deregisterInteractionHandler:(e,t)=>this.mdcRoot.removeEventListener(e,t),registerThumbContainerInteractionHandler:(e,t)=>{const r="touchstart"===e?h():void 0;this.thumbContainer.addEventListener(e,t,r)},deregisterThumbContainerInteractionHandler:(e,t)=>this.thumbContainer.removeEventListener(e,t),registerBodyInteractionHandler:(e,t)=>document.body.addEventListener(e,t),deregisterBodyInteractionHandler:(e,t)=>document.body.removeEventListener(e,t),registerResizeHandler:e=>window.addEventListener("resize",e,h()),deregisterResizeHandler:e=>window.removeEventListener("resize",e),notifyInput:()=>{const e=this.mdcFoundation.getValue();e!==this._value&&(this.value=e,this.dispatchEvent(new CustomEvent("input",{detail:this,composed:!0,bubbles:!0,cancelable:!0})))},notifyChange:()=>{this.dispatchEvent(new CustomEvent("change",{detail:this,composed:!0,bubbles:!0,cancelable:!0}))},setThumbContainerStyleProperty:(e,t)=>{this.thumbContainerStyles[e]=t,this.requestUpdate()},setTrackStyleProperty:(e,t)=>{this.trackStyles[e]=t,this.requestUpdate()},setMarkerValue:e=>this.pinMarkerText=e.toLocaleString(),setTrackMarkers:(e,t,r)=>{const i=e.toLocaleString(),o="linear-gradient(to right, currentColor 2px, transparent 0) "+`0 center / calc((100% - 2px) / ${`((${t.toLocaleString()} - ${r.toLocaleString()}) / ${i})`}) 100% repeat-x`;this.trackMarkerContainerStyles.background=o,this.requestUpdate()},isRTL:()=>"rtl"===getComputedStyle(this.mdcRoot).direction})}resetFoundation(){this.mdcFoundation&&(this.mdcFoundation.destroy(),this.mdcFoundation.init())}async firstUpdated(){await super.firstUpdated(),this.mdcFoundation.setValue(this._value)}layout(){this.mdcFoundation.layout()}}r([i(".mdc-slider")],oe.prototype,"mdcRoot",void 0),r([i(".mdc-slider")],oe.prototype,"formElement",void 0),r([i(".mdc-slider__thumb-container")],oe.prototype,"thumbContainer",void 0),r([i(".mdc-slider__pin-value-marker")],oe.prototype,"pinMarker",void 0),r([o({type:Number})],oe.prototype,"min",void 0),r([o({type:Number})],oe.prototype,"max",void 0),r([o({type:Number})],oe.prototype,"value",null),r([o({type:Number}),s((function(e,t){0!==t!==(0!==e)&&this.resetFoundation(),this.mdcFoundation.setStep(e)}))],oe.prototype,"step",void 0),r([o({type:Boolean,reflect:!0}),s((function(e){this.mdcFoundation.setDisabled(e)}))],oe.prototype,"disabled",void 0),r([o({type:Boolean,reflect:!0})],oe.prototype,"pin",void 0),r([o({type:Boolean,reflect:!0}),s((function(){this.mdcFoundation.setupTrackMarker()}))],oe.prototype,"markers",void 0),r([o({type:String})],oe.prototype,"pinMarkerText",void 0),r([o({type:Object})],oe.prototype,"trackMarkerContainerStyles",void 0),r([o({type:Object})],oe.prototype,"thumbContainerStyles",void 0),r([o({type:Object})],oe.prototype,"trackStyles",void 0),r([a({capture:!0,passive:!0})],oe.prototype,"layout",null);
+/**
+@license
+Copyright 2018 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const se=p`@keyframes mdc-slider-emphasize{0%{animation-timing-function:ease-out}50%{animation-timing-function:ease-in;transform:scale(0.85)}100%{transform:scale(0.571)}}.mdc-slider{position:relative;width:100%;height:48px;cursor:pointer;touch-action:pan-x;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__track{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__track-container::after{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786);opacity:.26}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__track-marker-container{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__thumb{fill:#018786;fill:var(--mdc-theme-secondary, #018786);stroke:#018786;stroke:var(--mdc-theme-secondary, #018786)}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__focus-ring{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__pin{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-slider:not(.mdc-slider--disabled) .mdc-slider__pin{color:#fff;color:var(--mdc-theme-text-primary-on-dark, white)}.mdc-slider--disable-touch-action{touch-action:none}.mdc-slider--disabled{cursor:auto}.mdc-slider--disabled .mdc-slider__track{background-color:#9a9a9a}.mdc-slider--disabled .mdc-slider__track-container::after{background-color:#9a9a9a;opacity:.26}.mdc-slider--disabled .mdc-slider__track-marker-container{background-color:#9a9a9a}.mdc-slider--disabled .mdc-slider__thumb{fill:#9a9a9a;stroke:#9a9a9a}.mdc-slider--disabled .mdc-slider__thumb{stroke:#fff;stroke:var(--mdc-slider-bg-color-behind-component, white)}.mdc-slider:focus{outline:none}.mdc-slider__track-container{position:absolute;top:50%;width:100%;height:2px;overflow:hidden}.mdc-slider__track-container::after{position:absolute;top:0;left:0;display:block;width:100%;height:100%;content:""}.mdc-slider__track{position:absolute;width:100%;height:100%;transform-origin:left top;will-change:transform}.mdc-slider[dir=rtl] .mdc-slider__track,[dir=rtl] .mdc-slider .mdc-slider__track{transform-origin:right top}.mdc-slider__track-marker-container{display:flex;margin-right:0;margin-left:-1px;visibility:hidden}.mdc-slider[dir=rtl] .mdc-slider__track-marker-container,[dir=rtl] .mdc-slider .mdc-slider__track-marker-container{margin-right:-1px;margin-left:0}.mdc-slider__track-marker-container::after{display:block;width:2px;height:2px;content:""}.mdc-slider__track-marker{flex:1}.mdc-slider__track-marker::after{display:block;width:2px;height:2px;content:""}.mdc-slider__track-marker:first-child::after{width:3px}.mdc-slider__thumb-container{position:absolute;top:15px;left:0;width:21px;height:100%;user-select:none;will-change:transform}.mdc-slider__thumb{position:absolute;top:0;left:0;transform:scale(0.571);stroke-width:3.5;transition:transform 100ms ease-out,fill 100ms ease-out,stroke 100ms ease-out}.mdc-slider__focus-ring{width:21px;height:21px;border-radius:50%;opacity:0;transition:transform 266.67ms ease-out,opacity 266.67ms ease-out,background-color 266.67ms ease-out}.mdc-slider__pin{display:flex;position:absolute;top:0;left:0;align-items:center;justify-content:center;width:26px;height:26px;margin-top:-2px;margin-left:-2px;transform:rotate(-45deg) scale(0) translate(0, 0);border-radius:50% 50% 50% 0%;z-index:1;transition:transform 100ms ease-out}.mdc-slider__pin-value-marker{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-family:Roboto, sans-serif;font-family:var(--mdc-typography-body2-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));font-size:0.875rem;font-size:var(--mdc-typography-body2-font-size, 0.875rem);line-height:1.25rem;line-height:var(--mdc-typography-body2-line-height, 1.25rem);font-weight:400;font-weight:var(--mdc-typography-body2-font-weight, 400);letter-spacing:0.0178571429em;letter-spacing:var(--mdc-typography-body2-letter-spacing, 0.0178571429em);text-decoration:inherit;text-decoration:var(--mdc-typography-body2-text-decoration, inherit);text-transform:inherit;text-transform:var(--mdc-typography-body2-text-transform, inherit);transform:rotate(45deg)}.mdc-slider--active .mdc-slider__thumb{transform:scale3d(1, 1, 1)}.mdc-slider--focus .mdc-slider__thumb{animation:mdc-slider-emphasize 266.67ms linear}.mdc-slider--focus .mdc-slider__focus-ring{transform:scale3d(1.55, 1.55, 1.55);opacity:.25}.mdc-slider--in-transit .mdc-slider__thumb{transition-delay:140ms}.mdc-slider--in-transit .mdc-slider__thumb-container,.mdc-slider--in-transit .mdc-slider__track,.mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__thumb-container,.mdc-slider:focus:not(.mdc-slider--active) .mdc-slider__track{transition:transform 80ms ease}.mdc-slider--discrete.mdc-slider--active .mdc-slider__thumb{transform:scale(calc(12 / 21))}.mdc-slider--discrete.mdc-slider--active .mdc-slider__pin{transform:rotate(-45deg) scale(1) translate(19px, -20px)}.mdc-slider--discrete.mdc-slider--focus .mdc-slider__thumb{animation:none}.mdc-slider--discrete.mdc-slider--display-markers .mdc-slider__track-marker-container{visibility:visible}:host{display:inline-block;min-width:120px;outline:none}`;let ae=class extends oe{};ae.styles=se,ae=r([m("mwc-slider")],ae);
+/**
+ @license
+ Copyright (c) 2015-2020 Lablup Inc. All rights reserved.
+ */
+let ce=class extends b{constructor(){super(...arguments),this.editable=null,this.pin=null,this.markers=null,this.marker_limit=30,this.disabled=null}static get styles(){return[g,_,v,y,k,p`
+        .mdc-text-field {
+          height: 25px;
+        }
+
+        wl-textfield {
+          --input-state-color-invalid :  var(--input-state-color-inactive,hsl(var(--shade-400,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,65%))));
+          width: var(--textfield-min-width, 65px);
+          margin-left: 10px;
+        }
+
+        mwc-slider {
+          width: var(--slider-width, 100px);
+          --mdc-theme-secondary: var(--slider-color, '#018786');
+          color: var(--paper-grey-700);
+        }
+      `]}render(){return n`
+      <div class="horizontal center layout">
+      <mwc-slider id="slider" class="${this.id}" value="${this.value}"
+          min="${this.min}" max="${this.max}"
+          ?pin="${this.pin}"
+          ?disabled="${this.disabled}"
+          ?markers="${this.markers}"
+          @change="${this.syncToText}">
+      </mwc-slider>
+      <wl-textfield style="display:none" id="textfield" class="${this.id}" type="number"
+        value="${this.value}" min="${this.min}" max="${this.max}" step="${this.step}"
+        @change="${this.syncToSlider}">
+      </wl-textfield>
+      </div>
+    `}firstUpdated(){this.slider=this.shadowRoot.querySelector("#slider"),this.editable&&(this.textfield=this.shadowRoot.querySelector("#textfield"),this.textfield.style.display="flex");const e=this.shadowRoot.querySelectorAll("wl-textfield");setTimeout(()=>{e.forEach(e=>{const t=e.getAttribute("step");e.$formElement.step=t})},100),this.step||(this.step=1),this.checkMarkerDisplay()}connectedCallback(){super.connectedCallback()}disconnectedCallback(){super.disconnectedCallback()}updated(e){e.forEach((e,t)=>{if("value"===t){setTimeout(()=>{this.editable&&this.syncToSlider(),this.slider.layout()},500);const e=new CustomEvent("value-changed",{detail:{}});this.dispatchEvent(e)}["min","max"].includes(t)&&this.checkMarkerDisplay()});let t=new CustomEvent("changed",{detail:""});this.dispatchEvent(t)}syncToText(){this.value=this.slider.value}syncToSlider(){let e=Math.round(this.textfield.value/this.step)*this.step;var t;this.textfield.value=e.toFixed((t=this.step,Math.floor(t)===t?0:t.toString().split(".")[1].length||0)),this.textfield.value>this.max&&(this.textfield.value=this.max),this.textfield.value<this.min&&(this.textfield.value=this.min),this.value=this.textfield.value,this.slider.value=this.textfield.value,this.slider.step=this.step}checkMarkerDisplay(){this.markers&&(this.max-this.min)/this.step>this.marker_limit&&this.slider.removeAttribute("markers"),this.slider.setAttribute("step",this.step),this.slider.step=this.step}};r([o({type:Number})],ce.prototype,"step",void 0),r([o({type:Number})],ce.prototype,"value",void 0),r([o({type:Number})],ce.prototype,"max",void 0),r([o({type:Number})],ce.prototype,"min",void 0),r([o({type:Boolean})],ce.prototype,"editable",void 0),r([o({type:Boolean})],ce.prototype,"pin",void 0),r([o({type:Boolean})],ce.prototype,"markers",void 0),r([o({type:Number})],ce.prototype,"marker_limit",void 0),r([o({type:Boolean})],ce.prototype,"disabled",void 0),r([o({type:Object})],ce.prototype,"slider",void 0),r([o({type:Object})],ce.prototype,"textfield",void 0),ce=r([m("lablup-slider")],ce);let ne=class extends f{constructor(){super(),this.is_connected=!1,this.direction="horizontal",this.location="",this.aliases=Object(),this.aggregate_updating=!1,this.resourceGauge=Object(),this.project_resource_monitor=!1,this.active=!1,this.resourceBroker=globalThis.resourceBroker,this.notification=globalThis.lablupNotification,this.init_resource()}static get is(){return"backend-ai-resource-monitor"}static get styles(){return[g,_,v,y,k,p`
+        mwc-linear-progress {
+          height: 5px;
+          --mdc-theme-primary: #98be5a;
+        }
+
+        .horizontal-panel mwc-linear-progress {
+          width: 90px;
+        }
+
+        .vertical-panel mwc-linear-progress {
+          width: 180px;
+        }
+
+        #scaling-group-select-box {
+          min-height: 61px;
+        }
+
+        .vertical-panel #resource-gauges {
+          min-height: 200px;
+        }
+
+        mwc-linear-progress.project-bar {
+          height: 15px;
+        }
+
+        mwc-linear-progress.start-bar {
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+          --mdc-theme-primary: #3677eb;
+        }
+
+        mwc-linear-progress.middle-bar {
+          --mdc-theme-primary: #4f8b46;
+        }
+
+        mwc-linear-progress.end-bar {
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+          --mdc-theme-primary: #98be5a;
+        }
+
+        mwc-linear-progress.full-bar {
+          border-radius: 3px;
+          height: 10px;
+        }
+
+        .resources.horizontal .short-indicator mwc-linear-progress {
+          width: 50px;
+        }
+
+        .resources.horizontal .short-indicator .gauge-label {
+          width: 50px;
+        }
+
+        span.caption {
+          width: 30px;
+          display: block;
+          font-size: 12px;
+          padding-left: 10px;
+        }
+
+        div.caption {
+          font-size: 12px;
+          width: 100px;
+        }
+
+        #resource-gauges.horizontal {
+          position: absolute;
+          top: 48px;
+          z-index: 100;
+          left: 160px;
+          width: 420px;
+          height: 48px;
+          color: #ffffff;
+          background-color: transparent;
+        }
+
+        wl-icon {
+          --icon-size: 24px;
+        }
+
+        img.resource-type-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        @media screen and (max-width: 749px) {
+          #resource-gauge-toggle.horizontal {
+            display: flex;
+          }
+
+          #resource-gauge-toggle.vertical {
+            display: none;
+          }
+
+          #resource-gauges.horizontal {
+            display: none;
+          }
+
+          #resource-gauges.vertical {
+            display: flex;
+          }
+
+        }
+
+        @media screen and (min-width: 750px) {
+          #resource-gauge-toggle {
+            display: none;
+          }
+
+          #resource-gauges.horizontal,
+          #resource-gauges.vertical {
+            display: flex;
+          }
+        }
+
+        div.resource-type {
+          font-size: 14px;
+          width: 70px;
+        }
+
+        .resources.horizontal .monitor.session {
+          margin-left: 5px;
+        }
+
+        .gauge-name {
+          font-size: 10px;
+        }
+
+        .gauge-label {
+          width: 100px;
+          font-weight: 300;
+          font-size: 12px;
+        }
+
+        .indicator {
+          font-family: monospace;
+        }
+
+        .resource-button {
+          height: 140px;
+          width: 120px;
+          margin: 5px;
+          padding: 0;
+          font-size: 14px;
+        }
+
+        #new-session-dialog {
+          z-index: 100;
+        }
+
+        #scaling-group-select-box mwc-multi-select {
+          width: 245px;
+          margin-left: -4px;
+          font-family: var(--general-font-family);
+          --mdc-typography-subtitle1-font-family: var(--general-font-family);
+          --mdc-typography-subtitle1-font-size: 14px;
+          --mdc-typography-subtitle1-font-color: rgb(24, 24, 24);
+          --mdc-typography-subtitle1-font-weight: 400;
+          --mdc-typography-subtitle1-line-height: 16px;
+          --mdc-select-fill-color: transparent;
+          --mdc-select-label-ink-color: rgba(24, 24, 24, 1.0);
+          --mdc-select-disabled-ink-color: rgba(24, 24, 24, 1.0);
+          --mdc-select-dropdown-icon-color: rgba(24, 24, 24, 1.0);
+          --mdc-select-focused-dropdown-icon-color: rgba(24, 24, 24, 0.87);
+          --mdc-select-disabled-dropdown-icon-color: rgba(24, 24, 24, 0.87);
+          --mdc-select-idle-line-color: transparent;
+          --mdc-select-hover-line-color: rgba(255, 255, 255, 0.87);
+          --mdc-select-ink-color: rgb(24, 24, 24);
+          --mdc-select-outlined-idle-border-color: rgba(24, 24, 24, 0.42);
+          --mdc-select-outlined-hover-border-color: rgba(24, 24, 24, 0.87);
+          --mdc-theme-surface: white;
+          --mdc-list-vertical-padding: 5px;
+          --mdc-list-side-padding: 10px;
+          --mdc-menu-item-height: 28px;
+          --mdc-list-item__primary-text: {
+            height: 20px;
+            color: #222222;
+          };
+          margin-bottom: 5px;
+        }
+
+        #scaling-group-select {
+          width: 245px;
+        }
+
+        wl-button.resource-button.iron-selected {
+          --button-color: var(--paper-red-600);
+          --button-bg: var(--paper-red-600);
+          --button-bg-active: var(--paper-red-600);
+          --button-bg-hover: var(--paper-red-600);
+          --button-bg-active-flat: var(--paper-orange-50);
+          --button-bg-flat: var(--paper-orange-50);
+        }
+
+        .resource-button h4 {
+          padding: 5px 0;
+          margin: 0;
+          font-weight: 400;
+        }
+
+        .resource-button ul {
+          padding: 0;
+          list-style-type: none;
+        }
+
+        .resources .monitor {
+          margin-right: 5px;
+        }
+
+        .resources.vertical .monitor {
+          margin-bottom: 10px;
+        }
+
+        .resources.vertical .monitor div:first-child {
+          width: 40px;
+        }
+
+        mwc-select,
+        mwc-multi-select {
+          width: 100%;
+          font-family: var(--general-font-family);
+          --mdc-typography-subtitle1-font-family: var(--general-font-family);
+          --mdc-theme-primary: var(--paper-red-600);
+          --mdc-select-fill-color: transparent;
+          --mdc-select-label-ink-color: rgba(0, 0, 0, 0.75);
+          --mdc-select-dropdown-icon-color: rgba(255, 0, 0, 0.87);
+          --mdc-select-focused-dropdown-icon-color: rgba(255, 0, 0, 0.42);
+          --mdc-select-disabled-dropdown-icon-color: rgba(255, 0, 0, 0.87);
+          --mdc-select-idle-line-color: rgba(0, 0, 0, 0.42);
+          --mdc-select-hover-line-color: rgba(255, 0, 0, 0.87);
+          --mdc-select-outlined-idle-border-color: rgba(255, 0, 0, 0.42);
+          --mdc-select-outlined-hover-border-color: rgba(255, 0, 0, 0.87);
+          --mdc-theme-surface: white;
+          --mdc-list-vertical-padding: 5px;
+          --mdc-list-side-padding: 25px;
+          --mdc-list-item__primary-text: {
+            height: 20px;
+          };
+        }
+
+        mwc-textfield {
+          width: 100%;
+          --mdc-text-field-idle-line-color: rgba(0, 0, 0, 0.42);
+          --mdc-text-field-hover-line-color: rgba(255, 0, 0, 0.87);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-theme-primary: var(--paper-red-600);
+        }
+
+        mwc-textfield#session-name {
+          width: 50%;
+          padding-top: 20px;
+          padding-left: 0;
+          margin-left: 0;
+          margin-bottom: 1px;
+        }
+
+        wl-button[fab] {
+          --button-fab-size: 70px;
+          border-radius: 6px;
+        }
+
+        wl-label {
+          margin-right: 10px;
+          outline: none;
+        }
+      `]}init_resource(){this.total_slot={},this.total_resource_group_slot={},this.total_project_slot={},this.used_slot={},this.used_resource_group_slot={},this.used_project_slot={},this.available_slot={},this.used_slot_percent={},this.used_resource_group_slot_percent={},this.used_project_slot_percent={},this.concurrency_used=0,this.concurrency_max=0,this.concurrency_limit=0,this._status="inactive",this.scaling_groups=[{name:""}],this.scaling_group="",this.sessions_list=[],this.metric_updating=!1,this.metadata_updating=!1}firstUpdated(){this.resourceGauge=this.shadowRoot.querySelector("#resource-gauges"),document.body.clientWidth<750&&"horizontal"==this.direction&&(this.resourceGauge.style.display="none"),document.addEventListener("backend-ai-group-changed",e=>{this._updatePageVariables(!0)}),void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.is_connected=!0},{once:!0}):this.is_connected=!0,document.addEventListener("backend-ai-session-list-refreshed",()=>{this._updatePageVariables(!0)})}_updateSelectedScalingGroup(){let e=this.shadowRoot.querySelector("#scaling-groups"),t=e.items.find(e=>e.value===this.resourceBroker.scaling_group),r=e.items.indexOf(t);e.select(r)}async updateScalingGroup(e=!1,t){if(await this.resourceBroker.updateScalingGroup(e,t.target.value),this.active){if("vertical"===this.direction){this.shadowRoot.querySelector("#scaling-group-select-box").firstChild.value=this.resourceBroker.scaling_group}!0===e&&(await this._refreshResourcePolicy(),this.aggregateResource("update-scaling-group"))}}async _viewStateChanged(e){await this.updateComplete,this.active&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.project_resource_monitor=this.resourceBroker.allow_project_resource_monitor,this._updatePageVariables(!0),this._disableEnterKey()},{once:!0}):(this.project_resource_monitor=this.resourceBroker.allow_project_resource_monitor,await this._updatePageVariables(!0),this._disableEnterKey()))}async _updatePageVariables(e){return this.active&&!1===this.metadata_updating?(this.metadata_updating=!0,await this.resourceBroker._updatePageVariables(e),setTimeout(()=>{this._updateScalingGroupSelector()},1e3),this.sessions_list=this.resourceBroker.sessions_list,await this._refreshResourcePolicy(),this.aggregateResource("update-page-variable"),this.metadata_updating=!1,Promise.resolve(!0)):Promise.resolve(!1)}_updateScalingGroupSelector(){if("vertical"===this.direction){const e=this.shadowRoot.querySelector("#scaling-group-select-box");e.hasChildNodes()&&e.removeChild(e.firstChild);const t=document.createElement("mwc-multi-select");t.label=x("session.launcher.ResourceGroup"),t.id="scaling-group-select",t.value=this.scaling_group,t.setAttribute("fullwidth","true"),t.setAttribute("icon","storage"),t.addEventListener("selected",this.updateScalingGroup.bind(this,!0));let r=document.createElement("mwc-list-item");r.setAttribute("disabled","true"),r.setAttribute("graphic","icon"),r.innerHTML=x("session.launcher.SelectResourceGroup"),r.style.borderBottom="1px solid #ccc",t.appendChild(r),this.resourceBroker.scaling_groups.map(e=>{r=document.createElement("mwc-list-item"),r.value=e.name,r.setAttribute("graphic","icon"),this.resourceBroker.scaling_group===e.name?r.selected=!0:r.selected=!1,r.innerHTML=e.name,t.appendChild(r)}),e.appendChild(t)}}async _refreshResourcePolicy(){return this.resourceBroker._refreshResourcePolicy().then(()=>{this.concurrency_used=this.resourceBroker.concurrency_used,this.concurrency_max=this.resourceBroker.concurrency_max}).catch(e=>{console.log(e),this.metadata_updating=!1,e&&e.message?(this.notification.text=w.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e)):e&&e.title&&(this.notification.text=w.relieve(e.title),this.notification.show(!0,e))})}_aliasName(e){let t={python:"Python",tensorflow:"TensorFlow",pytorch:"PyTorch",lua:"Lua",r:"R","r-base":"R",julia:"Julia",rust:"Rust",cpp:"C++",gcc:"GCC",go:"Go",tester:"Tester",haskell:"Haskell",matlab:"MATLAB",sagemath:"Sage",texlive:"TeXLive",java:"Java",php:"PHP",octave:"Octave",nodejs:"Node",caffe:"Caffe",scheme:"Scheme",scala:"Scala",base:"Base",cntk:"CNTK",h2o:"H2O.AI",digits:"DIGITS","ubuntu-linux":"Ubuntu Linux",tf1:"TensorFlow 1",tf2:"TensorFlow 2",py3:"Python 3",py2:"Python 2",py27:"Python 2.7",py35:"Python 3.5",py36:"Python 3.6",py37:"Python 3.7",py38:"Python 3.8",py39:"Python 3.9",lxde:"LXDE",lxqt:"LXQt",xfce:"XFCE",gnome:"GNOME",kde:"KDE","ubuntu16.04":"Ubuntu 16.04","ubuntu18.04":"Ubuntu 18.04","ubuntu20.04":"Ubuntu 20.04",intel:"Intel MKL",2018:"2018",2019:"2019",2020:"2020",2021:"2021",2022:"2022",tpu:"TPU:TPUv3",rocm:"GPU:ROCm",cuda9:"GPU:CUDA9",cuda10:"GPU:CUDA10","cuda10.0":"GPU:CUDA10","cuda10.1":"GPU:CUDA10.1","cuda10.2":"GPU:CUDA10.2","cuda10.3":"GPU:CUDA10.3",cuda11:"GPU:CUDA11","cuda11.0":"GPU:CUDA11","cuda11.1":"GPU:CUDA11.1","cuda11.2":"GPU:CUDA11.2",miniconda:"Miniconda","anaconda2018.12":"Anaconda 2018.12","anaconda2019.12":"Anaconda 2019.12","alpine3.8":"Alpine Linux 3.8",ngc:"Nvidia GPU Cloud",ff:"Research Env."};return e in t?t[e]:e}async _aggregateResourceUse(e=""){return this.resourceBroker._aggregateCurrentResource(e).then(t=>!1===t?setTimeout(()=>{this._aggregateResourceUse(e)},1e3):(this.concurrency_used=this.resourceBroker.concurrency_used,this.scaling_group=this.resourceBroker.scaling_group,this.scaling_groups=this.resourceBroker.scaling_groups,this.total_slot=this.resourceBroker.total_slot,this.total_resource_group_slot=this.resourceBroker.total_resource_group_slot,this.total_project_slot=this.resourceBroker.total_project_slot,this.used_slot=this.resourceBroker.used_slot,this.used_resource_group_slot=this.resourceBroker.used_resource_group_slot,this.used_project_slot=this.resourceBroker.used_project_slot,this.used_project_slot_percent=this.resourceBroker.used_project_slot_percent,this.concurrency_limit=this.resourceBroker.concurrency_limit,this.available_slot=this.resourceBroker.available_slot,this.used_slot_percent=this.resourceBroker.used_slot_percent,this.used_resource_group_slot_percent=this.resourceBroker.used_resource_group_slot_percent,Promise.resolve(!0))).catch(e=>(e&&e.message&&(console.log(e),this.notification.text=w.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e)),Promise.resolve(!1)))}aggregateResource(e=""){void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._aggregateResourceUse(e)},!0):this._aggregateResourceUse(e)}_toggleResourceGauge(){""==this.resourceGauge.style.display||"flex"==this.resourceGauge.style.display||"block"==this.resourceGauge.style.display?this.resourceGauge.style.display="none":(document.body.clientWidth<750?(this.resourceGauge.style.left="20px",this.resourceGauge.style.right="20px",this.resourceGauge.style.backgroundColor="var(--paper-red-800)"):this.resourceGauge.style.backgroundColor="transparent",this.resourceGauge.style.display="flex")}_disableEnterKey(){this.shadowRoot.querySelectorAll("wl-expansion").forEach(e=>{e.onKeyDown=e=>{13===e.keyCode&&e.preventDefault()}})}render(){return n`
+      ${"vertical"===this.direction?n`
+      <div id="scaling-group-select-box" class="layout horizontal start-justified">
+      </div>
+      `:n``}
+      <div class="layout horizontal">
+        <mwc-icon-button id="resource-gauge-toggle" icon="assessment" class="fg blue ${this.direction}"
+          @click="${()=>this._toggleResourceGauge()}">
+        </mwc-icon-button>
+        <div id="resource-gauges" class="layout ${this.direction} ${this.direction}-panel resources flex" style="align-items: flex-start">
+        ${"horizontal"===this.direction?n`
+          <div class="layout vertical end-justified wrap short-indicator">
+            <span class="gauge-label">${$("session.launcher.TOTAL")}</span>
+            <div style="font-size:8px;height:10px;">${$("session.launcher.RESOURCE")}</div>
+            <span class="gauge-label">${$("session.launcher.MY")}</span>
+          </div>
+          `:n``}
+          <div class="layout horizontal start-justified monitor">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <wl-icon class="fg blue">developer_board</wl-icon>
+              <div class="gauge-name">CPU</div>
+            </div>
+            <div class="layout vertical start-justified wrap short-indicator">
+              <span class="gauge-label">${this.used_resource_group_slot.cpu}/${this.total_resource_group_slot.cpu}</span>
+              <mwc-linear-progress id="cpu-usage-bar" class="start-bar" progress="${this.used_resource_group_slot_percent.cpu/100}"></mwc-linear-progress>
+              <mwc-linear-progress id="cpu-usage-bar-2" class="end-bar" progress="${this.used_slot_percent.cpu/100}"></mwc-linear-progress>
+              <span class="gauge-label">${this.used_slot.cpu}/${this.total_slot.cpu}</span>
+            </div>
+          </div>
+          <div class="layout horizontal center-justified monitor">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <wl-icon class="fg blue">memory</wl-icon>
+              <span class="gauge-name">RAM</span>
+            </div>
+            <div class="layout vertical start-justified wrap">
+              <span class="gauge-label">${this.used_resource_group_slot.mem}/${this.total_resource_group_slot.mem}GB</span>
+              <mwc-linear-progress id="mem-usage-bar" class="start-bar" progress="${this.used_resource_group_slot_percent.mem/100}"></mwc-linear-progress>
+              <mwc-linear-progress id="mem-usage-bar-2" class="end-bar" progress="${this.used_slot_percent.mem/100}"></mwc-linear-progress>
+              <span class="gauge-label">${this.used_slot.mem}/${this.total_slot.mem}GB</span>
+            </div>
+          </div>
+          ${this.total_slot.cuda_device?n`
+          <div class="layout horizontal center-justified monitor">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <img class="resource-type-icon fg green" src="/resources/icons/file_type_cuda.svg" />
+              <span class="gauge-name">GPU</span>
+            </div>
+            <div class="layout vertical center-justified wrap short-indicator">
+              <span class="gauge-label">${this.used_resource_group_slot.cuda_device}/${this.total_resource_group_slot.cuda_device}</span>
+              <mwc-linear-progress id="gpu-usage-bar" class="start-bar" progress="${this.used_resource_group_slot_percent.cuda_device/100}"></mwc-linear-progress>
+              <mwc-linear-progress id="gpu-usage-bar-2" class="end-bar" progress="${this.used_slot_percent.cuda_device/100}"></mwc-linear-progress>
+              <span class="gauge-label">${this.used_slot.cuda_device}/${this.total_slot.cuda_device}</span>
+            </div>
+          </div>`:n``}
+          ${this.total_slot.cuda_shares&&this.total_slot.cuda_shares>0?n`
+          <div class="layout horizontal center-justified monitor">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <img class="resource-type-icon fg green" src="/resources/icons/file_type_cuda.svg" />
+              <span class="gauge-name">FGPU</span>
+            </div>
+            <div class="layout vertical start-justified wrap short-indicator">
+              <span class="gauge-label">${this.used_resource_group_slot.cuda_shares}/${this.total_resource_group_slot.cuda_shares}</span>
+              <mwc-linear-progress id="gpu-usage-bar" class="start-bar" progress="${this.used_resource_group_slot_percent.cuda_shares/100}"></mwc-linear-progress>
+              <mwc-linear-progress id="gpu-usage-bar-2" class="end-bar" progress="${this.used_slot_percent.cuda_shares/100}"></mwc-linear-progress>
+              <span class="gauge-label">${this.used_slot.cuda_shares}/${this.total_slot.cuda_shares}</span>
+            </div>
+          </div>`:n``}
+          ${this.total_slot.rocm_device_slot?n`
+          <div class="layout horizontal center-justified monitor">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <img class="resource-type-icon fg green" src="/resources/icons/ROCm.png" />
+              <span class="gauge-name">ROCm<br/>GPU</span>
+            </div>
+            <div class="layout vertical center-justified wrap short-indicator">
+              <span class="gauge-label">${this.used_resource_group_slot.rocm_device_slot}/${this.total_resource_group_slot.rocm_device_slot}</span>
+              <mwc-linear-progress id="gpu-usage-bar" class="start-bar" progress="${this.used_resource_group_slot_percent.rocm_device_slot/100}" buffer="${this.used_resource_group_slot_percent.rocm_device_slot/100}"></mwc-linear-progress>
+              <mwc-linear-progress id="gpu-usage-bar-2" class="end-bar" progress="${this.used_slot_percent.rocm_device_slot/100}" buffer="${this.used_slot_percent.rocm_device_slot/100}"></mwc-linear-progress>
+              <span class="gauge-label">${this.used_slot.rocm_device_slot}/${this.total_slot.rocm_device_slot}</span>
+            </div>
+          </div>`:n``}
+          ${this.total_slot.tpu_device_slot?n`
+          <div class="layout horizontal center-justified monitor">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <wl-icon class="fg blue">view_module</wl-icon>
+              <span class="gauge-name">TPU</span>
+            </div>
+            <div class="layout vertical center-justified wrap short-indicator">
+              <span class="gauge-label">${this.used_resource_group_slot.tpu_device_slot}/${this.total_resource_group_slot.tpu_device_slot}</span>
+              <mwc-linear-progress id="gpu-usage-bar" class="start-bar" progress="${this.used_resource_group_slot_percent.tpu_device_slot/100}" buffer="${this.used_resource_group_slot_percent.tpu_device_slot/100}"></mwc-linear-progress>
+              <mwc-linear-progress id="gpu-usage-bar-2" class="end-bar" progress="${this.used_slot_percent.tpu_device_slot/100}" buffer="${this.used_slot_percent.tpu_device_slot/100}"></mwc-linear-progress>
+              <span class="gauge-label">${this.used_slot.tpu_device_slot}/${this.total_slot.tpu_device_slot}</span>
+            </div>
+          </div>`:n``}
+
+          <div class="layout horizontal center-justified monitor session">
+            <div class="layout vertical center center-justified" style="margin-right:5px;">
+              <wl-icon class="fg blue">assignment</wl-icon>
+              <span class="gauge-name">${$("session.launcher.Session")}</span>
+            </div>
+            <div class="layout vertical start-justified wrap short-indicator">
+              <span class="gauge-label">${this.concurrency_used}/${1e6===this.concurrency_max?n`∞`:this.concurrency_max}</span>
+              <mwc-linear-progress class="short full-bar" id="concurrency-usage-bar" progress="${this.used_slot_percent.concurrency/100}"></mwc-linear-progress>
+              <span class="gauge-label">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      ${"vertical"===this.direction?n`
+      <div class="vertical start-justified layout">
+        <div class="layout horizontal center start-justified">
+          <div style="width:10px;height:10px;margin-left:10px;margin-right:3px;background-color:#4775E3;"></div>
+          <span style="margin-right:5px;">${$("session.launcher.CurrentResourceGroup")} (${this.scaling_group})</span>
+        </div>
+        <div class="layout horizontal center start-justified">
+          <div style="width:10px;height:10px;margin-left:10px;margin-right:3px;background-color:#A0BD67"></div>
+          <span style="margin-right:5px;">${$("session.launcher.UserResourceLimit")}</span>
+        </div>
+      </div>
+      `:n``}
+      ${"vertical"===this.direction&&!0===this.project_resource_monitor&&(this.total_project_slot.cpu>0||this.total_project_slot.cpu===1/0)?n`
+      <hr />
+      <div class="vertical start-justified layout">
+        <div class="flex"></div>
+        <div class="layout horizontal center-justified monitor">
+          <div class="layout vertical center center-justified" style="margin-right:5px;">
+            <wl-icon class="fg blue">group_work</wl-icon>
+            <span class="gauge-name">${$("session.launcher.Project")}</span>
+          </div>
+          <div class="layout vertical start-justified wrap short-indicator">
+            <div class="layout horizontal">
+              <span style="width:35px; margin-left:5px; margin-right:5px;">CPU</span>
+              <mwc-linear-progress id="cpu-project-usage-bar" class="start-bar project-bar" progress="${this.used_project_slot_percent.cpu/100}"></mwc-linear-progress>
+              <span style="margin-left:5px;">${this.used_project_slot.cpu}/${this.total_project_slot.cpu===1/0?"∞":this.total_project_slot.cpu}</span>
+            </div>
+            <div class="layout horizontal">
+              <span style="width:35px;margin-left:5px; margin-right:5px;">RAM</span>
+              <mwc-linear-progress id="mem-project-usage-bar" class="middle-bar project-bar" progress="${this.used_project_slot_percent.mem/100}"></mwc-linear-progress>
+              <span style="margin-left:5px;">${this.used_project_slot.mem}/${this.total_project_slot.mem===1/0?"∞":this.total_project_slot.mem}</span>
+            </div>
+            ${this.total_project_slot.cuda_device?n`
+            <div class="layout horizontal">
+              <span style="width:35px;margin-left:5px; margin-right:5px;">GPU</span>
+              <mwc-linear-progress id="gpu-project-usage-bar" class="end-bar project-bar" progress="${this.used_project_slot_percent.cuda_device/100}"></mwc-linear-progress>
+              <span style="margin-left:5px;">${this.used_project_slot.cuda_device}/${"Infinity"===this.total_project_slot.cuda_device?"∞":this.total_project_slot.cuda_device}</span>
+            </div>`:n``}
+            ${this.total_project_slot.cuda_shares?n`
+            <div class="layout horizontal">
+              <span style="width:35px;margin-left:5px; margin-right:5px;">fGPU</span>
+              <mwc-linear-progress id="gpu-project-usage-bar" class="end-bar project-bar" progress="${this.used_project_slot_percent.cuda_shares/100}"></mwc-linear-progress>
+              <span style="margin-left:5px;">${this.used_project_slot.cuda_shares}/${"Infinity"===this.total_project_slot.cuda_shares?"∞":this.total_project_slot.cuda_shares}</span>
+            </div>`:n``}
+            ${this.total_project_slot.rocm_device?n`
+            <div class="layout horizontal">
+              <span style="width:35px;margin-left:5px; margin-right:5px;">GPU</span>
+              <mwc-linear-progress id="gpu-project-usage-bar" class="end-bar project-bar" progress="${this.used_project_slot_percent.rocm_device/100}"></mwc-linear-progress>
+              <span style="margin-left:5px;">${this.used_project_slot.rocm_device}/${"Infinity"===this.total_project_slot.rocm_device?"∞":this.total_project_slot.rocm_device}</span>
+            </div>`:n``}
+            ${this.total_project_slot.tpu_device?n`
+            <div class="layout horizontal">
+              <span style="width:35px;margin-left:5px; margin-right:5px;">GPU</span>
+              <mwc-linear-progress id="gpu-project-usage-bar" class="end-bar project-bar" progress="${this.used_project_slot_percent.tpu_device/100}"></mwc-linear-progress>
+              <span style="margin-left:5px;">${this.used_project_slot.tpu_device}/${"Infinity"===this.total_project_slot.tpu_device?"∞":this.total_project_slot.cuda_device}</span>
+            </div>`:n``}
+          </div>
+          <div class="flex"></div>
+        </div>
+      </div>
+      `:n``}
+`}};r([o({type:Boolean})],ne.prototype,"is_connected",void 0),r([o({type:String})],ne.prototype,"direction",void 0),r([o({type:String})],ne.prototype,"location",void 0),r([o({type:Object})],ne.prototype,"aliases",void 0),r([o({type:Object})],ne.prototype,"total_slot",void 0),r([o({type:Object})],ne.prototype,"total_resource_group_slot",void 0),r([o({type:Object})],ne.prototype,"total_project_slot",void 0),r([o({type:Object})],ne.prototype,"used_slot",void 0),r([o({type:Object})],ne.prototype,"used_resource_group_slot",void 0),r([o({type:Object})],ne.prototype,"used_project_slot",void 0),r([o({type:Object})],ne.prototype,"available_slot",void 0),r([o({type:Number})],ne.prototype,"concurrency_used",void 0),r([o({type:Number})],ne.prototype,"concurrency_max",void 0),r([o({type:Number})],ne.prototype,"concurrency_limit",void 0),r([o({type:Object})],ne.prototype,"used_slot_percent",void 0),r([o({type:Object})],ne.prototype,"used_resource_group_slot_percent",void 0),r([o({type:Object})],ne.prototype,"used_project_slot_percent",void 0),r([o({type:String})],ne.prototype,"default_language",void 0),r([o({type:Boolean})],ne.prototype,"_status",void 0),r([o({type:Number})],ne.prototype,"num_sessions",void 0),r([o({type:String})],ne.prototype,"scaling_group",void 0),r([o({type:Array})],ne.prototype,"scaling_groups",void 0),r([o({type:Array})],ne.prototype,"sessions_list",void 0),r([o({type:Boolean})],ne.prototype,"metric_updating",void 0),r([o({type:Boolean})],ne.prototype,"metadata_updating",void 0),r([o({type:Boolean})],ne.prototype,"aggregate_updating",void 0),r([o({type:Object})],ne.prototype,"scaling_group_selection_box",void 0),r([o({type:Object})],ne.prototype,"resourceGauge",void 0),r([o({type:Boolean})],ne.prototype,"project_resource_monitor",void 0),r([o({type:Object})],ne.prototype,"resourceBroker",void 0),ne=r([m("backend-ai-resource-monitor")],ne);class de extends c{constructor(){super(...arguments),this.checked=!1,this.indeterminate=!1,this.disabled=!1,this.value="",this.reducedTouchTarget=!1,this.animationClass="",this.shouldRenderRipple=!1,this.focused=!1,this.mdcFoundationClass=void 0,this.mdcFoundation=void 0,this.rippleElement=null,this.rippleHandlers=new T(()=>(this.shouldRenderRipple=!0,this.ripple.then(e=>this.rippleElement=e),this.ripple))}createAdapter(){return{}}update(e){const t=e.get("indeterminate"),r=e.get("checked"),i=e.get("disabled");if(void 0!==t||void 0!==r||void 0!==i){const e=this.calculateAnimationStateName(!!r,!!t,!!i),o=this.calculateAnimationStateName(this.checked,this.indeterminate,this.disabled);this.animationClass=`${e}-${o}`}super.update(e)}calculateAnimationStateName(e,t,r){return r?"disabled":t?"indeterminate":e?"checked":"unchecked"}renderRipple(){const e=this.indeterminate||this.checked;return n`${this.shouldRenderRipple?n`
+        <mwc-ripple
+          .accent="${e}"
+          .disabled="${this.disabled}"
+          unbounded>
+        </mwc-ripple>`:n``}`}render(){const e=this.indeterminate||this.checked,t={"mdc-checkbox--disabled":this.disabled,"mdc-checkbox--selected":e,"mdc-checkbox--touch":!this.reducedTouchTarget,"mdc-checkbox--focused":this.focused,"mdc-checkbox--anim-checked-indeterminate":"checked-indeterminate"==this.animationClass,"mdc-checkbox--anim-checked-unchecked":"checked-unchecked"==this.animationClass,"mdc-checkbox--anim-indeterminate-checked":"indeterminate-checked"==this.animationClass,"mdc-checkbox--anim-indeterminate-unchecked":"indeterminate-unchecked"==this.animationClass,"mdc-checkbox--anim-unchecked-checked":"unchecked-checked"==this.animationClass,"mdc-checkbox--anim-unchecked-indeterminate":"unchecked-indeterminate"==this.animationClass},r=this.indeterminate?"mixed":void 0;return n`
+      <div class="mdc-checkbox mdc-checkbox--upgraded ${l(t)}">
+        <input type="checkbox"
+              class="mdc-checkbox__native-control"
+              aria-checked="${C(r)}"
+              data-indeterminate="${this.indeterminate?"true":"false"}"
+              ?disabled="${this.disabled}"
+              .indeterminate="${this.indeterminate}"
+              .checked="${this.checked}"
+              .value="${this.value}"
+              @change="${this._changeHandler}"
+              @focus="${this._handleFocus}"
+              @blur="${this._handleBlur}"
+              @mousedown="${this.handleRippleMouseDown}"
+              @mouseenter="${this.handleRippleMouseEnter}"
+              @mouseleave="${this.handleRippleMouseLeave}"
+              @touchstart="${this.handleRippleTouchStart}"
+              @touchend="${this.handleRippleDeactivate}"
+              @touchcancel="${this.handleRippleDeactivate}">
+        <div class="mdc-checkbox__background"
+          @animationend="${this.resetAnimationClass}">
+          <svg class="mdc-checkbox__checkmark"
+              viewBox="0 0 24 24">
+            <path class="mdc-checkbox__checkmark-path"
+                  fill="none"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+          </svg>
+          <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+        ${this.renderRipple()}
+      </div>`}_handleFocus(){this.focused=!0,this.handleRippleFocus()}_handleBlur(){this.focused=!1,this.handleRippleBlur()}handleRippleMouseDown(e){const t=()=>{window.removeEventListener("mouseup",t),this.handleRippleDeactivate()};window.addEventListener("mouseup",t),this.rippleHandlers.startPress(e)}handleRippleTouchStart(e){this.rippleHandlers.startPress(e)}handleRippleDeactivate(){this.rippleHandlers.endPress()}handleRippleMouseEnter(){this.rippleHandlers.startHover()}handleRippleMouseLeave(){this.rippleHandlers.endHover()}handleRippleFocus(){this.rippleHandlers.startFocus()}handleRippleBlur(){this.rippleHandlers.endFocus()}_changeHandler(){this.checked=this.formElement.checked,this.indeterminate=this.formElement.indeterminate}resetAnimationClass(){this.animationClass=""}get isRippleActive(){var e;return(null===(e=this.rippleElement)||void 0===e?void 0:e.isActive)||!1}}r([i(".mdc-checkbox")],de.prototype,"mdcRoot",void 0),r([i("input")],de.prototype,"formElement",void 0),r([o({type:Boolean,reflect:!0})],de.prototype,"checked",void 0),r([o({type:Boolean})],de.prototype,"indeterminate",void 0),r([o({type:Boolean,reflect:!0})],de.prototype,"disabled",void 0),r([o({type:String})],de.prototype,"value",void 0),r([o({type:Boolean})],de.prototype,"reducedTouchTarget",void 0),r([S()],de.prototype,"animationClass",void 0),r([S()],de.prototype,"shouldRenderRipple",void 0),r([S()],de.prototype,"focused",void 0),r([R("mwc-ripple")],de.prototype,"ripple",void 0),r([a({passive:!0})],de.prototype,"handleRippleTouchStart",null);
+/**
+@license
+Copyright 2018 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const le=p`.mdc-touch-target-wrapper{display:inline}@keyframes mdc-checkbox-unchecked-checked-checkmark-path{0%,50%{stroke-dashoffset:29.7833385}50%{animation-timing-function:cubic-bezier(0, 0, 0.2, 1)}100%{stroke-dashoffset:0}}@keyframes mdc-checkbox-unchecked-indeterminate-mixedmark{0%,68.2%{transform:scaleX(0)}68.2%{animation-timing-function:cubic-bezier(0, 0, 0, 1)}100%{transform:scaleX(1)}}@keyframes mdc-checkbox-checked-unchecked-checkmark-path{from{animation-timing-function:cubic-bezier(0.4, 0, 1, 1);opacity:1;stroke-dashoffset:0}to{opacity:0;stroke-dashoffset:-29.7833385}}@keyframes mdc-checkbox-checked-indeterminate-checkmark{from{animation-timing-function:cubic-bezier(0, 0, 0.2, 1);transform:rotate(0deg);opacity:1}to{transform:rotate(45deg);opacity:0}}@keyframes mdc-checkbox-indeterminate-checked-checkmark{from{animation-timing-function:cubic-bezier(0.14, 0, 0, 1);transform:rotate(45deg);opacity:0}to{transform:rotate(360deg);opacity:1}}@keyframes mdc-checkbox-checked-indeterminate-mixedmark{from{animation-timing-function:mdc-animation-deceleration-curve-timing-function;transform:rotate(-45deg);opacity:0}to{transform:rotate(0deg);opacity:1}}@keyframes mdc-checkbox-indeterminate-checked-mixedmark{from{animation-timing-function:cubic-bezier(0.14, 0, 0, 1);transform:rotate(0deg);opacity:1}to{transform:rotate(315deg);opacity:0}}@keyframes mdc-checkbox-indeterminate-unchecked-mixedmark{0%{animation-timing-function:linear;transform:scaleX(1);opacity:1}32.8%,100%{transform:scaleX(0);opacity:0}}.mdc-checkbox{display:inline-block;position:relative;flex:0 0 18px;box-sizing:content-box;width:18px;height:18px;line-height:0;white-space:nowrap;cursor:pointer;vertical-align:bottom;padding:11px}.mdc-checkbox .mdc-checkbox__native-control:checked~.mdc-checkbox__background::before,.mdc-checkbox .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background::before,.mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background::before{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-checkbox.mdc-checkbox--selected .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected .mdc-checkbox__ripple::after{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-checkbox.mdc-checkbox--selected:hover .mdc-checkbox__ripple::before{opacity:.04}.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-upgraded--background-focused .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded):focus .mdc-checkbox__ripple::before{transition-duration:75ms;opacity:.12}.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded) .mdc-checkbox__ripple::after{transition:opacity 150ms linear}.mdc-checkbox.mdc-checkbox--selected:not(.mdc-ripple-upgraded):active .mdc-checkbox__ripple::after{transition-duration:75ms;opacity:.12}.mdc-checkbox.mdc-checkbox--selected.mdc-ripple-upgraded{--mdc-ripple-fg-opacity: 0.12}.mdc-checkbox.mdc-ripple-upgraded--background-focused.mdc-checkbox--selected .mdc-checkbox__ripple::before,.mdc-checkbox.mdc-ripple-upgraded--background-focused.mdc-checkbox--selected .mdc-checkbox__ripple::after{background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}.mdc-checkbox .mdc-checkbox__background{top:11px;left:11px}.mdc-checkbox .mdc-checkbox__background::before{top:-13px;left:-13px;width:40px;height:40px}.mdc-checkbox .mdc-checkbox__native-control{top:0px;right:0px;left:0px;width:40px;height:40px}.mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0,0,0,.54);background-color:transparent}.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,.mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background{border-color:#018786;border-color:var(--mdc-theme-secondary, #018786);background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}@keyframes mdc-checkbox-fade-in-background-8A000000secondary00000000secondary{0%{border-color:rgba(0,0,0,.54);background-color:transparent}50%{border-color:#018786;border-color:var(--mdc-theme-secondary, #018786);background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}}@keyframes mdc-checkbox-fade-out-background-8A000000secondary00000000secondary{0%,80%{border-color:#018786;border-color:var(--mdc-theme-secondary, #018786);background-color:#018786;background-color:var(--mdc-theme-secondary, #018786)}100%{border-color:rgba(0,0,0,.54);background-color:transparent}}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-in-background-8A000000secondary00000000secondary}.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-out-background-8A000000secondary00000000secondary}.mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0,0,0,.38);background-color:transparent}.mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,.mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true][disabled]~.mdc-checkbox__background{border-color:transparent;background-color:rgba(0,0,0,.38)}.mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff}.mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff}.mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff}.mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff}@media screen and (-ms-high-contrast: active){.mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:GrayText;background-color:transparent}.mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,.mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true][disabled]~.mdc-checkbox__background{border-color:GrayText;background-color:transparent}.mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:GrayText}.mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:GrayText}.mdc-checkbox__mixedmark{margin:0 1px}}.mdc-checkbox--disabled{cursor:default;pointer-events:none}.mdc-checkbox__background{display:inline-flex;position:absolute;align-items:center;justify-content:center;box-sizing:border-box;width:18px;height:18px;border:2px solid currentColor;border-radius:2px;background-color:transparent;pointer-events:none;will-change:background-color,border-color;transition:background-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),border-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__background .mdc-checkbox__background::before{background-color:#000;background-color:var(--mdc-theme-on-surface, #000)}.mdc-checkbox__checkmark{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;opacity:0;transition:opacity 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox--upgraded .mdc-checkbox__checkmark{opacity:1}.mdc-checkbox__checkmark-path{transition:stroke-dashoffset 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1);stroke:currentColor;stroke-width:3.12px;stroke-dashoffset:29.7833385;stroke-dasharray:29.7833385}.mdc-checkbox__mixedmark{width:100%;height:0;transform:scaleX(0) rotate(0deg);border-width:1px;border-style:solid;opacity:0;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox--upgraded .mdc-checkbox__background,.mdc-checkbox--upgraded .mdc-checkbox__checkmark,.mdc-checkbox--upgraded .mdc-checkbox__checkmark-path,.mdc-checkbox--upgraded .mdc-checkbox__mixedmark{transition:none !important}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__background,.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__background,.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__background,.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__background{animation-duration:180ms;animation-timing-function:linear}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__checkmark-path{animation:mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;transition:none}.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__mixedmark{animation:mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__checkmark-path{animation:mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-indeterminate .mdc-checkbox__checkmark{animation:mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-checked-indeterminate .mdc-checkbox__mixedmark{animation:mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-checked .mdc-checkbox__checkmark{animation:mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-checked .mdc-checkbox__mixedmark{animation:mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;transition:none}.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__mixedmark{animation:mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;transition:none}.mdc-checkbox__native-control:checked~.mdc-checkbox__background,.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background{transition:border-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1),background-color 90ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark-path,.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark-path,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__checkmark-path{stroke-dashoffset:0}.mdc-checkbox__background::before{position:absolute;transform:scale(0, 0);border-radius:50%;opacity:0;pointer-events:none;content:"";will-change:opacity,transform;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__native-control:focus~.mdc-checkbox__background::before{transform:scale(1);opacity:.12;transition:opacity 80ms 0ms cubic-bezier(0, 0, 0.2, 1),transform 80ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-checkbox__native-control{position:absolute;margin:0;padding:0;opacity:0;cursor:inherit}.mdc-checkbox__native-control:disabled{cursor:default;pointer-events:none}.mdc-checkbox--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-checkbox--touch .mdc-checkbox__native-control{top:-4px;right:-4px;left:-4px;width:48px;height:48px}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__checkmark{transition:opacity 180ms 0ms cubic-bezier(0, 0, 0.2, 1),transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1);opacity:1}.mdc-checkbox__native-control:checked~.mdc-checkbox__background .mdc-checkbox__mixedmark{transform:scaleX(1) rotate(-45deg)}.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__checkmark,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__checkmark{transform:rotate(45deg);opacity:0;transition:opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1)}.mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background .mdc-checkbox__mixedmark,.mdc-checkbox__native-control[data-indeterminate=true]~.mdc-checkbox__background .mdc-checkbox__mixedmark{transform:scaleX(1) rotate(0deg);opacity:1}:host{outline:none;display:inline-block}.mdc-checkbox .mdc-checkbox__native-control:focus~.mdc-checkbox__background::before{background-color:rgba(0, 0, 0, 0.54);background-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54))}.mdc-checkbox .mdc-checkbox__background::before{content:none}.mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0, 0, 0, 0.38);border-color:var(--mdc-checkbox-disabled-color, rgba(0, 0, 0, 0.38));background-color:transparent}.mdc-checkbox__native-control[disabled]:checked~.mdc-checkbox__background,.mdc-checkbox__native-control[disabled]:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true][disabled]~.mdc-checkbox__background{border-color:transparent;background-color:rgba(0, 0, 0, 0.38);background-color:var(--mdc-checkbox-disabled-color, rgba(0, 0, 0, 0.38))}.mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,.mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background,.mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background{border-color:#018786;border-color:var(--m-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--m-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}@keyframes mdc-checkbox-fade-in-background---mdc-checkbox-unchecked-color--m-checkbox-checked-color00000000--m-checkbox-checked-color{0%{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}50%{border-color:#018786;border-color:var(--m-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--m-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}}@keyframes mdc-checkbox-fade-out-background---mdc-checkbox-unchecked-color--m-checkbox-checked-color00000000--m-checkbox-checked-color{0%,80%{border-color:#018786;border-color:var(--m-checkbox-checked-color, var(--mdc-theme-secondary, #018786));background-color:#018786;background-color:var(--m-checkbox-checked-color, var(--mdc-theme-secondary, #018786))}100%{border-color:rgba(0, 0, 0, 0.54);border-color:var(--mdc-checkbox-unchecked-color, rgba(0, 0, 0, 0.54));background-color:transparent}}.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-in-background---mdc-checkbox-unchecked-color--m-checkbox-checked-color00000000--m-checkbox-checked-color}.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background,.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled~.mdc-checkbox__background{animation-name:mdc-checkbox-fade-out-background---mdc-checkbox-unchecked-color--m-checkbox-checked-color00000000--m-checkbox-checked-color}.mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff;color:var(--mdc-checkbox-mark-color, #fff)}.mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff;border-color:var(--mdc-checkbox-mark-color, #fff)}.mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__checkmark{color:#fff;color:var(--mdc-checkbox-mark-color, #fff)}.mdc-checkbox__native-control:disabled~.mdc-checkbox__background .mdc-checkbox__mixedmark{border-color:#fff;border-color:var(--mdc-checkbox-mark-color, #fff)}`;let ue=class extends de{};ue.styles=le,ue=r([m("mwc-checkbox")],ue);
+/**
+ @license
+ Copyright 2020 Google Inc. All Rights Reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+class he extends j{constructor(){super(...arguments),this.left=!1,this.graphic="control"}render(){const e={"mdc-list-item__graphic":this.left,"mdc-list-item__meta":!this.left},t=this.renderText(),r=this.graphic&&"control"!==this.graphic&&!this.left?this.renderGraphic():n``,i=this.hasMeta&&this.left?this.renderMeta():n``,o=this.renderRipple();return n`
+      ${o}
+      ${r}
+      ${this.left?"":t}
+      <span class=${l(e)}>
+        <mwc-checkbox
+            reducedTouchTarget
+            tabindex=${this.tabindex}
+            .checked=${this.selected}
+            ?disabled=${this.disabled}
+            @change=${this.onChange}>
+        </mwc-checkbox>
+      </span>
+      ${this.left?t:""}
+      ${i}`}async onChange(e){const t=e.target;this.selected===t.checked||(this._skipPropRequest=!0,this.selected=t.checked,await this.updateComplete,this._skipPropRequest=!1)}}r([i("slot")],he.prototype,"slotElement",void 0),r([i("mwc-checkbox")],he.prototype,"checkboxElement",void 0),r([o({type:Boolean})],he.prototype,"left",void 0),r([o({type:String,reflect:!0})],he.prototype,"graphic",void 0);
+/**
+@license
+Copyright 2018 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+const pe=p`:host(:not([twoline])){height:56px}:host(:not([left])) .mdc-list-item__meta{height:40px;width:40px}`
+/**
+@license
+Copyright 2020 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/;let me=class extends he{};me.styles=[A,pe],me=r([m("mwc-check-list-item")],me);let be=class extends P{render(){return n` <div id="dot"></div> <wl-ripple id="ripple" .target="${this}" focusable overlay unbounded centered initialDuration="200"></wl-ripple> <slot></slot> ${this.renderFormElement()} `}};be.styles=[...P.styles,q(":host{--_radio-bg:var(--radio-bg,transparent);--_radio-color:var(--radio-color,hsl(var(--shade-500,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,55%))));background:var(--_radio-bg);color:var(--_radio-color);width:var(--radio-size,1.25rem);height:var(--radio-size,1.25rem);border:var(--radio-border-config,.125rem solid) currentColor;border-radius:var(--radio-border-radius,100%);transition:var(--radio-transition,background var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)),border-color var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));position:relative;display:inline-flex;align-items:center;justify-content:center;outline:none;-webkit-user-select:none;user-select:none}:host(:not([disabled])){cursor:pointer}:host([checked]){--_radio-bg:var(--radio-bg-checked,transparent);--_radio-color:var(--radio-color-checked,hsl(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%))))}:host([checked]) #dot{transform:scale(1)}:host(:focus),:host(:hover){will-change:border,background}:host(:focus) #dot,:host(:hover) #dot{will-change:transform,background}:host([disabled]){--_radio-bg:var(--radio-bg-disabled,transparent);--_radio-color:var(--radio-color-disabled,hsl(var(--shade-400,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,65%))));pointer-events:none}:host([disabled][checked]){--_radio-bg:var(--radio-bg-disabled-checked,transparent);--_radio-color:var(--radio-color-disabled-checked,hsl(var(--shade-500,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,55%))))}#dot{background:currentColor;width:var(--radio-dot-size,.625rem);height:var(--radio-dot-size,.625rem);border-radius:var(--radio-dot-border-radius,100%);transition:var(--radio-dot-transition,transform var(--transition-duration-medium,.18s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));transform:scale(0)}#ripple{transform:var(--radio-ripple-transform,translate(-50%,-50%) scale(1.8))}")],be=r([m("wl-radio")],be);let ge=class extends z{constructor(){super(...arguments),this.role="slider",this.thumbLabel=!1,this.min=0,this.max=100,this.bufferMin=0,this.bufferMax=100}get $interactiveElement(){return this.$slider}get perc(){return(this.$slider.valueAsNumber-this.min)/(this.max-this.min)}get bufferPerc(){return((this.bufferValue||0)-this.bufferMin)/(this.bufferMax-this.bufferMin)}updated(e){super.updated(e),this.updateBackground()}setValue(e){super.setValue(e),null!=this.$slider&&(this.$slider.value=e,this.updateBackground(),this.requestUpdate().then())}updateBackground(){requestAnimationFrame(()=>{this.style.setProperty("--_perc",this.perc.toString()),this.style.setProperty("--_buffer-perc",this.bufferPerc.toString())})}sliderValueChanged(){this.value=this.$slider.value,this.requestUpdate().then()}renderFormElement(e,t,r,i){return n` <input type="range" style="${C(t)}" id="${C(e)}" .value="${this.value}" ?required="${this.required}" ?disabled="${this.disabled}" ?readonly="${this.readonly}" aria-label="${C(this.label)}" name="${C(this.name)}" autocomplete="${C(this.autocomplete)}" min="${C(this.min)}" max="${C(this.max)}" step="${C(this.step)}" @input="${r||(()=>{})}" tabindex="${i||this.disabled?-1:0}"> `}render(){return n` <div id="container"> <slot id="before" name="before"></slot> <div id="wrapper"> <div id="label">${this.label}</div> <div id="slot-wrapper"> ${this.renderFormElement("slider",void 0,this.sliderValueChanged)} ${this.thumbLabel?n` <div id="thumb-container"> <div id="thumb-label"><slot name="thumb-label">${this.value}</slot></div> </div> `:I} <slot id="slot"></slot> </div> ${this.renderFormElement(this.formElementId,"display: none",void 0,"-1")} </div> <slot id="after" name="after"></slot> </div> `}};ge.styles=[...z.styles,q(':host{--_buffer-perc:0;--_perc:0;--_slider-track-bg:var(--slider-bg,hsla(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%)),0.3));--_slider-track-bg-buffer:var(--slider-bg-buffer,hsla(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%)),0.6));--_slider-track-bg-active:var(--slider-bg-active,hsl(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%))));--_slider-thumb-bg:var(--slider-thumb-bg,hsl(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%))))}:host([disabled]){--_slider-track-bg:var(--slider-bg-disabled,hsla(var(--shade-500,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,55%)),0.3));--_slider-track-bg-buffer:var(--slider-bg-buffer-disabled,hsla(var(--shade-500,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,55%)),0.6));--_slider-track-bg-active:var(--slider-bg-active-disabled,hsl(var(--shade-500,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,55%))));--_slider-thumb-bg:var(--slider-thumb-bg-disabled,hsl(var(--shade-500,var(--shade-hue,200),var(--shade-saturation,4%),var(--shade-lightness,55%))))}#container{overflow:visible;border:none}#slider{height:var(--slider-height,.3125rem);background:linear-gradient(90deg,var(--_slider-track-bg-active) 0,var(--_slider-track-bg-active) calc(var(--_perc) * 100%),var(--_slider-track-bg-buffer) calc(var(--_perc) * 100%),var(--_slider-track-bg-buffer) calc(var(--_buffer-perc) * 100%),var(--_slider-track-bg) calc(var(--_buffer-perc) * 100%),var(--_slider-track-bg));cursor:grab;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:none;outline:none;box-sizing:border-box;margin:0;border-radius:0;top:calc((var(--slider-height, .3125rem) * -1) / 2)}#slider,#thumb-container{width:100%;position:relative}#thumb-label{--_thumb-label-transform-y:0.625rem;left:calc((var(--_perc) * 100%) - (var(--slider-thumb-size, .75rem) * var(--_perc)));transform:translate(calc(-50% + (var(--slider-thumb-size, .75rem) / 2)),var(--_thumb-label-transform-y));width:var(--slider-thumb-label-size,1.875rem);height:var(--slider-thumb-label-size,1.875rem);border-radius:var(--slider-thumb-label-border-radius,100%);color:var(--slider-thumb-label-color,hsl(var(--primary-500-contrast,var(--primary-hue-contrast,0),var(--primary-saturation-contrast,100%),var(--primary-lightness-contrast,100%))));font-size:var(--slider-thumb-label-font-size,.75rem);transition:var(--slider-thumb-label-transition,opacity var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)),transform var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));opacity:0;display:flex;align-items:center;justify-content:center;pointer-events:none;text-overflow:ellipsis;bottom:calc(100% + var(--slider-thumb-size, .75rem) + var(--slider-height, .3125rem) + var(--slider-thumb-space, .75rem))}#thumb-label,#thumb-label:before{background:var(--slider-thumb-label-bg,hsl(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%))));position:absolute}#thumb-label:before{content:"";border-radius:0 50% 50% 50%;transform:rotate(225deg);width:100%;left:0;top:0;height:100%;z-index:-1}#slider:focus+#thumb-container #thumb-label,:host:focus #thumb-label{--_thumb-label-transform-y:0;opacity:1}#slider::-webkit-slider-thumb{background:var(--_slider-thumb-bg);width:var(--slider-thumb-size,.75rem);height:var(--slider-thumb-size,.75rem);border-radius:var(--slider-thumb-border-radius,100%);-webkit-transition:var(--slider-thumb-transition,transform var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)),box-shadow var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));transition:var(--slider-thumb-transition,transform var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)),box-shadow var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));box-shadow:0 0 0 0 var(--slider-thumb-focus-ring-bg,hsla(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%)),.1));-webkit-appearance:none;appearance:none;border:none;cursor:grab;position:relative}#slider::-moz-range-thumb{background:var(--_slider-thumb-bg);width:var(--slider-thumb-size,.75rem);height:var(--slider-thumb-size,.75rem);border-radius:var(--slider-thumb-border-radius,100%);-moz-transition:var(--slider-thumb-transition,transform var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)),box-shadow var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));transition:var(--slider-thumb-transition,transform var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)),box-shadow var(--transition-duration-fast,.12s) var(--transition-timing-function-deceleration-curve,cubic-bezier(0,0,.2,1)));box-shadow:0 0 0 0 var(--slider-thumb-focus-ring-bg,hsla(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%)),.1));-moz-appearance:none;appearance:none;border:none;cursor:grab;position:relative}#slider:focus::-webkit-slider-thumb{transform:var(--slider-thumb-transform-focus,scale(1.2));box-shadow:0 0 0 var(--slider-thumb-focus-ring-size,.75rem) var(--slider-thumb-focus-ring-bg,hsla(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%)),.1))}#slider:focus::-moz-range-thumb{transform:var(--slider-thumb-transform-focus,scale(1.2));box-shadow:0 0 0 var(--slider-thumb-focus-ring-size,.75rem) var(--slider-thumb-focus-ring-bg,hsla(var(--primary-500,var(--primary-hue,224),var(--primary-saturation,47%),var(--primary-lightness,38%)),.1))}')],r([o({type:String,reflect:!0}),B("design:type",String)],ge.prototype,"role",void 0),r([o({type:Boolean}),B("design:type",Boolean)],ge.prototype,"thumbLabel",void 0),r([o({type:Number}),B("design:type",Number)],ge.prototype,"min",void 0),r([o({type:Number}),B("design:type",Number)],ge.prototype,"max",void 0),r([o({type:Number}),B("design:type",Number)],ge.prototype,"step",void 0),r([o({type:Number}),B("design:type",Number)],ge.prototype,"bufferMin",void 0),r([o({type:Number}),B("design:type",Number)],ge.prototype,"bufferMax",void 0),r([o({type:Number}),B("design:type",Number)],ge.prototype,"bufferValue",void 0),r([i("#slider"),B("design:type",HTMLInputElement)],ge.prototype,"$slider",void 0),ge=r([m("wl-slider")],ge);let _e=class extends f{constructor(){super(),this.is_connected=!1,this.enableLaunchButton=!1,this.hideLaunchButton=!1,this.location="",this.mode="normal",this.newSessionDialogTitle="",this.importScript="",this.importFilename="",this.imageRequirements=Object(),this.resourceLimits=Object(),this.userResourceLimit=Object(),this.aliases=Object(),this.tags=Object(),this.icons=Object(),this.imageInfo=Object(),this.kernel="",this.marker_limit=25,this.gpu_modes=[],this.gpu_step=.01,this.cpu_metric={min:"1",max:"1"},this.mem_metric={min:"1",max:"1"},this.shmem_metric={min:.0625,max:1,preferred:.0625},this.cuda_device_metric={min:0,max:0},this.rocm_device_metric={min:"0",max:"0"},this.tpu_device_metric={min:"1",max:"1"},this.aggregate_updating=!1,this.resourceGauge=Object(),this.ownerFeatureInitialized=!1,this.ownerDomain="",this.project_resource_monitor=!1,this.version_selector=Object(),this._default_language_updated=!1,this._default_version_updated=!1,this._helpDescription="",this._helpDescriptionTitle="",this._helpDescriptionIcon="",this.max_cpu_core_per_session=64,this.max_cuda_device_per_session=16,this.max_shm_per_session=2,this.active=!1,this.ownerKeypairs=[],this.ownerGroups=[],this.ownerScalingGroups=[],this.resourceBroker=globalThis.resourceBroker,this.notification=globalThis.lablupNotification,this.init_resource()}static get is(){return"backend-ai-session-launcher"}static get styles(){return[g,_,v,y,k,p`
+        wl-card h4 {
+          padding: 5px 20px;
+          border-bottom: 1px solid #dddddd;
+          font-weight: 100;
+        }
+
+        lablup-slider {
+          width: 210px !important;
+          --textfield-width: 50px;
+          --slider-width: 135px;
+        }
+
+        lablup-slider.mem,
+        lablup-slider.shmem {
+          --slider-color: var(--paper-orange-400);
+        }
+
+        lablup-slider.cpu {
+          --slider-color: var(--paper-light-green-400);
+        }
+
+        lablup-slider.gpu {
+          --slider-color: var(--paper-cyan-400);
+        }
+
+        lablup-slider.session {
+          --slider-color: var(--paper-pink-400);
+        }
+
+        mwc-linear-progress {
+          width: 90px;
+          height: 5px;
+          --mdc-theme-primary: #98be5a;
+        }
+
+        mwc-linear-progress.project-bar {
+          height: 15px;
+        }
+
+        mwc-linear-progress.start-bar {
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+          --mdc-theme-primary: #3677eb;
+        }
+
+        mwc-linear-progress.middle-bar {
+          --mdc-theme-primary: #4f8b46;
+        }
+
+        mwc-linear-progress.end-bar {
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+          --mdc-theme-primary: #98be5a;
+        }
+
+        mwc-linear-progress.full-bar {
+          border-radius: 3px;
+          height: 10px;
+        }
+
+        .resources.horizontal .short-indicator mwc-linear-progress {
+          width: 50px;
+        }
+
+        .resources.horizontal .short-indicator .gauge-label {
+          width: 50px;
+        }
+
+        span.caption {
+          width: 30px;
+          display: block;
+          font-size: 12px;
+          padding-left: 10px;
+        }
+
+        div.caption {
+          font-size: 12px;
+          width: 100px;
+        }
+
+        wl-icon {
+          --icon-size: 24px;
+        }
+
+        img.resource-type-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        div.resource-type {
+          font-size: 14px;
+          width: 70px;
+        }
+
+        .resources.horizontal .monitor.session {
+          margin-left: 5px;
+        }
+
+        .gauge-name {
+          font-size: 10px;
+        }
+
+        .gauge-label {
+          width: 100px;
+          font-weight: 300;
+          font-size: 12px;
+        }
+
+        .indicator {
+          font-family: monospace;
+        }
+
+        .resource-button {
+          height: 140px;
+          width: 330px;
+          margin: 5px;
+          padding: 0;
+          font-size: 14px;
+        }
+
+        #new-session-dialog {
+          z-index: 100;
+        }
+
+        .resource-button.iron-selected {
+          --button-color: var(--paper-red-600);
+          --button-bg: var(--paper-red-600);
+          --button-bg-active: var(--paper-red-600);
+          --button-bg-hover: var(--paper-red-600);
+          --button-bg-active-flat: var(--paper-orange-50);
+          --button-bg-flat: var(--paper-orange-50);
+        }
+
+        .resource-button h4 {
+          padding: 5px 0;
+          margin: 0;
+          font-weight: 400;
+        }
+
+        .resource-button ul {
+          padding: 0;
+          list-style-type: none;
+        }
+
+        #scaling-groups {
+          width: 50%;
+        }
+
+        #launch-session {
+          height: var(--component-height, auto);
+          width: var(--component-width, auto);
+          --button-color: var(--paper-red-600);
+          --button-bg: var(--paper-red-50);
+          --button-bg-hover: var(--paper-red-100);
+          --button-bg-active: var(--paper-red-600);
+        }
+
+        #launch-session[disabled] {
+          --button-color: var(--paper-gray-600);
+          --button-color-disabled: var(--paper-gray-600);
+          --button-bg: var(--paper-gray-50);
+          --button-bg-hover: var(--paper-gray-100);
+          --button-bg-active: var(--paper-gray-600);
+        }
+
+        wl-button.launch-button {
+          width: 335px;
+          --button-bg: var(--paper-red-50);
+          --button-bg-active: var(--paper-red-300);
+          --button-bg-hover: var(--paper-red-300);
+          --button-bg-active-flat: var(--paper-orange-50);
+          --button-color: var(--paper-red-600);
+          --button-color-active: red;
+          --button-color-hover: red;
+        }
+
+        wl-button.launch-confirmation-button {
+          width: 335px;
+          --button-bg: var(--paper-red-50);
+          --button-bg-active: var(--paper-red-300);
+          --button-bg-hover: var(--paper-red-300);
+          --button-bg-active-flat: var(--paper-orange-50);
+          --button-color: var(--paper-red-600);
+          --button-color-active: red;
+          --button-color-hover: red;
+        }
+
+        wl-button.resource-button {
+          --button-bg: white;
+          --button-bg-active: var(--paper-red-600);
+          --button-bg-hover: var(--paper-red-600);
+          --button-bg-active-flat: var(--paper-orange-50);
+          --button-color: #8899aa;
+          --button-color-active: red;
+          --button-color-hover: red;
+        }
+
+        wl-expansion {
+          --font-family-serif: var(--general-font-family);
+          --expansion-elevation: 0;
+          --expansion-elevation-open: 0;
+          --expansion-elevation-hover: 0;
+          --expansion-margin-open: 0;
+        }
+
+        wl-expansion span {
+          font-size: 20px;
+          font-weight: 200;
+          display: block;
+        }
+
+        .resources .monitor {
+          margin-right: 5px;
+        }
+
+        .resources.vertical .monitor {
+          margin-bottom: 10px;
+        }
+
+        .resources.vertical .monitor div:first-child {
+          width: 40px;
+        }
+
+        mwc-select {
+          width: 100%;
+          font-family: var(--general-font-family);
+          --mdc-typography-subtitle1-font-family: var(--general-font-family);
+          --mdc-theme-primary: var(--paper-red-600);
+          --mdc-select-fill-color: transparent;
+          --mdc-select-label-ink-color: rgba(0, 0, 0, 0.75);
+          --mdc-select-dropdown-icon-color: rgba(255, 0, 0, 0.87);
+          --mdc-select-focused-dropdown-icon-color: rgba(255, 0, 0, 0.42);
+          --mdc-select-disabled-dropdown-icon-color: rgba(255, 0, 0, 0.87);
+          --mdc-select-idle-line-color: rgba(0, 0, 0, 0.42);
+          --mdc-select-hover-line-color: rgba(255, 0, 0, 0.87);
+          --mdc-select-outlined-idle-border-color: rgba(255, 0, 0, 0.42);
+          --mdc-select-outlined-hover-border-color: rgba(255, 0, 0, 0.87);
+          --mdc-theme-surface: white;
+          --mdc-list-vertical-padding: 5px;
+          --mdc-list-side-padding: 25px;
+          --mdc-list-item__primary-text: {
+            height: 20px;
+          };
+        }
+
+        mwc-select#scaling-groups {
+          margin-right: 0;
+          padding-right: 0;
+          width: 50%;
+          --mdc-select-min-width: 190px;
+        }
+
+        mwc-textfield {
+          width: 100%;
+          --mdc-text-field-idle-line-color: rgba(0, 0, 0, 0.42);
+          --mdc-text-field-hover-line-color: rgba(255, 0, 0, 0.87);
+          --mdc-text-field-fill-color: transparent;
+          --mdc-theme-primary: var(--paper-red-600);
+        }
+
+        mwc-textfield#session-name {
+          width: 50%;
+          padding-top: 20px;
+          padding-left: 0;
+          margin-left: 0;
+          margin-bottom: 1px;
+        }
+
+        #environment {
+          --mdc-menu-item-height: 40px;
+          max-height: 300px;
+        }
+
+        #version {
+          --mdc-menu-item-height: 35px;
+        }
+
+        #vfolder {
+          width: 100%;
+        }
+
+        #vfolder mwc-list-item[disabled] {
+          background-color: rgba(255, 0, 0, 0.04) !important;
+        }
+
+        wl-button[fab] {
+          --button-fab-size: 70px;
+          border-radius: 6px;
+        }
+
+        wl-label {
+          margin-right: 10px;
+          outline: none;
+        }
+
+        #help-description {
+          --component-width: 350px;
+        }
+
+        #help-description p {
+          padding: 5px !important;
+        }
+
+        #new-session-dialog {
+          --component-width: 400px;
+        }
+
+        #launch-confirmation-dialog {
+          --component-width: 400px;
+          --component-font-size: 14px;
+        }
+
+        mwc-icon-button.info {
+          --mdc-icon-button-size: 30px;
+        }
+      `]}init_resource(){this.versions=["Not Selected"],this.languages=[],this.gpu_mode="none",this.total_slot={},this.total_resource_group_slot={},this.total_project_slot={},this.used_slot={},this.used_resource_group_slot={},this.used_project_slot={},this.available_slot={},this.used_slot_percent={},this.used_resource_group_slot_percent={},this.used_project_slot_percent={},this.resource_templates=[],this.resource_templates_filtered=[],this.vfolders=[],this.selectedVfolders=[],this.default_language="",this.concurrency_used=0,this.concurrency_max=0,this.concurrency_limit=0,this._status="inactive",this.cpu_request=1,this.mem_request=1,this.shmem_request=.0625,this.gpu_request=0,this.gpu_request_type="cuda.device",this.session_request=1,this.scaling_groups=[{name:""}],this.scaling_group="",this.sessions_list=[],this.metric_updating=!1,this.metadata_updating=!1,this.ownerFeatureInitialized=!1,this.ownerDomain="",this.ownerKeypairs=[],this.ownerGroups=[],this.ownerScalingGroups=[]}firstUpdated(){this.shadowRoot.querySelector("#environment").addEventListener("selected",this.updateLanguage.bind(this)),this.version_selector=this.shadowRoot.querySelector("#version"),this.version_selector.addEventListener("selected",()=>{this.updateResourceAllocationPane()}),this.resourceGauge=this.shadowRoot.querySelector("#resource-gauges");const e=this.shadowRoot.querySelector("#gpu-resource");e.addEventListener("value-changed",()=>{e.value>0?this.shadowRoot.querySelector("#use-gpu-checkbox").checked=!0:this.shadowRoot.querySelector("#use-gpu-checkbox").checked=!1}),this.shadowRoot.querySelector("#use-gpu-checkbox").addEventListener("change",()=>{!0===this.shadowRoot.querySelector("#use-gpu-checkbox").checked?this.shadowRoot.querySelector("#gpu-resource").disabled=this.cuda_device_metric.min===this.cuda_device_metric.max:this.shadowRoot.querySelector("#gpu-resource").disabled=!0}),document.addEventListener("backend-ai-group-changed",e=>{this._updatePageVariables(!0)}),document.addEventListener("backend-ai-resource-broker-updated",e=>{}),!0===this.hideLaunchButton&&(this.shadowRoot.querySelector("#launch-session").style.display="none"),void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.is_connected=!0,this._enableLaunchButton()},{once:!0}):(this.is_connected=!0,this._enableLaunchButton())}_enableLaunchButton(){this.resourceBroker.image_updating?setTimeout(()=>{this._enableLaunchButton()},1e3):(this.languages=this.resourceBroker.languages,this.enableLaunchButton=!0)}_updateSelectedScalingGroup(){let e=this.shadowRoot.querySelector("#scaling-groups");this.scaling_groups=this.resourceBroker.scaling_groups;let t=e.items.find(e=>e.value===this.resourceBroker.scaling_group);if(""===this.resourceBroker.scaling_group||void 0===t)return void setTimeout(()=>{this._updateSelectedScalingGroup()},500);let r=e.items.indexOf(t);e.select(-1),e.select(r),e.value=t.value,e.requestUpdate()}async updateScalingGroup(e=!1,t){this.active&&(await this.resourceBroker.updateScalingGroup(e,t.target.value),!0===e?await this._refreshResourcePolicy():this.updateResourceAllocationPane("session dialog"))}_updateSelectedFolder(){let e=this.shadowRoot.querySelector("#vfolder").selected,t=[];t=e.length>0?e.map(e=>e.value):[],this.selectedVfolders=t}async _viewStateChanged(e){await this.updateComplete,this.active&&(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this.project_resource_monitor=this.resourceBroker.allow_project_resource_monitor,this._updatePageVariables(!0),this._disableEnterKey()},{once:!0}):(this.project_resource_monitor=this.resourceBroker.allow_project_resource_monitor,await this._updatePageVariables(!0),this._disableEnterKey()))}async _updatePageVariables(e){this.active&&!1===this.metadata_updating&&(this.metadata_updating=!0,await this.resourceBroker._updatePageVariables(e),this._updateSelectedScalingGroup(),this.sessions_list=this.resourceBroker.sessions_list,await this._refreshResourcePolicy(),this.aggregateResource("update-page-variable"),this.metadata_updating=!1)}async _refreshResourcePolicy(){return this.resourceBroker._refreshResourcePolicy().then(()=>{this.concurrency_used=this.resourceBroker.concurrency_used,this.userResourceLimit=this.resourceBroker.userResourceLimit,this.concurrency_max=this.resourceBroker.concurrency_max,this.gpu_mode=this.resourceBroker.gpu_mode,this.gpu_step=this.resourceBroker.gpu_step,this.gpu_modes=this.resourceBroker.gpu_modes,this.updateResourceAllocationPane("refresh resource policy")}).catch(e=>{console.log(e),this.metadata_updating=!1,e&&e.message?(this.notification.text=w.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e)):e&&e.title&&(this.notification.text=w.relieve(e.title),this.notification.show(!0,e))})}async _launchSessionDialog(){if(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready||!0===this.resourceBroker.image_updating)setTimeout(()=>{this._launchSessionDialog()},1e3);else{await this.selectDefaultLanguage();this.shadowRoot.querySelector("#gpu-resource").value>0?this.shadowRoot.querySelector("#use-gpu-checkbox").checked=!0:this.shadowRoot.querySelector("#use-gpu-checkbox").checked=!1;const e=this.shadowRoot.querySelector('wl-expansion[name="ownership"]');globalThis.backendaiclient.is_admin?e.style.display="block":e.style.display="none",this._updateSelectedScalingGroup(),this.requestUpdate(),this.shadowRoot.querySelector("#new-session-dialog").show()}}_generateKernelIndex(e,t){return e+":"+t}_newSessionWithConfirmation(){if(0!==this.shadowRoot.querySelector("#vfolder").selected.map(e=>e.value).length)return this._newSession();this.shadowRoot.querySelector("#launch-confirmation-dialog").show()}_newSession(){this.shadowRoot.querySelector("#launch-confirmation-dialog").hide();let e=this.shadowRoot.querySelector("#environment").selected.id,t=this.shadowRoot.querySelector("#version").value,r=this.shadowRoot.querySelector("#session-name").value,i=this.shadowRoot.querySelector("#session-name").checkValidity(),o=this.selectedVfolders;if(this.cpu_request=this.shadowRoot.querySelector("#cpu-resource").value,this.mem_request=this.shadowRoot.querySelector("#mem-resource").value,this.shmem_request=this.shadowRoot.querySelector("#shmem-resource").value,this.gpu_request=this.shadowRoot.querySelector("#gpu-resource").value,this.session_request=this.shadowRoot.querySelector("#session-resource").value,this.num_sessions=this.session_request,this.sessions_list.includes(r))return this.notification.text="Duplicate session name not allowed.",void this.notification.show();if(!i)return this.notification.text=x("session.launcher.SessionNameAllowCondition"),void this.notification.show();if(""===e||""===t||"Not Selected"===t)return this.notification.text=x("session.launcher.MustSpecifyVersion"),void this.notification.show();this.scaling_group=this.shadowRoot.querySelector("#scaling-groups").value;let s={};s.group_name=globalThis.backendaiclient.current_group,s.domain=globalThis.backendaiclient._config.domainName,s.scaling_group=this.scaling_group,s.maxWaitSeconds=10;const a=this.shadowRoot.querySelector("#owner-enabled");if(a&&a.checked&&(s.group_name=this.shadowRoot.querySelector("#owner-group").selectedItemLabel,s.domain=this.ownerDomain,s.scaling_group=this.shadowRoot.querySelector("#owner-scaling-group").selectedItemLabel,s.owner_access_key=this.shadowRoot.querySelector("#owner-accesskey").selectedItemLabel,!(s.group_name&&s.domain&&s.scaling_group&&s.owner_access_key)))return this.notification.text=x("session.launcher.NotEnoughOwnershipInfo"),void this.notification.show();switch(s.cpu=this.cpu_request,this.gpu_request_type){case"cuda.shares":s["cuda.shares"]=this.gpu_request;break;case"cuda.device":s["cuda.device"]=this.gpu_request;break;case"rocm.device":s["rocm.device"]=this.gpu_request;break;case"tpu.device":s["tpu.device"]=this.gpu_request;break;default:this.gpu_request>0&&this.gpu_mode&&(s[this.gpu_mode]=this.gpu_request)}"Infinity"===String(this.shadowRoot.querySelector("#mem-resource").value)?s.mem=String(this.shadowRoot.querySelector("#mem-resource").value):s.mem=String(this.mem_request)+"g",this.shmem_request>this.mem_request&&(this.shmem_request=this.mem_request,this.notification.text="Shared memory setting is reduced to below the allocated memory.",this.notification.show()),this.mem_request>4&&this.shmem_request<1&&(this.shmem_request=1),s.shmem=String(this.shmem_request)+"g",!0!==this.shadowRoot.querySelector("#use-gpu-checkbox").checked&&("cuda.shares"==this.gpu_mode?s.fgpu=0:s.gpu=0),0==r.length&&(r=this.generateSessionId()),0!==o.length&&(s.mounts=o),"import"===this.mode&&""!==this.importScript&&(s.bootstrap_script=this.importScript);const c=this._generateKernelIndex(e,t);this.shadowRoot.querySelector("#launch-button").disabled=!0,this.shadowRoot.querySelector("#launch-button-msg").textContent="Preparing...",this.notification.text="Preparing session...",this.notification.show();let n=[];const d=this._getRandomString();if(this.num_sessions>1)for(let e=1;e<=this.num_sessions;e++){let t={kernelName:c,sessionName:`${r}-${d}-${e}`,config:s};n.push(t)}else n.push({kernelName:c,sessionName:r,config:s});const l=n.map(e=>this.tasker.add("Creating "+e.sessionName,this._createKernel(e.kernelName,e.sessionName,e.config),"","session"));Promise.all(l).then(e=>{this.shadowRoot.querySelector("#new-session-dialog").hide(),this.shadowRoot.querySelector("#launch-button").disabled=!1,this.shadowRoot.querySelector("#launch-button-msg").textContent=x("session.launcher.Launch"),setTimeout(()=>{this.metadata_updating=!0,this.aggregateResource("session-creation"),this.metadata_updating=!1},1500);let t=new CustomEvent("backend-ai-session-list-refreshed",{detail:"running"});document.dispatchEvent(t),1===e.length&&e[0].taskobj.then(e=>{let t;t="kernelId"in e?{"session-name":e.kernelId,"access-key":""}:{"session-uuid":e.sessionId,"session-name":e.sessionName,"access-key":""};let r=e.servicePorts;!0===Array.isArray(r)?t["app-services"]=r.map(e=>e.name):t["app-services"]=[],"import"===this.mode&&(t.runtime="jupyter",t.filename=this.importFilename),globalThis.appLauncher.showLauncher(t)}).catch(e=>{})}).catch(e=>{e&&e.message?(this.notification.text=w.relieve(e.message),this.notification.detail=e.message,this.notification.show(!0,e)):e&&e.title&&(this.notification.text=w.relieve(e.title),this.notification.show(!0,e));let t=new CustomEvent("backend-ai-session-list-refreshed",{detail:"running"});document.dispatchEvent(t),this.shadowRoot.querySelector("#launch-button").disabled=!1,this.shadowRoot.querySelector("#launch-button-msg").textContent=x("session.launcher.Launch")})}_getRandomString(){let e=Math.floor(52*Math.random()*52*52);let t="";for(let i=0;i<3;i++)t+=(r=e%52)<26?String.fromCharCode(65+r):String.fromCharCode(97+r-26),e=Math.floor(e/52);var r;return t}_createKernel(e,t,r){const i=globalThis.backendaiclient.createIfNotExists(e,t,r);return i.catch(e=>{e&&e.message?(this.notification.text=w.relieve(e.message),this.notification.detail=e.message,this.notification.show(!0,e)):e&&e.title&&(this.notification.text=w.relieve(e.title),this.notification.show(!0,e))}),i}_hideSessionDialog(){this.shadowRoot.querySelector("#new-session-dialog").hide()}_aliasName(e){let t={python:"Python",tensorflow:"TensorFlow",pytorch:"PyTorch",lua:"Lua",r:"R","r-base":"R",julia:"Julia",rust:"Rust",cpp:"C++",gcc:"GCC",go:"Go",tester:"Tester",haskell:"Haskell",matlab:"MATLAB",sagemath:"Sage",texlive:"TeXLive",java:"Java",php:"PHP",octave:"Octave",nodejs:"Node",caffe:"Caffe",scheme:"Scheme",scala:"Scala",base:"Base",cntk:"CNTK",h2o:"H2O.AI",digits:"DIGITS","ubuntu-linux":"Ubuntu Linux",tf1:"TensorFlow 1",tf2:"TensorFlow 2",py3:"Python 3",py2:"Python 2",py27:"Python 2.7",py35:"Python 3.5",py36:"Python 3.6",py37:"Python 3.7",py38:"Python 3.8",py39:"Python 3.9",lxde:"LXDE",lxqt:"LXQt",xfce:"XFCE",gnome:"GNOME",kde:"KDE","ubuntu16.04":"Ubuntu 16.04","ubuntu18.04":"Ubuntu 18.04","ubuntu20.04":"Ubuntu 20.04",intel:"Intel MKL",2018:"2018",2019:"2019",2020:"2020",2021:"2021",2022:"2022",tpu:"TPU:TPUv3",rocm:"GPU:ROCm",cuda9:"GPU:CUDA9",cuda10:"GPU:CUDA10","cuda10.0":"GPU:CUDA10","cuda10.1":"GPU:CUDA10.1","cuda10.2":"GPU:CUDA10.2","cuda10.3":"GPU:CUDA10.3",cuda11:"GPU:CUDA11","cuda11.0":"GPU:CUDA11","cuda11.1":"GPU:CUDA11.1","cuda11.2":"GPU:CUDA11.2",miniconda:"Miniconda","anaconda2018.12":"Anaconda 2018.12","anaconda2019.12":"Anaconda 2019.12","alpine3.8":"Alpine Linux 3.8",ngc:"Nvidia GPU Cloud",ff:"Research Env."};return e in t?t[e]:e}_updateVersions(e){if(e in this.resourceBroker.supports){{this.version_selector.disabled=!0;let t=this.resourceBroker.supports[e];t.sort(),t.reverse(),this.versions=t,this.kernel=e}return void 0!==this.versions?this.version_selector.layout(!0).then(()=>{this.version_selector.select(1),this.version_selector.value=this.versions[0],this._updateVersionSelectorText(this.version_selector.value),this.version_selector.disabled=!1,this.updateResourceAllocationPane("update versions")}):void 0}}_updateVersionSelectorText(e){let t=this._getVersionInfo(e),r=[];t.forEach(e=>{r.push(e.tag)}),this.version_selector.selectedText=r.join(" / ")}generateSessionId(){for(var e="",t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",r=0;r<8;r++)e+=t.charAt(Math.floor(Math.random()*t.length));return e+"-console"}async _updateVirtualFolderList(){return this.resourceBroker.updateVirtualFolderList().then(()=>{this.vfolders=this.resourceBroker.vfolders})}async _aggregateResourceUse(e=""){return this.resourceBroker._aggregateCurrentResource(e).then(async e=>(this.concurrency_used=this.resourceBroker.concurrency_used,this.scaling_group=this.resourceBroker.scaling_group,this.scaling_groups=this.resourceBroker.scaling_groups,this.resource_templates=this.resourceBroker.resource_templates,this.resource_templates_filtered=this.resourceBroker.resource_templates_filtered,this.total_slot=this.resourceBroker.total_slot,this.total_resource_group_slot=this.resourceBroker.total_resource_group_slot,this.total_project_slot=this.resourceBroker.total_project_slot,this.used_slot=this.resourceBroker.used_slot,this.used_resource_group_slot=this.resourceBroker.used_resource_group_slot,this.used_project_slot=this.resourceBroker.used_project_slot,this.used_project_slot_percent=this.resourceBroker.used_project_slot_percent,this.concurrency_limit=this.resourceBroker.concurrency_limit,this.available_slot=this.resourceBroker.available_slot,this.used_slot_percent=this.resourceBroker.used_slot_percent,this.used_resource_group_slot_percent=this.resourceBroker.used_resource_group_slot_percent,await this.updateComplete,Promise.resolve(!0))).catch(e=>(e&&e.message&&(console.log(e),this.notification.text=w.relieve(e.title),this.notification.detail=e.message,this.notification.show(!0,e)),Promise.resolve(!1)))}aggregateResource(e=""){void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready?document.addEventListener("backend-ai-connected",()=>{this._aggregateResourceUse(e)},!0):this._aggregateResourceUse(e)}async updateResourceAllocationPane(e=""){if(1==this.metric_updating)return;if("refresh resource policy"===e)return this.metric_updating=!1,this._aggregateResourceUse("update-metric").then(()=>this.updateResourceAllocationPane("after refresh resource policy"));let t=this.shadowRoot.querySelector("#environment").selected,r=this.version_selector.selected;if(null===r)return void(this.metric_updating=!1);let i=r.value;if(this._updateVersionSelectorText(i),null==t||t.getAttribute("disabled"))this.metric_updating=!1;else if(void 0===globalThis.backendaiclient||null===globalThis.backendaiclient||!1===globalThis.backendaiclient.ready)document.addEventListener("backend-ai-connected",()=>{this.updateResourceAllocationPane(e)},!0);else{if(this.metric_updating=!0,await this._aggregateResourceUse("update-metric"),await this._updateVirtualFolderList(),0===Object.keys(this.resourceBroker.resourceLimits).length)return void(this.metric_updating=!1);let e=t.id,r=i;if(""===e||""===r)return void(this.metric_updating=!1);let o=e+":"+r,s=this.resourceBroker.resourceLimits[o];if(!s)return void(this.metric_updating=!1);this.gpu_mode=this.resourceBroker.gpu_mode,this.gpu_step=this.resourceBroker.gpu_step,this.gpu_modes=this.resourceBroker.gpu_modes;let a=this.resourceBroker.available_slot;this.shadowRoot.querySelector("#cpu-resource").disabled=!1,this.shadowRoot.querySelector("#mem-resource").disabled=!1,this.shadowRoot.querySelector("#gpu-resource").disabled=!1,this.shadowRoot.querySelector("#session-resource").disabled=!1,this.shadowRoot.querySelector("#launch-button").disabled=!1,this.shadowRoot.querySelector("#launch-button-msg").textContent=x("session.launcher.Launch");let c=!1,n={min:.0625,max:2,preferred:.125};if(this.cuda_device_metric={min:0,max:0},s.forEach(e=>{if("cpu"===e.key){let t=Object.assign({},e);t.min=parseInt(t.min),"cpu"in this.userResourceLimit?0!==parseInt(t.max)&&"Infinity"!==t.max&&NaN!==t.max?t.max=Math.min(parseInt(t.max),parseInt(this.userResourceLimit.cpu),a.cpu,this.max_cpu_core_per_session):t.max=Math.min(parseInt(this.userResourceLimit.cpu),a.cpu,this.max_cpu_core_per_session):0!==parseInt(t.max)&&"Infinity"!==t.max&&NaN!==t.max?t.max=Math.min(parseInt(t.max),a.cpu,this.max_cpu_core_per_session):t.max=Math.min(this.available_slot.cpu,this.max_cpu_core_per_session),t.min>=t.max&&(t.min>t.max?(t.min=t.max,t.max=t.max+1,c=!0,this.shadowRoot.querySelector("#cpu-resource").disabled=!0):(t.max=t.max+1,this.shadowRoot.querySelector("#cpu-resource").disabled=!0)),this.cpu_metric=t}if("cuda.device"===e.key&&"cuda.device"==this.gpu_mode){let t=Object.assign({},e);t.min=parseInt(t.min),"cuda.device"in this.userResourceLimit?0!==parseInt(t.max)&&"Infinity"!==t.max&&NaN!==t.max?t.max=Math.min(parseInt(t.max),parseInt(this.userResourceLimit["cuda.device"]),a.cuda_shares,this.max_cuda_device_per_session):t.max=Math.min(parseInt(this.userResourceLimit["cuda.device"]),a.cuda_device,this.max_cuda_device_per_session):0!==parseInt(t.max)?t.max=Math.min(parseInt(t.max),a.cuda_device,this.max_cuda_device_per_session):t.max=this.available_slot.cuda_device,t.min>=t.max&&(t.min>t.max?(t.min=t.max,c=!0,this.shadowRoot.querySelector("#gpu-resource").disabled=!0):(t.max=t.max+1,this.shadowRoot.querySelector("#gpu-resource").disabled=!0)),this.cuda_device_metric=t}if("cuda.shares"===e.key&&"cuda.shares"===this.gpu_mode){let t=Object.assign({},e);t.min=parseFloat(t.min),"cuda.shares"in this.userResourceLimit?0!==parseFloat(t.max)&&"Infinity"!==t.max&&NaN!==t.max?t.max=Math.min(parseFloat(t.max),parseFloat(this.userResourceLimit["cuda.shares"]),a.cuda_shares):t.max=Math.min(parseFloat(this.userResourceLimit["cuda.shares"]),a.cuda_shares):0!==parseFloat(t.max)?t.max=Math.min(parseFloat(t.max),a.cuda_shares):t.max=0,t.min>=t.max&&(t.min>t.max?(t.min=t.max,c=!0,this.shadowRoot.querySelector("#gpu-resource").disabled=!0):(t.max=t.max+1,this.shadowRoot.querySelector("#gpu-resource").disabled=!0)),this.cuda_shares_metric=t,t.max>0&&(this.cuda_device_metric=t)}if("rocm.device"===e.key&&"rocm.device"===this.gpu_mode){let t=Object.assign({},e);t.min=parseInt(t.min),t.max=parseInt(t.max),t.min,t.max,this.rocm_device_metric=t}if("tpu.device"===e.key){let t=Object.assign({},e);t.min=parseInt(t.min),t.max=parseInt(t.max),t.min,t.max,this.tpu_device_metric=t}if("mem"===e.key){let t=Object.assign({},e);t.min=globalThis.backendaiclient.utils.changeBinaryUnit(t.min,"g"),t.min<.1&&(t.min=.1);let r=globalThis.backendaiclient.utils.changeBinaryUnit(t.max,"g","g");if("mem"in this.userResourceLimit){let e=globalThis.backendaiclient.utils.changeBinaryUnit(this.userResourceLimit.mem,"g");0!==parseInt(r)?t.max=Math.min(parseFloat(r),parseFloat(e),a.mem):t.max=parseFloat(e)}else 0!==parseInt(t.max)&&"Infinity"!==t.max&&!0!==isNaN(t.max)?t.max=Math.min(parseFloat(globalThis.backendaiclient.utils.changeBinaryUnit(t.max,"g","g")),a.mem):t.max=a.mem;t.min>=t.max&&(t.min>t.max?(t.min=t.max,t.max=t.max+1,c=!0,this.shadowRoot.querySelector("#mem-resource").disabled=!0):(t.max=t.max+1,this.shadowRoot.querySelector("#mem-resource").disabled=!0)),t.min=Number(t.min.toFixed(2)),t.max=Number(t.max.toFixed(2)),this.mem_metric=t}"shmem"===e.key&&(n=Object.assign({},e),n.preferred="preferred"in n?globalThis.backendaiclient.utils.changeBinaryUnit(n.preferred,"g","g"):.0625)}),n.max=this.max_shm_per_session,n.min=.0625,n.min>=n.max&&(n.min>n.max?(n.min=n.max,n.max=n.max+1,c=!0,this.shadowRoot.querySelector("#shmem-resource").disabled=!0):(n.max=n.max+1,this.shadowRoot.querySelector("#shmem-resource").disabled=!0)),n.min=Number(n.min.toFixed(2)),n.max=Number(n.max.toFixed(2)),this.shmem_metric=n,0==this.cuda_device_metric.min&&0==this.cuda_device_metric.max)if(this.shadowRoot.querySelector("#use-gpu-checkbox").checked=!1,this.shadowRoot.querySelector("#gpu-resource").disabled=!0,this.shadowRoot.querySelector("#gpu-resource").value=0,this.resource_templates!==[]&&this.resource_templates.length>0){let e=[];for(let t=0;t<this.resource_templates.length;t++)"cuda_device"in this.resource_templates[t]||"cuda_shares"in this.resource_templates[t]?(parseFloat(this.resource_templates[t].cuda_device)<=0&&!("cuda_shares"in this.resource_templates[t])||parseFloat(this.resource_templates[t].cuda_shares)<=0&&!("cuda_device"in this.resource_templates[t])||parseFloat(this.resource_templates[t].cuda_device)<=0&&parseFloat(this.resource_templates[t].cuda_shares)<=0)&&e.push(this.resource_templates[t]):e.push(this.resource_templates[t]);this.resource_templates_filtered=e}else this.resource_templates_filtered=this.resource_templates;else this.shadowRoot.querySelector("#use-gpu-checkbox").checked=!0,this.shadowRoot.querySelector("#gpu-resource").disabled=!1,this.shadowRoot.querySelector("#gpu-resource").value=this.cuda_device_metric.max,this.resource_templates_filtered=this.resource_templates;if(this.resource_templates_filtered!==[]&&this.resource_templates_filtered.length>0){let e=this.resource_templates_filtered[0];this._chooseResourceTemplate(e),this.shadowRoot.querySelector("#resource-templates").layout(!0).then(()=>{this.shadowRoot.querySelector("#resource-templates").select(1)})}else this._updateResourceIndicator(this.cpu_metric.min,this.mem_metric.min,"none",0);c&&(this.shadowRoot.querySelector("#cpu-resource").disabled=!0,this.shadowRoot.querySelector("#mem-resource").disabled=!0,this.shadowRoot.querySelector("#gpu-resource").disabled=!0,this.shadowRoot.querySelector("#session-resource").disabled=!0,this.shadowRoot.querySelector("#launch-button").disabled=!0,this.shadowRoot.querySelector("#launch-button-msg").textContent="Not enough resource"),this.cuda_device_metric.min==this.cuda_device_metric.max&&(this.shadowRoot.querySelector("#gpu-resource").max=this.cuda_device_metric.max+1,this.shadowRoot.querySelector("#gpu-resource").disabled=!0),1==this.concurrency_limit&&(this.shadowRoot.querySelector("#session-resource").max=2,this.shadowRoot.querySelector("#session-resource").value=1,this.shadowRoot.querySelector("#session-resource").disabled=!0),this.metric_updating=!1}}updateLanguage(){let e=this.shadowRoot.querySelector("#environment").selected;if(null===e)return;let t=e.id;this._updateVersions(t)}changed(e){console.log(e)}isEmpty(e){return 0===e.length}_toggleAdvancedSettings(){this.shadowRoot.querySelector("#advanced-resource-settings").toggle()}_chooseResourceTemplate(e){let t;t=void 0!==e.cpu?e:e.target.closest("mwc-list-item");const r=t.cpu,i=t.mem,o=t.cuda_device,s=t.cuda_shares,a=t.rocm_device,c=t.tpu_device;let n,d;void 0!==o||void 0!==s?void 0===o?(n="cuda.shares",d=s):(n="cuda.device",d=o):void 0!==a?(n="rocm.device",d=a):void 0!==c?(n="tpu.device",d=c):(n="none",d=0);const l=t.shmem;this.shmem_request=l||.0625,this._updateResourceIndicator(r,i,n,d)}_updateResourceIndicator(e,t,r,i){this.shadowRoot.querySelector("#cpu-resource").value=e,this.shadowRoot.querySelector("#mem-resource").value=t,this.shadowRoot.querySelector("#gpu-resource").value=i,this.shadowRoot.querySelector("#shmem-resource").value=this.shmem_request,this.cpu_request=e,this.mem_request=t,this.gpu_request=i,this.gpu_request_type=r}async selectDefaultLanguage(e=!1,t=""){if(!0===this._default_language_updated&&!1===e)return;""!==t?this.default_language=t:void 0!==globalThis.backendaiclient._config.default_session_environment&&"default_session_environment"in globalThis.backendaiclient._config&&""!==globalThis.backendaiclient._config.default_session_environment?this.default_language=globalThis.backendaiclient._config.default_session_environment:this.languages.length>1?this.default_language=this.languages[1].name:0!==this.languages.length?this.default_language=this.languages[0].name:this.default_language="index.docker.io/lablup/ngc-tensorflow";let r=this.shadowRoot.querySelector("#environment"),i=r.items.find(e=>e.value===this.default_language);if(void 0===i&&void 0!==globalThis.backendaiclient&&!0===globalThis.backendaiclient.ready)return setTimeout(()=>(console.log("Environment selector is not ready yet. Trying to set the default language again."),this.selectDefaultLanguage(e,t)),500),Promise.resolve(!0);let o=r.items.indexOf(i);return r.select(o),this._default_language_updated=!0,Promise.resolve(!0)}_selectDefaultVersion(e){return!1}async _fetchSessionOwnerGroups(){this.ownerFeatureInitialized||(this.shadowRoot.querySelector("#owner-group").addEventListener("selected-item-label-changed",this._fetchSessionOwnerScalingGroups.bind(this)),this.ownerFeatureInitialized=!0);const e=this.shadowRoot.querySelector("#owner-email"),t=e.value;if(!e.checkValidity())return this.notification.text="Invalid email address",this.notification.show(),this.ownerKeypairs=[],void(this.ownerGroups=[]);const r=await globalThis.backendaiclient.keypair.list(t,["access_key"]);if(this.ownerKeypairs=r.keypairs,this.ownerKeypairs.length<1)return this.notification.text="No active keypair",this.notification.show(),this.ownerKeypairs=[],void(this.ownerGroups=[]);this.shadowRoot.querySelector("#owner-accesskey paper-listbox").selected=this.ownerKeypairs[0].access_key;const i=await globalThis.backendaiclient.user.get(t,["domain_name","groups {id name}"]);this.ownerDomain=i.user.domain_name,this.ownerGroups=i.user.groups,this.ownerGroups&&(this.shadowRoot.querySelector("#owner-group paper-listbox").selected=this.ownerGroups[0].name)}async _fetchSessionOwnerScalingGroups(){const e=this.shadowRoot.querySelector("#owner-group").selectedItemLabel;if(!e)return void(this.ownerScalingGroups=[]);const t=await globalThis.backendaiclient.scalingGroup.list(e);this.ownerScalingGroups=t.scaling_groups,this.ownerScalingGroups&&(this.shadowRoot.querySelector("#owner-scaling-group paper-listbox").selected=0)}_toggleResourceGauge(){""==this.resourceGauge.style.display||"flex"==this.resourceGauge.style.display||"block"==this.resourceGauge.style.display?this.resourceGauge.style.display="none":(document.body.clientWidth<750?(this.resourceGauge.style.left="20px",this.resourceGauge.style.right="20px",this.resourceGauge.style.backgroundColor="var(--paper-red-800)"):this.resourceGauge.style.backgroundColor="transparent",this.resourceGauge.style.display="flex")}_showKernelDescription(e,t){e.stopPropagation();let r=t.kernelname;if(r in this.resourceBroker.imageInfo&&"description"in this.resourceBroker.imageInfo[r]){let e=this.shadowRoot.querySelector("#help-description");this._helpDescriptionTitle=this.resourceBroker.imageInfo[r].name,this._helpDescription=this.resourceBroker.imageInfo[r].description,this._helpDescriptionIcon=t.icon,e.show()}else r in this.imageInfo?this._helpDescriptionTitle=this.resourceBroker.imageInfo[r].name:this._helpDescriptionTitle=r,this._helpDescription=x("session.launcher.NoDescriptionFound")}_showResourceDescription(e,t){e.stopPropagation();const r={cpu:{name:x("session.launcher.CPU"),desc:x("session.launcher.DescCPU")},mem:{name:x("session.launcher.Memory"),desc:x("session.launcher.DescMemory")},shmem:{name:x("session.launcher.SharedMemory"),desc:x("session.launcher.DescSharedMemory")},gpu:{name:x("session.launcher.GPU"),desc:x("session.launcher.DescGPU")},session:{name:x("session.launcher.TitleSession"),desc:x("session.launcher.DescSession")}};if(t in r){this._helpDescriptionTitle=r[t].name,this._helpDescription=r[t].desc,this._helpDescriptionIcon="",this.shadowRoot.querySelector("#help-description").show()}}_resourceTemplateToCustom(){this.shadowRoot.querySelector("#resource-templates").selectedText=x("session.launcher.CustomResourceApplied")}_getVersionInfo(e){let t=[],r=e.split("-");if(t.push({tag:this._aliasName(r[0]),color:"blue",size:"80px"}),r.length>1&&(this.kernel+":"+e in this.imageRequirements&&"framework"in this.imageRequirements[this.kernel+":"+e]?t.push({tag:this.imageRequirements[this.kernel+":"+e].framework,color:"red",size:"120px"}):t.push({tag:this._aliasName(r[1]),color:"red",size:"120px"})),r.length>2){let e=this._aliasName(r[2]).split(":");e.length>1?t.push({tag:e[1],app:e[0],color:"green",size:"150px"}):t.push({tag:e[0],color:"green",size:"150px"})}return t}_disableEnterKey(){this.shadowRoot.querySelectorAll("wl-expansion").forEach(e=>{e.onKeyDown=e=>{13===e.keyCode&&e.preventDefault()}})}render(){return n`
+      <wl-button ?disabled="${!this.enableLaunchButton}" id="launch-session" outlined @click="${()=>this._launchSessionDialog()}">
+        <wl-icon>add</wl-icon>
+        ${$("session.launcher.Start")}
+      </wl-button>
+      <backend-ai-dialog id="new-session-dialog" narrowLayout fixed backdrop>
+        <span slot="title">${this.newSessionDialogTitle?this.newSessionDialogTitle:$("session.launcher.StartNewSession")}</span>
+        <form slot="content" id="launch-session-form" class="centered">
+          <div class="vertical center layout" style="padding-top:15px;">
+            <mwc-select id="environment" label="${$("session.launcher.Environments")}" fullwidth required
+              value="${this.default_language}">
+              <mwc-list-item selected style="display:none!important;">${$("session.launcher.ChooseEnvironment")}</mwc-list-item>
+                ${this.languages.map(e=>n`
+                  ${!1===e.clickable?n`
+                    <h5 style="font-size:12px;padding: 0 10px 3px 10px;margin:0; border-bottom:1px solid #ccc;" role="separator" disabled="true">${e.basename}</h5>
+                  `:n`
+                    <mwc-list-item id="${e.name}" value="${e.name}" graphic="icon">
+                      <img slot="graphic" src="resources/icons/${e.icon}" style="width:32px;height:32px;" />
+                      <div class="horizontal justified center flex layout" style="width:293px;">
+                        <div style="padding-right:5px;">${e.basename}</div>
+                        <div class="flex"></div>
+                        <div class="horizontal layout end-justified center flex">
+                        ${e.tags?e.tags.map(e=>n`
+                          <lablup-shields slot="meta" style="margin-right:5px;" color="${e.color}" description="${e.tag}"></lablup-shields>
+                          <span style="display:none">(${e.tag})</span>
+                        `):""}
+                          <mwc-icon-button icon="info" class="fg blue info"
+                                           @click="${t=>{this._showKernelDescription(t,e)}}">
+                          </mwc-icon-button>
+                        </div>
+                      </div>
+                    </mwc-list-item>
+                  `}
+                `)}
+            </mwc-select>
+            <mwc-select id="version" label="${$("session.launcher.Version")}" fullwidth required>
+              <mwc-list-item selected style="display:none!important"></mwc-list-item>
+                <h5 style="font-size:12px;padding: 0 10px 3px 25px;margin:0; border-bottom:1px solid #ccc;" role="separator" disabled="true" class="horizontal layout">
+                  <div style="width:80px;">${$("session.launcher.Version")}</div>
+                  <div style="width:120px;">${$("session.launcher.Base")}</div>
+                  <div style="width:150px;">${$("session.launcher.Requirements")}</div>
+                </h5>
+            ${this.versions.map(e=>n`
+              <mwc-list-item id="${e}" value="${e}">
+                <span style="display:none">${e}</span>
+                <div class="horizontal layout end-justified">
+                  ${this._getVersionInfo(e).map(e=>n`
+                    <lablup-shields style="width:${e.size}!important;"
+                                    color="${e.color}"
+                                    app="${void 0!==e.app&&""!=e.app&&" "!=e.app?e.app:""}"
+                                    description="${e.tag}">
+                    </lablup-shields>
+                  `)}
+                </div>
+              </mwc-list-item>
+            `)}
+            </mwc-select>
+          </div>
+          <div style="display:none;">
+            <wl-checkbox id="use-gpu-checkbox">${$("session.launcher.UseGPU")}</wl-checkbox>
+          </div>
+          <div class="horizontal center layout">
+            <mwc-select id="scaling-groups" label="${$("session.launcher.ResourceGroup")}" required naturalMenuWidth
+                        @selected="${e=>this.updateScalingGroup(!1,e)}">
+              ${this.scaling_groups.map(e=>n`
+                <mwc-list-item class="scaling-group-dropdown"
+                               id="${e.name}"
+                               value="${e.name}">
+                  ${e.name}
+                </mwc-list-item>
+              `)}
+            </mwc-select>
+            <mwc-textfield id="session-name" placeholder="${$("session.launcher.SessionNameOptional")}"
+                           pattern="[a-zA-Z0-9_-]{4,}" fullwidth
+                           validationMessage="${$("session.launcher.SessionNameAllowCondition")}"
+                           style="margin-left:5px;">
+            </mwc-textfield>
+          </div>
+
+          <wl-expansion name="vfolder-group" style="--expansion-header-padding:16px;--expansion-content-padding:0;">
+            <span slot="title" style="font-size:12px;color:#404040;">${$("session.launcher.FolderToMount")}</span>
+            <span slot="description" style="font-size:12px;color:#646464;">${this.selectedVfolders.toString()}</span>
+            <mwc-list fullwidth multi id="vfolder"
+              @selected="${this._updateSelectedFolder}">
+            ${this.vfolders.map(e=>n`
+              <mwc-check-list-item value="${e.name}" ?disabled="${e.disabled}">${e.name}</mwc-check-list-item>
+            `)}
+            </mwc-list>
+          </wl-expansion>
+          <div class="vertical center layout" style="padding-top:15px;">
+            <mwc-select id="resource-templates" label="${$("session.launcher.ResourceAllocation")}" fullwidth required>
+              <mwc-list-item selected style="display:none!important"></mwc-list-item>
+                <h5 style="font-size:12px;padding: 0 10px 3px 25px;margin:0; border-bottom:1px solid #ccc;" role="separator" disabled="true" class="horizontal layout center">
+                  <div style="width:110px;">Name</div>
+                  <div style="width:50px;text-align:right;">CPU</div>
+                  <div style="width:50px;text-align:right;">RAM</div>
+                  <div style="width:50px;text-align:right;">${$("session.launcher.SharedMemory")}</div>
+                  <div style="width:90px;text-align:right;">${$("session.launcher.Accelerator")}</div>
+                </h5>
+            ${this.resource_templates_filtered.map(e=>n`
+              <mwc-list-item value="${e.name}"
+                           id="${e.name}-button"
+                           @click="${e=>{this._chooseResourceTemplate(e)}}"
+                           .cpu="${e.cpu}"
+                           .mem="${e.mem}"
+                           .cuda_device="${e.cuda_device}"
+                           .cuda_shares="${e.cuda_shares}"
+                           .rocm_device="${e.rocm_device}"
+                           .tpu_device="${e.tpu_device}"
+                           .shmem="${e.shmem}">
+                <div class="horizontal layout end-justified">
+                  <div style="width:110px;">${e.name}</div>
+                  <div style="display:none"> (</div>
+                  <div style="width:50px;text-align:right;">${e.cpu}<span style="display:none">CPU</span></div>
+                  <div style="width:50px;text-align:right;">${e.mem}GB</div>
+                  <div style="width:50px;text-align:right;">${e.shmem?n`${e.shmem}GB`:n`64MB`}</div>
+                  <div style="width:90px;text-align:right;">
+                    ${e.cuda_device&&e.cuda_device>0?n`${e.cuda_device} CUDA GPU`:n``}
+                    ${e.cuda_shares&&e.cuda_shares>0?n`${e.cuda_shares} GPU`:n``}
+                    ${e.rocm_device&&e.rocm_device>0?n`${e.rocm_device} ROCM GPU`:n``}
+                    ${e.tpu_device&&e.tpu_device>0?n`${e.tpu_device} TPU`:n``}
+                  </div>
+                  <div style="display:none">)</div>
+                </div>
+              </mwc-list-item>
+            `)}
+            ${this.isEmpty(this.resource_templates_filtered)?n`
+              <mwc-list-item class="resource-button vertical center start layout" role="option"
+                         style="height:140px;width:350px;" type="button"
+                         flat inverted outlined disabled>
+                <div>
+                  <h4>${$("session.launcher.NoSuitablePreset")}</h4>
+                  <div style="font-size:12px;">Use advanced settings to <br>start custom session</div>
+                </div>
+              </mwc-list-item>
+              `:n``}
+            </mwc-select>
+          </div>
+          <wl-expansion name="resource-group" open style="--expansion-header-padding:16px;">
+            <span slot="title" style="font-size:12px;color:#404040;">${$("session.launcher.CustomAllocation")}</span>
+            <span slot="description" style="font-size:12px;color:#646464;"></span>
+            <div class="vertical layout">
+              <div class="horizontal center layout">
+                <div class="resource-type" style="width:70px;">CPU</div>
+                <lablup-slider id="cpu-resource" class="cpu"
+                               pin snaps expand editable markers
+                               @click="${this._resourceTemplateToCustom}"
+                               marker_limit="${this.marker_limit}"
+                               min="${this.cpu_metric.min}" max="${this.cpu_metric.max}"
+                               value="${this.cpu_request}"></lablup-slider>
+                <span class="caption">${$("session.launcher.Core")}</span>
+                <mwc-icon-button icon="info" class="fg green info" @click="${e=>{this._showResourceDescription(e,"cpu")}}"></mwc-icon-button>
+            </div>
+            <div class="horizontal center layout">
+              <div class="resource-type" style="width:70px;">RAM</div>
+              <lablup-slider id="mem-resource" class="mem"
+                             pin snaps step=0.05 editable markers
+                             @click="${this._resourceTemplateToCustom}"
+                             marker_limit="${this.marker_limit}"
+                             min="${this.mem_metric.min}" max="${this.mem_metric.max}"
+                             value="${this.mem_request}"></lablup-slider>
+              <span class="caption">GB</span>
+              <mwc-icon-button icon="info" class="fg orange info" @click="${e=>{this._showResourceDescription(e,"mem")}}"></mwc-icon-button>
+            </div>
+            <div class="horizontal center layout">
+              <div class="resource-type" style="width:70px;">${$("session.launcher.SharedMemory")}</div>
+              <lablup-slider id="shmem-resource" class="mem"
+                             pin snaps step="0.0025" editable markers
+                             @click="${this._resourceTemplateToCustom}"
+                             marker_limit="${this.marker_limit}"
+                             min="0.0625" max="${this.shmem_metric.max}"
+                             value="${this.shmem_request}"></lablup-slider>
+              <span class="caption">GB</span>
+              <mwc-icon-button icon="info" class="fg orange info" @click="${e=>{this._showResourceDescription(e,"shmem")}}"></mwc-icon-button>
+            </div>
+            <div class="horizontal center layout">
+              <div class="resource-type" style="width:70px;">GPU</div>
+              <lablup-slider id="gpu-resource" class="gpu"
+                             pin snaps editable markers step="${this.gpu_step}"
+                             @click="${this._resourceTemplateToCustom}"
+                             marker_limit="${this.marker_limit}"
+                             min="0.0" max="${this.cuda_device_metric.max}" value="${this.gpu_request}"></lablup-slider>
+              <span class="caption">GPU</span>
+              <mwc-icon-button icon="info" class="fg blue info" @click="${e=>{this._showResourceDescription(e,"gpu")}}"></mwc-icon-button>
+            </div>
+            <div class="horizontal center layout">
+              <div class="resource-type" style="width:70px;">Sessions</div>
+              <lablup-slider id="session-resource" class="session"
+                             pin snaps editable markers step="1"
+                             @click="${this._resourceTemplateToCustom}"
+                             marker_limit="${this.marker_limit}"
+                             min="1" max="${this.concurrency_limit}" value="${this.session_request}"></lablup-slider>
+              <span class="caption">#</span>
+              <mwc-icon-button icon="info" class="fg red info" @click="${e=>{this._showResourceDescription(e,"session")}}"></mwc-icon-button>
+            </div>
+          </div>
+        </wl-expansion>
+
+        <wl-expansion name="ownership" style="--expansion-header-padding:16px;">
+          <span slot="title" style="font-size:12px;color:#404040;">${$("session.launcher.SetSessionOwner")}</span>
+          <span slot="description"></span>
+          <div class="vertical layout">
+            <div class="horizontal center layout">
+              <mwc-textfield id="owner-email" type="email" class="flex" value=""
+                pattern="^.+@.+\..+$"
+                label="${$("session.launcher.OwnerEmail")}" size="40"></mwc-textfield>
+              <mwc-icon-button icon="refresh" class="blue"
+                @click="${()=>this._fetchSessionOwnerGroups()}">
+              </mwc-icon-button>
+            </div>
+            <paper-dropdown-menu id="owner-accesskey" label="${$("session.launcher.OwnerAccessKey")}">
+              <paper-listbox slot="dropdown-content" attr-for-selected="id">
+                ${this.ownerKeypairs.map(e=>n`
+                  <paper-item id="${e.access_key}" label="${e.access_key}">${e.access_key}</paper-item>
+                `)}
+              </paper-listbox>
+            </paper-dropdown-menu>
+            <div class="horizontal center layout">
+              <paper-dropdown-menu id="owner-group" label="${$("session.launcher.OwnerGroup")}" horizontal-align="left">
+                <paper-listbox slot="dropdown-content" attr-for-selected="id"
+                               selected="${this.default_language}">
+                  ${this.ownerGroups.map(e=>n`
+                    <paper-item id="${e.name}" label="${e.name}">${e.name}</paper-item>
+                  `)}
+                </paper-listbox>
+              </paper-dropdown-menu>
+              <paper-dropdown-menu id="owner-scaling-group" label="${$("session.launcher.OwnerResourceGroup")}">
+                <paper-listbox slot="dropdown-content" selected="0">
+                  ${this.ownerScalingGroups.map(e=>n`
+                    <paper-item id="${e.name}" label="${e.name}">${e.name}</paper-item>
+                  `)}
+                </paper-listbox>
+              </paper-dropdown-menu>
+            </div>
+            <wl-label>
+              <wl-checkbox id="owner-enabled"></wl-checkbox>
+              ${$("session.launcher.LaunchSessionWithAccessKey")}
+            </wl-label>
+          </div>
+        </wl-expansion>
+        <fieldset slot="footer" style="padding-top:0;">
+          <wl-button class="launch-button" type="button" id="launch-button"
+                                       outlined @click="${()=>this._newSessionWithConfirmation()}">
+                                      <wl-icon>rowing</wl-icon>
+            <span id="launch-button-msg">${$("session.launcher.Launch")}</span>
+          </wl-button>
+        </fieldset>
+      </form>
+    </backend-ai-dialog>
+    <backend-ai-dialog id="help-description" fixed backdrop>
+      <span slot="title">${this._helpDescriptionTitle}</span>
+      <div slot="content" class="horizontal layout center" style="margin:5px;">
+      ${""==this._helpDescriptionIcon?n``:n`
+        <img slot="graphic" src="resources/icons/${this._helpDescriptionIcon}" style="width:64px;height:64px;margin-right:10px;" />
+        `}
+        <p style="font-size:14px;">${E(this._helpDescription)}</p>
+      </div>
+    </backend-ai-dialog>
+    <backend-ai-dialog id="launch-confirmation-dialog" warning fixed backdrop>
+      <span slot="title">${$("session.launcher.NoFolderMounted")}</span>
+      <div slot="content" class="vertical layout">
+        <p>${$("session.launcher.HomeDirectoryDeletionDialog")}</p>
+        <p>${$("session.launcher.LaunchConfirmationDialog")}</p>
+        <p>${$("dialog.ask.DoYouWantToProceed")}</p>
+      </div>
+      <div slot="footer" style="padding-top:0;margin:0 5px;">
+        <wl-button class="launch-confirmation-button" type="button" id="launch-confirmation-button"
+                                     outlined @click="${()=>this._newSession()}">
+                                    <wl-icon>rowing</wl-icon>
+          <span>${$("session.launcher.LaunchWithoutMount")}</span>
+        </wl-button>
+      </div>
+    </backend-ai-dialog>
+`}};r([o({type:Boolean})],_e.prototype,"is_connected",void 0),r([o({type:Boolean})],_e.prototype,"enableLaunchButton",void 0),r([o({type:Boolean})],_e.prototype,"hideLaunchButton",void 0),r([o({type:String})],_e.prototype,"location",void 0),r([o({type:String})],_e.prototype,"mode",void 0),r([o({type:String})],_e.prototype,"newSessionDialogTitle",void 0),r([o({type:String})],_e.prototype,"importScript",void 0),r([o({type:String})],_e.prototype,"importFilename",void 0),r([o({type:Object})],_e.prototype,"imageRequirements",void 0),r([o({type:Object})],_e.prototype,"resourceLimits",void 0),r([o({type:Object})],_e.prototype,"userResourceLimit",void 0),r([o({type:Object})],_e.prototype,"aliases",void 0),r([o({type:Object})],_e.prototype,"tags",void 0),r([o({type:Object})],_e.prototype,"icons",void 0),r([o({type:Object})],_e.prototype,"imageInfo",void 0),r([o({type:String})],_e.prototype,"kernel",void 0),r([o({type:Array})],_e.prototype,"versions",void 0),r([o({type:Array})],_e.prototype,"languages",void 0),r([o({type:Number})],_e.prototype,"marker_limit",void 0),r([o({type:String})],_e.prototype,"gpu_mode",void 0),r([o({type:Array})],_e.prototype,"gpu_modes",void 0),r([o({type:Number})],_e.prototype,"gpu_step",void 0),r([o({type:Object})],_e.prototype,"cpu_metric",void 0),r([o({type:Object})],_e.prototype,"mem_metric",void 0),r([o({type:Object})],_e.prototype,"shmem_metric",void 0),r([o({type:Object})],_e.prototype,"cuda_device_metric",void 0),r([o({type:Object})],_e.prototype,"cuda_shares_metric",void 0),r([o({type:Object})],_e.prototype,"rocm_device_metric",void 0),r([o({type:Object})],_e.prototype,"tpu_device_metric",void 0),r([o({type:Object})],_e.prototype,"images",void 0),r([o({type:Object})],_e.prototype,"total_slot",void 0),r([o({type:Object})],_e.prototype,"total_resource_group_slot",void 0),r([o({type:Object})],_e.prototype,"total_project_slot",void 0),r([o({type:Object})],_e.prototype,"used_slot",void 0),r([o({type:Object})],_e.prototype,"used_resource_group_slot",void 0),r([o({type:Object})],_e.prototype,"used_project_slot",void 0),r([o({type:Object})],_e.prototype,"available_slot",void 0),r([o({type:Number})],_e.prototype,"concurrency_used",void 0),r([o({type:Number})],_e.prototype,"concurrency_max",void 0),r([o({type:Number})],_e.prototype,"concurrency_limit",void 0),r([o({type:Array})],_e.prototype,"vfolders",void 0),r([o({type:Array})],_e.prototype,"selectedVfolders",void 0),r([o({type:Object})],_e.prototype,"used_slot_percent",void 0),r([o({type:Object})],_e.prototype,"used_resource_group_slot_percent",void 0),r([o({type:Object})],_e.prototype,"used_project_slot_percent",void 0),r([o({type:Array})],_e.prototype,"resource_templates",void 0),r([o({type:Array})],_e.prototype,"resource_templates_filtered",void 0),r([o({type:String})],_e.prototype,"default_language",void 0),r([o({type:Number})],_e.prototype,"cpu_request",void 0),r([o({type:Number})],_e.prototype,"mem_request",void 0),r([o({type:Number})],_e.prototype,"shmem_request",void 0),r([o({type:Number})],_e.prototype,"gpu_request",void 0),r([o({type:String})],_e.prototype,"gpu_request_type",void 0),r([o({type:Number})],_e.prototype,"session_request",void 0),r([o({type:Boolean})],_e.prototype,"_status",void 0),r([o({type:Number})],_e.prototype,"num_sessions",void 0),r([o({type:String})],_e.prototype,"scaling_group",void 0),r([o({type:Array})],_e.prototype,"scaling_groups",void 0),r([o({type:Array})],_e.prototype,"sessions_list",void 0),r([o({type:Boolean})],_e.prototype,"metric_updating",void 0),r([o({type:Boolean})],_e.prototype,"metadata_updating",void 0),r([o({type:Boolean})],_e.prototype,"aggregate_updating",void 0),r([o({type:Object})],_e.prototype,"scaling_group_selection_box",void 0),r([o({type:Object})],_e.prototype,"resourceGauge",void 0),r([o({type:Boolean})],_e.prototype,"ownerFeatureInitialized",void 0),r([o({type:String})],_e.prototype,"ownerDomain",void 0),r([o({type:Array})],_e.prototype,"ownerKeypairs",void 0),r([o({type:Array})],_e.prototype,"ownerGroups",void 0),r([o({type:Array})],_e.prototype,"ownerScalingGroups",void 0),r([o({type:Boolean})],_e.prototype,"project_resource_monitor",void 0),r([o({type:Object})],_e.prototype,"version_selector",void 0),r([o({type:Boolean})],_e.prototype,"_default_language_updated",void 0),r([o({type:Boolean})],_e.prototype,"_default_version_updated",void 0),r([o({type:String})],_e.prototype,"_helpDescription",void 0),r([o({type:String})],_e.prototype,"_helpDescriptionTitle",void 0),r([o({type:String})],_e.prototype,"_helpDescriptionIcon",void 0),r([o({type:Number})],_e.prototype,"max_cpu_core_per_session",void 0),r([o({type:Number})],_e.prototype,"max_cuda_device_per_session",void 0),r([o({type:Number})],_e.prototype,"max_shm_per_session",void 0),r([o({type:Object})],_e.prototype,"resourceBroker",void 0),_e=r([m("backend-ai-session-launcher")],_e);

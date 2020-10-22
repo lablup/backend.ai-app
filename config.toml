@@ -2,7 +2,7 @@
 #apiEndpoint = "http://127.0.0.1:8080"
 #apiEndpointText = "TEST"
 defaultSessionEnvironment = "index.docker.io/lablup/python"
-siteDescription = "Console"
+siteDescription =
 connectionMode = "SESSION"
 #connectionMode = "API"
 allowChangeSigninMode = true

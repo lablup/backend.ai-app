@@ -10,6 +10,7 @@ signupSupport = true
 allowProjectResourceMonitor = true
 debug = true
 allowAnonymousChangePassword = true
+autoLogout = true
 
 [wsproxy]
 #proxyURL = "https://wsproxy.onprem.backend.ai:9443/"

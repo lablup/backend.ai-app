@@ -266,7 +266,9 @@
     "Maintaining": "Maintaining",
     "Status": "Status",
     "DetailedInformation": "Detailed Information",
-    "Running": "Running"
+    "Running": "Running",
+    "BackendType": "Backend Type",
+    "Capabilities": "Capabilities"
   },
   "general": {
     "cores": "cores",
@@ -283,7 +285,8 @@
     "Create": "Create",
     "Control": "Control",
     "NewPassword": "New Password",
-    "Enabled": "Enabled"
+    "Enabled": "Enabled",
+    "StorageProxies": "Storages"
   },
   "credential": {
     "Permission": "Permission",
@@ -960,7 +963,8 @@
     "SmallerResourceThenImageRequires": "Your resource request is smaller than the minimum required by the image. Try more resources.",
     "LoginSucceededManagerNotResponding": "Login succeed but manager is not responding.",
     "UserNameAlreadyExist": "Username already exists. It cannot be duplicated.",
-    "ResourcePolicyStillReferenced": "There exist keypairs which reference this resource policy."
+    "ResourcePolicyStillReferenced": "There exist keypairs which reference this resource policy.",
+    "InvalidSignupToken": "Invalid signup token"
   },
   "maxLength": {
     "20chars": "(maximum 20 chars)",

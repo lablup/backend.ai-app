@@ -1,8 +1,8 @@
 [general]
 #apiEndpoint = "http://127.0.0.1:8080"
 #apiEndpointText = "TEST"
-defaultSessionEnvironment = "index.docker.io/lablup/python"
-siteDescription = "강릉중앙고 공동실습소"
+defaultSessionEnvironment = "cr.backend.ai/cloud/python-tensorflow"
+siteDescription = "TESTBED"
 connectionMode = "SESSION"
 #connectionMode = "API"
 allowChangeSigninMode = true

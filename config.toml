@@ -1,11 +1,11 @@
 [general]
 #apiEndpoint = "http://127.0.0.1:8080"
 #apiEndpointText = "TEST"
-defaultSessionEnvironment = "index.docker.io/lablup/python"
+defaultSessionEnvironment = "cr.backend.ai/cloud/python-tensorflow"
 siteDescription =
 connectionMode = "SESSION"
 #connectionMode = "API"
-allowChangeSigninMode = false 
+allowChangeSigninMode = false
 signupSupport = true
 allowProjectResourceMonitor = true
 debug = false

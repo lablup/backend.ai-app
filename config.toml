@@ -2,27 +2,36 @@
 #apiEndpoint = "http://127.0.0.1:8080"
 #apiEndpointText = "TEST"
 defaultSessionEnvironment = "cr.backend.ai/cloud/python-tensorflow"
-siteDescription =
+siteDescription = "TESTBED"
 connectionMode = "SESSION"
 #connectionMode = "API"
-allowChangeSigninMode = false
+allowChangeSigninMode = true
 signupSupport = true
 allowProjectResourceMonitor = true
-debug = false
+debug = true
 allowAnonymousChangePassword = true
+autoLogout = true
 
 [wsproxy]
 #proxyURL = "https://wsproxy.onprem.backend.ai:9443/"
+#proxyURL = "https://apphub.v5.backend.ai/"
 proxyURL = "http://127.0.0.1:5050/"
 
 #proxyBaseURL = ""
+
+[resources]
+openPortToPublic = false
+maxCPUCoresPerSession = 6
+maxCUDADevicesPerSession = 16
+maxShmPerSession = 1
+maxFileUploadSize = 100 # 4GB. 4294967296
 
 [menu]
 #blocklist = "statistics,data"
 
 [plugin]
 #login = "signup-cloud.js"
-#sidebar = "report-cloud.js"
+page = "flash-blade,dgx-system"
 
 [license]
 edition = "Enterprise"

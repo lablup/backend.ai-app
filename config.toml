@@ -32,7 +32,7 @@ maxFileUploadSize = 100 # 4GB. 4294967296
 
 [plugin]
 #login = "signup-cloud.js"
-page = "flash-blade,dgx-system"
+#page = "flash-blade,dgx-system"
 
 [license]
 edition = "Enterprise"

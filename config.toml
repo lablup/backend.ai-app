@@ -8,7 +8,7 @@ connectionMode = "SESSION"
 allowChangeSigninMode = true
 signupSupport = true
 allowProjectResourceMonitor = true
-debug = true
+debug = false
 allowAnonymousChangePassword = true
 autoLogout = true
 defaultImportEnvironment = "cr.backend.ai/cloud/python:3.8-ubuntu18.04"
@@ -25,7 +25,7 @@ openPortToPublic = false
 maxCPUCoresPerSession = 6
 maxCUDADevicesPerSession = 16
 maxShmPerSession = 1
-maxFileUploadSize = 100 # 4GB. 4294967296
+maxFileUploadSize = 1000000000 # 4GB. 4294967296
 
 [menu]
 #blocklist = "statistics,data"

@@ -155,6 +155,15 @@
         "src": "./resources/icons/default_app.svg"
       }
     ],
+    "triton-server": [
+      {
+        "name": "triton-server",
+        "title": "Triton Server",
+        "category": "3.Machine Learning Tools",
+        "redirect": "",
+        "src": "./resources/icons/terminal.svg"
+      }
+    ],
     "sftp": [
       {
         "name": "sftp",
@@ -180,6 +189,15 @@
         "category": "1.Utilities",
         "redirect": "",
         "src": "./resources/icons/terminal.svg"
+      }
+    ],
+    "filebrowser": [
+      {
+        "name": "filebrowser",
+        "title": "FileBrowser",
+        "category": "1.Utilities",
+        "redirect": "",
+        "src": "./resources/icons/filebrowser.svg"
       }
     ]
   }

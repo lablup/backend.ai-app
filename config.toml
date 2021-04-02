@@ -5,13 +5,13 @@ defaultSessionEnvironment = "cr.backend.ai/stable/python"
 siteDescription = "Cloud (Beta)"
 connectionMode = "SESSION"
 #connectionMode = "API"
-allowChangeSigninMode = false
-signupSupport = false
+allowChangeSigninMode = true
+signupSupport = true
 allowProjectResourceMonitor = true
 debug = false
 allowAnonymousChangePassword = true
 autoLogout = true
-defaultImportEnvironment = "cr.backend.ai/cloud/python:3.8-ubuntu18.04"
+defaultImportEnvironment = "cr.backend.ai/stable/python:3.8-ubuntu18.04"
 
 [wsproxy]
 #proxyURL = "https://wsproxy.onprem.backend.ai:9443/"

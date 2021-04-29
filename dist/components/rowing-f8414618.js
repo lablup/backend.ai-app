@@ -1,0 +1,1 @@
+import{U as e,V as n,W as r,X as t,Y as s}from"./backend-ai-webui-3ec8f434.js";function a(a,c){const u=a.queryGroup(),o=u.indexOf(a),l=function(e,a,c){if(0==e.length)return null;switch(c){case s:case t:return a+1>e.length-1?0:a+1;case r:case n:return a-1<0?e.length-1:a-1}return null}(u,o,c.code);if(null!=l){const n=u[l];a.rowToElement(n),e(c)}}export{a as r};

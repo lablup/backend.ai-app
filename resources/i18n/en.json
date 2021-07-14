@@ -118,7 +118,7 @@
       "CurrentResourceGroup": "Current Resource Group",
       "SelectResourceGroup": "Select Resource Group",
       "StartNewSession": "Start new session",
-      "SetEnvironmentVariable": "Set Environment Variable",
+      "SetEnvironmentVariable": "Set Environment Variable (optional)",
       "Config": "Config",
       "ChooseEnvironment": "Choose Environment",
       "Version": "Version",
@@ -129,6 +129,7 @@
       "Environments": "Environments",
       "Start": "Start",
       "FolderToMount": "Folder to mount",
+      "MountedFolders": "Mounted folders",
       "ResourceAllocation": "Resource allocation",
       "NoSuitablePreset": "No suitable preset",
       "Advanced": "Advanced",
@@ -166,10 +167,13 @@
       "MustSpecifyVersion": "You must specify Environment and Version.",
       "NotEnoughOwnershipInfo": "Not enough ownership information",
       "NoDescriptionFound": "No description found.",
-      "NoFolderMounted": "No Storage folder is mounted",
+      "NoFolderMounted": "No storage folder is mounted",
+      "NoAvailableFolderToMount": "There's no available folder to mount.",
+      "NoEnvConfigured": "No additional environment variable is configured",
       "HomeDirectoryDeletionDialog": "The home directory in the session is automatically deleted when the session ends.",
       "LaunchConfirmationDialog": "To keep your code and data, or share it with other collaborators, simply create a storage folder in the data & storage sidebar, then mount that folder when you start the resource and keep it there.",
       "Launch": "Launch",
+      "ConfirmAndLaunch": "Confirm and Launch",
       "LaunchWithoutMount": "Launch Without Storage Folder",
       "Accelerator": "Accelerator",
       "AdvancedResourceAllocation": "AdvancedResourceAllocation",
@@ -201,6 +205,7 @@
       "EnvironmentVariable": "Variable",
       "EnvironmentVariableValue": "Value",
       "EnvironmentVariableConfigurationDone": "Environment variable configured successfully.",
+      "EnvironmentVariablePaneTitle": "Environment variables to set (optional)",
       "EnvConfigWillDisappear": "Any unsaved Environment variable and value will be disappeared.",
       "SharedMemoryAbbr": "SHMEM",
       "GPUSlot": "Slot"
@@ -252,7 +257,10 @@
     "WarningTensorboardPathCannotBeChanged": "Warning: Tensorboard log path cannot be changed after launch.",
     "Arguments": "Arguments",
     "ModifyArguments": "Modify arguments",
-    "UseThisArguments": "Use this arguments"
+    "UseThisArguments": "Use this arguments",
+    "UseYourFavoriteVNCApp": "Use your favorite VNC app",
+    "XRDPconnection": "RDP Connection",
+    "UseYourFavoriteMSTSCApp": "Use your favorite MS Remote Desktop app"
   },
   "button": {
     "Cancel": "Cancel",
@@ -834,7 +842,9 @@
     "English": "English",
     "Korean": "Korean",
     "Language": "Language",
-    "OSDefault": "OS Default"
+    "OSDefault": "OS Default",
+    "Russian": "Russian",
+    "French": "French"
   },
   "settings": {
     "General": "General",
@@ -1081,8 +1091,7 @@
     "CreatingComputeSession": "Creating compute session ...",
     "SessionStillPreparing": "Session is still in preparing. Reload after a while",
     "ComputeSessionPrepared": "Compute session prepared",
-    "sessionStatusIs": "Session status is",
-    "FoundExistingComputeSession": "Found existing compute session"
+    "sessionStatusIs": "Session status is"
   },
   "error": {
     "UpdateError": "Update error",

@@ -1,0 +1,1 @@
+import{Z as e,$ as n,a0 as a,a1 as r,a2 as t}from"./backend-ai-webui-cb5ec9bc.js";function c(c,s){const u=c.queryGroup(),o=u.indexOf(c),l=function(e,c,s){if(0==e.length)return null;switch(s){case t:case r:return c+1>e.length-1?0:c+1;case a:case n:return c-1<0?e.length-1:c-1}return null}(u,o,s.code);if(null!=l){const n=u[l];c.rowToElement(n),e(s)}}export{c as r};

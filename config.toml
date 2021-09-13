@@ -3,7 +3,7 @@
 #apiEndpointText = "TEST"
 #defaultSessionEnvironment = "cr.backend.ai/stable/python"
 defaultSessionEnvironment = "cr.backend.ai/testing/julia"
-siteDescription = "Cloud (Beta)"
+siteDescription = "macOS"
 connectionMode = "SESSION"
 #connectionMode = "API"
 allowChangeSigninMode = true

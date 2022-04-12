@@ -1,0 +1,1 @@
+import{T as s,U as t,o as e}from"./backend-ai-webui-06490572.js";const a=s(class extends t{render(s,t,a){return super.render(s,t,a),e(this.getTranslation())}updateTranslation(){const s=this.getTranslation();this.setValue(e(s))}});export{a as t};

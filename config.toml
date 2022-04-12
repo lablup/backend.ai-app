@@ -2,7 +2,7 @@
 #apiEndpoint = "http://127.0.0.1:8080"
 #apiEndpointText = "TEST"
 #defaultSessionEnvironment = "cr.backend.ai/stable/python"
-defaultSessionEnvironment = "cr.backend.ai/testing/julia"
+defaultSessionEnvironment = "cr.backend.ai/testing/wandb"
 siteDescription = "macOS"
 connectionMode = "SESSION"
 #connectionMode = "API"

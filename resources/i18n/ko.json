@@ -53,7 +53,9 @@
       "Experiments": "실험",
       "Menu": "메뉴",
       "Run": "실행",
-      "UserName": "사용자"
+      "UserName": "사용자",
+      "PleaseChangeYourPassword": "비밀번호를 변경해주세요.",
+      "PasswordChangePlace": "상단바의 사람 아이콘을 클릭하고 \"사용자 정보 변경\" 메뉴로 이동하세요."
     },
     "LOGINREQUIRED": "로그인이 필요합니다",
     "YouAreOffline": "오프라인 상태가 되었습니다",
@@ -228,7 +230,8 @@
       "(Automatic)": "(자동설정)",
       "NumOpenMPthreads": "OpenMP 쓰레드 수",
       "NumOpenBLASthreads": "OpenBLAS 쓰레드 수",
-      "SwitchOpenMPoptimization": "OpenMP 자동 최적화 사용"
+      "SwitchOpenMPoptimization": "OpenMP 자동 최적화 사용",
+      "Architecture": "아키텍쳐"
     },
     "Preparing": "준비중...",
     "PreparingSession": "세션 준비중...",
@@ -292,6 +295,10 @@
     "OnlyOneFolderAttached": "하나의 폴더만 연결되어 있습니다.",
     "NoLogMsgAvailable": "현재 표시할 수 있는 로그 메시지가 없습니다.",
     "SessionRenamed": "세션 이름이 변경되었습니다",
+    "SessionNameRequired": "세션 이름을 입력해주세요",
+    "EnterValidSessionName": "올바른 세션 이름을 입력해주세요",
+    "SessionNameAlreadyExist": "같은 이름의 세션이 이미 있습니다",
+    "Architecture": "아키텍쳐",
     "Validation": {
       "SessionNameRequired": "세션 이름을 입력해주세요",
       "SluggedStrings": "최소 4자 이상의 고유문자열로 입력해주세요",
@@ -346,7 +353,8 @@
     "Running": "실행중",
     "BackendType": "백엔드",
     "Capabilities": "지원기능",
-    "NoNetworkSignal": "네트워크 신호 없음"
+    "NoNetworkSignal": "네트워크 신호 없음",
+    "Architecture": "아키텍쳐"
   },
   "general": {
     "cores": "코어",
@@ -641,7 +649,8 @@
     "SuccessfullyModified": "성공적으로 수정되었습니다.",
     "ProblemOccurred": "문제가 발생했습니다.",
     "PasswordsDoNotMatch": "변경할 비밀번호와 비밀번호 확인란의 값이 일치해야 합니다.",
-    "NoChangeMade": "변경된 부분이 없습니다."
+    "NoChangeMade": "변경된 부분이 없습니다.",
+    "Architecture": "아키텍쳐"
   },
   "resourcePreset": {
     "ResourcePresets": "자원 프리셋",
@@ -760,7 +769,8 @@
     "SuccessfullyUpdated": "자원 정책이 성공적으로 갱신되었습니다.",
     "SuccessfullyDeleted": "자원 정책이 성공적으로 삭제되었습니다.",
     "PolicyNameEmpty": "자원 정책명은 필수 입력입니다.",
-    "AboutToDeleteResourcePolicy": "아래의 자원 정책을 삭제하려고 합니다: "
+    "AboutToDeleteResourcePolicy": "아래의 자원 정책을 삭제하려고 합니다: ",
+    "MaxSessionLifeTime": "세션 최대 실행시간"
   },
   "registry": {
     "Hostname": "호스트명",
@@ -820,7 +830,11 @@
     "EnterValidResourceGroupName": "올바른 자원 그룹 명을 입력해주세요.",
     "ResourceGroupNameRequired": "자원 그룹 이름이 필요합니다.",
     "ResourceGroupAlreadyExist": "같은 이름의 자원 그룹이 이미 있습니다.",
-    "WsproxyAddress": "WSProxy 서버 주소"
+    "WsproxyAddress": "WSProxy 서버 주소",
+    "SetSchedulerOptions": "스케쥴러 옵션 설정",
+    "TimeoutSeconds": "초",
+    "ResourceGroupDetail": "자원 그룹 세부 정보",
+    "RetriesToSkip": "회"
   },
   "maintenance": {
     "General": "일반",
@@ -1122,7 +1136,11 @@
     "Installed": "설치됨",
     "GithubInternalError": "Github 저장소가 잠시 중단되었습니다. 잠시 후 시도하시기 바랍니다.",
     "GithubAPILimitError": "Github API 호출횟수가 많습니다. 잠시 후에 시도하시기 바랍니다.",
-    "GithubAPIEtcError": "Github API 호출이슈가 있습니다. 잠시 후에 시도하시기 바랍니다."
+    "GithubAPIEtcError": "Github API 호출이슈가 있습니다. 잠시 후에 시도하시기 바랍니다.",
+    "ImportGitlabRepo": "Gitlab 저장소 가져오기",
+    "GitlabRepoWillBeFolder": "가져온 Gitlab 저장소는 폴더로 변환되며, 세션을 시작할 때 마운트할 수 있습니다.",
+    "GitlabURL": "Gitlab 주소",
+    "GitlabDefaultBranch": "Gitlab 브랜치 이름"
   },
   "usagepanel": {
     "StatisticsForThisMonth": "이번달 통계",
@@ -1182,6 +1200,7 @@
     "20chars": "(최대 길이 20자)",
     "40chars": "(최대 길이 40자)",
     "64chars": "(최대 길이 64자)",
+    "200chars": "(최대 길이 200자)",
     "255chars": "(최대 길이 255자)",
     "500chars": "(최대 길이 500자)",
     "512chars": "(최대 길이 512자)",

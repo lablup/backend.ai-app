@@ -2,7 +2,7 @@
 #apiEndpoint = "http://127.0.0.1:8080"
 #apiEndpointText = "TEST"
 #defaultSessionEnvironment = "cr.backend.ai/stable/python"
-defaultSessionEnvironment = "cr.backend.ai/testing/wandb"
+defaultSessionEnvironment = "cr.backend.ai/testing/julia"
 siteDescription = "macOS"
 connectionMode = "SESSION"
 #connectionMode = "API"
@@ -15,7 +15,6 @@ autoLogout = true
 defaultImportEnvironment = "cr.backend.ai/stable/python:3.8-ubuntu18.04"
 #defaultImportEnvironment = "cr.backend.ai/testing/julia"
 allowManualImageNameForSession = true
-alwaysEnqueueComputeSession = true
 
 [wsproxy]
 #proxyURL = "https://wsproxy.onprem.backend.ai:9443/"
